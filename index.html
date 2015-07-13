@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">  
+<head>
+  <meta charset="utf-8">
+  <title>Mozilla Cryptography Class</title>
+  <link rel="stylesheet" href="reveal/css/reveal.css">
+  <link rel="stylesheet" href="reveal/css/theme/mozilla.css" id="theme"> 
+  <script src="reveal/lib/js/head.min.js"></script>
+  <script src="reveal/js/reveal.js"></script>
+</head>
+ 
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h2>Intro to Cryptography</h2>
+        <h4><em>April King</em></h4>
+      </section>
+ 
+      <section>
+        <ul>
+          <h2><strong>Learning Objectives</strong></h2>
+          <li>Describe the history and purpose of cryptography</li>
+          <li>Build a solid understanding of cryptographic primitives</li>
+          <li>Learn how cryptographic primitives are combined to make a complete cryptographic system</li>
+          <li>Recognize the shortcomings and pitfalls inherent in building and implementing cryptographic systems</li>
+        </ul>
+      </section>
+ 
+      <!-- Definitions below -->
+      <section>
+        <section>
+          <h2>Cryptographic Terminology</h2>
+          <p><em>Eye-glazing definitions belooooooow!</em></p>
+          <h2>&darr;</h2>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Cryptography</dt>
+            <dd>Practice and study of security communications in the presence of third parties</dd>
+            <dt>Plaintext (cleartext)</dt>
+            <dd>Data or text that has not been encrypted</dd>
+            <dt>Ciphertext</dt>
+            <dd>The result of encryption performed on plaintext</dd>
+          </dl>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Algorithm</dt>
+            <dd>A self-contained series of instructions that perform a function</dd>
+            <dt>Cipher</dt>
+            <dd>An algorithm that performs encryption and decryption</dd>
+            <dt>Encryption</dt>
+            <dd>Using a cipher to transform plaintext into ciphertext</dd>
+            <dt>Decryption</dt>
+            <dd>Using a cipher to transform ciphertext into plaintext</dd>
+          </dl>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Key</dt>
+            <dd>A piece of information known only to one or both parties that is fed into a cipher and determines its output</dd>
+            <dt>Key exchange</dt>
+            <dd>The process by which two parties agree on upon a mutual key or key pair</dd>
+            <dt>Key space</dt>
+            <dd>The set of all possible keys</dd>
+            <dt>Brute-force attack</dt>
+            <dd>Attempting decryption with all possible key combinations until the correct key is found</dd>
+          </dl>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Cipher suite</dt>
+            <dd>Combination of key exchange, authentication, encryption, and message authentication code (MAC)</dd>
+            <dt>Cryptographic system (cryptosystem)</dt>
+            <dd>A combination of cryptographic algorithms that implement a security service, usually encompassing key generation, encryption, and decryption</dd>
+            <dt>Message authentication code (MAC)</dt>
+            <dd>A small piece of information used to authenticate a message and to provide protection against tampering</dd>
+          </dl>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Cryptanalysis</dt>
+            <dd>The study of breaking, weakening, or bypassing cryptosystems</dd>
+            <dt>Steganography</dt>
+            <dd>Concealing a message (image, file, text, etc.) within another message</dd>
+            <dt>Placeholder names</dt>
+            <dd>Names such as <em>Alice</em>, <em>Bob</em>, <em>Eve</em> (the eavesdropper), or <em>Mallory</em> (the malicious attacker) used as shorthand when describing cryptosystems</dd>
+          </dl>
+        </section>
+      </section>
+      <!-- End definitions -->
+
+ 
+      </div>
+  </div>
+
+ 
+  <script>
+    // Let's startup reveal.js!
+    Reveal.initialize({
+      controls: false,
+      slideNumber: 'c / t'
+    });
+  </script>
+</body>
+</html>
