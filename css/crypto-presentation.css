@@ -1,0 +1,12 @@
+table.substitution {
+  font-size: .6em;
+  margin: 3em 0;
+}
+
+table.substitution td {
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
