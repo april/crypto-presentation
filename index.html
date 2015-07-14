@@ -124,7 +124,7 @@
           <dt class="fragment" data-fragment-index="2">Transposition ciphers</dt>
           <dd class="fragment" data-fragment-index="2">Characters in plaintext are rearranged with other characters</dd>
         </dl>
-        <p class="fragment" data-fragment-index="3" style="text-align: left;">This comprised the entirety of cryptography up until modern cryptography begins with World War II and the Enigma machine</p>
+        <p class="fragment" data-fragment-index="3" style="text-align: left;">This comprised the entirety of cryptography up until modern cryptography begins with World War II and the creation of the Enigma machine</p>
       </section> 
 
       <section>
@@ -142,16 +142,16 @@ JLWFIIX EP JV AFKLPXRO
       <section>
         <h2>Conceptualize</h2>
         <dl>
-          <dt class="fragment" data-fragment-index="1">Algorithm</dt>
-          <dd class="fragment" data-fragment-index="1">Replace each letter with the letter three characters to the left</dd>
-          <dt class="fragment" data-fragment-index="2">Cipher</dt>
-          <dd class="fragment" data-fragment-index="2">Caesar (rotational) cipher, a substitution cipher</dd>
-          <dt class="fragment" data-fragment-index="3">Key</dt>
-          <dd class="fragment" data-fragment-index="3">Key is a -3 (or 23) letter rotation (ROT-23)</dd>
-          <dt class="fragment" data-fragment-index="4">Key space</dt>
-          <dd class="fragment" data-fragment-index="4">26, since you have 26 possible rotation possibilities</dd>
+          <dt>Algorithm</dt>
+          <dd>Replace each letter with the letter three characters to the left</dd>
+          <dt>Cipher</dt>
+          <dd>Caesar (rotational) cipher, a substitution cipher</dd>
+          <dt>Key</dt>
+          <dd>Key is a -3 (or 23) letter rotation (ROT-23)</dd>
+          <dt>Key space</dt>
+          <dd>26, since you have 26 possible rotation possibilities</dd>
         </dl>
-      <p class="fragment" data-fragment-index="5" style="font-size: smaller;"><em>That said, 26 doesn't make for the best possible key</em></p>
+      <p class="fragment" data-fragment-index="1" style="font-size: smaller;"><em>That said, 26 doesn't make for the best possible key</em></p>
       </section>
 
       <section>
@@ -179,6 +179,27 @@ DPNFQQG FO DB XF<span class="red">A</span>POGYL
         <p>It turns out that not every letter appears equally as often</p>
       </section>
 
+      <section>
+        <h2>Frequency Analysis</h2>
+        <div>
+          <img src="images/third-party/English_letter_frequency_perfect_crypto.png" style="background: none; border: 0; box-shadow: none; display: block; max-width: 75%; margin-left: auto; margin-right: auto;">
+        </div>
+        <p>Ideally, each letter should appear equally as often</p>
+        <p class="fragment"><em>Not to worry, the 1550s have us covered...</em></p>
+      </section>
+
+      <section>
+        <h2>Vigenère Cipher</h2>
+        <div>
+          <img src="images/third-party/Vigenere_square_updated.png" style="background: none; border: 0; box-shadow: none; display: block; max-width: 75%; margin-left: auto; margin-right: auto;">
+        </div>
+      <p class="fragment" data-fragment-index="1">Example:
+<pre class="fragment" data-fragment-index="1" style="font-size: 1em; text-align: center;">Plaintext:  MOZILLA IS MY DINOSAUR
+Keyword:    WHIMSYW HI MS YWHIMSYW
+Ciphertext: IVHUDJW PA YQ AEUWESSN
+</pre>
+      </p>
+    </section>
 
 
     </div>
