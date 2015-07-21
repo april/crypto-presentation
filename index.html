@@ -128,13 +128,71 @@
       </section> 
 
       <section>
-        <h2>Caesar Cipher</h2>
+        <h2>Caeser Cipher</h2>
         <ul>
-          <li>Shift each letter in message three characters to the left <img src="images/third-party/Caesar_cipher_left_shift_of_3.svg" style="background: none; border: 0; box-shadow: none; display: block;"></li>
+          <li>Shift each letter in message three characters to the left</li>
         </ul>
-        <p class="fragment" data-fragment-index="1">Example:
-<pre class="fragment" data-fragment-index="1" style="font-size: 1em; text-align: center;">MOZILLA IS MY DINOSAUR
-JLWFIIX EP JV AFKLPXRO
+        <table class="substitution">
+          <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+            <td>K</td>
+            <td>L</td>
+            <td class="fragment highlight-current-red" data-fragment-index="1">M</td>
+            <td>N</td>
+            <td class="fragment highlight-current-red" data-fragment-index="2">O</td>
+            <td>P</td>
+            <td>Q</td>
+            <td>R</td>
+            <td>S</td>
+            <td>T</td>
+            <td>U</td>
+            <td>V</td>
+            <td>W</td>
+            <td>X</td>
+            <td>Y</td>
+            <td class="fragment highlight-current-red" data-fragment-index="3">Z</td>
+          </tr>
+          <tr>
+            <td>X</td>
+            <td>Y</td>
+            <td>Z</td>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td class="fragment highlight-current-red" data-fragment-index="1">J</td>
+            <td>K</td>
+            <td class="fragment highlight-current-red" data-fragment-index="2">L</td>
+            <td>M</td>
+            <td>N</td>
+            <td>O</td>
+            <td>P</td>
+            <td>Q</td>
+            <td>R</td>
+            <td>S</td>
+            <td>T</td>
+            <td>U</td>
+            <td>V</td>
+            <td class="fragment highlight-current-red" data-fragment-index="3">W</td>
+          </tr>
+        </table>
+        <p>Example:
+<pre style="font-size: 1em; text-align: center;"><span class="fragment highlight-current-red" data-fragment-index="1">M</span><span class="fragment highlight-current-red" data-fragment-index="2">O</span><span class="fragment highlight-current-red" data-fragment-index="3">Z</span>ILLA IS MY DINOSAUR
+<span class="fragment highlight-current-red" data-fragment-index="1">J</span><span class="fragment highlight-current-red" data-fragment-index="2">L</span><span class="fragment highlight-current-red" data-fragment-index="3">W</span>FIIX EP JV AFKLPXRO
 </pre>
         </p>
       </section>
@@ -156,13 +214,70 @@ JLWFIIX EP JV AFKLPXRO
 
       <section>
         <h2>Substitution Cipher</h2>
+        <ul>
+          <li>Instead of shifting, match each letter to another letter randomly</li>
+        </ul>
         <table class="substitution">
-          <tr><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td class="red">N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
-          <tr><td>G</td><td>J</td><td>Z</td><td>X</td><td>C</td><td>K</td><td>W</td><td>U</td><td>F</td><td>E</td><td>S</td><td>Q</td><td>D</td><td class="red">A</td><td>P</td><td>R</td><td>I</td><td>L</td><td>O</td><td>M</td><td>Y</td><td>T</td><td>V</td><td>H</td><td>B</td><td>N</td></tr>
+          <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+            <td>K</td>
+            <td>L</td>
+            <td class="fragment highlight-current-red" data-fragment-index="1">M</td>
+            <td>N</td>
+            <td class="fragment highlight-current-red" data-fragment-index="2">O</td>
+            <td>P</td>
+            <td>Q</td>
+            <td>R</td>
+            <td>S</td>
+            <td>T</td>
+            <td>U</td>
+            <td>V</td>
+            <td>W</td>
+            <td>X</td>
+            <td>Y</td>
+            <td class="fragment highlight-current-red" data-fragment-index="3">Z</td>
+          </tr>
+          <tr>
+            <td>G</td>
+            <td>J</td>
+            <td>Z</td>
+            <td>X</td>
+            <td>C</td>
+            <td>K</td>
+            <td>W</td>
+            <td>U</td>
+            <td>F</td>
+            <td>E</td>
+            <td>S</td>
+            <td>Q</td>
+            <td class="fragment highlight-current-red" data-fragment-index="1">D</td>
+            <td>A</td>
+            <td class="fragment highlight-current-red" data-fragment-index="2">P</td>
+            <td>R</td>
+            <td>I</td>
+            <td>L</td>
+            <td>O</td>
+            <td>M</td>
+            <td>Y</td>
+            <td>T</td>
+            <td>V</td>
+            <td>H</td>
+            <td>B</td>
+            <td class="fragment highlight-current-red" data-fragment-index="3">N</td>
+          </tr>
         </table>
-        <p class="fragment" data-fragment-index="1">Example:
-<pre class="fragment" data-fragment-index="1" style="font-size: 1em; text-align: center;">MOZILLA IS MY DI<span class="red">N</span>OSAUR
-DPNFQQG FO DB XF<span class="red">A</span>POGYL
+        <p>Example:
+<pre style="font-size: 1em; text-align: center;"><span class="fragment highlight-current-red" data-fragment-index="1">M</span><span class="fragment highlight-current-red" data-fragment-index="2">O</span><span class="fragment highlight-current-red" data-fragment-index="3">Z</span>ILLA IS MY DINOSAUR
+<span class="fragment highlight-current-red" data-fragment-index="1">D</span><span class="fragment highlight-current-red" data-fragment-index="2">P</span><span class="fragment highlight-current-red" data-fragment-index="3">N</span>FQQG FO DB XFAPOGYL
 </pre>
         </p>
       </section>
@@ -188,19 +303,86 @@ DPNFQQG FO DB XF<span class="red">A</span>POGYL
         <p class="fragment"><em>Not to worry, the 1550s have us covered...</em></p>
       </section>
 
-      <section>
+      <!-- This is just too much of a pain to do with fragments, so three slides it is! -->
+<!--       <section>
         <h2>Vigenère Cipher</h2>
-        <div>
-          <img src="images/third-party/Vigenere_square_updated.svg" style="background: none; border: 0; box-shadow: none; display: block; max-width: 50%; margin-left: auto; margin-right: auto;">
+        <div style="height: 50%; position: absolute;">
+          hello
+          <img src="images/third-party/Vigenere_square_updated.svg" class="fragment current-visible" data-fragment-index="1" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+          <img src="images/third-party/Vigenere_square_updated_fragment2.svg" class="fragment current-visible" data-fragment-index="2" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
         </div>
       <p class="fragment" data-fragment-index="1">Example:
-<pre class="fragment" data-fragment-index="1" style="font-size: 1em; text-align: center;">Plaintext:  <span class="fragment highlight-red" data-fragment-index="2">M</span>OZILLA IS MY DINOSAUR
-Keyword:    <span class="fragment highlight-red" data-fragment-index="2">W</span>HIMSYW HI MS YWHIMSYW
-Ciphertext: <span class="fragment highlight-red" data-fragment-index="2">I</span>VHUDJW PA YQ AEUWESSN
+<pre class="fragment" data-fragment-index="1" style="font-size: 1em; text-align: center;">Plaintext:  <span class="fragment highlight-current-red" data-fragment-index="2">M</span>OZILLA IS MY DINOSAUR
+Keyword:    <span class="fragment highlight-current-red" data-fragment-index="2">W</span>HIMSYW HI MS YWHIMSYW
+Ciphertext: <span class="fragment highlight-current-blue" data-fragment-index="2">I</span>VHUDJW PA YQ AEUWESSN
 </pre>
       </p>
-    </section>
+    </section> -->
+       <section data-transition="slide-in fade-out">
+        <h2>Vigenère Cipher</h2>
+        <div>
+          <img src="images/third-party/Vigenere_square_updated.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+        </div>
+        <p>Example:
+<pre style="font-size: 1em; text-align: center;">Plaintext:  MOZILLA IS MY DINOSAUR
+Keyword:    WHIMSYW HI MS YWHIMSYW
+Ciphertext: IVHUDJW PA YQ AEUWESSN
+</pre>
+        </p>
+      </section>
 
+      <section data-transition="fade" data-transition-speed="fast">
+        <h2>Vigenère Cipher</h2>
+        <div>
+          <img src="images/third-party/Vigenere_square_updated_fragment2.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+        </div>
+        <p>Example:
+<pre style="font-size: 1em; text-align: center;">Plaintext:  <span class="red">M</span>OZILLA IS MY DINOSAUR
+Keyword:    <span class="red">W</span>HIMSYW HI MS YWHIMSYW
+Ciphertext: <span class="red">I</span>VHUDJW PA YQ AEUWESSN
+</pre>
+        </p>
+      </section>
+
+      <section data-transition="fade" data-transition-speed="fast">
+        <h2>Vigenère Cipher</h2>
+        <div>
+          <img src="images/third-party/Vigenere_square_updated_fragment3.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+        </div>
+        <p>Example:
+<pre style="font-size: 1em; text-align: center;">Plaintext:  M<span class="red">O</span>ZILLA IS MY DINOSAUR
+Keyword:    W<span class="red">H</span>IMSYW HI MS YWHIMSYW
+Ciphertext: I<span class="red">V</span>HUDJW PA YQ AEUWESSN
+</pre>
+        </p>
+      </section>
+
+      <section data-transition="fade" data-transition-speed="fast">
+        <h2>Vigenère Cipher</h2>
+        <div>
+          <img src="images/third-party/Vigenere_square_updated_fragment4.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+        </div>
+        <p>Example:
+<pre style="font-size: 1em; text-align: center;">Plaintext:  MO<span class="red">Z</span>ILLA IS MY DINOSAUR
+Keyword:    WH<span class="red">I</span>MSYW HI MS YWHIMSYW
+Ciphertext: IV<span class="red">H</span>UDJW PA YQ AEUWESSN
+</pre>
+        </p>
+      </section>
+
+      <section data-transition="fade-in slide-out">
+        <h2>Vigenère Cipher</h2>
+        <div>
+          <img src="images/third-party/Vigenere_square_updated_fragment5.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+        </div>
+        <p>Example:
+<pre style="font-size: 1em; text-align: center;">Plaintext:  MOZI<span class="red">L</span><span class="blue">L</span>A IS MY DINOSAUR
+Keyword:    WHIM<span class="red">S</span><span class="blue">Y</span>W HI MS YWHIMSYW
+Ciphertext: IVHU<span class="red">D</span><span class="blue">J</span>W PA YQ AEUWESSN
+</pre>
+        </p>
+        <p><em>Two consecutive "L"s encrypt to different outputs</em></p>
+      </section>
 
     </div>
   </div>

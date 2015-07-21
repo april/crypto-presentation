@@ -38,3 +38,19 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 body {
   background: url("../../../images/bg-sandstone-2.png") no-repeat center center fixed;
   background-size: cover; }
+
+//.reveal .slides section img.fragment.current-visible {
+//  display: none;
+//}
+
+//.reveal .slides section img.fragment.current-visible.current-fragment {
+//  display: inherit;
+//}
+
+.red {
+  color: #ff2c2d;
+}
+
+.blue {
+  color: #2b2bff;
+}

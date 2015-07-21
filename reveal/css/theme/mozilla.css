@@ -291,3 +291,9 @@ body {
 body {
   background: url("../../../images/bg-sandstone-2.png") no-repeat center center fixed;
   background-size: cover; }
+
+.red {
+  color: #ff2c2d; }
+
+.blue {
+  color: #2b2bff; }
