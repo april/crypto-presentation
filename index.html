@@ -109,7 +109,7 @@
 
       <section>
         <h2>Beautiful Origin Story</h2>
-        <p>Cryptography dates back to approximately 1500 BCE</p>
+        <p>...that dates back to approximately 1500 BCE</p>
         <dl class="fragment" style="margin-top: 2rem;">
           <dt>Original goal of cryptography:</dt>
           <dd>Keeping messages confidential, for the purposes of commercial trade secrets and military communications</dd>
@@ -118,14 +118,14 @@
 
       <section>
         <h2>Historic Cryptography</h2>
-        <dl style="margin-top: 1rem;">
-          <dt class="fragment" data-fragment-index="1">Substitution cipher</dt>
-          <dd class="fragment" data-fragment-index="1">Characters in plaintext are replaced with other characters</dd>
-          <dt class="fragment" data-fragment-index="2">Transposition ciphers</dt>
-          <dd class="fragment" data-fragment-index="2">Characters in plaintext are rearranged with other characters</dd>
+        <dl>
+          <dt>Substitution cipher</dt>
+          <dd>Characters in plaintext are replaced with other characters</dd>
+          <dt>Transposition ciphers</dt>
+          <dd>Characters in plaintext are rearranged with other characters</dd>
         </dl>
-        <p class="fragment" data-fragment-index="3" style="text-align: left;">This comprised the entirety of cryptography up until modern cryptography begins with World War II and the creation of the Enigma machine</p>
-      </section> 
+        <p class="fragment" style="text-align: left;">This comprised the entirety of cryptography up until modern cryptography begins with World War II and the creation of the Enigma machine</p>
+      </section>
 
       <section>
         <h2>Caeser Cipher</h2>
@@ -283,7 +283,40 @@
       </section>
 
       <section>
-        <h3>So why might this simple substutition cipher not be secure?</h3>
+        <h2>Transposition Cipher</h2>
+        <ul>
+          <li>Also known a permutation</li>
+          <li>Encryption involves rearranging the plaintext to produce ciphertext</li>
+          <li>Decryption simply involves reversing the rearrangement</li>
+        </ul>
+        <p class="fragment" style="font-size: smaller;"><em>Let's take a look at a simple example...</em></p>
+      </section>
+
+      <section>
+        <h2>Route Cipher</h2>
+        <dl>
+          <dt>Key</dt>
+          <dd>Grid is five characters wide, write text from upper left rightward, read from lower right and spiral upward.</dd>
+        </dl>
+        <p>Plaintext:</p>
+        <pre style="font-size: 1em; text-align: center;">MOZILLA IS MY DINOSAUR</pre>
+        <p>Canonicalize:</p>
+        <pre style="font-size: 1em; text-align: center;"><span class="fragment highlight-red" data-fragment-index="2">MOZI</span><span class="fragment highlight-red" data-fragment-index="1">L</span>
+<span class="fragment highlight-red" data-fragment-index="3">L</span><span class="fragment highlight-red" data-fragment-index="5">AI</span><span class="fragment highlight-red" data-fragment-index="4">S</span><span class="fragment highlight-red" data-fragment-index="1">M</span>
+<span class="fragment highlight-red" data-fragment-index="3">Y</span><span class="fragment highlight-red" data-fragment-index="5">DI</span><span class="fragment highlight-red" data-fragment-index="4">N</span><span class="fragment highlight-red" data-fragment-index="1">O</span>
+<span class="fragment highlight-red" data-fragment-index="3">S</span><span class="fragment highlight-red" data-fragment-index="4">AUR</span> 
+</pre>
+        <p>Ciphertext:</p>
+        <pre style="font-size: 1em; text-align: center;"><span class="fragment highlight-red" data-fragment-index="1">OML</span><span class="fragment highlight-red" data-fragment-index="2">IZ OM</span><span class="fragment highlight-red" data-fragment-index="3">LYS</span> <span class="fragment highlight-red" data-fragment-index="4">AURNS</span> <span class="fragment highlight-red" data-fragment-index="5">IADI</span></pre>
+
+      </section>
+
+      <section>
+        <h3>Modern ciphers utilitize both substitution and transposition at the bit and byte level...</h3>
+      </section>
+
+      <section>
+        <h3>...so why might these simple ciphers not be secure?</h3>
       </section>
 
       <section>
@@ -303,22 +336,16 @@
         <p class="fragment"><em>Not to worry, the 1550s have us covered...</em></p>
       </section>
 
-      <!-- This is just too much of a pain to do with fragments, so three slides it is! -->
-<!--       <section>
+      <section>
         <h2>Vigenère Cipher</h2>
-        <div style="height: 50%; position: absolute;">
-          hello
-          <img src="images/third-party/Vigenere_square_updated.svg" class="fragment current-visible" data-fragment-index="1" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
-          <img src="images/third-party/Vigenere_square_updated_fragment2.svg" class="fragment current-visible" data-fragment-index="2" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
-        </div>
-      <p class="fragment" data-fragment-index="1">Example:
-<pre class="fragment" data-fragment-index="1" style="font-size: 1em; text-align: center;">Plaintext:  <span class="fragment highlight-current-red" data-fragment-index="2">M</span>OZILLA IS MY DINOSAUR
-Keyword:    <span class="fragment highlight-current-red" data-fragment-index="2">W</span>HIMSYW HI MS YWHIMSYW
-Ciphertext: <span class="fragment highlight-current-blue" data-fragment-index="2">I</span>VHUDJW PA YQ AEUWESSN
-</pre>
-      </p>
-    </section> -->
-       <section data-transition="slide-in fade-out">
+        <ul>
+          <li>A type of cipher known as a polyalphabetic cipher</li>
+          <li>First described in the mid 1500s, it was considered the "indescipherable cipher" for over 300 years</li>
+          <li>Defaults frequency analysis, and eventually lead to the development of the one-time pad</li>
+        </ul>
+      </section>
+
+      <section data-transition="slide-in fade-out">
         <h2>Vigenère Cipher</h2>
         <div>
           <img src="images/third-party/Vigenere_square_updated.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
@@ -382,6 +409,21 @@ Ciphertext: IVHU<span class="red">D</span><span class="blue">J</span>W PA YQ AEU
 </pre>
         </p>
         <p><em>Two consecutive "L"s encrypt to different outputs</em></p>
+      </section>
+
+      <section>
+        <h2>Vigenère Cipher</h2>
+        <ul>
+          <li>Turns out, the Vigenère cipher is completely busted</li>
+          <li class="fragment" data-fragment-index="1">Sometimes patterns in the plaintext appear in the ciphertext</li>
+        </ul>
+        </ul>
+        <p class="fragment" data-fragment-index="1">Example:
+<pre  class="fragment" data-fragment-index="1" style="font-size: 1em; text-align: center;">P: MOZILLA IS MY DINOSAUR A<span class="fragment highlight-red" data-fragment-index="1">N</span><span class="fragment highlight-blue" data-fragment-index="1">D</span> FRIE<span class="fragment highlight-red" data-fragment-index="1">N</span><span class="fragment highlight-blue" data-fragment-index="1">D</span>
+K: WHIMSYW HI MS YWHIMSYW H<span class="fragment highlight-red" data-fragment-index="1">I</span><span class="fragment highlight-blue" data-fragment-index="1">M</span> SYWH<span class="fragment highlight-red" data-fragment-index="1">I</span><span class="fragment highlight-blue" data-fragment-index="1">M</span>
+C: IVHUDJW PA YQ AEUWESSN H<span class="fragment highlight-red" data-fragment-index="1">V</span><span class="fragment highlight-blue" data-fragment-index="1">P</span> XPEL<span class="fragment highlight-red" data-fragment-index="1">V</span><span class="fragment highlight-blue" data-fragment-index="1">P</span>
+</pre>
+        </p>
       </section>
 
     </div>
