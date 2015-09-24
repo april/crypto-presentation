@@ -24,7 +24,7 @@
  
       <section>
         <ul>
-          <h2><strong>Learning Objectives</strong></h2>
+          <h2>Learning Objectives</h2>
           <li>Describe the history and purpose of cryptography</li>
           <li>Build a solid understanding of cryptographic primitives</li>
           <li>Learn how cryptographic primitives are combined to make a complete cryptographic system</li>
@@ -294,46 +294,47 @@
 
       <section>
         <h2>Route Cipher</h2>
-        <dl>
+        <dl style="font-size: .9em;">
           <dt>Key</dt>
-          <dd>Grid is five characters wide, write text from upper left rightward, read from lower right and spiral upward.</dd>
+          <dd>Grid is five characters wide, write text from upper left rightward. Route from lower right and spiral upward.</dd>
         </dl>
-        <p>Plaintext:</p>
-        <pre style="font-size: 1em; text-align: center;">MOZILLA IS MY DINOSAUR</pre>
         <p>Canonicalize:</p>
         <pre style="font-size: 1em; text-align: center;"><span class="fragment highlight-red" data-fragment-index="2">MOZI</span><span class="fragment highlight-red" data-fragment-index="1">L</span>
 <span class="fragment highlight-red" data-fragment-index="3">L</span><span class="fragment highlight-red" data-fragment-index="5">AI</span><span class="fragment highlight-red" data-fragment-index="4">S</span><span class="fragment highlight-red" data-fragment-index="1">M</span>
-<span class="fragment highlight-red" data-fragment-index="3">Y</span><span class="fragment highlight-red" data-fragment-index="5">DI</span><span class="fragment highlight-red" data-fragment-index="4">N</span><span class="fragment highlight-red" data-fragment-index="1">O</span>
+<span class="fragment highlight-red" data-fragment-index="3">Y</span><span class="fragment highlight-red" data-fragment-index="6">DI</span><span class="fragment highlight-red" data-fragment-index="4">N</span><span class="fragment highlight-red" data-fragment-index="1">O</span>
 <span class="fragment highlight-red" data-fragment-index="3">S</span><span class="fragment highlight-red" data-fragment-index="4">AUR</span> 
 </pre>
-        <p>Ciphertext:</p>
-        <pre style="font-size: 1em; text-align: center;"><span class="fragment highlight-red" data-fragment-index="1">OML</span><span class="fragment highlight-red" data-fragment-index="2">IZ OM</span><span class="fragment highlight-red" data-fragment-index="3">LYS</span> <span class="fragment highlight-red" data-fragment-index="4">AURNS</span> <span class="fragment highlight-red" data-fragment-index="5">IADI</span></pre>
-
+        <p>Example:</p>
+        <pre style="font-size: 1em; text-align: center;"><span class="fragment highlight-red" data-fragment-index="1">MOZ</span><span class="fragment highlight-red" data-fragment-index="2">ILLA</span> <span class="fragment highlight-red" data-fragment-index="3">IS M</span><span class="fragment highlight-red" data-fragment-index="4">Y DINO</span><span class="fragment highlight-red" data-fragment-index="5">SA</span><span class="fragment highlight-red" data-fragment-index="6">UR</span>
+<span class="fragment highlight-red" data-fragment-index="1">OML</span><span class="fragment highlight-red" data-fragment-index="2">IZOM</span> <span class="fragment highlight-red" data-fragment-index="3">LY S</span><span class="fragment highlight-red" data-fragment-index="4">A URNS</span><span class="fragment highlight-red" data-fragment-index="5">IA</span><span class="fragment highlight-red" data-fragment-index="6">DI</span></pre>
       </section>
 
       <section>
-        <h3>Modern ciphers utilitize both substitution and transposition at the bit and byte level...</h3>
+        <h3>Modern ciphers still utilitize both substitution and transposition at the bit and byte level...</h3>
       </section>
 
       <section>
         <h3>...so why might these simple ciphers not be secure?</h3>
       </section>
 
-      <section>
+      <section style="padding-top: 0;">
         <h2>Frequency Analysis</h2>
         <div>
-          <img src="images/third-party/English_letter_frequency.svg" style="background: none; border: 0; box-shadow: none; display: block; max-width: 75%; margin-left: auto; margin-right: auto;">
+          <img src="images/third-party/English_letter_frequency.svg" style="background: none; border: 0; box-shadow: none; height: 560px;">
         </div>
         <p>It turns out that not every letter appears equally as often</p>
       </section>
 
-      <section>
+      <section style="padding-top: 0;">
         <h2>Frequency Analysis</h2>
         <div>
-          <img src="images/third-party/English_letter_frequency_perfect_crypto.svg" style="background: none; border: 0; box-shadow: none; display: block; max-width: 75%; margin-left: auto; margin-right: auto;">
+          <img src="images/third-party/English_letter_frequency_perfect_crypto.svg" style="background: none; border: 0; box-shadow: none; height: 560px;">
         </div>
         <p>Ideally, each letter should appear equally as often</p>
-        <p class="fragment"><em>Not to worry, the 1550s have us covered...</em></p>
+      </section>
+
+      <section>
+        <h3><em>Don't panic! The 1550s have us covered!</em></h3>
       </section>
 
       <section>
@@ -341,69 +342,63 @@
         <ul>
           <li>A type of cipher known as a polyalphabetic cipher</li>
           <li>First described in the mid 1500s, it was considered the "indescipherable cipher" for over 300 years</li>
-          <li>Defaults frequency analysis, and eventually lead to the development of the one-time pad</li>
+          <li>Defeats frequency analysis and eventually lead to the development of the one-time pad</li>
         </ul>
       </section>
 
-      <section data-transition="slide-in fade-out">
+      <section data-transition="slide-in fade-out" style="padding-top: 0;">
         <h2>Vigenère Cipher</h2>
         <div>
-          <img src="images/third-party/Vigenere_square_updated.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+          <img src="images/third-party/Vigenere_square_updated.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
         </div>
-        <p>Example:
-<pre style="font-size: 1em; text-align: center;">Plaintext:  MOZILLA IS MY DINOSAUR
+        <p><pre style="font-size: 1em; text-align: center;">Plaintext:  MOZILLA IS MY DINOSAUR
 Keyword:    WHIMSYW HI MS YWHIMSYW
 Ciphertext: IVHUDJW PA YQ AEUWESSN
 </pre>
-        </p>
       </section>
 
-      <section data-transition="fade" data-transition-speed="fast">
+      <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
         <h2>Vigenère Cipher</h2>
         <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment2.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+          <img src="images/third-party/Vigenere_square_updated_fragment2.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
         </div>
-        <p>Example:
-<pre style="font-size: 1em; text-align: center;">Plaintext:  <span class="red">M</span>OZILLA IS MY DINOSAUR
+        <p><pre style="font-size: 1em; text-align: center;">Plaintext:  <span class="red">M</span>OZILLA IS MY DINOSAUR
 Keyword:    <span class="red">W</span>HIMSYW HI MS YWHIMSYW
 Ciphertext: <span class="red">I</span>VHUDJW PA YQ AEUWESSN
 </pre>
         </p>
       </section>
 
-      <section data-transition="fade" data-transition-speed="fast">
+      <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
         <h2>Vigenère Cipher</h2>
         <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment3.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+          <img src="images/third-party/Vigenere_square_updated_fragment3.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
         </div>
-        <p>Example:
-<pre style="font-size: 1em; text-align: center;">Plaintext:  M<span class="red">O</span>ZILLA IS MY DINOSAUR
+        <p><pre style="font-size: 1em; text-align: center;">Plaintext:  M<span class="red">O</span>ZILLA IS MY DINOSAUR
 Keyword:    W<span class="red">H</span>IMSYW HI MS YWHIMSYW
 Ciphertext: I<span class="red">V</span>HUDJW PA YQ AEUWESSN
 </pre>
         </p>
       </section>
 
-      <section data-transition="fade" data-transition-speed="fast">
+      <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
         <h2>Vigenère Cipher</h2>
         <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment4.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+          <img src="images/third-party/Vigenere_square_updated_fragment4.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
         </div>
-        <p>Example:
-<pre style="font-size: 1em; text-align: center;">Plaintext:  MO<span class="red">Z</span>ILLA IS MY DINOSAUR
+        <p><pre style="font-size: 1em; text-align: center;">Plaintext:  MO<span class="red">Z</span>ILLA IS MY DINOSAUR
 Keyword:    WH<span class="red">I</span>MSYW HI MS YWHIMSYW
 Ciphertext: IV<span class="red">H</span>UDJW PA YQ AEUWESSN
 </pre>
         </p>
       </section>
 
-      <section data-transition="fade-in slide-out">
+      <section data-transition="fade-in slide-out" style="padding-top: 0;">
         <h2>Vigenère Cipher</h2>
         <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment5.svg" style="background: none; border: 0; box-shadow: none; max-width: 50%; margin-left: auto; margin-right: auto;">
+          <img src="images/third-party/Vigenere_square_updated_fragment5.svg" style="background: none; border: 0; box-shadow: none; height: 360px; margin: 0 auto;">
         </div>
-        <p>Example:
-<pre style="font-size: 1em; text-align: center;">Plaintext:  MOZI<span class="red">L</span><span class="blue">L</span>A IS MY DINOSAUR
+        <p><pre style="font-size: 1em; text-align: center;">Plaintext:  MOZI<span class="red">L</span><span class="blue">L</span>A IS MY DINOSAUR
 Keyword:    WHIM<span class="red">S</span><span class="blue">Y</span>W HI MS YWHIMSYW
 Ciphertext: IVHU<span class="red">D</span><span class="blue">J</span>W PA YQ AEUWESSN
 </pre>
@@ -419,11 +414,181 @@ Ciphertext: IVHU<span class="red">D</span><span class="blue">J</span>W PA YQ AEU
         </ul>
         </ul>
         <p class="fragment" data-fragment-index="1">Example:
-<pre  class="fragment" data-fragment-index="1" style="font-size: 1em; text-align: center;">P: MOZILLA IS MY DINOSAUR A<span class="fragment highlight-red" data-fragment-index="1">N</span><span class="fragment highlight-blue" data-fragment-index="1">D</span> FRIE<span class="fragment highlight-red" data-fragment-index="1">N</span><span class="fragment highlight-blue" data-fragment-index="1">D</span>
+<pre class="fragment" data-fragment-index="1" style="font-size: 1em; text-align: center;">P: MOZILLA IS MY DINOSAUR A<span class="fragment highlight-red" data-fragment-index="1">N</span><span class="fragment highlight-blue" data-fragment-index="1">D</span> FRIE<span class="fragment highlight-red" data-fragment-index="1">N</span><span class="fragment highlight-blue" data-fragment-index="1">D</span>
 K: WHIMSYW HI MS YWHIMSYW H<span class="fragment highlight-red" data-fragment-index="1">I</span><span class="fragment highlight-blue" data-fragment-index="1">M</span> SYWH<span class="fragment highlight-red" data-fragment-index="1">I</span><span class="fragment highlight-blue" data-fragment-index="1">M</span>
 C: IVHUDJW PA YQ AEUWESSN H<span class="fragment highlight-red" data-fragment-index="1">V</span><span class="fragment highlight-blue" data-fragment-index="1">P</span> XPEL<span class="fragment highlight-red" data-fragment-index="1">V</span><span class="fragment highlight-blue" data-fragment-index="1">P</span>
 </pre>
         </p>
+      </section>
+
+      <!-- TODO: Go back and fix every other section to use pre-box -->
+      <section>
+        <h2>Vigenère Cipher</h2>
+        <ul>
+          <li>Iterate through each possible key length</li>
+          <li class="fragment" data-fragment-index="1">Divide the ciphertext into chunks of that length (6)</li>
+        </ul>
+        <div class="fragment pre-box-container" data-fragment-index="1">
+          <div class="fragment pre-box-row" data-fragment-index="1">
+            <span                >C:</span>
+            &nbsp;
+            <span class="green"  >I</span>
+            <span class="blue"   >V</span>
+            <span class="purple" >H</span>
+            <span class="red"    >U</span>
+            <span class="pink"   >D</span>
+            <span class="orange" >J</span>
+            <span class="green"  >W</span>
+            &nbsp;
+            <span class="blue"   >P</span>
+            <span class="purple" >A</span>
+            &nbsp;
+            <span class="red"    >Y</span>
+            <span class="pink"   >Q</span>
+            &nbsp;
+            <span class="orange" >A</span>
+            <span class="green"  >E</span>
+            <span class="blue"   >U</span>
+            <span class="purple" >W</span>
+            <span class="red"    >E</span>
+            <span class="pink"   >S</span>
+            <span class="orange" >S</span>
+            <span class="green"  >N</span>
+            &nbsp;
+            <span class="blue"   >H</span>
+            <span class="purple" >V</span>
+            <span class="red"    >P</span>
+            &nbsp;
+            <span class="pink"   >X</span>
+            <span class="orange" >P</span>
+            <span class="green"  >E</span>
+            <span class="blue"   >L</span>
+            <span class="purple" >V</span>
+            <span class="red"    >P</span>
+          </div>
+        </div>
+
+        <ul class="fragment" data-fragment-index="2">
+          <li>Each column is a simple rotation cipher</li>
+        </ul>
+
+        <div class="fragment pre-box-container" data-fragment-index="2">
+          <div class="fragment pre-box-row" data-fragment-index="2">
+            <span                >C:</span>
+            &nbsp;
+            <span class="green"  >I</span>
+            <span class="blue"   >V</span>
+            <span class="purple" >H</span>
+            <span class="red"    >U</span>
+            <span class="pink"   >D</span>
+            <span class="orange" >J</span>
+            <span class="green"  >W</span>
+            &nbsp;
+            <span class="blue"   >P</span>
+            <span class="purple" >A</span>
+            &nbsp;
+            <span class="red"    >Y</span>
+            <span class="pink"   >Q</span>
+            &nbsp;
+            <span class="orange" >A</span>
+            <span class="green"  >E</span>
+            <span class="blue"   >U</span>
+            <span class="purple" >W</span>
+            <span class="red"    >E</span>
+            <span class="pink"   >S</span>
+            <span class="orange" >S</span>
+            <span class="green"  >N</span>
+            &nbsp;
+            <span class="blue"   >H</span>
+            <span class="purple" >V</span>
+            <span class="red"    >P</span>
+            &nbsp;
+            <span class="pink"   >X</span>
+            <span class="orange" >P</span>
+            <span class="green"  >E</span>
+            <span class="blue"   >L</span>
+            <span class="purple" >V</span>
+            <span class="red"    >P</span>
+          </div>
+          <div class="fragment pre-box-row" data-fragment-index="2">
+            <span                                                >K:</span>
+            &nbsp;
+            <span class="fragment" data-fragment-index="2">W</span>
+            <span class="fragment" data-fragment-index="4">H</span>
+            <span class="fragment" data-fragment-index="5">I</span>
+            <span class="fragment" data-fragment-index="6">M</span>
+            <span class="fragment" data-fragment-index="7">S</span>
+            <span class="fragment" data-fragment-index="8">Y</span>
+            <span class="fragment" data-fragment-index="2">W</span>
+            &nbsp;
+            <span class="fragment" data-fragment-index="4">H</span>
+            <span class="fragment" data-fragment-index="5">I</span>
+            &nbsp;
+            <span class="fragment" data-fragment-index="6">M</span>
+            <span class="fragment" data-fragment-index="7">S</span>
+            &nbsp;
+            <span class="fragment" data-fragment-index="8">Y</span>
+            <span class="fragment" data-fragment-index="2">W</span>
+            <span class="fragment" data-fragment-index="4">H</span>
+            <span class="fragment" data-fragment-index="5">I</span>
+            <span class="fragment" data-fragment-index="6">M</span>
+            <span class="fragment" data-fragment-index="7">S</span>
+            <span class="fragment" data-fragment-index="8">Y</span>
+            <span class="fragment" data-fragment-index="2">W</span>
+            &nbsp;
+            <span class="fragment" data-fragment-index="4">H</span>
+            <span class="fragment" data-fragment-index="5">I</span>
+            <span class="fragment" data-fragment-index="6">M</span>
+            &nbsp;
+            <span class="fragment" data-fragment-index="7">S</span>
+            <span class="fragment" data-fragment-index="8">Y</span>
+            <span class="fragment" data-fragment-index="2">W</span>
+            <span class="fragment" data-fragment-index="4">H</span>
+            <span class="fragment" data-fragment-index="5">I</span>
+            <span class="fragment" data-fragment-index="6">M</span>
+          </div>
+          <div class="fragment pre-box-row" data-fragment-index="3">
+            <span                >P:</span>
+            &nbsp;
+            <span class="fragment green"  data-fragment-index="3">M</span>
+            <span class="fragment blue"   data-fragment-index="4">O</span>
+            <span class="fragment purple" data-fragment-index="5">Z</span>
+            <span class="fragment red"    data-fragment-index="6">I</span>
+            <span class="fragment pink"   data-fragment-index="7">L</span>
+            <span class="fragment orange" data-fragment-index="8">L</span>
+            <span class="fragment green"  data-fragment-index="3">A</span>
+            &nbsp;
+            <span class="fragment blue"   data-fragment-index="4">I</span>
+            <span class="fragment purple" data-fragment-index="5">S</span>
+            &nbsp;
+            <span class="fragment red"    data-fragment-index="6">M</span>
+            <span class="fragment pink"   data-fragment-index="7">Y</span>
+            &nbsp;
+            <span class="fragment orange" data-fragment-index="8">D</span>
+            <span class="fragment green"  data-fragment-index="3">I</span>
+            <span class="fragment blue"   data-fragment-index="4">N</span>
+            <span class="fragment purple" data-fragment-index="5">O</span>
+            <span class="fragment red"    data-fragment-index="6">S</span>
+            <span class="fragment pink"   data-fragment-index="7">A</span>
+            <span class="fragment orange" data-fragment-index="8">U</span>
+            <span class="fragment green"  data-fragment-index="3">R</span>
+            &nbsp;
+            <span class="fragment blue"   data-fragment-index="4">A</span>
+            <span class="fragment purple" data-fragment-index="5">N</span>
+            <span class="fragment red"    data-fragment-index="6">D</span>
+            &nbsp;
+            <span class="fragment pink"   data-fragment-index="7">F</span>
+            <span class="fragment orange" data-fragment-index="8">R</span>
+            <span class="fragment green"  data-fragment-index="3">I</span>
+            <span class="fragment blue"   data-fragment-index="4">E</span>
+            <span class="fragment purple" data-fragment-index="5">N</span>
+            <span class="fragment red"    data-fragment-index="6">D</span>
+          </div>
+        </div>
+
+        <ul class="fragment" data-fragment-index="3" style="font-size: smaller;">
+          <li>To reverse a right rotation of 22 (W), move the ciphertext 22 to the left (-22 or +4). Repeat this process for every column, and we're back to the original message. <span class="fragment" data-fragment-index="4">H=-8 (+18)</span><span class="fragment" data-fragment-index="5">, I=-9 (+17)</span><span class="fragment" data-fragment-index="6">, M=-13 (+13)</span><span class="fragment" data-fragment-index="7">, S=-19 (+7)</span><span class="fragment" data-fragment-index="8">, Y=-24 (+2).</span></li>
+        </ul>
       </section>
 
     </div>
@@ -434,7 +599,7 @@ C: IVHUDJW PA YQ AEUWESSN H<span class="fragment highlight-red" data-fragment-in
     // Let's startup reveal.js!
     Reveal.initialize({
       controls: false,
-      height: "90%",
+      margin: .05,
       slideNumber: 'c / t'
     });
   </script>
