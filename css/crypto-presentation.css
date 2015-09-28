@@ -17,6 +17,7 @@ table.substitution td {
 .pre-box-row {
   display: flex;
   justify-content: center;
+  line-height: 1.1em !important;
   font-family: monospace !important;
   width: 100%;
 }
