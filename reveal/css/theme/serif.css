@@ -158,9 +158,7 @@ body {
   padding: 5px;
   overflow: auto;
   max-height: 400px;
-  word-wrap: normal;
-  background: #3F3F3F;
-  color: #DCDCDC; }
+  word-wrap: normal; }
 
 .reveal table {
   margin: auto;
@@ -230,6 +228,10 @@ body {
   border: 4px solid #000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
+.reveal section img.plain {
+  border: 0;
+  box-shadow: none; }
+
 .reveal a img {
   -webkit-transition: all 0.15s linear;
   -moz-transition: all 0.15s linear;
@@ -243,32 +245,32 @@ body {
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
-.reveal .controls div.navigate-left,
-.reveal .controls div.navigate-left.enabled {
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
   border-right-color: #51483D; }
 
-.reveal .controls div.navigate-right,
-.reveal .controls div.navigate-right.enabled {
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
   border-left-color: #51483D; }
 
-.reveal .controls div.navigate-up,
-.reveal .controls div.navigate-up.enabled {
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
   border-bottom-color: #51483D; }
 
-.reveal .controls div.navigate-down,
-.reveal .controls div.navigate-down.enabled {
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
   border-top-color: #51483D; }
 
-.reveal .controls div.navigate-left.enabled:hover {
+.reveal .controls .navigate-left.enabled:hover {
   border-right-color: #8b7c69; }
 
-.reveal .controls div.navigate-right.enabled:hover {
+.reveal .controls .navigate-right.enabled:hover {
   border-left-color: #8b7c69; }
 
-.reveal .controls div.navigate-up.enabled:hover {
+.reveal .controls .navigate-up.enabled:hover {
   border-bottom-color: #8b7c69; }
 
-.reveal .controls div.navigate-down.enabled:hover {
+.reveal .controls .navigate-down.enabled:hover {
   border-top-color: #8b7c69; }
 
 /*********************************************
