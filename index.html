@@ -720,7 +720,7 @@
         <h2>XOR (exclusive or)</h2>
         <table>
           <tr>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">Input 1:</span></td>
+            <td><span class="fragment highlight-current-red" data-fragment-index="1">Message:</span></td>
             <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
             <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
             <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
@@ -735,7 +735,7 @@
             <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
           </tr>
           <tr>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">Input 2:</span></td>
+            <td><span class="fragment highlight-current-red" data-fragment-index="2">Key:</span></td>
             <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
             <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
             <td><span class="fragment highlight-current-red" data-fragment-index="2">0</span></td>
@@ -767,11 +767,37 @@
         </table>
         <p class="left">XOR has the special property that its output is as random as the most random input</p>
         <ul class="fragment" data-fragment-index="1">
-          <li class="fragment highlight-current-red" data-fragment-index="1">Take non-random input 1</li>
-          <li class="fragment highlight-current-red" data-fragment-index="2">Combine with random input (key) 2</li>
-          <li class="fragment highlight-current-red" data-fragment-index="3">Notice: the output is as random as input 2</li>
+          <li class="fragment highlight-current-red" data-fragment-index="1">Take non-random message</li>
+          <li class="fragment highlight-current-red" data-fragment-index="2">Combine with random key</li>
+          <li class="fragment highlight-current-red" data-fragment-index="3">Notice: the output is as random as the key</li>
+        </ul>
+        <p class="fragment left" data-fragment-index="4">If your key is a one-time pad, then your message can never be broken!</p>
+      </section>
+
+      <section>
+        <h2>One-time Pad</h2>
+        <p class="left">So why don't we use one-time pads for all of our encryption, if it's so unbreakable?</p>
+        <ul class="fragment" data-fragment-index="1">
+          <li>First, the key needs to be at least as long as your message.  If your message is 5GB, then your key also needs to be 5GB.</li>
+          <li>Also, the key can only be used once.  Key reuse reveals information about all your previous messages.</li>
+        </ul>
+        <p class="left fragment" data-fragment-index="1">The impracticality of having extremely long keys combined with the key reuse requirements makes the OTP infeasible for much real-world use.</p>
+      </section>
+
+      <section>
+        <h1>Modern Cryptography</h1>
+      </section>
+
+      <section>
+        <h2>Modern Cryptography</h2>
+        <p class="left">Modern cryptography attempts to solve a number of historic cryptography problems:</p>
+        <ul class="fragment" data-fragment-index="1">
+          <li class="fragment" data-fragment-index="1">Key exchange: How can you get your key safely to the person you want to communicate with?</li>
+          <li class="fragment" data-fragment-index="2">Key distribution: How can you keep a key safe when you have a large number of parties?</li>
+          <li class="fragment" data-fragment-index="3">Key size: How can you maintain confidentiality, even with shorter key sizes?</li>
         </ul>
       </section>
+      
     </div>
   </div>
 
