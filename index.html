@@ -656,7 +656,7 @@
         </div>
 
         <ul class="fragment" data-fragment-index="3" style="font-size: smaller;">
-            <li>To reverse a right rotation of 22 (W), move the ciphertext 22 to the left (-22 or +4). Repeat this process for every column, and we're back to the original message.
+            <li>To reverse a rotation of 22 (W), move the ciphertext either -22 or +4. Repeat this process for every column, and we're back to the original message.
             <span class="fragment" data-fragment-index="4">H=-8 (+18)</span>
             <span class="fragment" data-fragment-index="5">• I=-9 (+17)</span>
             <span class="fragment" data-fragment-index="6">• M=-13 (+13)</span>
@@ -666,6 +666,106 @@
         </ul>
       </section>
 
+      <section>
+        <h3>Let's take this one step further...</h3>
+        <p>What if the key was exactly as long as the message?</p>
+        <p style="font-size: smaller;">(and also totally random)</p>
+      </section>
+
+      <section>
+        <h2>One-time Pad</h2>
+        <p>Congratulations! You've just invented the only truly unbreakable form of cryptography.</p>
+        <ul>
+          <li>If the key is as least as long as the message and truly random, you can combine (XOR) the key and the message to create a message that can never be decrypted</li>
+        <ul>
+      </section>
+
+      <section>
+        <h2>XOR (exclusive or)</h2>
+        <table>
+          <tr>
+            <td>Input 1:</td>
+            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
+            <td class="fragment highlight-current-red" data-fragment-index="2">0</td>
+            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
+            <td class="fragment highlight-current-red" data-fragment-index="1">1</td>
+          </tr>
+          <tr>
+            <td>Input 2:</td>
+            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
+            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
+            <td class="fragment highlight-current-red" data-fragment-index="2">0</td>
+            <td class="fragment highlight-current-red" data-fragment-index="1">1</td>
+          </tr>
+          <tr>
+            <td>Output:</td>
+            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
+            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
+            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
+            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
+          </tr>
+        </table>
+        <p>XOR, sometimes written ⊕, is an operator that outputs true (1) if the elements differ and outputs false (0) if they are the same.</p>
+        <p class="fragment current-visible red" data-fragment-index="1">(0,0) and (1,1) are the same, and output 0</p>
+        <p class="fragment current-visible red" data-fragment-index="2">(0,1) are (1,0) are different, and output 1</p>
+      </section>
+
+      <section>
+        <h2>XOR (exclusive or)</h2>
+        <table>
+          <tr>
+            <td>Input 1:
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Input 2:</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Output:</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+          </tr>
+        </table>
+        <p class="left">XOR has the special property that its output is as random as the most random input</p>
+        <ul class="fragment" data-fragment-index="1">
+          <li class="fragment highlight-current-red" data-fragment-index="1">Take non-random input 1</li>
+          <li class="fragment highlight-current-red" data-fragment-index="2">Combine with random input 2</li>
+          <li class="fragment highlight-current-red" data-fragment-index="3">And the output is as random as input 2</li>
+        </ul>
+      </section>
     </div>
   </div>
 
