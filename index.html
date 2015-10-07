@@ -682,7 +682,7 @@
 
       <section>
         <h2>XOR (exclusive or)</h2>
-        <table>
+<!--         <table>
           <tr>
             <td>Input 1:</td>
             <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
@@ -704,10 +704,16 @@
             <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
             <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
           </tr>
-        </table>
+        </table> -->
         <p class="left">XOR, sometimes written ⊕, is an operator that outputs true (1) if the elements differ and outputs false (0) if they are the same.</p>
-        <p class="fragment current-visible red" data-fragment-index="1">(0,0) and (1,1) are the same, therefore output 0</p>
-        <p class="fragment current-visible red" data-fragment-index="2">(0,1) are (1,0) are different, therefore output 1</p>
+        <ul class="fragment" data-fragment-index="1">
+          <li class="fragment" data-fragment-index="1">0 ⊕ 0 == 0, as they're the same</li>
+          <li class="fragment" data-fragment-index="2">0 ⊕ 1 == 1, as they're the different</li>
+          <li class="fragment" data-fragment-index="3">1 ⊕ 0 == 1, as they're the different</li>
+          <li class="fragment" data-fragment-index="4">1 ⊕ 1 == 0, as they're the same</li>
+        </ul>
+<!--         <p class="fragment current-visible red" data-fragment-index="1">(0,0) and (1,1) are the same, therefore output 0</p>
+        <p class="fragment current-visible red" data-fragment-index="2">(0,1) are (1,0) are different, therefore output 1</p> -->
       </section>
 
       <section>
@@ -762,7 +768,7 @@
         <p class="left">XOR has the special property that its output is as random as the most random input</p>
         <ul class="fragment" data-fragment-index="1">
           <li class="fragment highlight-current-red" data-fragment-index="1">Take non-random input 1</li>
-          <li class="fragment highlight-current-red" data-fragment-index="2">Combine with random input 2</li>
+          <li class="fragment highlight-current-red" data-fragment-index="2">Combine with random input (key) 2</li>
           <li class="fragment highlight-current-red" data-fragment-index="3">Notice that the output is as random as input 2</li>
         </ul>
       </section>
