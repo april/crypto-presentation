@@ -21,3 +21,7 @@ table.substitution td {
   font-family: monospace !important;
   width: 100%;
 }
+
+ul > ul > li {
+  list-style-type: circle;
+}

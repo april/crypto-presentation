@@ -797,7 +797,40 @@
           <li class="fragment" data-fragment-index="3">Key size: How can you maintain confidentiality, even with shorter key sizes?</li>
         </ul>
       </section>
-      
+
+      <section>
+        <h2>Modern Cryptography</h2>
+        <p class="left">In addition to solving key management, modern cryptography provides four security guarantees:</p>
+        <ul class="fragment" data-fragment-index="1">
+          <li class="fragment" data-fragment-index="1">Confidentiality</li>
+          <ul class="fragment" data-fragment-index="1">
+            <li><em>Can my data be decrypted and read?</em></li>
+          </ul>
+
+          <li class="fragment" data-fragment-index="2">Integrity</li>
+          <ul class="fragment" data-fragment-index="2">
+            <li><em>Has my data been tampered with?</em></li>
+          </ul>
+
+          <li class="fragment" data-fragment-index="3">Authenticity</li>
+          <ul class="fragment" data-fragment-index="3">
+            <li><em>Am I communicating with the party they claim to be?</em></li>
+          </ul>
+
+          <li class="fragment" data-fragment-index="4">Non-repudition</li>
+          <ul class="fragment" data-fragment-index="4">
+            <li><em>Can somebody deny that they sent a message?</em></li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Symmetric key cryptography</h2>
+        <p class="left">Symmetric-key cryptography, like historic cryptography, uses the same key for both <em>encryption</em> and <em>decryption</em>:</p>
+        <img src="images/first-party/symmetric-key.svg" style="background: none; border: 0; box-shadow: none;" />
+        <p class="fragment left">Here, plaintext is being encrypted by a key into ciphertext, and then decrypted with that same key into the original plaintext.</p>
+      </section>
+
     </div>
   </div>
 
