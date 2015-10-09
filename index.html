@@ -677,7 +677,7 @@
         <p>Congratulations! You've just invented the only truly unbreakable form of cryptography.</p>
         <ul>
           <li>If the key is as least as long as the message and truly random, you can combine (XOR) the key and the message to create a message that can never be decrypted</li>
-        <ul>
+        </ul>
       </section>
 
       <section>
@@ -802,34 +802,112 @@
         <h2>Modern Cryptography</h2>
         <p class="left">In addition to solving key management, modern cryptography provides four security guarantees:</p>
         <ul class="fragment" data-fragment-index="1">
-          <li class="fragment" data-fragment-index="1">Confidentiality</li>
-          <ul class="fragment" data-fragment-index="1">
-            <li><em>Can I keep my data from decrypted and read?</em></li>
-          </ul>
+          <li class="fragment" data-fragment-index="1">Confidentiality
+            <ul class="fragment" data-fragment-index="1">
+              <li><em>Can I keep my data from decrypted and read?</em></li>
+            </ul>
+          </li>
 
-          <li class="fragment" data-fragment-index="2">Integrity</li>
-          <ul class="fragment" data-fragment-index="2">
-            <li><em>Has my data been tampered with?</em></li>
-          </ul>
+          <li class="fragment" data-fragment-index="2">Integrity
+            <ul class="fragment" data-fragment-index="2">
+              <li><em>Has my data been tampered with?</em></li>
+            </ul>
+          </li>
 
-          <li class="fragment" data-fragment-index="3">Authenticity</li>
-          <ul class="fragment" data-fragment-index="3">
-            <li><em>Am I communicating with the party they claim to be?</em></li>
-          </ul>
+          <li class="fragment" data-fragment-index="3">Authenticity
+            <ul class="fragment" data-fragment-index="3">
+              <li><em>Am I communicating with the party they claim to be?</em></li>
+            </ul>
+          </li>
 
-          <li class="fragment" data-fragment-index="4">Non-repudition</li>
-          <ul class="fragment" data-fragment-index="4">
-            <li><em>Can somebody deny that they sent a message?</em></li>
-          </ul>
+          <li class="fragment" data-fragment-index="4">Non-repudition
+            <ul class="fragment" data-fragment-index="4">
+              <li><em>Can somebody deny that they sent a message?</em></li>
+            </ul>
+          </li>
         </ul>
       </section>
 
       <section>
-        <h2>Symmetric key cryptography</h2>
+        <h3>Symmetric-key cryptography</h3>
         <p class="left">Symmetric-key cryptography, like historic cryptography, uses the same key for both <em>encryption</em> and <em>decryption</em>:</p>
         <img src="images/first-party/symmetric-key.svg" style="background: none; border: 0; box-shadow: none;" />
         <p class="fragment left">Here, plaintext is being encrypted by a key into ciphertext, and then decrypted with that same key into the original plaintext.</p>
       </section>
+
+      <section>
+        <h3>Symmetric-key cryptography</h3>
+        <ul>
+          <li>Advantages
+            <ul>
+              <li>Computationally very fast and simple</li>
+              <li>Keys are small (typically 128-256 bits)</li>
+            </ul>
+          </li>
+          <li class="fragment">Disadvantages
+            <ul>
+              <li>Key management is difficult, as each party requires a copy of the key</li>
+              <li>Provides only confidentiality, with no assurances about authenticity or integrity</li>
+            </ul>
+          </li>
+        </ul>
+        <p class="fragment left">Due to its speed, symmetric-key cryptography is primarily used for bulk encryption, using other forms of cryptography to make up for its shortcomings.</p>
+      </section>
+
+      <section>
+        <h3>Symmetric-key cryptography</h3>
+        <p>Do these names ring a bell?</p>
+        <table class="centered">
+          <tr>
+            <th>Cipher</th>
+            <th>Key size</th>
+            <th>Type</th>
+          </tr>
+          <tr>
+            <td>AES</td>
+            <td>128, 192, or 256 bits</td>
+            <td>Block</td>
+          </tr>
+          <tr>
+            <td>3DES</td>
+            <td>168 bits</td>
+            <td>Block</td>
+          </tr>
+          <tr>
+            <td>RC4</td>
+            <td>128 bits</td>
+            <td>Stream</td>
+          </tr>
+          <tr>
+            <td>Twofish</td>
+            <td>128, 192, or 256 bits</td>
+            <td>Block</td>
+          </tr>
+        </table>
+        <p class="friendly-aside left">Note that Mozilla recommends using only AES with 128-bit or 256-bit keys. When in doubt, contact your friendly neighborhood cryptographer!</p>
+      </section>
+
+      <section>
+        <h2>Keys</h2>
+        <p class="left">Remember that in a proper cryptosystem, the key is the only thing that keeps your data confidential. As such, keys must be:</p>
+        <ul>
+          <li class="fragment">Kept secure and be deleted as soon as they are no longer in use</li>
+          <li class="fragment">Unrelated to any past or future key</li>
+          <li class="fragment">Chosen at random from the entire key space</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key space</h2>
+        <p class="left">When we talk about keys, we often say "128-bit keys" or "256-bit keys". What does that mean?</p>
+        <ul>
+          <li class="fragment">"128-bit" refers to the size of the <em>key space</em>. Key space is simply the number of possible keys.</li>
+          <li class="fragment">Since a bit can have two values (0 or 1), a 128-bit key space has 2<sup>128</sup> possible keys.</li>
+        </ul>
+        <p class="fragment friendly-aside">How big is 2<sup>128</sup>?</p>
+        <p class="fragment friendly-aside left">If a single key was the size of a grain of sand, the key space would be roughly 30x the size of Jupiter!</p>
+      </section>
+
 
     </div>
   </div>

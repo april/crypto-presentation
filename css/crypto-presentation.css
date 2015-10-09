@@ -3,10 +3,9 @@ table.substitution {
   margin: 3em 0;
 }
 
-table.substitution td {
+table.substitution td, table.centered td, table.centered th {
   text-align: center;
 }
-
 
 /* preformatted examples */
 .pre-box-container {
@@ -22,6 +21,11 @@ table.substitution td {
   width: 100%;
 }
 
-ul > ul > li {
+ul > li > ul > li {
   list-style-type: circle;
+}
+
+.friendly-aside {
+  font-style: oblique !important;
+  font-size: .8em !important;
 }
