@@ -906,6 +906,9 @@
         </ul>
         <p class="fragment friendly-aside">How big is 2<sup>128</sup>?</p>
         <p class="fragment friendly-aside left">If a single key was the size of a grain of sand, the key space would be roughly 30x the size of Jupiter!</p>
+        <aside class="notes">
+          The Caeser cipher has a keyspace of 26, which equates to only 4.7 bits.
+        </aside>
       </section>
 
 
@@ -919,7 +922,11 @@
       controls: false,
       history: true,
       margin: .05,
-      slideNumber: 'c / t'
+      slideNumber: 'c / t',
+
+      dependencies: [
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
     });
   </script>
 </body>
