@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>Mozilla Cryptography Class</title>
-  <link rel="stylesheet" href="reveal/css/reveal.css">
-  <link rel="stylesheet" href="reveal/css/theme/mozilla.css" id="theme"> 
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/mozilla.css" id="theme"> 
   <link rel="stylesheet" href="css/crypto-presentation.css">
-  <script src="reveal/lib/js/head.min.js"></script>
-  <script src="reveal/js/reveal.js"></script>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
 </head>
  
 <body>
@@ -782,6 +782,9 @@
           <li>Also, the key can only be used once.  Key reuse reveals information about all your previous messages.</li>
         </ul>
         <p class="left fragment" data-fragment-index="1">The impracticality of having extremely long keys combined with the key reuse requirements makes the OTP infeasible for much real-world use.</p>
+        <aside class="notes">
+          This is because M1 ⊕ K ⊕ M2 ⊕ K == M1 ⊕ M2.
+        </aside>
       </section>
 
       <section>
@@ -911,6 +914,24 @@
         </aside>
       </section>
 
+      <section>
+        <h3>Stream ciphers</h3>
+          <ul>
+            <li>Operate on one bit at a time</li>
+            <li>Key is combined with an initialization vector to produce a stream of bits as long as your message, known as a <em>keystream</em></li>
+            <li>Keystream is then XORed with the plaintext to produce the ciphertext</li>
+            <li>Like a one-time pad, the keystream must never be reused; the IV must change with each use</li>
+          </ul>
+
+        <aside class="notes">
+          A number of systems using RC4 have been broken because the IVs weren't unique enough; see WEP and related-IV attacks
+        </aside>
+      </section>
+
+      <section>
+        <h3>Stream ciphers</h3>
+        <img src="images/first-party/stream-cipher.svg" style="background: none; border: 0; box-shadow: none;" width="600" />
+      </section>
 
     </div>
   </div>
