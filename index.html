@@ -1,933 +1,411 @@
 <!doctype html>
-<html lang="en">  
-<head>
-  <meta charset="utf-8">
-  <title>Mozilla Cryptography Class</title>
-  <link rel="stylesheet" href="reveal/css/reveal.css">
-  <link rel="stylesheet" href="reveal/css/theme/mozilla.css" id="theme"> 
-  <link rel="stylesheet" href="css/crypto-presentation.css">
-  <script src="reveal/lib/js/head.min.js"></script>
-  <script src="reveal/js/reveal.js"></script>
-</head>
- 
-<body>
-  <div class="reveal">
-    <div class="slides">
-      <section>
-        <img src="images/mozilla_wordmark.png" style="background: none; border: 0; box-shadow: none; width: 50%;">
-      </section>
+<html lang="en">
 
-      <section>
-        <h2>Intro to Cryptography</h2>
-        <h4><em>April King</em></h4>
-        <div style="font-size: .6em; font-style: oblique; margin-top: 100px;"><a href="https://github.com/marumari/crypto-presentation/tree/gh-pages">Fork me on GitHub!</a></div>
-      </section>
- 
-      <section>
-        <ul>
-          <h2>Learning Objectives</h2>
-          <li>Describe the history and purpose of cryptography</li>
-          <li>Build a solid understanding of cryptographic primitives</li>
-          <li>Learn how cryptographic primitives are combined to make a complete cryptographic system</li>
-          <li>Recognize the shortcomings and pitfalls inherent in building and implementing cryptographic systems</li>
-        </ul>
-      </section>
- 
-      <!-- Definitions below -->
-      <section>
-        <section>
-          <h2>Cryptographic Terminology</h2>
-          <p><em>Eye-glazing definitions belooooooow!</em></p>
-          <h2>&darr;</h2>
-        </section>
+	<head>
+		<meta charset="utf-8">
 
-        <section>
-          <dl>
-            <dt>Cryptography</dt>
-            <dd>Practice and study of security communications in the presence of third parties</dd>
-            <dt>Plaintext (cleartext)</dt>
-            <dd>Data or text that has not been encrypted</dd>
-            <dt>Ciphertext</dt>
-            <dd>The result of encryption performed on plaintext</dd>
-          </dl>
-        </section>
+		<title>reveal.js - The HTML Presentation Framework</title>
 
-        <section>
-          <dl>
-            <dt>Algorithm</dt>
-            <dd>A self-contained series of instructions that perform a function</dd>
-            <dt>Cipher</dt>
-            <dd>An algorithm that performs encryption and decryption</dd>
-            <dt>Encryption</dt>
-            <dd>Using a cipher to transform plaintext into ciphertext</dd>
-            <dt>Decryption</dt>
-            <dd>Using a cipher to transform ciphertext into plaintext</dd>
-          </dl>
-        </section>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
 
-        <section>
-          <dl>
-            <dt>Key</dt>
-            <dd>A piece of information known only to one or both parties that is fed into a cipher and determines its output</dd>
-            <dt>Key exchange</dt>
-            <dd>The process by which two parties agree on upon a mutual key or key pair</dd>
-            <dt>Key space</dt>
-            <dd>The set of all possible keys</dd>
-            <dt>Brute-force attack</dt>
-            <dd>Attempting decryption with all possible key combinations until the correct key is found</dd>
-          </dl>
-        </section>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-        <section>
-          <dl>
-            <dt>Cipher suite</dt>
-            <dd>Combination of key exchange, authentication, encryption, and message authentication code (MAC)</dd>
-            <dt>Cryptographic system (cryptosystem)</dt>
-            <dd>A combination of cryptographic algorithms that implement a security service, usually encompassing key generation, encryption, and decryption</dd>
-            <dt>Message authentication code (MAC)</dt>
-            <dd>A small piece of information used to authenticate a message and to provide protection against tampering</dd>
-          </dl>
-        </section>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-        <section>
-          <dl>
-            <dt>Cryptanalysis</dt>
-            <dd>The study of breaking, weakening, or bypassing cryptosystems</dd>
-            <dt>Steganography</dt>
-            <dd>Concealing a message (image, file, text, etc.) within another message</dd>
-            <dt>Placeholder names</dt>
-            <dd>Names such as <em>Alice</em>, <em>Bob</em>, <em>Eve</em> (the eavesdropper), or <em>Mallory</em> (the malicious attacker) used as shorthand when describing cryptosystems</dd>
-          </dl>
-        </section>
-      </section>
-      <!-- End definitions -->
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
 
-      <!-- Begin history -->
-      <section>
-        <h1>Cryptography History</h1>
-        <p><em>Let's take a ride in the way back machine!</em></p>
-      </section>
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-      <section>
-        <h2>Beautiful Origin Story</h2>
-        <p>...that dates back to approximately 1500 BCE</p>
-        <dl class="fragment" style="margin-top: 2rem;">
-          <dt>Original goal of cryptography:</dt>
-          <dd>Keeping messages confidential, for the purposes of commercial trade secrets and military communications</dd>
-        </dl>
-      </section>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
 
-      <section>
-        <h2>Historic Cryptography</h2>
-        <dl>
-          <dt>Substitution cipher</dt>
-          <dd>Characters in plaintext are replaced with other characters</dd>
-          <dt>Transposition ciphers</dt>
-          <dd>Characters in plaintext are rearranged with other characters</dd>
-        </dl>
-        <p class="fragment" style="text-align: left;">This comprised the entirety of cryptography up until modern cryptography begins with World War II and the creation of the Enigma machine</p>
-      </section>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
 
-      <section>
-        <h2>Caeser Cipher</h2>
-        <ul>
-          <li>Shift each letter in message three characters to the left</li>
-        </ul>
-        <table class="substitution">
-          <tr>
-            <td>A</td>
-            <td>B</td>
-            <td>C</td>
-            <td>D</td>
-            <td>E</td>
-            <td>F</td>
-            <td>G</td>
-            <td>H</td>
-            <td>I</td>
-            <td>J</td>
-            <td>K</td>
-            <td>L</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">M</td>
-            <td>N</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">O</td>
-            <td>P</td>
-            <td>Q</td>
-            <td>R</td>
-            <td>S</td>
-            <td>T</td>
-            <td>U</td>
-            <td>V</td>
-            <td>W</td>
-            <td>X</td>
-            <td>Y</td>
-            <td class="fragment highlight-current-red" data-fragment-index="3">Z</td>
-          </tr>
-          <tr>
-            <td>X</td>
-            <td>Y</td>
-            <td>Z</td>
-            <td>A</td>
-            <td>B</td>
-            <td>C</td>
-            <td>D</td>
-            <td>E</td>
-            <td>F</td>
-            <td>G</td>
-            <td>H</td>
-            <td>I</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">J</td>
-            <td>K</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">L</td>
-            <td>M</td>
-            <td>N</td>
-            <td>O</td>
-            <td>P</td>
-            <td>Q</td>
-            <td>R</td>
-            <td>S</td>
-            <td>T</td>
-            <td>U</td>
-            <td>V</td>
-            <td class="fragment highlight-current-red" data-fragment-index="3">W</td>
-          </tr>
-        </table>
-        <p>Example:
-          <div class="pre-box-container">
-            <div class="pre-box-row">
-              <span class="fragment highlight-current-red" data-fragment-index="1">M</span>
-              <span class="fragment highlight-current-red" data-fragment-index="2">O</span>
-              <span class="fragment highlight-current-red" data-fragment-index="3">Z</span>
-              ILLA IS MY DINOSAUR
-            </div>
-            <div class="pre-box-row">
-              <span class="fragment highlight-current-red" data-fragment-index="1">J</span>
-              <span class="fragment highlight-current-red" data-fragment-index="2">L</span>
-              <span class="fragment highlight-current-red" data-fragment-index="3">W</span>
-              FIIX EP JV AFKLPXRO
-            </div>
-          </div>
-        </p>
-      </section>
+	<body>
 
-      <section>
-        <h2>Conceptualize</h2>
-        <dl>
-          <dt>Algorithm</dt>
-          <dd>Replace each letter with the letter three characters to the left</dd>
-          <dt>Cipher</dt>
-          <dd>Caesar (rotational) cipher, a substitution cipher</dd>
-          <dt>Key</dt>
-          <dd>Key is a -3 (or 23) letter rotation (ROT-23)</dd>
-          <dt>Key space</dt>
-          <dd>26, since you have 26 possible rotation possibilities</dd>
-        </dl>
-      <p class="fragment" data-fragment-index="1" style="font-size: smaller;"><em>That said, 26 doesn't make for the best possible key</em></p>
-      </section>
+		<div class="reveal">
 
-      <section>
-        <h2>Substitution Cipher</h2>
-        <ul>
-          <li>Instead of shifting, match each letter to another letter randomly</li>
-        </ul>
-        <table class="substitution">
-          <tr>
-            <td>A</td>
-            <td>B</td>
-            <td>C</td>
-            <td>D</td>
-            <td>E</td>
-            <td>F</td>
-            <td>G</td>
-            <td>H</td>
-            <td>I</td>
-            <td>J</td>
-            <td>K</td>
-            <td>L</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">M</td>
-            <td>N</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">O</td>
-            <td>P</td>
-            <td>Q</td>
-            <td>R</td>
-            <td>S</td>
-            <td>T</td>
-            <td>U</td>
-            <td>V</td>
-            <td>W</td>
-            <td>X</td>
-            <td>Y</td>
-            <td class="fragment highlight-current-red" data-fragment-index="3">Z</td>
-          </tr>
-          <tr>
-            <td>G</td>
-            <td>J</td>
-            <td>Z</td>
-            <td>X</td>
-            <td>C</td>
-            <td>K</td>
-            <td>W</td>
-            <td>U</td>
-            <td>F</td>
-            <td>E</td>
-            <td>S</td>
-            <td>Q</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">D</td>
-            <td>A</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">P</td>
-            <td>R</td>
-            <td>I</td>
-            <td>L</td>
-            <td>O</td>
-            <td>M</td>
-            <td>Y</td>
-            <td>T</td>
-            <td>V</td>
-            <td>H</td>
-            <td>B</td>
-            <td class="fragment highlight-current-red" data-fragment-index="3">N</td>
-          </tr>
-        </table>
-        <p>Example:
-          <div class="pre-box-container">
-            <div class="pre-box-row">
-              <span class="fragment highlight-current-red" data-fragment-index="1">M</span>
-              <span class="fragment highlight-current-red" data-fragment-index="2">O</span>
-              <span class="fragment highlight-current-red" data-fragment-index="3">Z</span>
-              ILLA IS MY DINOSAUR
-            </div>
-            <div class="pre-box-row">
-              <span class="fragment highlight-current-red" data-fragment-index="1">D</span>
-              <span class="fragment highlight-current-red" data-fragment-index="2">P</span>
-              <span class="fragment highlight-current-red" data-fragment-index="3">N</span>
-              FQQG FO DB XFAPOGYL
-          </div>
-        </p>
-      </section>
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Reveal.js</h1>
+					<h3>The HTML Presentation Framework</h3>
+					<p>
+						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+					</p>
+				</section>
 
-      <section>
-        <h2>Transposition Cipher</h2>
-        <ul>
-          <li>Also known a permutation</li>
-          <li>Encryption involves rearranging the plaintext to produce ciphertext</li>
-          <li>Decryption simply involves reversing the rearrangement</li>
-        </ul>
-        <p class="fragment" style="font-size: smaller;"><em>Let's take a look at a simple example...</em></p>
-      </section>
+				<section>
+					<h2>Hello There</h2>
+					<p>
+						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+					</p>
+				</section>
 
-      <section>
-        <h2>Route Cipher</h2>
-        <dl style="font-size: .9em;">
-          <dt>Key</dt>
-          <dd>Grid is five characters wide, write text from upper left rightward. Route from lower right and spiral upward.</dd>
-        </dl>
-        <p>Canonicalize:</p>
-        <pre style="font-size: 1em; text-align: center;"><span class="fragment highlight-red" data-fragment-index="2">MOZI</span><span class="fragment highlight-red" data-fragment-index="1">L</span>
-<span class="fragment highlight-red" data-fragment-index="3">L</span><span class="fragment highlight-red" data-fragment-index="5">AI</span><span class="fragment highlight-red" data-fragment-index="4">S</span><span class="fragment highlight-red" data-fragment-index="1">M</span>
-<span class="fragment highlight-red" data-fragment-index="3">Y</span><span class="fragment highlight-red" data-fragment-index="6">DI</span><span class="fragment highlight-red" data-fragment-index="4">N</span><span class="fragment highlight-red" data-fragment-index="1">O</span>
-<span class="fragment highlight-red" data-fragment-index="3">S</span><span class="fragment highlight-red" data-fragment-index="4">AUR</span> 
-</pre>
-        <p>Example:</p>
-        <div class="pre-box-container">
-          <div class="pre-box-row">
-            <span class="fragment highlight-red" data-fragment-index="1">MOZ</span>
-            <span class="fragment highlight-red" data-fragment-index="2">ILLA</span>
-            &nbsp;
-            <span class="fragment highlight-red" data-fragment-index="3">IS M</span>
-            <span class="fragment highlight-red" data-fragment-index="4">Y DINO</span>
-            <span class="fragment highlight-red" data-fragment-index="5">SA</span>
-            <span class="fragment highlight-red" data-fragment-index="6">UR</span>
-          </div>
-          <div class="pre-box-row">
-            <span class="fragment highlight-red" data-fragment-index="1">OML</span>
-            <span class="fragment highlight-red" data-fragment-index="2">IZOM</span> 
-            &nbsp;
-            <span class="fragment highlight-red" data-fragment-index="3">LY S</span>
-            <span class="fragment highlight-red" data-fragment-index="4">A URNS</span>
-            <span class="fragment highlight-red" data-fragment-index="5">IA</span>
-            <span class="fragment highlight-red" data-fragment-index="6">DI</span>
-          </div>
-        </div>
-      </section>
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Vertical Slides</h2>
+						<p>Slides can be nested inside of each other.</p>
+						<p>Use the <em>Space</em> key to navigate through all slides.</p>
+						<br>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 1</h2>
+						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+					</section>
+					<section>
+						<h2>Basement Level 2</h2>
+						<p>That's it, time to go back up.</p>
+						<br>
+						<a href="#/2">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+						</a>
+					</section>
+				</section>
 
-      <section>
-        <h3>Modern ciphers still utilitize both substitution and transposition at the bit and byte level...</h3>
-      </section>
+				<section>
+					<h2>Slides</h2>
+					<p>
+						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
+					</p>
+				</section>
 
-      <section>
-        <h3>...so why might these simple ciphers not be secure?</h3>
-      </section>
+				<section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview.
+					</p>
+					<p>
+						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+					</p>
+				</section>
 
-      <section style="padding-top: 0;">
-        <h2>Frequency Analysis</h2>
-        <div>
-          <img src="images/third-party/English_letter_frequency.svg" style="background: none; border: 0; box-shadow: none; height: 560px;">
-        </div>
-        <p>It turns out that not every letter appears equally as often</p>
-      </section>
+				<section>
+					<h2>Touch Optimized</h2>
+					<p>
+						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
+					</p>
+				</section>
 
-      <section style="padding-top: 0;">
-        <h2>Frequency Analysis</h2>
-        <div>
-          <img src="images/third-party/English_letter_frequency_perfect_crypto.svg" style="background: none; border: 0; box-shadow: none; height: 560px;">
-        </div>
-        <p>Ideally, each letter should appear equally as often</p>
-      </section>
+				<section data-markdown>
+					<script type="text/template">
+						## Markdown support
 
-      <section>
-        <h3><em>Don't panic! The 1550s have us covered!</em></h3>
-      </section>
+						Write content using inline or external Markdown.
+						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
 
-      <section>
-        <h2>Vigenère Cipher</h2>
-        <ul>
-          <li>A type of cipher known as a polyalphabetic cipher</li>
-          <li>First described in the mid 1500s, it was considered the "indescipherable cipher" for over 300 years</li>
-          <li>Defeats frequency analysis and eventually lead to the development of the one-time pad</li>
-        </ul>
-      </section>
+						```
+						<section data-markdown>
+						  ## Markdown support
 
-      <section data-transition="slide-in fade-out" style="padding-top: 0;">
-        <h2>Vigenère Cipher</h2>
-        <div>
-          <img src="images/third-party/Vigenere_square_updated.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
-        </div>
-        <p>
-          <div class="pre-box-container">
-            <div class="pre-box-row">Plaintext:           &nbsp;MOZILLA IS MY DINOSAUR</div>
-            <div class="pre-box-row">Keyword: &nbsp;&nbsp;&nbsp;WHIMSYW HI MS YWHIMSYW</div>
-            <div class="pre-box-row">Ciphertext:                IVHUDJW PA YQ AEUWESSN</div>
-          </div>
-        </p>
-      </section>
+						  Write content using inline or external Markdown.
+						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+						</section>
+						```
+					</script>
+				</section>
 
-      <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
-        <h2>Vigenère Cipher</h2>
-        <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment2.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
-        </div>
-        <p>
-          <div class="pre-box-container">
-            <div class="pre-box-row">Plaintext:&nbsp;&nbsp;          <span class="red">M</span>OZILLA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
-            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">W</span>HIMSYW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
-            <div class="pre-box-row">Ciphertext:&nbsp;               <span class="red">I</span>VHUDJW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
-          </div>
-        </p>
-      </section>
+				<section>
+					<section id="fragments">
+						<h2>Fragments</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
 
-      <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
-        <h2>Vigenère Cipher</h2>
-        <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment3.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
-        </div>
-        <p>
-        <p>
-          <div class="pre-box-container">
-            <div class="pre-box-row">Plaintext:&nbsp;                M<span class="red">O</span>ZILLA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
-            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;W<span class="red">H</span>IMSYW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
-            <div class="pre-box-row">Ciphertext:                     I<span class="red">V</span>HUDJW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
-          </div>
-        </p>
-      </section>
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's different types of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment current-visible">current-visible</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+					</section>
+				</section>
 
-      <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
-        <h2>Vigenère Cipher</h2>
-        <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment4.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
-        </div>
-        <p>
-          <div class="pre-box-container">
-            <div class="pre-box-row">Plaintext:&nbsp;                MO<span class="red">Z</span>ILLA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
-            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;WH<span class="red">I</span>MSYW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
-            <div class="pre-box-row">Ciphertext:                     IV<span class="red">H</span>UDJW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
-          </div>
-        </p>
-      </section>
+				<section id="transitions">
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like: <br>
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=slide#/transitions">Slide</a> -
+						<a href="?transition=convex#/transitions">Convex</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a>
+					</p>
+				</section>
 
-      <section data-transition="fade-in slide-out" style="padding-top: 0;">
-        <h2>Vigenère Cipher</h2>
-        <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment5.svg" style="background: none; border: 0; box-shadow: none; height: 360px; margin: 0 auto;">
-        </div>
-        <p>
-          <div class="pre-box-container">
-            <div class="pre-box-row">Plaintext:&nbsp;                MOZ<span class="red">I</span><span class="blue">L</span>LA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
-            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;WHI<span class="red">M</span><span class="blue">S</span>YW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
-            <div class="pre-box-row">Ciphertext:                     IVH<span class="red">U</span><span class="blue">D</span>JW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
-          </div>
-        </p>
-        <p><em>Two consecutive "L"s encrypt to different outputs</em></p>
-      </section>
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						reveal.js comes with a few themes built in: <br>
+						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+					</p>
+				</section>
 
-      <section>
-        <h2>Vigenère Cipher</h2>
-        <ul>
-          <li>Turns out, the Vigenère cipher is completely busted</li>
-          <li class="fragment" data-fragment-index="1">Sometimes patterns in the plaintext appear in the ciphertext</li>
-        </ul>
-        <div class="fragment pre-box-container" data-fragment-index="1">
-          <div class="fragment pre-box-row" data-fragment-index="1">
-            P: MOZILLA IS MY DINOSAUR A
-            <span class="fragment highlight-red" data-fragment-index="1">N</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">D</span>
-            &nbsp;FRIE
-            <span class="fragment highlight-red" data-fragment-index="1">N</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">D</span>
-          </div>
-          <div class="fragment pre-box-row" data-fragment-index="1">
-            K: WHIMSYW HI MS YWHIMSYW H
-            <span class="fragment highlight-red" data-fragment-index="1">I</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">M</span>&nbsp;SYWH
-            <span class="fragment highlight-red" data-fragment-index="1">I</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">M</span>
-          </div>
-          <div class="fragment pre-box-row" data-fragment-index="1">
-            C: IVHUDJW PA YQ AEUWESSN H
-            <span class="fragment highlight-red" data-fragment-index="1">V</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">P</span>
-            &nbsp;XPEL
-            <span class="fragment highlight-red" data-fragment-index="1">V</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">P</span>
-          </div>
-        </div>
-      </section>
+				<section>
+					<section data-background="#dddddd">
+						<h2>Slide Backgrounds</h2>
+						<p>
+							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+						</p>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
+						<h2>Image Backgrounds</h2>
+						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
+						<h2>Tiled Backgrounds</h2>
+						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					</section>
+					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
+						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+							<h2>Video Backgrounds</h2>
+							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+						</div>
+					</section>
+					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+						<h2>... and GIFs!</h2>
+					</section>
+				</section>
 
-      <section>
-        <h2>Breaking Vigenère</h2>
-        <ul>
-          <li>Iterate through each possible key length</li>
-          <li class="fragment" data-fragment-index="1">Divide the ciphertext into chunks of that length (6)</li>
-        </ul>
-        <div class="fragment pre-box-container" data-fragment-index="1">
-          <div class="fragment pre-box-row" data-fragment-index="1">
-            <span                >C:</span>
-            &nbsp;
-            <span class="green"  >I</span>
-            <span class="blue"   >V</span>
-            <span class="purple" >H</span>
-            <span class="red"    >U</span>
-            <span class="pink"   >D</span>
-            <span class="orange" >J</span>
-            <span class="green"  >W</span>
-            &nbsp;
-            <span class="blue"   >P</span>
-            <span class="purple" >A</span>
-            &nbsp;
-            <span class="red"    >Y</span>
-            <span class="pink"   >Q</span>
-            &nbsp;
-            <span class="orange" >A</span>
-            <span class="green"  >E</span>
-            <span class="blue"   >U</span>
-            <span class="purple" >W</span>
-            <span class="red"    >E</span>
-            <span class="pink"   >S</span>
-            <span class="orange" >S</span>
-            <span class="green"  >N</span>
-            &nbsp;
-            <span class="blue"   >H</span>
-            <span class="purple" >V</span>
-            <span class="red"    >P</span>
-            &nbsp;
-            <span class="pink"   >X</span>
-            <span class="orange" >P</span>
-            <span class="green"  >E</span>
-            <span class="blue"   >L</span>
-            <span class="purple" >V</span>
-            <span class="red"    >P</span>
-          </div>
-        </div>
+				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h2>Background Transitions</h2>
+					<p>
+						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
+					</p>
+					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+				</section>
 
-        <ul class="fragment" data-fragment-index="2">
-          <li>Each column is a simple rotation cipher</li>
-        </ul>
+				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+					<h2>Background Transitions</h2>
+					<p>
+						You can override background transitions per-slide.
+					</p>
+					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+				</section>
 
-        <div class="fragment pre-box-container" data-fragment-index="2">
-          <div class="fragment pre-box-row" data-fragment-index="2">
-            <span                >C:</span>
-            &nbsp;
-            <span class="green"  >I</span>
-            <span class="blue"   >V</span>
-            <span class="purple" >H</span>
-            <span class="red"    >U</span>
-            <span class="pink"   >D</span>
-            <span class="orange" >J</span>
-            <span class="green"  >W</span>
-            &nbsp;
-            <span class="blue"   >P</span>
-            <span class="purple" >A</span>
-            &nbsp;
-            <span class="red"    >Y</span>
-            <span class="pink"   >Q</span>
-            &nbsp;
-            <span class="orange" >A</span>
-            <span class="green"  >E</span>
-            <span class="blue"   >U</span>
-            <span class="purple" >W</span>
-            <span class="red"    >E</span>
-            <span class="pink"   >S</span>
-            <span class="orange" >S</span>
-            <span class="green"  >N</span>
-            &nbsp;
-            <span class="blue"   >H</span>
-            <span class="purple" >V</span>
-            <span class="red"    >P</span>
-            &nbsp;
-            <span class="pink"   >X</span>
-            <span class="orange" >P</span>
-            <span class="green"  >E</span>
-            <span class="blue"   >L</span>
-            <span class="purple" >V</span>
-            <span class="red"    >P</span>
-          </div>
-          <div class="fragment pre-box-row" data-fragment-index="2">
-            <span                                         >K:</span>
-            &nbsp;
-            <span class="fragment" data-fragment-index="2">W</span>
-            <span class="fragment" data-fragment-index="4">H</span>
-            <span class="fragment" data-fragment-index="5">I</span>
-            <span class="fragment" data-fragment-index="6">M</span>
-            <span class="fragment" data-fragment-index="7">S</span>
-            <span class="fragment" data-fragment-index="8">Y</span>
-            <span class="fragment" data-fragment-index="2">W</span>
-            &nbsp;
-            <span class="fragment" data-fragment-index="4">H</span>
-            <span class="fragment" data-fragment-index="5">I</span>
-            &nbsp;
-            <span class="fragment" data-fragment-index="6">M</span>
-            <span class="fragment" data-fragment-index="7">S</span>
-            &nbsp;
-            <span class="fragment" data-fragment-index="8">Y</span>
-            <span class="fragment" data-fragment-index="2">W</span>
-            <span class="fragment" data-fragment-index="4">H</span>
-            <span class="fragment" data-fragment-index="5">I</span>
-            <span class="fragment" data-fragment-index="6">M</span>
-            <span class="fragment" data-fragment-index="7">S</span>
-            <span class="fragment" data-fragment-index="8">Y</span>
-            <span class="fragment" data-fragment-index="2">W</span>
-            &nbsp;
-            <span class="fragment" data-fragment-index="4">H</span>
-            <span class="fragment" data-fragment-index="5">I</span>
-            <span class="fragment" data-fragment-index="6">M</span>
-            &nbsp;
-            <span class="fragment" data-fragment-index="7">S</span>
-            <span class="fragment" data-fragment-index="8">Y</span>
-            <span class="fragment" data-fragment-index="2">W</span>
-            <span class="fragment" data-fragment-index="4">H</span>
-            <span class="fragment" data-fragment-index="5">I</span>
-            <span class="fragment" data-fragment-index="6">M</span>
-          </div>
-          <div class="fragment pre-box-row" data-fragment-index="3">
-            <span                >P:</span>
-            &nbsp;
-            <span class="fragment green"  data-fragment-index="3">M</span>
-            <span class="fragment blue"   data-fragment-index="4">O</span>
-            <span class="fragment purple" data-fragment-index="5">Z</span>
-            <span class="fragment red"    data-fragment-index="6">I</span>
-            <span class="fragment pink"   data-fragment-index="7">L</span>
-            <span class="fragment orange" data-fragment-index="8">L</span>
-            <span class="fragment green"  data-fragment-index="3">A</span>
-            &nbsp;
-            <span class="fragment blue"   data-fragment-index="4">I</span>
-            <span class="fragment purple" data-fragment-index="5">S</span>
-            &nbsp;
-            <span class="fragment red"    data-fragment-index="6">M</span>
-            <span class="fragment pink"   data-fragment-index="7">Y</span>
-            &nbsp;
-            <span class="fragment orange" data-fragment-index="8">D</span>
-            <span class="fragment green"  data-fragment-index="3">I</span>
-            <span class="fragment blue"   data-fragment-index="4">N</span>
-            <span class="fragment purple" data-fragment-index="5">O</span>
-            <span class="fragment red"    data-fragment-index="6">S</span>
-            <span class="fragment pink"   data-fragment-index="7">A</span>
-            <span class="fragment orange" data-fragment-index="8">U</span>
-            <span class="fragment green"  data-fragment-index="3">R</span>
-            &nbsp;
-            <span class="fragment blue"   data-fragment-index="4">A</span>
-            <span class="fragment purple" data-fragment-index="5">N</span>
-            <span class="fragment red"    data-fragment-index="6">D</span>
-            &nbsp;
-            <span class="fragment pink"   data-fragment-index="7">F</span>
-            <span class="fragment orange" data-fragment-index="8">R</span>
-            <span class="fragment green"  data-fragment-index="3">I</span>
-            <span class="fragment blue"   data-fragment-index="4">E</span>
-            <span class="fragment purple" data-fragment-index="5">N</span>
-            <span class="fragment red"    data-fragment-index="6">D</span>
-          </div>
-        </div>
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
 
-        <ul class="fragment" data-fragment-index="3" style="font-size: smaller;">
-            <li>To reverse a rotation of 22 (W), move the ciphertext either -22 or +4. Repeat this process for every column, and we're back to the original message.
-            <span class="fragment" data-fragment-index="4">H=-8 (+18)</span>
-            <span class="fragment" data-fragment-index="5">• I=-9 (+17)</span>
-            <span class="fragment" data-fragment-index="6">• M=-13 (+13)</span>
-            <span class="fragment" data-fragment-index="7">• S=-19 (+7)</span>
-            <span class="fragment" data-fragment-index="8">• Y=-24 (+2)</span>
-          </li>
-        </ul>
-      </section>
+    var nodes = document.querySelectorAll( selector );
 
-      <section>
-        <h3>Let's take this one step further...</h3>
-        <p>What if the key was exactly as long as the message?</p>
-        <p style="font-size: smaller;">(and also totally random)</p>
-      </section>
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
 
-      <section>
-        <h2>One-time Pad</h2>
-        <p>Congratulations! You've just invented the only truly unbreakable form of cryptography.</p>
-        <ul>
-          <li>If the key is as least as long as the message and truly random, you can combine (XOR) the key and the message to create a message that can never be decrypted</li>
-        </ul>
-      </section>
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>
+					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
 
-      <section>
-        <h2>XOR (exclusive or)</h2>
-<!--         <table>
-          <tr>
-            <td>Input 1:</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">0</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">1</td>
-          </tr>
-          <tr>
-            <td>Input 2:</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">0</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">1</td>
-          </tr>
-          <tr>
-            <td>Output:</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
-          </tr>
-        </table> -->
-        <p class="left">XOR, sometimes written ⊕, is an operator that outputs true (1) if the elements differ and outputs false (0) if they are the same.</p>
-        <ul class="fragment" data-fragment-index="1">
-          <li class="fragment" data-fragment-index="1">0 ⊕ 0 == 0, as they're the same</li>
-          <li class="fragment" data-fragment-index="2">0 ⊕ 1 == 1, as they're the different</li>
-          <li class="fragment" data-fragment-index="3">1 ⊕ 0 == 1, as they're the different</li>
-          <li class="fragment" data-fragment-index="4">1 ⊕ 1 == 0, as they're the same</li>
-        </ul>
-<!--         <p class="fragment current-visible red" data-fragment-index="1">(0,0) and (1,1) are the same, therefore output 0</p>
-        <p class="fragment current-visible red" data-fragment-index="2">(0,1) are (1,0) are different, therefore output 1</p> -->
-      </section>
+				<section>
+					<h2>Marvelous List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
 
-      <section>
-        <h2>XOR (exclusive or)</h2>
-        <table>
-          <tr>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">Message:</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="1">1</span></td>
-          </tr>
-          <tr>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">Key:</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-          </tr>
-          <tr>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">Output:</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">0</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">1</span></td>
-            <td><span class="fragment highlight-current-red" data-fragment-index="3">0</span></td>
-          </tr>
-        </table>
-        <p class="left">XOR has the special property that its output is as random as the most random input</p>
-        <ul class="fragment" data-fragment-index="1">
-          <li class="fragment highlight-current-red" data-fragment-index="1">Take non-random message</li>
-          <li class="fragment highlight-current-red" data-fragment-index="2">Combine with random key</li>
-          <li class="fragment highlight-current-red" data-fragment-index="3">Note: the output is as random as the key</li>
-        </ul>
-        <p class="fragment left" data-fragment-index="4">If your key is a one-time pad, then your message can never be broken!</p>
-      </section>
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
 
-      <section>
-        <h2>One-time Pad</h2>
-        <p class="left">So why don't we use one-time pads for all of our encryption, if it's so unbreakable?</p>
-        <ul class="fragment" data-fragment-index="1">
-          <li>First, the key needs to be at least as long as your message.  If your message is 5GB, then your key also needs to be 5GB.</li>
-          <li>Also, the key can only be used once.  Key reuse reveals information about all your previous messages.</li>
-        </ul>
-        <p class="left fragment" data-fragment-index="1">The impracticality of having extremely long keys combined with the key reuse requirements makes the OTP infeasible for much real-world use.</p>
-      </section>
+				<section>
+					<h2>Tabular Tables</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Value</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Apples</td>
+								<td>$1</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Lemonade</td>
+								<td>$2</td>
+								<td>18</td>
+							</tr>
+							<tr>
+								<td>Bread</td>
+								<td>$3</td>
+								<td>2</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
 
-      <section>
-        <h1>Modern Cryptography</h1>
-      </section>
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+					</blockquote>
+				</section>
 
-      <section>
-        <h2>Modern Cryptography</h2>
-        <p class="left">Modern cryptography attempts to solve a number of historic cryptography problems:</p>
-        <ul class="fragment" data-fragment-index="1">
-          <li class="fragment" data-fragment-index="1">Key exchange: How can you get your key safely to the person you want to communicate with?</li>
-          <li class="fragment" data-fragment-index="2">Key distribution: How can you keep a key safe when you have a large number of parties?</li>
-          <li class="fragment" data-fragment-index="3">Key size: How can you maintain confidentiality, even with shorter key sizes?</li>
-        </ul>
-      </section>
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
 
-      <section>
-        <h2>Modern Cryptography</h2>
-        <p class="left">In addition to solving key management, modern cryptography provides four security guarantees:</p>
-        <ul class="fragment" data-fragment-index="1">
-          <li class="fragment" data-fragment-index="1">Confidentiality
-            <ul class="fragment" data-fragment-index="1">
-              <li><em>Can I keep my data from decrypted and read?</em></li>
-            </ul>
-          </li>
+				<section>
+					<h2>Speaker View</h2>
+					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
+					<p>Press the <em>S</em> key to try it out.</p>
 
-          <li class="fragment" data-fragment-index="2">Integrity
-            <ul class="fragment" data-fragment-index="2">
-              <li><em>Has my data been tampered with?</em></li>
-            </ul>
-          </li>
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>
 
-          <li class="fragment" data-fragment-index="3">Authenticity
-            <ul class="fragment" data-fragment-index="3">
-              <li><em>Am I communicating with the party they claim to be?</em></li>
-            </ul>
-          </li>
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
+					<iframe src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+				</section>
 
-          <li class="fragment" data-fragment-index="4">Non-repudition
-            <ul class="fragment" data-fragment-index="4">
-              <li><em>Can somebody deny that they sent a message?</em></li>
-            </ul>
-          </li>
-        </ul>
-      </section>
+				<section>
+					<h2>Global State</h2>
+					<p>
+						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+						will be added as a class to the document element when the slide is open. This lets you
+						apply broader style changes, like switching the page background.
+					</p>
+				</section>
 
-      <section>
-        <h3>Symmetric-key cryptography</h3>
-        <p class="left">Symmetric-key cryptography, like historic cryptography, uses the same key for both <em>encryption</em> and <em>decryption</em>:</p>
-        <img src="images/first-party/symmetric-key.svg" style="background: none; border: 0; box-shadow: none;" />
-        <p class="fragment left">Here, plaintext is being encrypted by a key into ciphertext, and then decrypted with that same key into the original plaintext.</p>
-      </section>
+				<section data-state="customevent">
+					<h2>State Events</h2>
+					<p>
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+					</p>
+					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+Reveal.addEventListener( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					</code></pre>
+				</section>
 
-      <section>
-        <h3>Symmetric-key cryptography</h3>
-        <ul>
-          <li>Advantages
-            <ul>
-              <li>Computationally very fast and simple</li>
-              <li>Keys are small (typically 128-256 bits)</li>
-            </ul>
-          </li>
-          <li class="fragment">Disadvantages
-            <ul>
-              <li>Key management is difficult, as each party requires a copy of the key</li>
-              <li>Provides only confidentiality, with no assurances about authenticity or integrity</li>
-            </ul>
-          </li>
-        </ul>
-        <p class="fragment left">Due to its speed, symmetric-key cryptography is primarily used for bulk encryption, using other forms of cryptography to make up for its shortcomings.</p>
-      </section>
+				<section>
+					<h2>Take a Moment</h2>
+					<p>
+						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
+					</p>
+				</section>
 
-      <section>
-        <h3>Symmetric-key cryptography</h3>
-        <p>Do these names ring a bell?</p>
-        <table class="centered">
-          <tr>
-            <th>Cipher</th>
-            <th>Key size</th>
-            <th>Type</th>
-          </tr>
-          <tr>
-            <td>AES</td>
-            <td>128, 192, or 256 bits</td>
-            <td>Block</td>
-          </tr>
-          <tr>
-            <td>3DES</td>
-            <td>168 bits</td>
-            <td>Block</td>
-          </tr>
-          <tr>
-            <td>RC4</td>
-            <td>128 bits</td>
-            <td>Stream</td>
-          </tr>
-          <tr>
-            <td>Twofish</td>
-            <td>128, 192, or 256 bits</td>
-            <td>Block</td>
-          </tr>
-        </table>
-        <p class="friendly-aside left">Note that Mozilla recommends using only AES with 128-bit or 256-bit keys. When in doubt, contact your friendly neighborhood cryptographer!</p>
-      </section>
+				<section>
+					<h2>Much more</h2>
+					<ul>
+						<li>Right-to-left support</li>
+						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
+					</ul>
+				</section>
 
-      <section>
-        <h2>Keys</h2>
-        <p class="left">Remember that in a proper cryptosystem, the key is the only thing that keeps your data confidential. As such, keys must be:</p>
-        <ul>
-          <li class="fragment">Kept secure and be deleted as soon as they are no longer in use</li>
-          <li class="fragment">Unrelated to any past or future key</li>
-          <li class="fragment">Chosen at random from the entire key space</li>
-        </ul>
-      </section>
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="http://slides.com">Try the online editor</a> <br>
+						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+					</p>
+				</section>
 
-      <section>
-        <h2>Key space</h2>
-        <p class="left">When we talk about keys, we often say "128-bit keys" or "256-bit keys". What does that mean?</p>
-        <ul>
-          <li class="fragment">"128-bit" refers to the size of the <em>key space</em>. Key space is simply the number of possible keys.</li>
-          <li class="fragment">Since a bit can have two values (0 or 1), a 128-bit key space has 2<sup>128</sup> possible keys.</li>
-        </ul>
-        <p class="fragment friendly-aside">How big is 2<sup>128</sup>?</p>
-        <p class="fragment friendly-aside left">If a single key was the size of a grain of sand, the key space would be roughly 30x the size of Jupiter!</p>
-        <aside class="notes">
-          The Caeser cipher has a keyspace of 26, which equates to only 4.7 bits.
-        </aside>
-      </section>
+			</div>
 
+		</div>
 
-    </div>
-  </div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
 
- 
-  <script>
-    // Let's startup reveal.js!
-    Reveal.initialize({
-      controls: false,
-      history: true,
-      margin: .05,
-      slideNumber: 'c / t',
+		<script>
 
-      dependencies: [
-        { src: 'plugin/notes/notes.js', async: true }
-      ]
-    });
-  </script>
-</body>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
 </html>
