@@ -36,7 +36,7 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 // ---------------------------------------------
 
 body {
-  background: url("../../images/bg-sandstone-2.png") no-repeat center center fixed;
+  background: url("../../images/first-party/bg-sandstone-2.png") no-repeat center center fixed;
   background-size: cover; }
 
 //.reveal .slides section img.fragment.current-visible {
@@ -73,4 +73,8 @@ body {
 
 .left {
   text-align: left;
+}
+
+.fragment.highlight-current-green.current-fragment {
+  color: #1fb26b !important;
 }

@@ -291,7 +291,7 @@ body {
   color: #00008B; }
 
 body {
-  background: url("../../images/bg-sandstone-2.png") no-repeat center center fixed;
+  background: url("../../images/first-party/bg-sandstone-2.png") no-repeat center center fixed;
   background-size: cover; }
 
 .red {
@@ -314,3 +314,6 @@ body {
 
 .left {
   text-align: left; }
+
+.fragment.highlight-current-green.current-fragment {
+  color: #1fb26b !important; }

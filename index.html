@@ -14,7 +14,7 @@
   <div class="reveal">
     <div class="slides">
       <section>
-        <img src="images/mozilla_wordmark.png" style="background: none; border: 0; box-shadow: none; width: 50%;">
+        <img src="images/first-party/mozilla_wordmark.svg" style="background: none; border: 0; box-shadow: none; width: 50%;">
       </section>
 
       <section>
@@ -360,7 +360,7 @@
       <section style="padding-top: 0;">
         <h2>Frequency Analysis</h2>
         <div>
-          <img src="images/third-party/English_letter_frequency.svg" style="background: none; border: 0; box-shadow: none; height: 560px;">
+          <img src="images/third-party/English_letter_frequency.svg" style="background: none; border: 0; box-shadow: none" height="480">
         </div>
         <p>It turns out that not every letter appears equally as often</p>
       </section>
@@ -368,7 +368,7 @@
       <section style="padding-top: 0;">
         <h2>Frequency Analysis</h2>
         <div>
-          <img src="images/third-party/English_letter_frequency_perfect_crypto.svg" style="background: none; border: 0; box-shadow: none; height: 560px;">
+          <img src="images/third-party/English_letter_frequency_perfect_crypto.svg" style="background: none; border: 0; box-shadow: none" height="480">
         </div>
         <p>Ideally, each letter should appear equally as often</p>
       </section>
@@ -668,13 +668,13 @@
 
       <section>
         <h3>Let's take this one step further...</h3>
-        <p>What if the key was exactly as long as the message?</p>
+        <p><em>What if the key was exactly as long as the message?</em></p>
         <p style="font-size: smaller;">(and also totally random)</p>
       </section>
 
       <section>
         <h2>One-time Pad</h2>
-        <p>Congratulations! You've just invented the only truly unbreakable form of cryptography.</p>
+        <p><em>Congratulations! You've just invented the only truly unbreakable form of cryptography.</em></p>
         <ul>
           <li>If the key is as least as long as the message and truly random, you can combine (XOR) the key and the message to create a message that can never be decrypted</li>
         </ul>
@@ -803,7 +803,7 @@
 
       <section>
         <h2>Modern Cryptography</h2>
-        <p class="left">In addition to solving key management, modern cryptography provides four security guarantees:</p>
+        <p class="left">In addition to solving the key management issue, modern cryptography provides four security guarantees:</p>
         <ul class="fragment" data-fragment-index="1">
           <li class="fragment" data-fragment-index="1">Confidentiality
             <ul class="fragment" data-fragment-index="1">
@@ -843,14 +843,14 @@
         <ul>
           <li>Advantages
             <ul>
-              <li>Computationally very fast and simple</li>
-              <li>Keys are small (typically 128-256 bits)</li>
+              <li class="fragment" data-fragment-index="1">Computationally very fast and simple</li>
+              <li class="fragment" data-fragment-index="2">Keys are small (typically 128-256 bits)</li>
             </ul>
           </li>
-          <li class="fragment">Disadvantages
+          <li>Disadvantages
             <ul>
-              <li>Key management is difficult, as each party requires a copy of the key</li>
-              <li>Provides only confidentiality, with no assurances about authenticity or integrity</li>
+              <li class="fragment" data-fragment-index="3">Key management is difficult, as each party requires a copy of the key</li>
+              <li class="fragment" data-fragment-index="4">Provides only confidentiality, with no assurances about authenticity or integrity</li>
             </ul>
           </li>
         </ul>
@@ -859,7 +859,7 @@
 
       <section>
         <h3>Symmetric-key cryptography</h3>
-        <p>Do these names ring a bell?</p>
+        <p><em>Do these names ring a bell?</em></p>
         <table class="centered">
           <tr>
             <th>Cipher</th>
@@ -867,8 +867,8 @@
             <th>Type</th>
           </tr>
           <tr>
-            <td>AES</td>
-            <td>128, 192, or 256 bits</td>
+            <td><span class="fragment highlight-current-green" data-fragment-index="1">AES</span></td>
+            <td><span class="fragment highlight-current-green" data-fragment-index="1">128</span>, 192, or <span class="fragment highlight-current-green" data-fragment-index="1">256</span> bits</td>
             <td>Block</td>
           </tr>
           <tr>
@@ -887,7 +887,7 @@
             <td>Block</td>
           </tr>
         </table>
-        <p class="friendly-aside left">Note that Mozilla recommends using only AES with 128-bit or 256-bit keys. When in doubt, contact your friendly neighborhood cryptographer!</p>
+        <p class="fragment highlight-current-green friendly-aside" data-fragment-index="1">Note that Mozilla recommends using only AES with 128-bit or 256-bit keys. When in doubt, contact your friendly neighborhood cryptographer!</p>
       </section>
 
       <section>
@@ -918,9 +918,9 @@
         <h3>Stream ciphers</h3>
           <ul>
             <li>Operate on one bit at a time</li>
-            <li>Key is combined with an initialization vector to produce a stream of bits as long as your message, known as a <em>keystream</em></li>
-            <li>Keystream is then XORed with the plaintext to produce the ciphertext</li>
-            <li>Like a one-time pad, the keystream must never be reused; the IV must change with each use</li>
+            <li class="fragment">Key is combined with an initialization vector to produce a stream of bits as long as your message, known as a <em>keystream</em></li>
+            <li class="fragment">Keystream is then XORed with the plaintext to produce the ciphertext</li>
+            <li class="fragment">Like a one-time pad, the keystream must never be reused; the IV must change with each use</li>
           </ul>
 
         <aside class="notes">
@@ -930,8 +930,63 @@
 
       <section>
         <h3>Stream ciphers</h3>
-        <img src="images/first-party/stream-cipher.svg" style="background: none; border: 0; box-shadow: none;" width="600" />
+        <img src="images/first-party/stream-cipher.svg" style="background: none; border: 0; box-shadow: none;" height="350" />
+        <p class="left">A key and initialization vector are combined to generate a keystream, which is then XORed with the plaintext to generate the ciphertext</p>
       </section>
+
+      <section>
+        <h3>Block ciphers</h3>
+        <ul>
+          <li>Operate on a fixed-size block of data (64 or 128 bits), unlike stream ciphers</li>
+          <li class="fragment">Are the most commonly used symmetric ciphers (AES, 3DES)</li>
+          <li class="fragment">Use a combination of XOR, permutations, additions, multiplications, shifts, etc.</li>
+          <li class="fragment">Require that data that isn't identical in length to the block size be padding, adding complexity</li>
+          <li class="fragment">Like with reusing keystreams, a given block of data will always encrypt to the same output</li>
+        </ul>
+        <aside class="notes">
+          Block sizes are typically 64 bits (DES, Blowfish) or 128 bits (AES, Twofish)
+        </aside>
+      </section>
+
+      <section>
+        <h3>Block ciphers</h3>
+        <p><em>Why is it a problem that the same input always encrypts to the same output?</em></p>
+        <ul>
+          <li class="fragment">Leaks metadata about plaintext: many protocols and file formats have a identical headers</li>
+          <li class="fragment">An attacker can replay the ciphertext, allowing them to forge requests</li>
+          <li class="fragment">Any patterns in the plaintext will appear in the ciphertext</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Block cipher modes of operation</h3>
+        <ul style="font-size: smaller;">
+          <li>To solve this, all block ciphers have modes of operation for their use</li>
+        </ul>
+        <p><img class="fragment" data-fragment-index="1" src="images/third-party/Block_mode_operation_Tux.jpg" style="height: 196px; margin: 0 auto;" /> <img class="fragment" data-fragment-index="2" src="images/third-party/Block_mode_operation_Tux_ecb.jpg" style="height: 196px; margin: 0 auto;" /> <img class="fragment" data-fragment-index="4" src="images/third-party/Block_mode_operation_Tux_secure.jpg" style="height: 196px; margin: 0 auto;" /></p>
+        <ul style="font-size: smaller;">
+          <li class="fragment" data-fragment-index="1">Here's what happens when you take an image and divide it into equal-sized blocks.
+          <li class="fragment" data-fragment-index="2">Then, you encrypt each block separately using a symmetric key and AES.</li>
+          <li class="fragment" data-fragment-index="3">This block mode is known as the Electronic Codebook (ECB).</li>
+          <li class="fragment" data-fragment-index="4">Ideally, the encrypted message should look like random noise!</li>
+        </ul>
+        <p class="fragment friendly-aside left">This isn't meant to scare you, but to show that even with good ciphers, you can still screw up cryptography!</p>
+
+        <aside class="notes">
+          Also note that just because the right image <em>looks</em> random doesn't mean its actually random.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Block cipher modes of operation</h3>
+        <p class="left">The various block cipher modes each provide their own benefits besides simply eliminating patterns in ciphertext</p>
+        <ul>
+          <li class="fragment">Allowing the use of an initialization vector so that identical plaintexts encrypt differently</li>
+          <li class="fragment">Change block ciphers to function like stream ciphers, eliminating the need for padding</li>
+          <li class="fragment">Increased performance through use of parallelization</li>
+        </ul>
+      </section>
+
 
     </div>
   </div>

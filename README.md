@@ -1,3 +1,7 @@
-A cryptography presentation for Mozilla (and others), using reveal.js.
+A cryptography presentation for Mozilla (and others), using [reveal.js](http://lab.hakim.se/reveal-js/).
 
-Reveal.js copyright (C) 2015 Hakim El Hattab @ http://hakim.se, MIT licensed
+# Attributions
+
+This presentation uses a number of copyrighted images and texts. Without the work of these contributors, this presentation would not be possible. Thanks to everyone who contributed!
+
+See [ATTRIBUTIONS.md](ATTRIBUTIONS.md) for additional information.
