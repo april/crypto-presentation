@@ -5,3 +5,5 @@ Frequency analysis table based off of image by [Nandhp](https://commons.wikimedi
 Vigenère square (tabula recta) based off of image by [bdesham](https://commons.wikimedia.org/wiki/User:Bdesham) and Brandon T. Fields, public domain
 
 Tux image (and derivitives) copyright (C) Larry Ewing and The GIMP. ECB and Secure Tux by [Lunkwill](https://en.wikipedia.org/wiki/User:Lunkwill). Free for use.
+
+Cipher block mode (CBC) image by [WhiteTimberwolf](https://commons.wikimedia.org/wiki/User:WhiteTimberwolf), public domain
