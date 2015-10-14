@@ -987,6 +987,22 @@
         </ul>
       </section>
 
+      <section>
+        <h3>Block cipher modes of operation</h3>
+        <p><img src="images/third-party/Block_mode_operation_CBC.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="240" /></p>
+        <p>This is the cipher block chaining (CBC) mode of operation</p>
+        <ul>
+          <li class="fragment">⊕ the first block of plaintext with an IV</li>
+          <li class="fragment">Use key and block cipher to encrypt block</li>
+          <li class="fragment">All future blocks ⊕ the plaintext with the previous block's ciphertext prior to encryption</li>
+        </ul>
+        <p class="fragment friendly-aside">This slide is for educational purposes and should not be construed as an endorsement of CBC mode.</p> 
+      </section>
+
+      <section>
+        <h3>Key management</h3>
+        <p><em>Remember how I said that modern cryptography fixes that whole key exchange thing?</em></p>
+      </section>
 
     </div>
   </div>
