@@ -996,14 +996,85 @@
           <li class="fragment">Use key and block cipher to encrypt block</li>
           <li class="fragment">All future blocks ⊕ the plaintext with the previous block's ciphertext prior to encryption</li>
         </ul>
-        <p class="fragment friendly-aside">This slide is for educational purposes and should not be construed as an endorsement of CBC mode.</p> 
+        <p class="fragment friendly-aside">This slide is for educational purposes and should not be construed as an endorsement of CBC mode.</p>
+        <aside class="notes">
+          The IV prevents patterns between messages in the first block, and the XORing thereon prevents further patterns.
+        </aside>
+      </section>
+
+      <section>
+        <p><em>Unfortunately, symmetric-key cryptography doesn't solve the most persistent of cryptography problems.</em></p>
       </section>
 
       <section>
         <h3>Key management</h3>
-        <p><em>Remember how I said that modern cryptography fixes that whole key exchange thing?</em></p>
+        <p>Symmetric-key cryptography becomes impossible to scale as the number of parties grows.</p>
       </section>
 
+      <section>
+        <h3>Key exchange</h3>
+        <p><img src="images/first-party/alice_and_bob.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
+        <p>Meet Alice and Bob.</p>
+        <p class="fragment">They want to have a conversation.</p>
+      </section>
+
+      <section>
+        <h3>Key exchange</h3>
+        <p><img src="images/first-party/alice_and_bob_key.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
+        <p>No problem, they simply exchange a key.</p>
+        <p class="fragment">One key for two parties.</p>
+        <p class="fragment"><em>But what happens when we add more parties?</em></p>
+      </section>
+
+      <section>
+        <h3>Key exchange</h3>
+        <p><img src="images/first-party/alice_and_bob_key_five.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
+        <p>With just five parties, we're already up to 10 keys!</p>
+      </section>
+
+      <section>
+        <h3>Key management</h3>
+        <table>
+          <tr>
+            <th>Number of parties</th>
+            <th>Number of key pairs</th>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>45</td>
+          </tr>
+          <tr>
+            <td>100</td>
+            <td>4950</td>
+          </tr>
+          <tr>
+            <td>1000</td>
+            <td>499,500</td>
+          </tr>
+          <tr>
+            <td>US population</td>
+            <td>52 quadrillion</td>
+          </tr>
+          <tr>
+            <td>World population</td>
+            <td>2.54 x 10<sup>19</sup></td>
+          </tr>
+        </table>
+        <aside class="notes">
+          The number of key pairs is (n * n-1) / 2, where n is the number of parties.
+        </aside>
     </div>
   </div>
 
