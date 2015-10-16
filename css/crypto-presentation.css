@@ -29,3 +29,10 @@ ul > li > ul > li {
   font-style: oblique !important;
   font-size: .8em !important;
 }
+
+.reveal section img.plain {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  margin: 0;
+}

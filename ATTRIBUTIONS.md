@@ -7,3 +7,5 @@ Vigenère square (tabula recta) based off of image by [bdesham](https://commons.
 Tux image (and derivitives) copyright (C) Larry Ewing and The GIMP. ECB and Secure Tux by [Lunkwill](https://en.wikipedia.org/wiki/User:Lunkwill). Free for use.
 
 Cipher block mode (CBC) image by [WhiteTimberwolf](https://commons.wikimedia.org/wiki/User:WhiteTimberwolf), public domain
+
+Whitfield Diffie image by [Matt Crypto](https://en.wikipedia.org/wiki/User:Matt_Crypto), CC BY 2.0

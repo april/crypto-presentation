@@ -1028,7 +1028,7 @@
 
       <section>
         <h3>Key exchange</h3>
-        <p><img src="images/first-party/alice_and_bob_key_five.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
+        <p><img src="images/first-party/alice_and_bob_key_five.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="550" /></p>
         <p>With just five parties, we're already up to 10 keys!</p>
       </section>
 
@@ -1075,6 +1075,44 @@
         <aside class="notes">
           The number of key pairs is (n * n-1) / 2, where n is the number of parties.
         </aside>
+      </section>
+
+      <section>
+        <h3><em>Symmetric-key cryptography<br />just doesn't scale.</em></h3>
+        <p class="fragment">So how do we fix this?</p>
+      </section>
+
+      <section>
+        <h2>Public-key cryptography</h2>
+        <p class="fragment"><em>Or asymmetric-key cryptography,<br />if you prefer to think of it that way.</em></p>
+      </section>
+
+      <section>
+        <p><img src="images/third-party/Whitfield_Diffie.png"></p>
+        <p>In 1976, this guy struck upon a pair of brilliant ideas.</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/alice_and_bob_key.svg" class="plain"></p>
+        <p><em>What if, instead of two people sharing a key...</em></p>
+      </section>
+
+      <section>
+        <p>
+          <img src="images/first-party/public_key.svg" class="fragment plain" data-fragment-index="1" height="300">
+          <img src="images/first-party/private_key.svg" class="fragment plain" data-fragment-index="2" height="300">
+        </p>
+        <p><em>...each person had two keys?</em></p>
+        <p class="fragment" data-fragment-index="1" >A public key that they could give out to anyone.</p>
+        <p class="fragment" data-fragment-index="2" >And a private key that they kept to themselves.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/public_key_cryptography.svg" height="400"></p>
+        <p>And what if that public key could encrypt messages that only the private key could decrypt?</p>
+      </section>
+
+
     </div>
   </div>
 
