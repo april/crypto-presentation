@@ -36,3 +36,21 @@ ul > li > ul > li {
   box-shadow: none;
   margin: 0;
 }
+
+table.diffie {
+  border: solid 1px black;
+  border-collapse: collapse;
+  font-size: .6em;
+  margin: 0 auto;
+}
+
+table.diffie td, table.diffie th {
+  border: solid 1px black;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+table.diffie th {
+  font-weight: bold;
+}
