@@ -1,0 +1,64 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 600 1200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Layer1" transform="matrix(1,0,0,1,-300,0)">
+        <g id="Hair" transform="matrix(1,0,0,1,300,0)">
+            <path d="M550,215C516.722,42.191 362.692,23.021 300,23.142C237.308,23.263 79.787,45.998 50,215C28.337,337.906 82.623,473.858 80,500C74.316,556.652 10,513.479 10,513.479C10,513.479 31.044,575.929 85,600C201.397,651.926 215.481,549.187 225,525C226.162,522.047 223.533,525.705 225,525C268.78,503.969 373.024,524.205 375,525C383.71,528.504 380.296,659.154 515,600C576.698,572.906 590,513.479 590,513.479C590,513.479 524.067,551.27 520,500C517.703,471.044 572.813,333.467 550,215Z" style="fill:url(#_Radial1);stroke-width:14px;stroke:black;"/>
+        </g>
+        <g id="Lower Body" transform="matrix(1,0,0,1,-49.6249,-9.48105)">
+            <path d="M824.625,959.481C693.952,925.351 611.111,926.136 474.625,959.481C481.945,1104.87 524.625,1149.48 524.625,1149.48C598.671,1185.3 719.592,1182.87 774.625,1149.48C774.625,1149.48 816.909,1111.1 824.625,959.481Z" style="fill:url(#_Radial2);stroke-width:14px;stroke:black;"/>
+        </g>
+        <g id="Upper Body" transform="matrix(1,0,0,-1,-13.499,1548.09)">
+            <path d="M843.499,623.091C843.592,598.516 728.508,548.376 613.499,548.086C499.614,547.798 383.996,597.111 383.499,623.091C380.786,764.828 445.691,1016.01 613.499,1017.28C781.307,1018.55 842.936,771.757 843.499,623.091Z" style="fill:url(#_Radial3);stroke-width:14px;stroke:black;"/>
+        </g>
+        <g id="Face" transform="matrix(1,0,0,1.12669,-28.8457,-12.9465)">
+            <path d="M446.436,268.977C446.223,551.871 615.018,544.151 628.846,544.023C642.673,543.895 810.554,552.083 808.015,268.977C808.015,268.977 741.664,207.694 628.846,209.722C516.027,211.75 446.436,268.977 446.436,268.977Z" style="fill:url(#_Radial4);stroke-width:13.14px;stroke:black;"/>
+        </g>
+        <g id="Nose" transform="matrix(1,0,0,0.741416,-26.3142,179.605)">
+            <path d="M609.517,357.436C619.448,344.86 630.931,344.143 643.03,350.589" style="fill:none;stroke-width:15.9px;stroke:black;"/>
+        </g>
+        <g id="Smirk" transform="matrix(-1,0,0,-0.741416,1254.63,800.264)">
+            <path d="M590.695,377.745C618.06,332.89 668.553,353.142 671.427,357.275" style="fill:none;stroke-width:15.9px;stroke:black;"/>
+        </g>
+        <g id="Right Eye" transform="matrix(0.947643,-0.319331,0.236757,0.702598,28.4844,314.568)">
+            <path d="M573.779,355.298C593.16,334.226 613.406,327.838 640.514,342.032" style="fill:none;stroke-width:15.9px;stroke:black;"/>
+        </g>
+        <g id="Left Eye" transform="matrix(0.996265,-0.0863518,0.0863518,0.996265,-54.5472,105.046)">
+            <ellipse cx="539.705" cy="311.029" rx="20.928" ry="27.361" style="fill:black;stroke-width:14px;stroke:black;"/>
+        </g>
+        <g id="Hair1" transform="matrix(1,0,0,1,300,0)">
+            <path d="M550,215C516.722,42.191 362.692,23.021 300,23.142C237.308,23.263 79.787,45.998 50,215C28.337,337.906 82.623,473.858 80,500C74.316,556.652 10,513.479 10,513.479C10,513.479 31.044,575.929 85,600C201.397,651.926 215.481,549.187 225,525C226.162,522.047 223.533,525.705 225,525C268.78,503.969 373.024,524.205 375,525C383.71,528.504 380.296,659.154 515,600C576.698,572.906 590,513.479 590,513.479C590,513.479 524.067,551.27 520,500C517.703,471.044 572.813,333.467 550,215Z" style="fill:url(#_Radial5);stroke-width:14px;stroke:black;"/>
+        </g>
+        <g id="Lower Body1" transform="matrix(1,0,0,1,-49.6249,-9.48105)">
+            <path d="M824.625,959.481C693.952,925.351 611.111,926.136 474.625,959.481C481.945,1104.87 524.625,1149.48 524.625,1149.48C598.671,1185.3 719.592,1182.87 774.625,1149.48C774.625,1149.48 816.909,1111.1 824.625,959.481Z" style="fill:url(#_Radial6);stroke-width:14px;stroke:black;"/>
+        </g>
+        <g id="Upper Body1" transform="matrix(1,0,0,-1,-13.499,1548.09)">
+            <path d="M843.499,623.091C843.592,598.516 728.508,548.376 613.499,548.086C499.614,547.798 383.996,597.111 383.499,623.091C380.786,764.828 445.691,1016.01 613.499,1017.28C781.307,1018.55 842.936,771.757 843.499,623.091Z" style="fill:url(#_Radial7);stroke-width:14px;stroke:black;"/>
+        </g>
+        <g id="Face1" transform="matrix(1,0,0,1.12669,-28.8457,-12.9465)">
+            <path d="M446.436,268.977C446.223,551.871 615.018,544.151 628.846,544.023C642.673,543.895 810.554,552.083 808.015,268.977C808.015,268.977 741.664,207.694 628.846,209.722C516.027,211.75 446.436,268.977 446.436,268.977Z" style="fill:url(#_Radial8);stroke-width:13.14px;stroke:black;"/>
+        </g>
+        <g id="Nose1" transform="matrix(1,0,0,0.741416,-26.3142,179.605)">
+            <path d="M609.517,357.436C619.448,344.86 630.931,344.143 643.03,350.589" style="fill:none;stroke-width:15.9px;stroke:black;"/>
+        </g>
+        <g id="Smirk1" transform="matrix(1,0,0,0.741416,-7.49235,261.34)">
+            <path d="M590.695,377.745C618.06,332.89 668.553,353.142 671.427,357.275" style="fill:none;stroke-width:15.9px;stroke:black;"/>
+        </g>
+        <g id="Left Eye1" transform="matrix(0.996265,-0.0863518,0.0863518,0.996265,-54.5472,105.046)">
+            <ellipse cx="539.705" cy="311.029" rx="20.928" ry="27.361" style="fill:black;stroke-width:14px;stroke:black;"/>
+        </g>
+        <g id="Left Eye2" transform="matrix(-0.996265,-0.0863518,-0.0863518,0.996265,1249.47,105.046)">
+            <ellipse cx="539.705" cy="311.029" rx="20.928" ry="27.361" style="fill:black;stroke-width:14px;stroke:black;"/>
+        </g>
+    </g>
+    <defs>
+        <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(593.801,-302.381,149.988,417.9,-3.87039,352.318)"><stop offset="0%" style="stop-color:rgb(253,248,235);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(242,218,145);stop-opacity:1"/></radialGradient>
+        <radialGradient id="_Radial2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(389.844,-154.261,98.4707,213.194,460.601,1109.48)"><stop offset="0%" style="stop-color:rgb(187,51,255);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(65,0,98);stop-opacity:1"/></radialGradient>
+        <radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(512.457,-300.001,129.442,414.61,364.983,889.015)"><stop offset="0%" style="stop-color:rgb(187,51,255);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(65,0,98);stop-opacity:1"/></radialGradient>
+        <radialGradient id="_Radial4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(466.155,-236.194,117.746,326.426,400.285,470.658)"><stop offset="0%" style="stop-color:rgb(255,217,184);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(255,205,158);stop-opacity:1"/></radialGradient>
+        <radialGradient id="_Radial5" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(593.801,-302.381,149.988,417.9,-3.87039,352.318)"><stop offset="0%" style="stop-color:rgb(253,248,235);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(242,218,145);stop-opacity:1"/></radialGradient>
+        <radialGradient id="_Radial6" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(389.844,-154.261,98.4707,213.194,460.601,1109.48)"><stop offset="0%" style="stop-color:rgb(187,51,255);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(65,0,98);stop-opacity:1"/></radialGradient>
+        <radialGradient id="_Radial7" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(512.457,-300.001,129.442,414.61,364.983,889.015)"><stop offset="0%" style="stop-color:rgb(187,51,255);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(65,0,98);stop-opacity:1"/></radialGradient>
+        <radialGradient id="_Radial8" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(466.155,-236.194,117.746,326.426,400.285,470.658)"><stop offset="0%" style="stop-color:rgb(255,217,184);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(255,205,158);stop-opacity:1"/></radialGradient>
+    </defs>
+</svg>

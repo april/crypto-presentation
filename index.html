@@ -1021,7 +1021,7 @@
       <section>
         <h3>Key exchange</h3>
         <p><img src="images/first-party/alice_and_bob_key.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
-        <p>No problem, they simply exchange a key.</p>
+        <p>No problem, they physically meet up and exchange a key.</p>
         <p class="fragment">One key for two parties.</p>
         <p class="fragment"><em>But what happens when we add more parties?</em></p>
       </section>
@@ -1093,14 +1093,118 @@
       </section>
 
       <section>
+        <p><em>What if, instead of needing to meet ahead of time to exchange keys, two people could exchange keys remotely?</em></p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/eve.svg" height="400"></p>
+        <p>And an eavesdropper <strong>couldn't</strong><br /> figure out what their key was?</p>
+        <p style="font-size: smaller; font-style: oblique;">(Let's all give a hearty welcome to our eavesdropper, Eve!)
+      </section>
+
+      <section>
+        <p>Welcome to Diffie-Hellman key exchange!</p>
+        <p><img class="plain" src="images/first-party/alice_and_bob_key_with_eve_diffie_hellman.svg" height="400"></p>
+        <p>Diffie-Hellman key exchange allows two parties who have had no prior communications to jointly establish a key remotely, even when their method of communication is insecure.</p>
+      </section>
+
+      <section style="padding: 0;">
+        <p style="margin: 0;"><img class="plain" src="images/third-party/Diffie-Hellman_Key_Exchange_with_Eve.svg" height="700"></p>
+      </section>
+
+      <section>
+        <table class="diffie">
+          <tr>
+            <th colspan="2"><img class="plain" src="images/first-party/alice.svg" height="100"></th>
+            <th colspan="2"><img class="plain" src="images/first-party/bob.svg" height="100"></th>
+            <th colspan="2"><img class="plain" src="images/first-party/eve_sad.svg" height="100"></th>
+          </tr>
+          <tr>
+            <th>Known</th>
+            <th>Unknown</th>
+            <th>Known</th>
+            <th>Unknown</th>
+            <th>Known</th>
+            <th>Unknown</th>
+          </tr>
+          <tr class="fragment">
+            <td><span class="blue">p</span> = <span class="blue">23</span>, <span class="blue">g</span> = <span class="blue">5</span></td>
+            <td></td>
+            <td><span class="blue">p</span> = <span class="blue">23</span>, <span class="blue">g</span> = <span class="blue">5</span></td>
+            <td></td>
+            <td><span class="blue">p</span> = <span class="blue">23</span>, <span class="blue">g</span> = <span class="blue">5</span></td>
+            <td></td>
+          </tr>
+          <tr class="fragment">
+            <td><span class="red">a</span> = <span class="red">6</span></td>
+            <td><span class="red">b</span></td>
+            <td><span class="red">b</span> = <span class="red">15</span></td>
+            <td><span class="red">a</span></td>
+            <td></td>
+            <td><span class="red">a</span>, <span class="red">b</span></td>
+          </tr>
+          <tr class="fragment">
+            <td><span class="blue">A</span> = <span class="blue">g</span><sup class="red">a</sup> mod <span class="blue">p</span></td>
+            <td></td>
+            <td><span class="blue">B</span> = <span class="blue">g</span><sup class="red">b</sup> mod <span class="blue">p</span></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="fragment">
+            <td><span class="blue">A</span> = <span class="blue">5</span><sup class="red">6</sup> mod <span class="blue">23</span> = <span class="blue">8</3></td>
+            <td></td>
+            <td><span class="blue">B</span> = <span class="blue">5</span><sup class="red">15</sup> mod <span class="blue">23</span> = <span class="blue">19</span></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="fragment">
+            <td><span class="blue">B</span> = <span class="blue">19</span></td>
+            <td></td>
+            <td><span class="blue">A</span> = <span class="blue">8</span></td>
+            <td></td>
+            <td><span class="blue">A</span> = <span class="blue">8</span>, <span class="blue">B</span> = <span class="blue">19</span></td>
+            <td></td>
+          </tr>
+          <tr class="fragment">
+            <td><span class="red">s</span> = <span class="blue">B</span><sup class="red">a</sup> mod <span class="blue">p</span></td>
+            <td></td>
+            <td><span class="red">s</span> = <span class="blue">A</span><sup class="red">b</sup> mod <span class="blue">p</span></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="fragment">
+            <td><span class="red">s</span> = <span class="blue">19</span><sup class="red">6</sup> mod <span class="blue">23</span> = <span class="red">2</span></td>
+            <td></td>
+            <td><span class="red">s</span> = <span class="blue">8</span><sup class="red">15</sup> mod <span class="blue">23</span> = <span class="red">2</span></td>
+            <td></td>
+            <td><span class="red">s</span> = <span class="blue">19</span><sup class="red">a</sup> mod <span class="blue">23</span><br><span class="red">s</span> = <span class="blue">8</span><sup class="red">b</sup> mod <span class="blue">2</3</td>
+            <td></td>
+          </tr>
+          <tr class="fragment">
+            <td><span class="red">s</span> = <span class="red">2</span></td>
+            <td></td>
+            <td><span class="red">s</span> = <span class="red">2</span></td>
+            <td></td>
+            <td></td>
+            <td><span class="red">s</span></td>
+          </tr>
+        </table>
+        <p style="font-size: smaller;"><span class="blue">Blue</span> values are public, whereas <span class="red">red</span> values are private (secret).</p>
+      </section>
+
+
+      <section>
         <p><img src="images/first-party/alice_and_bob_key.svg" class="plain"></p>
         <p><em>What if, instead of two people sharing a key...</em></p>
       </section>
 
       <section>
         <p>
-          <img src="images/first-party/public_key.svg" class="fragment plain" data-fragment-index="1" height="300">
-          <img src="images/first-party/private_key.svg" class="fragment plain" data-fragment-index="2" height="300">
+          <img src="images/first-party/public_key_with_text.svg" class="fragment plain" data-fragment-index="1" height="300">
+          <img src="images/first-party/private_key_with_text.svg" class="fragment plain" data-fragment-index="2" height="300">
         </p>
         <p><em>...each person had two keys?</em></p>
         <p class="fragment" data-fragment-index="1" >A public key that they could give out to anyone.</p>
@@ -1112,6 +1216,14 @@
         <p>And what if that public key could encrypt messages that only the private key could decrypt?</p>
       </section>
 
+      <section>
+        <img class="plain" src="images/first-party/alice.svg" style="margin-right: 2em;" height="400">
+        <img class="plain" src="images/first-party/bob.svg" style="margin-right: 2em;" height="400">
+        <img class="plain" src="images/first-party/eve.svg" style="margin-right: 2em;" height="400">
+        <img class="plain" src="images/first-party/mallory.svg" height="400">
+        <p>Meet Alice, Bob, Eve, and Mallory.</p>
+      </section>
+
 
     </div>
   </div>
@@ -1121,9 +1233,12 @@
     // Let's startup reveal.js!
     Reveal.initialize({
       controls: false,
+      height: 700,
       history: true,
       margin: .05,
+      minScale: .1,
       slideNumber: 'c / t',
+      width: 960,
 
       dependencies: [
         { src: 'plugin/notes/notes.js', async: true }
