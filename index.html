@@ -1099,7 +1099,7 @@
       <section>
         <p><img class="plain" src="images/first-party/eve.svg" height="400"></p>
         <p>And an eavesdropper <strong>couldn't</strong><br /> figure out what their key was?</p>
-        <p style="font-size: smaller; font-style: oblique;">(Let's all give a hearty welcome to our eavesdropper, Eve!)
+        <p style="font-size: smaller; font-style: oblique;">(Let's all give a hearty welcome to our eavesdropper, Eve!)</p>
       </section>
 
       <section>
@@ -1112,12 +1112,12 @@
         <p style="margin: 0;"><img class="plain" src="images/third-party/Diffie-Hellman_Key_Exchange_with_Eve.svg" height="700"></p>
       </section>
 
-      <section>
+      <section style="padding-top: 0;">
         <table class="diffie">
           <tr>
-            <th colspan="2"><img class="plain" src="images/first-party/alice.svg" height="100"></th>
-            <th colspan="2"><img class="plain" src="images/first-party/bob.svg" height="100"></th>
-            <th colspan="2"><img class="plain" src="images/first-party/eve_sad.svg" height="100"></th>
+            <th colspan="2"><img class="plain" src="images/first-party/alice.svg" height="80"></th>
+            <th colspan="2"><img class="plain" src="images/first-party/bob.svg" height="80"></th>
+            <th colspan="2"><img class="plain" src="images/first-party/eve_sad.svg" height="80"></th>
           </tr>
           <tr>
             <th>Known</th>
@@ -1127,7 +1127,7 @@
             <th>Known</th>
             <th>Unknown</th>
           </tr>
-          <tr class="fragment">
+          <tr class="fragment" data-fragment-index="1">
             <td><span class="blue">p</span> = <span class="blue">23</span>, <span class="blue">g</span> = <span class="blue">5</span></td>
             <td></td>
             <td><span class="blue">p</span> = <span class="blue">23</span>, <span class="blue">g</span> = <span class="blue">5</span></td>
@@ -1135,7 +1135,7 @@
             <td><span class="blue">p</span> = <span class="blue">23</span>, <span class="blue">g</span> = <span class="blue">5</span></td>
             <td></td>
           </tr>
-          <tr class="fragment">
+          <tr class="fragment" data-fragment-index="2">
             <td><span class="red">a</span> = <span class="red">6</span></td>
             <td><span class="red">b</span></td>
             <td><span class="red">b</span> = <span class="red">15</span></td>
@@ -1143,7 +1143,7 @@
             <td></td>
             <td><span class="red">a</span>, <span class="red">b</span></td>
           </tr>
-          <tr class="fragment">
+          <tr class="fragment" data-fragment-index="3">
             <td><span class="blue">A</span> = <span class="blue">g</span><sup class="red">a</sup> mod <span class="blue">p</span></td>
             <td></td>
             <td><span class="blue">B</span> = <span class="blue">g</span><sup class="red">b</sup> mod <span class="blue">p</span></td>
@@ -1151,7 +1151,7 @@
             <td></td>
             <td></td>
           </tr>
-          <tr class="fragment">
+          <tr class="fragment" data-fragment-index="3">
             <td><span class="blue">A</span> = <span class="blue">5</span><sup class="red">6</sup> mod <span class="blue">23</span> = <span class="blue">8</3></td>
             <td></td>
             <td><span class="blue">B</span> = <span class="blue">5</span><sup class="red">15</sup> mod <span class="blue">23</span> = <span class="blue">19</span></td>
@@ -1159,7 +1159,7 @@
             <td></td>
             <td></td>
           </tr>
-          <tr class="fragment">
+          <tr class="fragment" data-fragment-index="4">
             <td><span class="blue">B</span> = <span class="blue">19</span></td>
             <td></td>
             <td><span class="blue">A</span> = <span class="blue">8</span></td>
@@ -1167,7 +1167,7 @@
             <td><span class="blue">A</span> = <span class="blue">8</span>, <span class="blue">B</span> = <span class="blue">19</span></td>
             <td></td>
           </tr>
-          <tr class="fragment">
+          <tr class="fragment" data-fragment-index="5">
             <td><span class="red">s</span> = <span class="blue">B</span><sup class="red">a</sup> mod <span class="blue">p</span></td>
             <td></td>
             <td><span class="red">s</span> = <span class="blue">A</span><sup class="red">b</sup> mod <span class="blue">p</span></td>
@@ -1175,15 +1175,15 @@
             <td></td>
             <td></td>
           </tr>
-          <tr class="fragment">
+          <tr class="fragment" data-fragment-index="5">
             <td><span class="red">s</span> = <span class="blue">19</span><sup class="red">6</sup> mod <span class="blue">23</span> = <span class="red">2</span></td>
             <td></td>
             <td><span class="red">s</span> = <span class="blue">8</span><sup class="red">15</sup> mod <span class="blue">23</span> = <span class="red">2</span></td>
             <td></td>
-            <td><span class="red">s</span> = <span class="blue">19</span><sup class="red">a</sup> mod <span class="blue">23</span><br><span class="red">s</span> = <span class="blue">8</span><sup class="red">b</sup> mod <span class="blue">2</3</td>
+            <td><span class="red">s</span> = <span class="blue">19</span><sup class="red">a</sup> mod <span class="blue">23</span><br><span class="red">s</span> = <span class="blue">8</span><sup class="red">b</sup> mod <span class="blue">23</span></td>
             <td></td>
           </tr>
-          <tr class="fragment">
+          <tr class="fragment" data-fragment-index="6">
             <td><span class="red">s</span> = <span class="red">2</span></td>
             <td></td>
             <td><span class="red">s</span> = <span class="red">2</span></td>
@@ -1192,9 +1192,63 @@
             <td><span class="red">s</span></td>
           </tr>
         </table>
-        <p style="font-size: smaller;"><span class="blue">Blue</span> values are public, whereas <span class="red">red</span> values are private (secret).</p>
+        <p style="font-size: .7em; margin: .5em 0;"><span class="blue">Blue</span> values are public, whereas <span class="red">red</span> values are private (secret).</p>
+        <ul style="font-size: .6em;">
+          <li class="fragment" data-fragment-index="1">Alice and Bob agree upon a public prime base (<span class="blue">g</span>) and a public prime modulus (<span class="blue">p</span>)</li>
+          <li class="fragment" data-fragment-index="2">Alice chooses a secret private key (<span class="red">a</span>), and Bob chooses a secret private key (<span class="red">b</span>)</li>
+          <li class="fragment" data-fragment-index="3">Alices calculates <span class="blue">g</span><sup class="red">a</sup> mod <span class="blue">p</span>, and Bob calculates <span class="blue">g</span><sup class="red">b</sup> mod <span class="blue">p</span></li>
+          <li class="fragment" data-fragment-index="4">Alice sends Bob her public key (<span class="blue">A</span>), and Bob sends Alice her public key (<span class="blue">B</span>)</li>
+          <li class="fragment" data-fragment-index="5">Alice calculates <span class="blue">B</span><sup class="red">a</sup> mod <span class="blue">p</span>, and Bob calculates <span class="blue">A</span><sup class="red">b</sup> mod <span class="blue">p</span> to arrive at a shared key (<span class="red">s</span>)</li>
+          <li class="fragment" data-fragment-index="6">Since Eve knows neither <span class="red">a</span> nor <span class="red">b</span>, she can't determine the shared key</li>
+        </ul>
+        <aside class="notes">
+          Of course, in reality, the numbers p, a, and b are <strong>much</strong> larger.
+        </aside>
       </section>
 
+      <section>
+        <p>Alas, Diffie-Hellman key exchange has a fatal flaw.</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/eve.svg" class="plain" height="400">
+        <p>While it protects against eavesdroppers like Eve, it doesn't help against someone a bit more... <em>malicious</em>.</p>
+        <aside class="notes">
+          Obviously, if we're talking voice, it's a lot easier.  But what if it's a computer?
+        </aside>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/mallory.svg" class="plain" height="400"></p>
+        <p style="font-size: smaller; font-style: oblique;">Say hello to Mallory, everyone!</p>
+        <p class="fragment">Mallory just <strong>loves</strong> to sit in the middle of conversations and meddle with them.</p>
+        <p class="fragment friendly-aside">Who does things like that?</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/alice_and_bob_key_with_mallory_diffie_hellman_part1.svg" class="plain" height="400"></p>
+        <p>What if Mallory sat in the middle of a conversation between Alice and Bob, pretending to be the other person?</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/alice_and_bob_key_with_mallory_diffie_hellman_part2.svg" class="plain" height="400"></p>
+        <p>Alice would do her key exchange with Mallory, while Bob would do a different key exchange with Mallory.</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/alice_and_bob_key_with_mallory_diffie_hellman_part3.svg" class="plain" height="400"></p>
+        <p>In the end, Alice and Bob would both think that they had securely exchanged keys, but really they would both be talking to Mallory.</p>
+      </section>
+
+      <section>
+        <p>Alice and Bob are both having perfectly secret conversations with Mallory.</p>
+        <p class="fragment" style="padding-top: 2em;">In cryptography, we would say that we have achieved <strong>confidentiality</strong>, but we don't yet have <strong>authenticity</strong>.</p>
+      </section>
+
+      <section>
+        <p><img src="images/third-party/Whitfield_Diffie.png"></p>
+        <p>So what about his other idea?</p>
+      </section>
 
       <section>
         <p><img src="images/first-party/alice_and_bob_key.svg" class="plain"></p>
@@ -1217,14 +1271,12 @@
       </section>
 
       <section>
-        <img class="plain" src="images/first-party/alice.svg" style="margin-right: 2em;" height="400">
-        <img class="plain" src="images/first-party/bob.svg" style="margin-right: 2em;" height="400">
-        <img class="plain" src="images/first-party/eve.svg" style="margin-right: 2em;" height="400">
-        <img class="plain" src="images/first-party/mallory.svg" height="400">
-        <p>Meet Alice, Bob, Eve, and Mallory.</p>
+        <p>Well, it was <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=1055638">great idea</a>.</p>
+        <p>But he &mdash; nor anybody else &mdash; knew how to make the mathematics work.</p>
+        <aside class="notes">
+          Technically Clifford Cocks at the GCHQ had figured it out in 1973, but it was classified at the time.
+        </aside>
       </section>
-
-
     </div>
   </div>
 
