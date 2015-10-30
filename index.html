@@ -1221,7 +1221,7 @@
       <section>
         <p><img src="images/first-party/mallory.svg" class="plain" height="400"></p>
         <p style="font-size: smaller; font-style: oblique;">Say hello to Mallory, everyone!</p>
-        <p class="fragment">Mallory just <strong>loves</strong> to sit in the middle of conversations and meddle with them.</p>
+        <p class="fragment">Mallory just <strong>loves</strong> to sit in the<br />middle of conversations and meddle with them.</p>
         <p class="fragment friendly-aside">Who does things like that?</p>
       </section>
 
@@ -1267,16 +1267,115 @@
 
       <section>
         <p><img class="plain" src="images/first-party/public_key_cryptography.svg" height="400"></p>
-        <p>And what if that public key could encrypt messages that only the private key could decrypt?</p>
+        <p>And what if that public key could encrypt messages that <em>only</em> the private key could decrypt?</p>
       </section>
 
       <section>
         <p>Well, it was <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=1055638">great idea</a>.</p>
-        <p>But he &mdash; nor anybody else &mdash; knew how to make the mathematics work.</p>
+        <p>But he &mdash; nor anybody else &mdash; knew how to<br />make the mathematics work.</p>
         <aside class="notes">
           Technically Clifford Cocks at the GCHQ had figured it out in 1973, but it was classified at the time.
         </aside>
       </section>
+
+      <section>
+        <p>Luckily for all of us, a trio of folks by the name of Ron Rivest, Adi Shamir, and Leonard Adleman discovered a way to make it work.</p>
+        <p class="fragment friendly-aside">You might know them by their initials: RSA</p>
+      </section>
+
+      <section>
+        <h2>RSA cryptosystem</h2>
+        <p>RSA is based on a one-way mathematical function known as a "trapdoor function". These functions are easy to do in one direction, but difficult to do in the other direction.</p>
+        <p class="fragment">More specifically, RSA relies on the difficulty of factoring the multiple of two large prime numbers.</p>
+      </section>
+
+      <section>
+        <h3>RSA: a simple example</h3>
+        <ul>
+          <li>Choose two prime numbers (<span class="red">p</span> = <span class="red">89</span>, <span class="red">q</span> = <span class="red">101</span>); these are the <em>private key</em>.</li>
+          <li class="fragment" data-fragment-index="1">Multiple these numbers together (<span class="blue">n</span> = <span class="red">p</span> × <span class="red">q</span> = <span class="blue">8989</span>); this value (along with a few extra bits) is the <em>public key</em>.</li>
+        </ul>
+        <p class="fragment friendly-aside" data-fragment-index="1" style="margin: .2em auto;">So easy, even a calculator can do it!</p>
+        <ul>
+          <li class="fragment" data-fragment-index="2">Now think about how you would try to figure out the factors of <span class="blue">n</span>, if you didn't know <span class="red">p</span> and <span class="red">q</span> already.</li>
+        </ul>
+        <p class="fragment friendly-aside" data-fragment-index="2" style="margin: .2em auto;">Is it divisible by 2? Nope. How about 3? 5? 7? ...</p>
+        <ul>
+          <li class="fragment" data-fragment-index="3">In reality, <span class="red">p</span> and <span class="red">q</span> are hundreds of digits long, making it infeasible for a computer to determine what the private key is, even knowing the value of <span class="blue">n</span>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <p>Let's take a look at how RSA encryption works in practice...</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_part1.svg" height="400"></p>
+        <p>First, Alice asks Bob for a copy of his public key.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_part2.svg" height="400"></p>
+        <p>Once she has Bob's public key,<br />she then encrypts her message with it.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_part3.svg" height="400"></p>
+        <p>Next, Alice sends the ciphertext to Bob.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_part4.svg" height="400"></p>
+        <p>Finally, Bob decrypts the ciphertext with his private key.</p>
+      </section>
+
+      <section>
+        <p>Now with 100 people, we just need 100 public-private key pairs, instead of 4950 shared keys.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_signing.svg" height="400"></p>
+        <p>Plus, Bob can encrypt messages with his private key that anybody can decrypt to prove his identity.</p>
+        <p class="fragment">We call this <strong>signing</strong>, but more on that later.</p>
+      </section>      
+
+      <section>
+        <h3>I think it's safe to pack it in.</h3>
+        <h3>Cryptography is a solved problem.</h3>
+      </section>
+
+      <section>
+        <h3><em>Not so fast!</em></h3>
+      </section>
+
+      <section>
+        <h3>Public-key cryptography</h3>
+        <ul>
+          <li>Advantages
+            <ul>
+              <li>Solves the key distribution problem</li>
+              <li>Authenticates of the origin of messages</li>
+            </ul>
+          </li>
+          <li>Disadvantages
+            <ul>
+              <li class="fragment">Computationally very slow
+                <ul>
+                  <li>Hundreds of times of slower than symmetric-key crypto</li>
+                </ul>
+              </li>
+              <li class="fragment">Requires very large keys
+                <ul>
+                  <li>RSA keys are typically 2048 bits</li>
+                  <li>AES are typically a mere 128-256 bits</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p class="fragment friendly-aside">This is 16x larger to transmit, and 2<sup>1920</sup>x larger for calculations</em>
+      </section>
+
     </div>
   </div>
 
