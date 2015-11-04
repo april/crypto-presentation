@@ -21,6 +21,15 @@ table.substitution td, table.centered td, table.centered th {
   width: 100%;
 }
 
+.pre-box-container.command-line {
+  padding: .2em;
+}
+
+.pre-box-row.command-line {
+  justify-content: flex-start;
+  text-align: left;
+}
+
 ul > li > ul > li {
   list-style-type: circle;
 }
