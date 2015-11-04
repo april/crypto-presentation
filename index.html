@@ -1376,6 +1376,63 @@
         <p class="fragment friendly-aside">This is 16x larger to transmit, and 2<sup>1920</sup>x larger for calculations</em>
       </section>
 
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_part5.svg" height="400"></p>
+        <p>Also, how <em>does</em> Alice know that she's actually getting Bob's public key when she asks for it?</p>
+        <p class="fragment friendly-aside">We'll get to that, but there's a few more<br />concepts we need to understand first!</p>
+      </section>
+
+      <section>
+        <h2>Hash functions</h2>
+        <p class="friendly-aside">They just don't make concepts like this anymore!</p>
+      </section>
+
+      <section>
+        <h3>Hash functions</h3>
+        <p><img class="plain" src="images/first-party/hash_function.svg" height="450"></p>
+        <p>Cryptographic hash functions take any size input and convert it to a fixed size output called a <strong>hash</strong> or <strong>message digest</strong></p>
+      </section>
+
+      <section>
+        <h3>Hash functions</h3>
+        <ul>
+          <li class="fragment">Always result in the same size output (typically 128-512 bits), regardless of input size</li>
+          <li class="fragment">Sensitive to input changes: a single bit difference in the input should result in a completely different hash</li>
+          <li class="fragment">Make it difficult to find two different inputs that result in the same output (<strong>collision resistance</strong>)</li>
+          <li class="fragment">Aren't reversible: you can't go from the hash back to the original message</li>
+        </ul>
+      </section>
+
+      <section>
+        <p>What might this look like?</p>
+        <div class="pre-box-container command-line">
+          <div class="pre-box-row command-line">
+            $&nbsp;<span class="fragment" data-autoslide="80">s</span><span class="fragment" data-autoslide="80">h</span><span class="fragment" data-autoslide="80">a</span><span class="fragment" data-autoslide="80">s</span><span class="fragment" data-autoslide="80">u</span><span class="fragment" data-autoslide="80">m</span><span class="fragment" data-autoslide="80">&nbsp;</span><span class="fragment" data-autoslide="80">f</span><span class="fragment" data-autoslide="80">i</span><span class="fragment" data-autoslide="80">r</span><span class="fragment" data-autoslide="80">e</span><span class="fragment" data-autoslide="80">f</span><span class="fragment" data-autoslide="80">o</span><span class="fragment" data-autoslide="250">x</span>
+          </div>
+          <div class="pre-box-row command-line"><span class="fragment" data-autoslide="1000000000">b93d1da594d1173c53f1dd1fb9dda5af1864c10b</span>
+          </div>
+        </div>
+       </section>
+
+      <section>
+        <h3>Hash verification</h3>
+        <p><img class="plain" src="images/first-party/hash_function2.svg" height="400"></p>
+        <p>First, Alice creates a hash of her message, and then sends the message and hash onto her ol' pal Bob.</p>
+        <p class="fragment friendly-aside">P.S. This is terribly insecure, please don't do this!</p>
+      </section>
+
+      <section>
+        <h3>Hash verification</h3>
+        <p><img class="plain" src="images/first-party/hash_function3.svg" height="320"></p>
+        <p>Once Bob receives Alice's message, he runs it through the same hash function and then compares it to the hash he received from Alice.</p>
+      </section>
+
+      <section>
+        <h3>Hash verification</h3>
+        <p><img class="plain" src="images/first-party/hash_function4.svg" height="320"></p>
+        <p>But how does Bob know that the message and hash weren't replaced with an entirely different message and associated hash, from Mallory?</p>
+      </section>
+
     </div>
   </div>
 
