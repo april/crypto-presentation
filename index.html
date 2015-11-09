@@ -1407,7 +1407,7 @@
         <p>What might this look like?</p>
         <div class="pre-box-container command-line">
           <div class="pre-box-row command-line">
-            $&nbsp;<span class="fragment" data-autoslide="80">s</span><span class="fragment" data-autoslide="80">h</span><span class="fragment" data-autoslide="80">a</span><span class="fragment" data-autoslide="80">s</span><span class="fragment" data-autoslide="80">u</span><span class="fragment" data-autoslide="80">m</span><span class="fragment" data-autoslide="80">&nbsp;</span><span class="fragment" data-autoslide="80">f</span><span class="fragment" data-autoslide="80">i</span><span class="fragment" data-autoslide="80">r</span><span class="fragment" data-autoslide="80">e</span><span class="fragment" data-autoslide="80">f</span><span class="fragment" data-autoslide="80">o</span><span class="fragment" data-autoslide="250">x</span>
+            $&nbsp;<span class="fragment" data-autoslide="75">s</span><span class="fragment" data-autoslide="75">h</span><span class="fragment" data-autoslide="75">a</span><span class="fragment" data-autoslide="75">s</span><span class="fragment" data-autoslide="75">u</span><span class="fragment" data-autoslide="75">m</span><span class="fragment" data-autoslide="75">&nbsp;</span><span class="fragment" data-autoslide="75">f</span><span class="fragment" data-autoslide="75">i</span><span class="fragment" data-autoslide="75">r</span><span class="fragment" data-autoslide="75">e</span><span class="fragment" data-autoslide="75">f</span><span class="fragment" data-autoslide="75">o</span><span class="fragment" data-autoslide="250">x</span>
           </div>
           <div class="pre-box-row command-line"><span class="fragment" data-autoslide="1000000000">b93d1da594d1173c53f1dd1fb9dda5af1864c10b</span>
           </div>
@@ -1418,13 +1418,13 @@
         <h3>Hash verification</h3>
         <p><img class="plain" src="images/first-party/hash_function2.svg" height="400"></p>
         <p>First, Alice creates a hash of her message, and then sends the message and hash onto her ol' pal Bob.</p>
-        <p class="fragment friendly-aside">P.S. This is terribly insecure, please don't do this!</p>
       </section>
 
       <section>
         <h3>Hash verification</h3>
         <p><img class="plain" src="images/first-party/hash_function3.svg" height="320"></p>
         <p>Once Bob receives Alice's message, he runs it through the same hash function and then compares it to the hash he received from Alice.</p>
+        <p class="fragment friendly-aside">P.S. This is terribly insecure; please don't do this!</p>
       </section>
 
       <section>
@@ -1432,6 +1432,99 @@
         <p><img class="plain" src="images/first-party/hash_function4.svg" height="320"></p>
         <p>But how does Bob know that the message and hash weren't replaced with an entirely different message and associated hash, from Mallory?</p>
       </section>
+
+      <section>
+        <h2>Digital signatures</h2>
+        <p><em>We're finally getting to the good stuff!</em></p>
+      </section>
+
+      <section>
+        <h3>Digital signatures</h3>
+        <p><img class="plain" src="images/first-party/digital_signature1.svg" height="360"></p>
+        <p>What if instead of just sending Bob the plain hash, she created a <strong>digital signature</strong> by encrypting the hash with her <em>private key</em> and sent that to Bob?</p>
+        <p class="fragment friendly-aside">That's why we called this <strong>signing</strong> from earlier!</p>
+      </section>
+
+      <section>
+        <h3>Digital signatures</h3>
+        <p><img class="plain" src="images/first-party/digital_signature2.svg" height="360"></p>
+        <p>Bob would then decrypt it with Alice's <em>public key</em> to get back to original hash. He would then compare it to the message's hash to see if it actually came from Alice.</p>
+      </section>
+
+      <section>
+        <h3>Digital signatures</h3>
+        <p><img class="plain" src="images/first-party/digital_signature3.svg" height="360"></p>
+        <p>Sure, Mallory could make up her own message and say it was from Alice. But since she doesn't have Alice's private key, she can't create the correct digital signature.</p>
+      </section>
+
+      <section>
+        <h3>Digital signatures</h3>
+        <p><img class="plain" src="images/first-party/digital_signature4.svg" height="360"></p>
+        <p>So when Bob tries to decrypt the digital signature with Alice's public key, it would produce a pile of gibberish that doesn't match the correct one!</p>
+      </section>
+
+      <section style="padding: 0;">
+        <h3>Digital signatures</h3>
+        <p><img class="plain" src="images/first-party/digital_signature5.svg" height="300"></p>
+        <p class="left">Of course, if Mallory could forge a message that produced the same hash as Alice's message, she could just reuse Alice's digital signature.</p>
+        <p class="fragment left">But because hash functions are <em>collision resistant</em>, Mallory can't do that either!</p>
+        <p class="fragment friendly-aside">No wonder Mallory looks so grumpy!</p>
+      </section>
+
+      <section>
+        <h3>Let's take a look at a<br /><span class="friendly-aside">(somewhat simplified)</span> cryptosystem...</h3>
+      </section>
+
+      <section style="padding: 0;" data-transition="slide-in fade-out">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-1.svg"></p></div>
+        <p>First, Alice takes her message and<br />encrypts it with Bob's public key.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-2.svg"></p></div>
+        <p>Next, she creates a hash of the ciphertext, and encrypts it with her private key, creating a digital signature.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-3.svg"></p></div>
+        <p>She then sends the encrypted message<br />and the digital signature to Bob.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-4.svg"></p></div>
+        <p>Bob takes the encrypted message from Alice,<br />and decrypts it with his private key.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-5.svg"></p></div>
+        <p>Once the message is decrypted,<br />he takes creates a hash of it, just as Alice did.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-6.svg"></p></div>
+        <p>Bob then takes the digital signature<br />and decrypts it with Alice's public key.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
+        <p>If the two hashes match,<br />he knows the message came from Alice.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
+        <p>We have <strong>confidentiality</strong>, because the message was encrypted with Bob's public key.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
+        <p>We have <strong>authentication</strong>, because only someone with Alice's private key could create a signature that would properly decrypt with Alice's public key.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
+        <p>And we have <strong>integrity</strong>, because if the ciphertext or digital signature were modified, then the resulting hashes wouldn't match.</p>
+      </section>
+
 
     </div>
   </div>
