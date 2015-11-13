@@ -1525,6 +1525,18 @@
         <p>And we have <strong>integrity</strong>, because if the ciphertext or digital signature were modified, then the resulting hashes wouldn't match.</p>
       </section>
 
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
+        <p class="friendly-aside">Not shown: In real-world implementations, we typically create a symmetric key and encrypt the message with that. The symmetric key is then encrypted using the public key of Bob and signed with Alice's private key.</p>
+      </section>
+
+      <section>
+        <p class="fragment" data-fragment-index="1"><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_is_this_the_right_key.svg"></p>
+        <p>Using public-key cryptography and digital signatures<br /> gets us a complete cryptosystem.</p>
+        <p>But it all relies on one particular lynchpin.</p>
+        <p class="fragment" data-fragment-index="1"><em>How does Alice know that she <br />actually has Bob's public key?</em></p>
+      </section>
+
 
     </div>
   </div>
