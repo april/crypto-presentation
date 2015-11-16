@@ -1537,6 +1537,46 @@
         <p class="fragment" data-fragment-index="1"><em>How does Alice know that she <br />actually has Bob's public key?</em></p>
       </section>
 
+      <section>
+        <p>What if I told you that there was a way?</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/certificate1.svg" height="350"></p>
+        <p>What if we created a document about Bob,<br />containing his public key?</p>
+        <p class="fragment friendly-aside">It would be kind of like a driver's license, but for cryptography.</p>
+      </section>
+
+      <section>
+        <p>And what if there was someone that<br />we trusted to verify identities?</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/certificate_bob_signed.svg" height="350"></p>
+        <p>They could sign Bob's document,<br />verifying that the public key actually<br />belonged to Bob and nobody else.</p>
+      </section>
+
+      <section>
+        <p>
+          <img src="images/first-party/certificate_alice_signed.svg" class="fragment plain" data-fragment-index="1" height="320">
+          <img src="images/first-party/certificate_bob_signed.svg" class="fragment plain" data-fragment-index="2" height="320">
+          <img src="images/first-party/certificate_eve_signed.svg" class="fragment plain" data-fragment-index="3" height="320">
+        </p>
+        <p>As long as we trusted them to properly verify<br />the ownership of the public keys, we could<br />let them sign anybody's document&hellip;</p>
+        <p class="friendly-aside">
+          <span class="fragment" data-fragment-index="1">&hellip; whether it be Alice's</span><span class="fragment" data-fragment-index="2">, Bob's</span><span class="fragment" data-fragment-index="3">, or Eve's.</span>
+        </p>
+      </section>
+
+      <section>
+        <p>This way, we'd only need to find a way to securely acquire a small number of verifier's public keys.</p>
+      </section>
+
+      <section>
+        <h3>Good news!</h3>
+        <p>We call these so-called verifiers<br /><strong>certificate authorities</strong>.</p>
+      </section>
+
 
     </div>
   </div>
