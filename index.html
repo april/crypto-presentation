@@ -104,7 +104,7 @@
 
       <!-- Begin history -->
       <section>
-        <h1>Cryptography History</h1>
+        <h2>Cryptography History</h2>
         <p><em>Let's take a ride in the way back machine!</em></p>
       </section>
 
@@ -1531,9 +1531,9 @@
       </section>
 
       <section>
+        <p>Using public-key cryptography and digital<br />signatures gets us a complete cryptosystem.</p>
+        <p>But one unsolved problem remains.</p>
         <p class="fragment" data-fragment-index="1"><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_is_this_the_right_key.svg"></p>
-        <p>Using public-key cryptography and digital signatures<br /> gets us a complete cryptosystem.</p>
-        <p>But it all relies on one particular lynchpin.</p>
         <p class="fragment" data-fragment-index="1"><em>How does Alice know that she <br />actually has Bob's public key?</em></p>
       </section>
 
@@ -1564,7 +1564,7 @@
         </p>
         <p>As long as we trusted them to properly verify<br />the ownership of the public keys, we could<br />let them sign anybody's document&hellip;</p>
         <p class="friendly-aside">
-          <span class="fragment" data-fragment-index="1">&hellip; whether it be Alice's</span><span class="fragment" data-fragment-index="2">, Bob's</span><span class="fragment" data-fragment-index="3">, or Eve's.</span>
+          <span class="fragment" data-fragment-index="1">&hellip;whether it be Alice's</span><span class="fragment" data-fragment-index="2">, Bob's</span><span class="fragment" data-fragment-index="3">, or Eve's.</span>
         </p>
       </section>
 
@@ -1575,8 +1575,122 @@
       <section>
         <h3>Good news!</h3>
         <p>We call these so-called verifiers<br /><strong>certificate authorities</strong>.</p>
+        <p class="fragment">And those documents?<br />Well, they're called <strong>certificates</strong>.</p>
       </section>
 
+      <section>
+        <p><img src="images/first-party/pile_of_certificate_authorities.png" height="400"></p>
+        <p>Your operating system and browser come preloaded with a collection of certificates that contain the public keys of these certificate authorities (CAs).</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/certificate_chain.png" height="400"></p>
+        <p>This is the certificate for www.mozilla.org.</p>
+        <p>DigiCert was the certificate authority<br /> that issued the certificate.</p>
+      </section>
+
+      <section>
+        <p>Certificate authorities have a<br />number of responsibilities:</p>
+        <ul style="margin: 1em 2.5em;">
+          <li class="fragment">Verifying the ownership of a public key</li>
+          <li class="fragment">Signing digital certificates</li>
+          <li class="fragment">Issuing records about signed certificates</li>
+          <li class="fragment">Revoking certificates when the private key becomes compromised</li>
+        </ul>
+      </section>
+
+      <section>
+        <p>Let's take a look at an actual certificate&hellip;</p>
+      </section>
+
+      <section style="padding: 0;">
+    <pre style="font-size: .4em; margin-top: 0; padding: 1em;"><span class="fragment highlight-current-red" data-fragment-index="1">Serial Number: 04:e4:eb:1e:7f:8c:51:09:db:bf:0c:1c:7f:41:16:91</span>
+<span class="fragment highlight-current-red" data-fragment-index="2">Issuer: C=US, O=DigiCert Inc, OU=digicert.com, CN=DigiCert High Assurance EV CA-1</span>
+<span class="fragment highlight-current-red" data-fragment-index="3">Validity:
+    Not Before: Dec  2 00:00:00 2013 GMT
+    Not After : Dec  7 12:00:00 2015 GMT</span>
+Subject: C=US, ST=CA, L=Mountain View, O=Mozilla Foundation, CN=<span class="fragment highlight-current-red" data-fragment-index="4">www.mozilla.org</span>
+<span class="fragment highlight-current-red" data-fragment-index="5">Subject Public Key Info:
+    Public Key Algorithm: rsaEncryption
+        Public-Key: (2048 bit)
+        Modulus:
+            00:b8:71:c1:e0:d1:87:20:8d:bc:56:6e:16:ad:21:
+            63:64:de:58:33:46:c4:06:e5:5b:3d:cc:1b:c0:10:
+                       [...]
+        Exponent: 65537 (0x10001)</span>
+X509v3 extensions:
+    X509v3 Subject Alternative Name:
+        DNS:<span class="fragment highlight-current-red" data-fragment-index="4">www.mozilla.org</span>, DNS:<span class="fragment highlight-current-red" data-fragment-index="4">mozilla.org</span>
+    <span class="fragment highlight-current-red" data-fragment-index="6">X509v3 Key Usage:
+        Digital Signature, Key Encipherment,
+        TLS Web Server Authentication, TLS Web Client Authentication</span>
+    <span class="fragment highlight-current-red" data-fragment-index="7">X509v3 CRL Distribution Points:
+        URI:http://crl3.digicert.com/evca1-g4.crl</span>
+
+<span class="fragment highlight-current-red" data-fragment-index="8">Signature Algorithm: sha1WithRSAEncryption
+     19:e3:3a:a0:e8:3e:82:7f:dc:ad:56:f3:eb:b1:5c:b0:73:37:
+     6e:cf:df:51:08:f5:0b:36:17:dc:f8:a4:1e:df:95:8e:aa:47:
+                       [...]</span></pre>
+        <div style="display: table;">
+          <span>
+            <ul style="font-size: .7em;">
+              <li class="fragment" data-fragment-index="1"><span class="fragment highlight-current-red" data-fragment-index="1">A serial number, unique to that CA</span></li>
+              <li class="fragment" data-fragment-index="2"><span class="fragment highlight-current-red" data-fragment-index="2">The CA that issued the certificate</span></li>
+              <li class="fragment" data-fragment-index="3"><span class="fragment highlight-current-red" data-fragment-index="3">When the certificate is valid for</span></li>
+              <li class="fragment" data-fragment-index="4"><span class="fragment highlight-current-red" data-fragment-index="4">Who the certificate is valid for</span></li>
+            </ul>
+          </span>
+          <span>
+            <ul style="font-size: .7em; margin-left: 1.5em;">
+              <li class="fragment" data-fragment-index="5"><span class="fragment highlight-current-red" data-fragment-index="5">The public key</span></li>
+              <li class="fragment" data-fragment-index="6"><span class="fragment highlight-current-red" data-fragment-index="6">What the certificate is valid for</span></li>
+              <li class="fragment" data-fragment-index="7"><span class="fragment highlight-current-red" data-fragment-index="7">Where to check certificate revokation</span></li>
+              <li class="fragment" data-fragment-index="8"><span class="fragment highlight-current-red" data-fragment-index="8">The CA's digital signature</span></li>
+            </ul>
+          </span>
+        </div>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/certificate_chain2.png" height="350"></p>
+        <p>If you were paying attention, you may have noticed that there are two certificates listed above www.mozilla.org in what is called the <strong>certificate chain</strong>.
+      </section>
+
+      <section>
+        <p><img src="images/first-party/certificate_chain_root.png" height="350"></p>
+        <p>The top-level certificate is the <strong>root certificate</strong>.</p>
+        <p>This is the certificate your browser comes bundled with.</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/certificate_chain_intermediate.png" height="350"></p>
+        <p>The center certificate is the <strong>intermediate certificate</strong>.</p>
+        <p>CAs don't sign end-user certificates directly with their root certificate, as the risk is too high.</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/certificate_chain_root.png" height="350"></p>
+        <p><em>If the private key for the root were ever compromised, every certificate the CA had issued would instantly become invalid when trust in the public key was revoked.</em></p>
+        <aside class="notes">
+          This is because the browsers and OS makers would have to remove that root, instantly causing distrust in all certs issued by them.
+        </aside>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/certificate_chain_intermediate.png" height="400"></p>
+        <p>Instead, CAs create an intermediate key pair and certificate, and sign that with the root certificate.</p>
+        <p>They then issue a limited number of certificates with that intermediate certificate, before creating a new one.</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/certificate_chain_leaf.png" height="350"></p>
+        <p>Finally, you have the <strong>end-entity (EE)</strong> or <strong>leaf certificate</strong>.</p>
+        <p>This is the certificate that identifies<br />an individual or organization.</p>
+      </section>
+
+      <section>
+        <p>This whole system of trust, registration, certificates, chains, authorities, and revokation is collectively known as the <strong>public key infrastructure</strong>, or <strong>PKI</strong>.</p>
+      </section>
 
     </div>
   </div>
