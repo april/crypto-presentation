@@ -823,7 +823,7 @@
             </ul>
           </li>
 
-          <li class="fragment" data-fragment-index="4">Non-repudition
+          <li class="fragment" data-fragment-index="4">Non-repudiation
             <ul class="fragment" data-fragment-index="4">
               <li><em>Can somebody deny that they sent a message?</em></li>
             </ul>
@@ -1525,7 +1525,7 @@
         <p>And we have <strong>integrity</strong>, because if the ciphertext or digital signature were modified, then the resulting hashes wouldn't match.</p>
       </section>
 
-      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+      <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
         <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
         <p class="friendly-aside">Not shown: In real-world implementations, we typically create a symmetric key and encrypt the message with that. The symmetric key is then encrypted using the public key of Bob and signed with Alice's private key.</p>
       </section>
@@ -1549,6 +1549,7 @@
 
       <section>
         <p>And what if there was someone that<br />we trusted to verify identities?</p>
+        <p class="fragment friendly-aside">Just like how your government verifies your driver's license identity.</p>
       </section>
 
       <section>
@@ -1665,7 +1666,7 @@ X509v3 extensions:
       <section>
         <p><img src="images/first-party/certificate_chain_intermediate.png" height="350"></p>
         <p>The center certificate is the <strong>intermediate certificate</strong>.</p>
-        <p>CAs don't sign end-user certificates directly with their root certificate, as the risk is too high.</p>
+        <p>CAs don't sign end-user certificates with their root certificate, as the risk is too high.</p>
       </section>
 
       <section>
@@ -1689,8 +1690,66 @@ X509v3 extensions:
       </section>
 
       <section>
-        <p>This whole system of trust, registration, certificates, chains, authorities, and revokation is collectively known as the <strong>public key infrastructure</strong>, or <strong>PKI</strong>.</p>
+        <p>This whole system of trust, registration, certificates, chains, authorities, and revocation is collectively known as the <strong>public key infrastructure</strong>, or <strong>PKI</strong>.</p>
       </section>
+
+      <section>
+        <p>Now that we've got a strong grasp of all the cryptographic primitives, let's walk through the most important implementation.</p>
+      </section>
+
+      <section>
+        <h2>Transport Layer Security</h2>
+        <p class="left">Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), is the protocol used by applications to communicate securely across a network.</p>
+        <p class="left">It's the protocol that protects our web browsing, emails, instant messages, and much more.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/tls1-1.svg" height="350"></p>
+        <p>First, Alice sends Bob a random number and the list of cipher suites that she supports.</p>
+        <p class="fragment">A <strong>cipher suite</strong> is a combination of key exchange, authentication, encryption, and message authentication methods.</p>
+        <aside class="notes">
+          We'll talk about MACs later on.
+        </aside>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/tls1-2.svg" height="400"></p>
+        <p>Bob then selects a different random number and chooses his Diffie-Hellman key exchange parameters.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/tls1-3.svg" height="400"></p>
+        <p>He then takes both random numbers and the public Diffie-Hellman parameters and signs them with the private key for his certificate, to create a digital signature.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/tls1-4.svg" height="250"></p>
+        <p>He then sends Alice:</p>
+        <ul>
+          <li>His chosen random number</li>
+          <li>p, g, and g<sup>b</sup> mod p = B</li>
+          <li>A digital signature created from the random numbers and DH parameters</li>
+          <li>His digital certificate, issued by a certificate authority</li>
+          <li>His choice of cipher suite, from Alice's options</li>
+        </ul>
+      </section>
+
+      <section style="padding: 0;" data-transition="slide-in fade-out">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls1-5-1.svg"></p></div>
+        <p>First, Alice takes Bob's certificate (sans digital signature) and creates a hash of it.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls1-5-2.svg"></p></div>
+        <p>Then, she takes the digital signature in the certificate and decrypts it with the CA's public key.</p>
+        <p class="fragment friendly-aside">Remember: this key came bundled with her browser!</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls1-5-f.svg"></p></div>
+        <p>If the two hashes match, she knows that the certificate actually belongs to Bob: the CA confirmed it with its digital signature.</p>
+      </section>
+
 
     </div>
   </div>
