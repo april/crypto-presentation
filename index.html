@@ -928,9 +928,9 @@
         <h3>Stream ciphers</h3>
           <ul>
             <li>Operate on one bit at a time</li>
-            <li class="fragment">Key is combined with an initialization vector to produce a stream of bits as long as your message, known as a <em>keystream</em></li>
+            <li class="fragment">Key is permutated with an initialization vector (IV) or nonce to produce a stream of bits as long as your message, known as a <em>keystream</em></li>
             <li class="fragment">Keystream is then XORed with the plaintext to produce the ciphertext</li>
-            <li class="fragment">Like a one-time pad, the keystream must never be reused; the IV must change with each use</li>
+            <li class="fragment">Like a one-time pad, the keystream must never be reused; the IV or nonce must change with each use</li>
           </ul>
 
         <aside class="notes">
@@ -1690,7 +1690,7 @@ X509v3 extensions:
       <section>
         <p><img src="images/first-party/certificate_chain_intermediate.png" height="400"></p>
         <p>Instead, CAs create an intermediate key pair and certificate, and sign that with the root certificate.</p>
-        <p>They then issue a limited number of certificates with that intermediate certificate, before creating a new one.</p>
+        <p>This intermediate CA then issues all end-user certificates. It's periodically replaced as technology progresses.</p>
       </section>
 
       <section>
