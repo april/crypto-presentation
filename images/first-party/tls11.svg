@@ -44,7 +44,7 @@
             </g>
         </g>
     </g>
-    <g id="tls1-11_conversation" transform="matrix(0.130348,0,0,0.130348,115.051,21.7911)">
+    <g id="tls11_handshake" transform="matrix(0.130348,0,0,0.130348,115.051,21.7911)">
         <g id="Layer11" transform="matrix(1,0,0,1,-100,0)">
             <g id="random_alice" transform="matrix(0.386525,0,0,0.386525,83.8086,-16.3915)">
                 <g id="Layer12" transform="matrix(1,0,0,1,-100,0)">
@@ -132,8 +132,8 @@
                     <g transform="matrix(1.05814,0,0,1.06583,-123.879,-73.7269)">
                         <path d="M1071.59,153.015L296.633,153.051L296.621,1111.21L1071.59,1111.21L1071.59,153.015Z" style="fill:white;stroke-width:13.18px;stroke-miterlimit:1.41421;stroke:black;"/>
                     </g>
-                    <g transform="matrix(19.2566,0,0,19.2566,-8781.31,-11028.8)">
-                        <text x="469.337px" y="606.582px" style="font-family:Times;font-size:12px;fill:black;">Suite B</text>
+                    <g transform="matrix(19.2566,0,0,19.2566,-8789.61,-11379.7)">
+                        <text x="469.337px" y="606.582px" style="font-family:Times;font-size:12px;fill:black;">Suite A</text>
                     </g>
                 </g>
             </g>
