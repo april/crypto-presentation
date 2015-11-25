@@ -1532,7 +1532,7 @@
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
         <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
-        <p>And we have <strong>integrity</strong>, because if the ciphertext or digital signature were modified, then the resulting hashes wouldn't match.</p>
+        <p>And we have <strong>integrity</strong>, because if the ciphertext or digital signature were modified or replaced, then the resulting hashes wouldn't match.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
@@ -1868,7 +1868,12 @@ X509v3 extensions:
       </section>
 
       <section>
-        <p><em>Fret not, Alice! The fix is in!</em></p>
+        <p><img class="plain" style="margin-right: 2em;" src="images/first-party/alice_sad.svg" height="400"><img class="plain" src="images/first-party/bob_sad.svg" height="400"></p>
+        <p>And even Alice and Bob did both have private keys, they wouldn't want to: digital signatures are <em>really slow</em>.</p>
+      </section>
+
+      <section>
+        <p><em>Fret not, heroes! The fix is in!</em></p>
       </section>
 
       <section style="padding: 0;" data-transition="slide-in fade-out">
@@ -1904,6 +1909,13 @@ X509v3 extensions:
       </section>
 
       <section>
+        <p><img class="plain" src="images/first-party/hmac.svg" height="300"></p>
+        <p>Think of HMACs as a kind of digital signature that you can do with symmetric-key cryptography.</p>
+        <p class="fragment friendly-aside" data-fragment-index="1">However, unlike digital signatures, they can only show that the message came from a party who possesses the symmetric key.</p>
+        <p class="fragment friendly-aside" data-fragment-index="1">They don't provide authenticity or non-repudiation.</p>
+      </section>
+
+      <section>
         <p>Once Alice and Bob are finished communicating, they throw away the symmetric keys that they generated with Diffie-Hellman key exchange.</p>
         <p class="fragment">This ensures that their conversation can't decrypted in the future, a feature known as <strong>perfect forward secrecy</strong>.</p>
       </section>
@@ -1915,7 +1927,8 @@ X509v3 extensions:
           <li class="fragment">A certificate authority binds a public key to Bob</li>
           <li class="fragment">Bob uses his private key to create a digital signature to prove to Alice that she's talking to him</li>
           <li class="fragment">An encrypted hash ensures that their handshake hasn't been tampered with</li>
-          <li class="fragment">Both Alice and Bob use HMACs to protect the integrity of their future messages</li>
+          <li class="fragment">Alice and Bob keep their messages confidential by using a symmetric-key cipher</li>
+          <li class="fragment">HMACs protect the integrity of their future messages</li>
           <li class="fragment">Once the TLS session is over, they both discard their keys to provide perfect forward secrecy</li>
         </ul>
         <p class="fragment friendly-aside">Note: you can use RSA instead of Diffie-Hellman during the handshake,<br />but you lose perfect forward secrecy.</p>
