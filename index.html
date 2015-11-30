@@ -32,7 +32,14 @@
           <li>Recognize the shortcomings and pitfalls inherent in building and implementing cryptographic systems</li>
         </ul>
       </section>
- 
+
+      <section>
+        <ul>
+          <h2>Ignorance Objectives</h2>
+          <li>Teach you to write your own cryptography</li>
+        </ul>
+      </section> 
+
       <!-- Definitions below -->
       <section>
         <section>
@@ -1552,7 +1559,7 @@
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/certificate1.svg" height="350"></p>
+        <p><img class="plain" src="images/first-party/certificate_bob.svg" height="350"></p>
         <p>What if we created a document about Bob,<br />containing his public key?</p>
         <p class="fragment friendly-aside">It would be kind of like a driver's license, but for cryptography.</p>
       </section>
@@ -1739,7 +1746,7 @@ X509v3 extensions:
           <li>His chosen random number</li>
           <li><span class="blue">p</span>, <span class="blue">g</span>, and <span class="blue">g</span><sup class="red">b</sup> mod <span class="blue">p</span> = <span class="blue">B</span></li>
           <li>A digital signature created from the random numbers and DH parameters</li>
-          <li>His digital certificate, issued by a certificate authority</li>
+          <li>His digital certificate and its certificate chain</li>
           <li>His choice of cipher suite, from Alice's options</li>
         </ul>
       </section>
@@ -1751,13 +1758,23 @@ X509v3 extensions:
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
         <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-2.svg"></p></div>
-        <p>Then, she takes the digital signature in the certificate and decrypts it with the CA's public key.</p>
+        <p>Then, she takes the digital signature in the certificate and decrypts it with the intermediate CA's public key.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-3-f.svg"></p></div>
+        <p>If the two hashes match, she knows that the certificate was signed by the intermediate CA.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="slide-in fade-out" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-4.svg"></p></div>
+        <p>She repeats this process for every certificate in the chain until reaching the one signed by the root CA's public key.</p>
         <p class="friendly-aside">Remember: this key came bundled with her browser!</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-f.svg"></p></div>
-        <p>If the two hashes match, she knows that the certificate (and public key) actually belongs to Bob: the CA confirmed it with its digital signature.</p>
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-5-f.svg"></p></div>
+        <p>If the two hashes match, she knows that the certificate chain is valid and Bob's public key actually belongs to Bob: the CA confirmed it with its digital signature.</p>
       </section>
 
       <section>
@@ -1766,7 +1783,7 @@ X509v3 extensions:
         <p class="fragment friendly-aside">Remember, since certificates are public,<br />everybody has access to Bob's certificate.</p>
       </section>
 
-      <section style="padding: 0;" data-transition="slide-in fade-out">
+      <section style="padding: 0;" data-transition="slide-in fade-out" data-transition-speed="default">
         <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls7-1.svg"></p></div>
         <p>First, Alice takes the random numbers and DH parameters that &ldquo;Bob&rdquo; sent and hashes them.</p>
       </section>

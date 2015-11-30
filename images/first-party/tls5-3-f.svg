@@ -366,6 +366,9 @@
             </g>
         </g>
     </g>
+    <g transform="matrix(4.62451,-1.13268e-15,1.13268e-15,4.62451,-2914.6,-973.136)">
+        <text x="791.5px" y="254.654px" style="font-family:Helvetica;font-size:24px;fill:black;">=</text>
+    </g>
     <g transform="matrix(1.17426,0,0,1,-73.1224,10.8354)">
         <path d="M220.239,166.639L652.603,166.639" style="fill:none;stroke-width:2.75px;stroke:black;"/>
     </g>
