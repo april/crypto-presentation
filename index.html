@@ -1123,6 +1123,7 @@
         <p>Welcome to Diffie-Hellman key exchange!</p>
         <p><img class="plain" src="images/first-party/alice_and_bob_key_with_eve_diffie_hellman.svg" height="400"></p>
         <p>Diffie-Hellman key exchange allows two parties who have had no prior communications to jointly establish a key remotely, even when their method of communication is insecure.</p>
+        <aside class="notes">Note that this presentation uses classic DHE, instead of the recommended ECDH for simplicity purposes.</aside>
       </section>
 
       <section style="padding: 0;">
@@ -1724,12 +1725,12 @@ X509v3 extensions:
         <p><img class="plain" src="images/first-party/tls1.svg" height="350"></p>
         <p>First, Alice sends Bob a random number and the list of cipher suites that she supports.</p>
         <p class="fragment">A <strong>cipher suite</strong> is a combination of key exchange, authentication, encryption, and message authentication.</p>
-        <aside class="notes">          We'll talk about MACs later on.
-        </aside>
+        <p class="fragment friendly-aside">Feast your eyes: ECDHE-RSA-AES128-GCM-SHA256</p>
+        <aside class="notes">We'll talk about MACs later on.</aside>
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/tls2.svg" height="450"></p>
+        <p><img class="plain" src="images/first-party/tls2.svg" height="400"></p>
         <p>Bob then selects a different random number and chooses his Diffie-Hellman key exchange parameters.</p>
         <p>He also selects a cipher suite, from Alice's options.</p>
       </section>
@@ -1949,6 +1950,34 @@ X509v3 extensions:
           <li class="fragment">Once the TLS session is over, they both discard their keys to provide perfect forward secrecy</li>
         </ul>
         <p class="fragment friendly-aside">Note: you can use RSA instead of Diffie-Hellman during the handshake,<br />but you lose perfect forward secrecy.</p>
+      </section>
+
+      <section>
+        <p style="margin-bottom: 2em;"><em>Who here is ready to go write your own cryptography?</em></p>
+        <p class="fragment friendly-aside"><strong>Raise your hands!</strong></p>
+      </section>
+
+      <section>
+        <p style="margin-bottom: 1em;">
+          <img class="plain" style="margin-right: 2em;" src="images/first-party/alice_sad.svg" height="300">
+          <img class="plain" style="margin-right: 2em;" src="images/first-party/bob_sad.svg" height="300">
+          <img class="plain" style="margin-right: 2em;" src="images/first-party/eve.svg" height="300">
+          <img class="plain" src="images/first-party/mallory_happy.svg" height="300">
+        </p>
+        <p><em>Noooooooooo! It's a trap!</em></p>
+      </section>
+
+
+      <section>
+        <h1 style="font-size: 8em;"><strong>?</strong></h1>
+      </section>
+
+      <section>
+        <h2>Feedback</h2>
+        <ul>
+          <li>Issues @ <a href="https://github.com/marumari/crypto-presentation/">gh/marumari/crypto-presentation</a></li>
+          <li>IRC @ irc.mozilla.org #infosec (April)</li>
+        </ul>
       </section>
 
     </div>
