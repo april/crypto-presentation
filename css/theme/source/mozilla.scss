@@ -75,6 +75,10 @@ body {
   text-align: left;
 }
 
+.mono {
+  text-family: monospace !important;
+}
+
 .fragment.highlight-current-green.current-fragment {
   color: #1fb26b !important;
 }
