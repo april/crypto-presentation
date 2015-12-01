@@ -2033,12 +2033,12 @@ X509v3 extensions:
         </aside>
       </section>
 
-      <section>
+      <section data-transition="fade-out">
         <p>Even when some of the best cryptographic engineers in the world work on crypto, they can still get it wrong.</p>
         <p class="fragment friendly-aside">Don't make the same mistake: don't write your own crypto!</p>
       </section>
 
-      <section>
+      <section data-transition="fade-in">
         <h3>A brief exercise</h3>
         <p>You run a photo sharing site with a public API:</p>
         <ul>
@@ -2052,7 +2052,6 @@ X509v3 extensions:
           <li>To authenticate the message, the user concatenate their secret key with their message and generate a message authentication code using the cryptographic hash function <strong>MD5</strong></li>
         </ul>
       </section>
-
 
       <section data-background-iframe="code/badmd5.html">
       </section>

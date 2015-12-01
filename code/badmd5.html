@@ -10,7 +10,7 @@
     <pre style="font-size: 2.35vh; height: 100%;"><code class="python" data-trim>##### CLIENT-SIDE CODE #####
 
 # User credentials
-id = 'mozilla'
+id     = 'mozilla'
 secret = '3964a356-d631-4a58-8a8a-0ccad3d273a4'
 
 # Parameters to send: action=create&id=mozilla&name=my-new-photo
@@ -20,7 +20,7 @@ params = {'action': 'create', 'id': id, 'name': 'my-new-photo'}
 message       = params + {'secret': secret}
 challenge_mac = hashlib.md5(message).hexdigest() # f2db78292cd7c894581d4b61726ff350
 
-# Add the MAC to the POST parameters
+# Prepend the MAC to the POST parameters
 params = {'mac': challenge_mac} + params
 
 # Make the POST request: mac=f2db78292cd7c894581d4b61726ff350&action=create&id=mozilla&name=my-new-photo
