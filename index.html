@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Mozilla Cryptography Class</title>
   <link rel="stylesheet" href="css/reveal.css">
-  <link rel="stylesheet" href="css/theme/mozilla.css" id="theme"> 
+  <link rel="stylesheet" href="css/theme/mozilla.css" id="theme">
   <link rel="stylesheet" href="css/crypto-presentation.css">
   <script src="lib/js/head.min.js"></script>
   <script src="js/reveal.js"></script>
@@ -1958,7 +1958,7 @@ X509v3 extensions:
 
       <section>
         <p style="margin-bottom: 2em;"><em>Who here is ready to go write your own cryptography?</em></p>
-        <p class="fragment friendly-aside"><strong>Go on. Raise your hands. You know you want to.</strong></p>
+        <p class="fragment friendly-aside" data-autoslide="2000"><strong>Go on. Raise your hands. <span class="fragment">You know you want to.</span></strong></p>
       </section>
 
       <section>
@@ -1970,6 +1970,130 @@ X509v3 extensions:
         </p>
         <p><em>Noooooooooooo! It's a trap!</em></p>
       </section>
+
+      <section style="padding-top: 0;">
+        <h3>Attacks on cryptography</h3>
+        <table style="font-size: .7em;">
+          <tr>
+            <th>Bad crypto</th>
+            <th>Bad implementations</th>
+          </tr>
+          <tr>
+            <td>DES</td>
+            <td>BREACH / CRIME</td>
+          </tr>
+          <tr>
+            <td>MD5</td>
+            <td>FREAK</td>
+          </tr>
+          <tr>
+            <td>RC4</td>
+            <td>Goto Fail</td>
+          </tr>
+          <tr>
+            <td>SHA-1</td>
+            <td>Heartbleed</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Logjam</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Lucky Thirteen</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>POODLE</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>WEP (Wireless Encryption)</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Windows LM Hashes</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="friendly-aside">(and on and on and on and on)</td>
+          </tr>
+        </table>
+        <aside class="notes">
+          BREACH: TLS compression, CRIME: HTTP compression
+          FREAK: Export downgrade
+          Goto Fail: Apple handshake verification failure
+          Heartbleed: OpenSSL TLS heartbeat leaks memory contents
+          Logjam: Use of standardized and insufficiently-sized DH group sizes
+          Lucky Thirteen: Padding oracle / timing side-channel attack on MACs
+          POODLE: Padding oracle attack when using CBC in SSL 3.0
+          WEP: Insufficiently-sized IV (nonce) in RC4 lead to related key attacks when IV repeats
+          Windows LM hashes: Password divisions, lack of salt lead to insufficient key space
+        </aside>
+      </section>
+
+      <section>
+        <p>Even when some of the best cryptographic engineers in the world work on crypto, they still can get it wrong.</p>
+        <p class="fragment friendly-aside">Don't make the same mistake: don't write your own crypto!</p>
+      </section>
+
+      <section>
+        <h3>A brief exercise</h3>
+        <p>You run a photo sharing site with a public API:</p>
+        <ul>
+          <li>Users have two credentials
+            <ul>
+              <li>A public user id (id)</li>
+              <li>A shared secret that only you and they know</li>
+            </ul>
+          </li>
+          <li>Changes are made with HTTP POST requests</li>
+          <li>To authenticate the message, the user concatenate their message with their secret key and generates a message authentication code using MD5</li>
+        </ul>
+      </section>
+
+      <section data-background-iframe="code/badmd5.html">
+      </section>
+
+      <section>
+        <p>Turns out, that piece of code is horribly insecure, due to <strong>length-extension attacks</strong> on MD5.</p>
+        <ul>
+          <li>If an attack knows the value of md5('mozilla'), it's easy to calculate md5('mozillasucks') without knowing the prefix mozilla</li>
+          <li>So if an attacker knows the value md5(secret=secret&amp;key=value), it's easy for them to calculate md5(secret=secret&amp;key=value&amp;key2=value2) without knowing secret</li>
+          <li>As long as the attacker has one valid signed message, they can forge that message plus any additional parameters they want and it will authenticate</li>
+        </ul>
+      </section>
+
+      <section>
+        <table style="font-size: .7em;">
+          <tr>
+            <th>Don'ts</th>
+            <th>Do's</th>
+          </tr>
+          <tr class="fragment">
+            <td>Combine primitives yourself</td>
+            <td>Use a purpose-built library</td>
+          </tr>
+          <tr class="fragment">
+            <td>Guess at which cipher suites to use</td>
+            <td>Use the Mozilla <a href="https://wiki.mozilla.org/Security/Server_Side_TLS">Server Side TLS</a> guidelines</td>
+          </tr>
+          <tr class="fragment">
+            <td>Write your own network encryption protocol</td>
+            <td>Use TLS and SSH</td>
+          </tr>
+          <tr class="fragment">
+            <td>Review your own cryptosystem</td>
+            <td>Have it reviewed by Security Engineering (Richard Barnes, Eric Rescorla)</td>
+          </tr>
+          <tr class="fragment">
+            <td>Skip using crypto because it's too hard</td>
+            <td>Contact Enterprise Information Security in #infosec</td>
+          </tr>
+        </table>
+      </section>
+
+
 
       <section>
         <h1 style="font-size: 8em;"><strong>?</strong></h1>
@@ -1999,7 +2123,7 @@ X509v3 extensions:
       width: 960,
 
       dependencies: [
-        { src: 'plugin/notes/notes.js', async: true }
+        { async: true, src: 'plugin/notes/notes.js' }
       ]
     });
   </script>

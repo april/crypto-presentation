@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body style="background-color: #3f3f3f;">
+    <pre style="font-size: 2.35vh; height: 100%;"><code class="python" data-trim>##### CLIENT-SIDE CODE #####
+
+# User credentials
+id = 'mozilla'
+secret = '3964a356-d631-4a58-8a8a-0ccad3d273a4'
+
+# Parameters to send: action=create&id=mozilla&name=my-new-photo
+params = {'action': 'create', 'id': id, 'name': 'my-new-photo'}
+
+# Create the message authentication code
+message       = params + {'secret': secret}
+challenge_mac = hashlib.md5(message).hexdigest() # f2db78292cd7c894581d4b61726ff350
+
+# Add the MAC to the POST parameters
+params = {'mac': challenge_mac} + params
+
+# Make the POST request: mac=f2db78292cd7c894581d4b61726ff350&action=create&id=mozilla&name=my-new-photo
+requests.post('http://api.example.com/v4', data=params)
+
+
+##### SERVER-SIDE CODE #####
+
+# Get the challenge MAC from the request
+challenge_mac = params.delete('mac')
+
+# Get the ID from the request, and their secret from the database
+id     = params.get('id')
+secret = db.get(id, 'secret')
+
+# Calculate the MAC the same way the client did
+message        = params + {'secret': secret}
+calculated_mac = hashlib.md5(message).hexdigest()
+
+# Compare the two MACs
+if challenge_mac == calculated_mac:
+  do_stuff()
+  return(200) # OK
+else:
+  return(403) # Not authorized</code></pre>
+  </body>
+</html>
