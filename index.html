@@ -2048,9 +2048,10 @@ X509v3 extensions:
             </ul>
           </li>
           <li>Changes are made with HTTP POST requests</li>
-          <li>To authenticate the message, the user concatenate their message with their secret key and generates a message authentication code using MD5</li>
+          <li>To authenticate the message, the user concatenate their message with their secret key and generates a message authentication code using the cryptographic hash function <strong>MD5</strong></li>
         </ul>
       </section>
+
 
       <section data-background-iframe="code/badmd5.html">
       </section>
@@ -2058,10 +2059,16 @@ X509v3 extensions:
       <section>
         <p>Turns out, that piece of code is horribly insecure, due to <strong>length-extension attacks</strong> on MD5.</p>
         <ul>
-          <li>If an attack knows the value of md5('mozilla'), it's easy to calculate md5('mozillasucks') without knowing the prefix mozilla</li>
-          <li>So if an attacker knows the value md5(secret=secret&amp;key=value), it's easy for them to calculate md5(secret=secret&amp;key=value&amp;key2=value2) without knowing secret</li>
-          <li>As long as the attacker has one valid signed message, they can forge that message plus any additional parameters they want and it will authenticate</li>
+          <li class="fragment">If you know the value of <span class="mono green">md5('mozilla')</span>, it's easy to calculate <span class="mono green">md5('mozillarules')</span> without knowing the prefix <span class="mono green">'mozilla'</span></li>
+          <li class="fragment">So if an attacker knows the value <span class="mono green">md5(secret&amp;key=value)</span>, it's easy for them to calculate <span class="mono green">md5(secret&amp;key=value&amp;key2=value2)</span> without knowing the value of <span class="mono green">'secret'</span></li>
+          <li class="fragment">As long as the attacker has one valid signed message, they can forge that message plus any additional parameters they want and it will authenticate</li>
         </ul>
+      </section>
+
+      <section>
+        <p style="margin-bottom: 2em;"><em>Should you be expected to know this?</em></p>
+        <p class="fragment" style="margin-bottom: 2em;">No, probably not. It's an easy mistake to make, and demonstrates just how easy it is to screw up when you develop your own cryptography.</p>
+        <p class="fragment friendly-aside">Don't believe me? The developers at Flickr, Vimeo,<br />and many others all made this <a href="http://netifera.com/research/flickr_api_signature_forgery.pdf">exact mistake</a>.</p>
       </section>
 
       <section>
