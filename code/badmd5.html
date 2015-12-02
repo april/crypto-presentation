@@ -7,23 +7,24 @@
     </script>
   </head>
   <body style="background-color: #3f3f3f;">
-    <pre style="font-size: 2.35vh; height: 100%;"><code class="python" data-trim>##### CLIENT-SIDE CODE #####
+    <pre style="font-size: 2.3vh; height: 100%;"><code class="python" data-trim>##### CLIENT-SIDE CODE #####
 
 # User credentials
 id     = 'mozilla'
 secret = '3964a356-d631-4a58-8a8a-0ccad3d273a4'
 
-# Parameters to send: action=create&id=mozilla&name=my-new-photo
-params = {'action': 'create', 'id': id, 'name': 'my-new-photo'}
+# Parameters to send: action=create&amp;id=mozilla&amp;name=my-new-photo
+params = query_string( {'action': 'create', 'id': id, 'name': 'my-new-photo'} )
 
-# Create the message authentication code
-message       = params + {'secret': secret}
-challenge_mac = hashlib.md5(message).hexdigest() # f2db78292cd7c894581d4b61726ff350
+# Create the message authentication code from the secret and POST parameters:
+# 3964a356-d631-4a58-8a8a-0ccad3d273a4action=create&amp;id=mozilla&amp;name=my-new-photo
+message       = secret + params
+challenge_mac = md5(message).hexdigest() # 7d6b19cbfacc1bab5a4b88e57f1f445d
 
-# Prepend the MAC to the POST parameters
-params = {'mac': challenge_mac} + params
+# Append the MAC to the POST parameters
+params = params + '&amp;mac=' + challenge_mac
 
-# Make the POST request: mac=f2db78292cd7c894581d4b61726ff350&action=create&id=mozilla&name=my-new-photo
+# Make the POST request: action=create&amp;id=mozilla&amp;name=my-new-photo&amp;mac=7d6b19cbfacc1bab5a4b88e57f1f445d
 requests.post('http://api.example.com/v4', data=params)
 
 
@@ -37,8 +38,8 @@ id     = params.get('id')
 secret = db.get(id, 'secret')
 
 # Calculate the MAC the same way the client did
-message        = params + {'secret': secret}
-calculated_mac = hashlib.md5(message).hexdigest()
+message        = secret + params
+calculated_mac = md5(message).hexdigest()
 
 # Compare the two MACs
 if challenge_mac == calculated_mac:
