@@ -25,7 +25,7 @@ challenge_mac = md5(message).hexdigest() # 7d6b19cbfacc1bab5a4b88e57f1f445d
 params = params + '&amp;mac=' + challenge_mac
 
 # Make the POST request: action=create&amp;id=mozilla&amp;name=my-new-photo&amp;mac=7d6b19cbfacc1bab5a4b88e57f1f445d
-requests.post('http://api.example.com/v4', data=params)
+requests.post('http://api.example.com/v4', params)
 
 
 ##### SERVER-SIDE CODE #####

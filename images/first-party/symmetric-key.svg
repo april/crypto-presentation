@@ -17,12 +17,6 @@
                 <g transform="matrix(1.05814,0,0,1.06583,-123.879,-73.7269)">
                     <path d="M1071.59,153.015L492.928,151.663L297.529,332.115L296.621,1111.21L1071.59,1111.21L1071.59,153.015Z" style="fill:white;stroke-width:13.18px;stroke:black;"/>
                 </g>
-                <g transform="matrix(1,0,0,1.25812,39.8805,-23.1609)">
-                    <path d="M360.519,239.868L360.519,89.73L360.519,239.868Z" style="fill:none;stroke-width:12.32px;stroke-linecap:square;stroke:black;"/>
-                </g>
-                <g transform="matrix(1.22166,0,0,11.8473,-42.9922,-2588.67)">
-                    <path d="M362.865,242.347L193.96,242.214L362.865,242.347Z" style="fill:none;stroke-width:1.66px;stroke-linecap:square;stroke:black;"/>
-                </g>
                 <g transform="matrix(41.1801,0,0,41.1801,-18892.2,-24231.3)">
                     <text x="469.337px" y="606.582px" style="font-family:Times;font-size:12px;fill:black;">C</text>
                 </g>
@@ -43,6 +37,9 @@
                 </g>
                 <g transform="matrix(0.860411,0,0,1,128.904,-47.9369)">
                     <path d="M318.038,202.155L353.485,221.679L412.842,194.149L475.618,210.88L617.165,171.435L763.635,241.577L845.756,171.146L933.288,202.155" style="fill:none;stroke-width:11.79px;stroke:black;"/>
+                </g>
+                <g transform="matrix(1,0,0,1.01407,100,-1.23684)">
+                    <path d="M299.835,87.92L299.835,276.623L97.642,276.623" style="fill:none;stroke-width:13.9px;stroke-linecap:butt;stroke:black;"/>
                 </g>
             </g>
         </g>
@@ -68,17 +65,11 @@
                 </g>
             </g>
         </g>
-        <g id="message" transform="matrix(0.365549,0,0,0.365549,-240,768.099)">
+        <g id="plaintext" transform="matrix(0.365549,0,0,0.365549,-240,768.099)">
             <g id="Layer12" transform="matrix(1,0,0,1,-100,0)">
                 <g transform="matrix(1.05814,0,0,1.06583,-123.879,-73.7269)">
                     <path d="M1071.59,153.015L492.928,151.663L297.529,332.115L296.621,1111.21L1071.59,1111.21L1071.59,153.015Z" style="fill:white;stroke-width:13.18px;stroke:black;"/>
                 </g>
-                <g transform="matrix(1,0,0,1.25812,39.8805,-23.1609)">
-                    <path d="M360.519,239.868L360.519,89.73L360.519,239.868Z" style="fill:none;stroke-width:12.32px;stroke-linecap:square;stroke:black;"/>
-                </g>
-                <g transform="matrix(1.22166,0,0,11.8473,-42.9922,-2588.67)">
-                    <path d="M362.865,242.347L193.96,242.214L362.865,242.347Z" style="fill:none;stroke-width:1.66px;stroke-linecap:square;stroke:black;"/>
-                </g>
                 <g transform="matrix(41.1801,0,0,41.1801,-18864.8,-24231.3)">
                     <text x="469.337px" y="606.582px" style="font-family:Times;font-size:12px;fill:black;">P</text>
                 </g>
@@ -91,7 +82,7 @@
                 <g transform="matrix(1,0,0,1,-1.37281,632.29)">
                     <path d="M269.458,202.155L933.288,202.155" style="fill:none;stroke-width:11px;stroke:black;"/>
                 </g>
-                <g transform="matrix(1,0,0,1,-1.37281,728.411)">
+                <g transform="matrix(1,0,0,1,-1.37281,722.845)">
                     <path d="M269.458,202.155L933.288,202.155" style="fill:none;stroke-width:11px;stroke:black;"/>
                 </g>
                 <g transform="matrix(1,0,0,1,-1.37281,815.519)">
@@ -100,19 +91,16 @@
                 <g transform="matrix(0.860411,0,0,1,128.904,-47.9369)">
                     <path d="M318.038,202.155L933.288,202.155" style="fill:none;stroke-width:11.79px;stroke:black;"/>
                 </g>
+                <g transform="matrix(1,0,0,1.01407,100,-1.23684)">
+                    <path d="M299.835,87.92L299.835,276.623L97.642,276.623" style="fill:none;stroke-width:13.9px;stroke-linecap:butt;stroke:black;"/>
+                </g>
             </g>
         </g>
-        <g id="message1" transform="matrix(0.365549,0,0,0.365549,1762.3,768.099)">
+        <g id="plaintext1" transform="matrix(0.365549,0,0,0.365549,1762.3,768.099)">
             <g id="Layer13" transform="matrix(1,0,0,1,-100,0)">
                 <g transform="matrix(1.05814,0,0,1.06583,-123.879,-73.7269)">
                     <path d="M1071.59,153.015L492.928,151.663L297.529,332.115L296.621,1111.21L1071.59,1111.21L1071.59,153.015Z" style="fill:white;stroke-width:13.18px;stroke:black;"/>
                 </g>
-                <g transform="matrix(1,0,0,1.25812,39.8805,-23.1609)">
-                    <path d="M360.519,239.868L360.519,89.73L360.519,239.868Z" style="fill:none;stroke-width:12.32px;stroke-linecap:square;stroke:black;"/>
-                </g>
-                <g transform="matrix(1.22166,0,0,11.8473,-42.9922,-2588.67)">
-                    <path d="M362.865,242.347L193.96,242.214L362.865,242.347Z" style="fill:none;stroke-width:1.66px;stroke-linecap:square;stroke:black;"/>
-                </g>
                 <g transform="matrix(41.1801,0,0,41.1801,-18864.8,-24231.3)">
                     <text x="469.337px" y="606.582px" style="font-family:Times;font-size:12px;fill:black;">P</text>
                 </g>
@@ -125,7 +113,7 @@
                 <g transform="matrix(1,0,0,1,-1.37281,632.29)">
                     <path d="M269.458,202.155L933.288,202.155" style="fill:none;stroke-width:11px;stroke:black;"/>
                 </g>
-                <g transform="matrix(1,0,0,1,-1.37281,728.411)">
+                <g transform="matrix(1,0,0,1,-1.37281,722.845)">
                     <path d="M269.458,202.155L933.288,202.155" style="fill:none;stroke-width:11px;stroke:black;"/>
                 </g>
                 <g transform="matrix(1,0,0,1,-1.37281,815.519)">
@@ -133,6 +121,9 @@
                 </g>
                 <g transform="matrix(0.860411,0,0,1,128.904,-47.9369)">
                     <path d="M318.038,202.155L933.288,202.155" style="fill:none;stroke-width:11.79px;stroke:black;"/>
+                </g>
+                <g transform="matrix(1,0,0,1.01407,100,-1.23684)">
+                    <path d="M299.835,87.92L299.835,276.623L97.642,276.623" style="fill:none;stroke-width:13.9px;stroke-linecap:butt;stroke:black;"/>
                 </g>
             </g>
         </g>
