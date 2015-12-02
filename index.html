@@ -79,7 +79,7 @@
             <dt>Key exchange</dt>
             <dd>The process by which two parties agree on upon a mutual key or key pair</dd>
             <dt>Key space</dt>
-            <dd>The set of all possible keys</dd>
+            <dd>The maximum number of possible keys (such as 128-bit, or 2<sup>128</sup>)</dd>
             <dt>Brute-force attack</dt>
             <dd>Attempting decryption with all possible key combinations until the correct key is found</dd>
           </dl>
@@ -127,12 +127,12 @@
       <section>
         <h2>Historic Cryptography</h2>
         <dl>
-          <dt>Substitution cipher</dt>
+          <dt>Substitution ciphers</dt>
           <dd>Characters in plaintext are replaced with other characters</dd>
           <dt>Transposition ciphers</dt>
           <dd>Characters in plaintext are rearranged with other characters</dd>
         </dl>
-        <p class="fragment" style="text-align: left;">This comprised the entirety of cryptography up until modern cryptography begins with World War II and the creation of the Enigma machine</p>
+        <p class="fragment" style="text-align: left;">These ciphers comprised the entirety of cryptography up until modern cryptography begins with World War II and the creation of the Enigma machine</p>
       </section>
 
       <section>
@@ -228,7 +228,7 @@
           <dt>Key space</dt>
           <dd>26, since you have 26 possible rotation possibilities</dd>
         </dl>
-      <p class="fragment" data-fragment-index="1" style="font-size: smaller;"><em>That said, 26 doesn't make for the best possible key</em></p>
+      <p class="fragment friendly-aside"><em>That said, rotating 26 characters means that no encryption is done. 26 is a weak key!</em></p>
       </section>
 
       <section>
@@ -357,7 +357,7 @@
       </section>
 
       <section>
-        <h3>Modern ciphers still utilitize both substitution and transposition at the bit and byte level...</h3>
+        <h3>Modern ciphers still uses both substitution and transposition at the bit and byte level...</h3>
       </section>
 
       <section>
@@ -369,7 +369,7 @@
         <div>
           <img src="images/third-party/English_letter_frequency.svg" style="background: none; border: 0; box-shadow: none" height="480">
         </div>
-        <p>It turns out that not every letter appears equally as often</p>
+        <p>It turns out that not every letter in the English language appears equally as often</p>
       </section>
 
       <section style="padding-top: 0;">
@@ -389,7 +389,7 @@
         <ul>
           <li>A type of cipher known as a polyalphabetic cipher</li>
           <li>First described in the mid 1500s, it was considered the "indescipherable cipher" for over 300 years</li>
-          <li>Defeats frequency analysis and eventually lead to the development of the one-time pad</li>
+          <li>Defeated frequency analysis and eventually led to the development of the one-time pad</li>
         </ul>
       </section>
 
@@ -545,7 +545,7 @@
         </div>
 
         <ul class="fragment" data-fragment-index="2">
-          <li>Each column is a simple rotation cipher</li>
+          <li>Each column is a simple rotation cipher; use frequency analysis to discover the rotation</li>
         </ul>
 
         <div class="fragment pre-box-container" data-fragment-index="2">
@@ -689,29 +689,6 @@
 
       <section>
         <h2>XOR (exclusive or)</h2>
-<!--         <table>
-          <tr>
-            <td>Input 1:</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">0</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">1</td>
-          </tr>
-          <tr>
-            <td>Input 2:</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">0</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">1</td>
-          </tr>
-          <tr>
-            <td>Output:</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">1</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">0</td>
-          </tr>
-        </table> -->
         <p class="left">XOR, sometimes written ⊕, is an operator that outputs true (1) if the elements differ and outputs false (0) if they are the same.</p>
         <ul class="fragment" data-fragment-index="1">
           <li class="fragment" data-fragment-index="1">0 ⊕ 0 == 0, as they're the same</li>
@@ -719,8 +696,6 @@
           <li class="fragment" data-fragment-index="3">1 ⊕ 0 == 1, as they're the different</li>
           <li class="fragment" data-fragment-index="4">1 ⊕ 1 == 0, as they're the same</li>
         </ul>
-<!--         <p class="fragment current-visible red" data-fragment-index="1">(0,0) and (1,1) are the same, therefore output 0</p>
-        <p class="fragment current-visible red" data-fragment-index="2">(0,1) are (1,0) are different, therefore output 1</p> -->
       </section>
 
       <section>
@@ -784,54 +759,54 @@
       <section>
         <h2>One-time Pad</h2>
         <p class="left">So why don't we use one-time pads for all of our encryption, if it's so unbreakable?</p>
-        <ul class="fragment" data-fragment-index="1">
-          <li>First, the key needs to be at least as long as your message.  If your message is 5GB, then your key also needs to be 5GB.</li>
-          <li>Also, the key can only be used once.  Key reuse reveals information about all your previous messages.</li>
+        <ul>
+          <li class="fragment">First, the key needs to be at least as long as your message.  If your message is 5GB, then your key also needs to be 5GB.</li>
+          <li class="fragment">Also, the key can only be used once.  Key reuse reveals information about all your previous messages.</li>
         </ul>
-        <p class="left fragment" data-fragment-index="1">The impracticality of having extremely long keys combined with the key reuse requirements makes the OTP infeasible for much real-world use.</p>
+        <p class="left fragment">The impracticality of having extremely long keys combined with the key reuse requirements makes the OTP infeasible for much real-world use.</p>
         <aside class="notes">
           This is because M1 ⊕ K ⊕ M2 ⊕ K == M1 ⊕ M2.
         </aside>
       </section>
 
       <section>
-        <h1>Modern Cryptography</h1>
+        <h2>Modern Cryptography</h2>
       </section>
 
       <section>
         <h2>Modern Cryptography</h2>
         <p class="left">Modern cryptography attempts to solve a number of historic cryptography problems:</p>
-        <ul class="fragment" data-fragment-index="1">
-          <li class="fragment" data-fragment-index="1">Key exchange: How can you get your key safely to the person you want to communicate with?</li>
-          <li class="fragment" data-fragment-index="2">Key distribution: How can you keep a key safe when you have a large number of parties?</li>
-          <li class="fragment" data-fragment-index="3">Key size: How can you maintain confidentiality, even with shorter key sizes?</li>
+        <ul>
+          <li class="fragment">Key exchange: How can you get your key safely to the person you want to communicate with?</li>
+          <li class="fragment">Key distribution: How can you keep a key safe when you have a large number of parties?</li>
+          <li class="fragment">Key size: How can you maintain confidentiality, even with shorter key sizes?</li>
         </ul>
       </section>
 
       <section>
         <h2>Modern Cryptography</h2>
         <p class="left">In addition to solving the key management issue, modern cryptography provides four security guarantees:</p>
-        <ul class="fragment" data-fragment-index="1">
-          <li class="fragment" data-fragment-index="1">Confidentiality
-            <ul class="fragment" data-fragment-index="1">
-              <li><em>Can I keep my data from decrypted and read?</em></li>
+        <ul>
+          <li class="fragment">Confidentiality
+            <ul>
+              <li><em>Can I keep my data from being decrypted and read?</em></li>
             </ul>
           </li>
 
-          <li class="fragment" data-fragment-index="2">Integrity
-            <ul class="fragment" data-fragment-index="2">
+          <li class="fragment">Integrity
+            <ul>
               <li><em>Has my data been tampered with?</em></li>
             </ul>
           </li>
 
-          <li class="fragment" data-fragment-index="3">Authenticity
-            <ul class="fragment" data-fragment-index="3">
+          <li class="fragment">Authenticity
+            <ul>
               <li><em>Am I communicating with the party they claim to be?</em></li>
             </ul>
           </li>
 
-          <li class="fragment" data-fragment-index="4">Non-repudiation
-            <ul class="fragment" data-fragment-index="4">
+          <li class="fragment">Non-repudiation
+            <ul>
               <li><em>Can somebody deny that they sent a message?</em></li>
             </ul>
           </li>
@@ -919,13 +894,13 @@
 
       <section>
         <h2>Key space</h2>
-        <p class="left">When we talk about keys, we often say "128-bit keys" or "256-bit keys". What does that mean?</p>
+        <p class="left">When we talk about keys, we often say "128-bit keys" or "256-bit keys." What does that mean?</p>
         <ul>
           <li class="fragment">"128-bit" refers to the size of the <em>key space</em>. Key space is simply the number of possible keys.</li>
           <li class="fragment">Since a bit can have two values (0 or 1), a 128-bit key space has 2<sup>128</sup> possible keys.</li>
         </ul>
         <p class="fragment friendly-aside">How big is 2<sup>128</sup>?</p>
-        <p class="fragment friendly-aside left">If a single key was the size of a grain of sand, the key space would be roughly 30x the size of Jupiter!</p>
+        <p class="fragment friendly-aside left">If a single key was the size of a grain of sand, the key space would be 31x the size of Jupiter!  310-bits gets you up to the size of the known universe.</p>
         <aside class="notes">
           The Caeser cipher has a keyspace of 26, which equates to only 4.7 bits.
         </aside>
@@ -957,7 +932,7 @@
           <li>Operate on a fixed-size block of data (64 or 128 bits), unlike stream ciphers</li>
           <li class="fragment">Are the most commonly used symmetric ciphers (AES, 3DES)</li>
           <li class="fragment">Use a combination of XOR, permutations, additions, multiplications, shifts, etc.</li>
-          <li class="fragment">Require that data that isn't identical in length to the block size be padding, adding complexity</li>
+          <li class="fragment">Require that data that isn't identical in length to the block size be padded, adding complexity</li>
           <li class="fragment">Like with reusing keystreams, a given block of data will always encrypt to the same output</li>
         </ul>
         <aside class="notes">
@@ -975,7 +950,7 @@
         </ul>
       </section>
 
-      <section>
+      <section style="padding-top: 0;">
         <h3>Block cipher modes of operation</h3>
         <ul style="font-size: smaller;">
           <li>To solve this, all block ciphers have modes of operation for their use</li>
@@ -987,7 +962,7 @@
           <li class="fragment" data-fragment-index="3">This block mode is known as the Electronic Codebook (ECB).</li>
           <li class="fragment" data-fragment-index="4">Ideally, the encrypted message should look like random noise!</li>
         </ul>
-        <p class="fragment friendly-aside left">This isn't meant to scare you, but to show that even with good ciphers, you can still screw up cryptography!</p>
+        <p class="fragment friendly-aside">This isn't meant to scare you, but to show that<br />even with good ciphers, you can still screw up cryptography!</p>
 
         <aside class="notes">
           Also note that just because the right image <em>looks</em> random doesn't mean its actually random.
@@ -1030,22 +1005,22 @@
 
       <section>
         <h3>Key exchange</h3>
-        <p><img src="images/first-party/alice_and_bob.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
+        <p><img src="images/first-party/alice_and_bob.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="350" /></p>
         <p>Meet Alice and Bob.</p>
         <p class="fragment">They want to have a conversation.</p>
       </section>
 
       <section>
         <h3>Key exchange</h3>
-        <p><img src="images/first-party/alice_and_bob_key.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
-        <p>No problem, they physically meet up and exchange a key.</p>
+        <p><img src="images/first-party/alice_and_bob_key.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="350" /></p>
+        <p>No problem, they physically<br />meet up and exchange a key.</p>
         <p class="fragment">One key for two parties.</p>
-        <p class="fragment"><em>But what happens when we add more parties?</em></p>
+        <p class="fragment friendly-aside">But what happens when we add more parties?</p>
       </section>
 
       <section>
         <h3>Key exchange</h3>
-        <p><img src="images/first-party/alice_and_bob_key_five.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="550" /></p>
+        <p><img src="images/first-party/alice_and_bob_key_five.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="500" /></p>
         <p>With just five parties, we're already up to 10 keys!</p>
       </section>
 
@@ -1095,8 +1070,8 @@
       </section>
 
       <section>
-        <h3><em>Symmetric-key cryptography<br />just doesn't scale.</em></h3>
-        <p class="fragment">So how do we fix this?</p>
+        <h3>Symmetric-key cryptography<br />just doesn't scale.</h3>
+        <p class="fragment friendly-aside">So how do we fix this?</p>
       </section>
 
       <section>
@@ -1121,7 +1096,7 @@
 
       <section>
         <p>Welcome to Diffie-Hellman key exchange!</p>
-        <p><img class="plain" src="images/first-party/alice_and_bob_key_with_eve_diffie_hellman.svg" height="400"></p>
+        <p><img class="plain" src="images/first-party/alice_and_bob_key_with_eve_diffie_hellman.svg" height="350"></p>
         <p>Diffie-Hellman key exchange allows two parties who have had no prior communications to jointly establish a key remotely, even when their method of communication is insecure.</p>
         <aside class="notes">Note that this presentation uses classic DHE, instead of the recommended ECDH for simplicity purposes.</aside>
       </section>
@@ -1279,8 +1254,8 @@
           <img src="images/first-party/private_key_with_text.svg" class="fragment plain" data-fragment-index="2" height="300">
         </p>
         <p><em>...each person had two keys?</em></p>
-        <p class="fragment" data-fragment-index="1" >A public key that they could give out to anyone.</p>
-        <p class="fragment" data-fragment-index="2" >And a private key that they kept to themselves.</p>
+        <p class="fragment">A public key that they could give out to anyone.</p>
+        <p class="fragment">And a private key that they kept to themselves.</p>
       </section>
 
       <section>
@@ -1303,7 +1278,7 @@
 
       <section>
         <h2>RSA cryptosystem</h2>
-        <p>RSA is based on a one-way mathematical function known as a "trapdoor function". These functions are easy to do in one direction, but difficult to do in the other direction.</p>
+        <p>RSA is based on a one-way mathematical function known as a "trapdoor function." These functions are easy to do in one direction, but difficult to do in the other direction.</p>
         <p class="fragment">More specifically, RSA relies on the difficulty of factoring the multiple of two large prime numbers.</p>
       </section>
 
@@ -1407,7 +1382,7 @@
 
       <section>
         <h3>Hash functions</h3>
-        <p><img class="plain" src="images/first-party/hash_function.svg" height="450"></p>
+        <p><img class="plain" src="images/first-party/hash_function.svg" height="400"></p>
         <p>Cryptographic hash functions take any size input and convert it to a fixed size output called a <strong>hash</strong> or <strong>message digest</strong></p>
       </section>
 
@@ -1895,24 +1870,24 @@ X509v3 extensions:
       </section>
 
       <section style="padding: 0;" data-transition="slide-in fade-out">
-        <p><img class="plain" src="images/first-party/hmac1.svg" height="400"></p>
+        <p><img class="plain" src="images/first-party/hmac1.svg" height="380"></p>
         <p>Alice takes her message and combines it with her symmetric key in a special way.</p>
         <p>She then takes that combination, and hashes it. This produces a hash-based message authentication code, or <strong>HMAC</strong>.
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
-        <p><img class="plain" src="images/first-party/hmac1.svg" height="400"></p>
+        <p><img class="plain" src="images/first-party/hmac1.svg" height="380"></p>
         <p>Without knowing the symmetric key, you can't produce the same HMAC.</p>
         <p class="fragment friendly-aside">Who are the two people with the symmetric key?<br />Why, it's our good friends Alice and Bob.</p>
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/hmac2.svg" height="400"></p>
+        <p><img class="plain" src="images/first-party/hmac2.svg" height="380"></p>
         <p>So when she encrypts a message, she sends along the HMAC for that message.</p>
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/hmac3.svg" height="400"></p>
+        <p><img class="plain" src="images/first-party/hmac3.svg" height="380"></p>
         <p>Bob takes the ciphertext and decrypts it, returning back to original plaintext.</p>
       </section>
 
