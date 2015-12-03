@@ -1806,43 +1806,91 @@ X509v3 extensions:
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/tls10.svg"></p>
+        <p><img class="plain" src="images/first-party/tls10.svg" height="350"></p>
         <ul>
           <li>Alice calculates <span class="blue">B</span><sup class="red">a</sup> mod <span class="blue">p</span> = <span class="red"><strong>s</strong></span></li>
           <li>Bob calculates <span class="blue">A</span><sup class="red">b</sup> mod <span class="blue">p</span> = <span class="red"><strong>s</strong></span></li>
         </ul>
-        <p>They use <span class="red"><strong>s</strong></span> and the random numbers<br />to arrive at a shared symmetric key!</p>
+        <p>They use <span class="red"><strong>s</strong></span> and the random numbers<br />to create a master secret which they use to<br /> generate a bunch of shared symmetric keys!</p>
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/tls11.svg"></p>
-        <p>Now that they've arrived at a shared key, Bob takes their entire previous conversation, known as a <strong>handshake</strong>, hashes it, and encrypts it with the shared key.</p>
+        <p>
+          <img src="images/first-party/key_alice.svg" class="plain" height="200">
+          <img src="images/first-party/key_bob.svg" class="fragment plain"  data-fragment-index="1"height="200">
+          <img src="images/first-party/key_alice_mac.svg" class="fragment plain" data-fragment-index="2" height="200">
+          <img src="images/first-party/key_bob_mac.svg" class="fragment plain" data-fragment-index="3" height="200">
+        </p>
+        <ul>
+          <li>A key that Alice uses to encrypt messages to Bob</li>
+          <li class="fragment" data-fragment-index="1">A key that Bob uses to encrypt messages to Alice</li>
+          <li class="fragment" data-fragment-index="2">A key that Alice uses for generating MACs for Bob</li>
+          <li class="fragment" data-fragment-index="3">A key that Bob uses for generating MACs for Alice</li>
+        </ul>
+        <p class="fragment friendly-aside">Don't hyperventilate! We'll get to message authentication codes in a bit!</p>
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/tls12.svg" height="400"></p>
-        <p>He then takes that encrypted hash<br /> and sends it over to Alice.</p>
+        <p><img class="plain" src="images/first-party/tls11.svg" height="350"></p>
+        <p>Now they simply begin communicating with their symmetric keys, using the cipher and mode of operation specified in the chosen cipher suite.</p>
+        <p class="fragment friendly-aside">But before they do that, they must verify that their previous conversation, known as a <strong>handshake</strong>, wasn't a complete farce!</p>
+      </section>
+
+      <section data-transition="slide-in fade-out" data-transition-speed="fast">
+        <p><img class="plain" src="images/first-party/tls12-1.svg" height="350"></p>
+        <p style="height: 3.9em;">Now that they've arrived at their keys, Alice takes their entire previous conversation and hashes it.</p>
+        <aside class="notes">She also includes "client finished" -- Bob includes "server finished"</aside>
+      </section>
+
+      <section data-transition="fade-in slide-out" data-transition-speed="fast">
+        <p><img class="plain" src="images/first-party/tls12-f.svg" height="350"></p>
+        <p>She then combines it with the master secret<br />and the message &ldquo;client finished&rdquo; and<br />encrypts it with her encryption key.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/tls13.svg" height="400"></p>
+        <p>She then takes this encrypted &ldquo;finished&rdquo; message<br />and sends it over to Bob.</p>
       </section>
 
       <section style="padding: 0;" data-transition="slide-in fade-out">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls13-1.svg"></p></div>
-        <p>Alice takes that encrypted hash<br />and decrypts it with their shared key.</p>
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls14-1.svg"></p></div>
+        <p>Bob takes encrypted &ldquo;finished&rdquo; message<br />and decrypts it with Alice's encryption key.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls13-2.svg"></p></div>
-        <p>At the same time, she also takes the handshake she believes they had and hashes it, as Bob did.</p>
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls14-2.svg"></p></div>
+        <p>At the same time, he takes the handshake he<br />believes they had and hashes it, as Alice did.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls13-f.svg"></p></div>
-        <p>If the two hashes match, she knows that<br />their handshake hadn't been tampered with.</p>
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls14-f.svg"></p></div>
+        <p>If the two &ldquo;finished&rdquo; messages match, he knows that<br />their handshake hadn't been tampered with.</p>
         <p class="fragment friendly-aside">This prevents someone from replacing the<br />cipher suite choices with something very weak.</p>
       </section>
 
+      <section data-transition="fade-in slide-out" data-transition-speed="fast">
+        <p><img class="plain" src="images/first-party/tls15-f.svg" height="350"></p>
+        <p>Bob then encrypts the hash of their handshake, the master secret and the message &ldquo;server finished&rdquo; and<br />encrypts it with his encryption key.</p>
+      </section>
+
       <section>
-        <p><img class="plain" src="images/first-party/tls14.svg" height="400"></p>
-        <p>Now they simply begin communicating with the symmetric key, using the cipher and mode of operation specified in the chosen cipher suite.</p>
+        <p><img class="plain" src="images/first-party/tls16.svg" height="400"></p>
+        <p>He then sends his version of the encrypted<br />&ldquo;finished&rdquo; message over to Alice.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="slide-in fade-out">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls17-1.svg"></p></div>
+        <p>Alice takes Bob's encrypted &ldquo;finished&rdquo; message<br />and decrypts it with Bob's encryption key.</p>
+      </section>
+
+      <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
+        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls17-f.svg"></p></div>
+        <p>If the hashed handshake and master secret match Bob's &ldquo;finished&rdquo; message, she also knows their handshake hadn't been tampered with.</p>
+      </section>
+
+      <section>
+        <p><em>We're all done! They can communicate now!</em></p>
+        <h3 class="fragment"><em><strong>Class dismissed!</strong></em></h3>
       </section>
 
       <section>
@@ -1854,12 +1902,12 @@ X509v3 extensions:
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/tls15.svg"></p>
+        <p><img class="plain" src="images/first-party/tls18.svg"></p>
         <p>Mallory couldn't decrypt the ciphertext,<br />but she could still modify it.</p>
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/tls16.svg" height="400"></p>
+        <p><img class="plain" src="images/first-party/tls19.svg" height="400"></p>
         <p>It might decrypt to gibberish or it might not.</p>
         <p>Either way, Bob has no way of knowing<br />that it has been tampered with.</p>
       </section>
@@ -1889,16 +1937,17 @@ X509v3 extensions:
         <p><em>Fret not, heroes! The fix is in!</em></p>
       </section>
 
-      <section style="padding: 0;" data-transition="slide-in fade-out">
+      <section style="padding: 0;">
         <p><img class="plain" src="images/first-party/hmac1.svg" height="380"></p>
-        <p>Alice takes her message and combines it with her symmetric key in a special way.</p>
+        <p>Alice takes her message and combines it with her symmetric MAC key in a special way.</p>
         <p>She then takes that combination, and hashes it. This produces a hash-based message authentication code, or <strong>HMAC</strong>.
+        <aside class="notes">HMAC = H((K ⊕ opad) || H((K ⊕ ipad) || m))</aside>
       </section>
 
-      <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
+      <section style="padding: 0;">
         <p><img class="plain" src="images/first-party/hmac1.svg" height="380"></p>
-        <p>Without knowing the symmetric key, you can't produce the same HMAC.</p>
-        <p class="fragment friendly-aside">Who are the two people with the symmetric key?<br />Why, it's our good friends Alice and Bob.</p>
+        <p>Without knowing the symmetric MAC key, you can't produce the same HMAC.</p>
+        <p class="fragment friendly-aside">Who are the two people with the symmetric MAC keys?<br />Why, it's our good friends Alice and Bob.</p>
       </section>
 
       <section>
@@ -1913,12 +1962,12 @@ X509v3 extensions:
 
       <section style="padding: 0;" data-transition="slide-in fade-out">
         <div style="height: 250px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/hmac4-1.svg"></p></div>
-        <p>Bob then combines it with the symmetric key that only he and Alice have, producing an HMAC.</p>
+        <p style="height: 3.9em;">Bob then combines it with the symmetric MAC key that only he and Alice have, producing an HMAC.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
         <div style="height: 250px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/hmac4-f.svg"></p></div>
-        <p>If the two HMACs match, then he knows the message hasn't been tampered with and that it came from someone else who possesses the symmetric key: Alice!</p>
+        <p>If the HMACs match, then he knows the message hasn't been tampered with and that it came from someone else who possesses the symmetric MAC key: Alice!</p>
       </section>
 
       <section>
@@ -2049,6 +2098,7 @@ X509v3 extensions:
       </section>
 
       <section data-background-iframe="code/badmd5.html">
+        <p class="fragment popup" style="margin-top: 2.5em !important;"><em>Everything look great?</em></p>
       </section>
 
       <section>
@@ -2061,9 +2111,37 @@ X509v3 extensions:
       </section>
 
       <section>
-        <p style="margin-bottom: 2em;"><em>Should you be expected to know this?</em></p>
-        <p class="fragment" style="margin-bottom: 2em;">No, probably not. It's an easy mistake to make, and demonstrates just how easy it is to screw up when you develop your own cryptography.</p>
-        <p class="fragment friendly-aside">Don't believe me? The developers at Flickr, Vimeo,<br />and many others all made this <a href="http://netifera.com/research/flickr_api_signature_forgery.pdf">exact mistake</a>.</p>
+        <section>
+          <p style="margin-bottom: 2em;"><em>Should you be expected to know this?</em></p>
+          <p class="fragment" style="margin-bottom: 2em;">No, probably not. It's an easy mistake to make, and demonstrates just how easy it is to screw up when you develop your own cryptography.</p>
+          <p class="fragment friendly-aside" style="margin-bottom: 2em;">Don't believe me? The developers at Flickr, Vimeo,<br />and many others all made this <a href="http://netifera.com/research/flickr_api_signature_forgery.pdf">exact mistake</a>.</p>
+          <p class="fragment friendly-aside"><strong>&darr; P.S. Another example lies below! &darr;</strong></p>
+        </section>
+
+        <section data-background-iframe="code/abadtime.html">
+          <p class="fragment popup">&darr; <em>How 'bout now?</em> &darr;</p>
+        </section>
+
+        <section>
+          <p>Woe! This code insecure too, due to a <strong>timing attack</strong>.</p>
+          <ul style="font-size: .8em;">
+            <li class="fragment">For a given message, send it an HMAC entirely of one character. Do this for each character 0-9 and a-f, such as <span class="mono green">'000&hellip;'</span> and <span class="mono green">'111&hellip;'</span></li>
+            <li class="fragment">Measure the time it takes the server to respond; the response that takes the longest matches the first character, as the string equality comparison moved to the second character.</li>
+            <li class="fragment">Use a machine with really low latency to the API server, doing the requests a few hundred times for each character to smooth the latency out.</li>
+            <li class="fragment">Once you've figured out the first character, move onto the second character. If <span class="mono green">'c'</span> returned the highest latency, try <span class="mono green">'c000&hellip;'</span>, <span class="mono green">'c111&hellip;'</span>, and so on.</li>
+            <li class="fragment">Lather, rinse, and repeat until you have the entire HMAC.</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <p style="margin-bottom: 2em;">Cryptography isn't like programming.</p>
+        <p>When you make a mistake in your code,<br />you get immediate feedback when it crashes,<br />fails to work, or doesn't compile.</p>
+      </section>
+
+      <section>
+        <p>With cryptography, you only know you've screwed up when someone makes off with all your data.</p>
+        <p class="fragment friendly-aside">Don't write your own crypto!</p>
       </section>
 
       <section>
