@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body style="background-color: #3f3f3f;">
+    <pre style="font-size: 2.3vh; height: 100%;"><code class="python" data-trim>##### CLIENT-SIDE CODE #####
+
+# User credentials
+id     = 'mozilla'
+secret = '3964a356-d631-4a58-8a8a-0ccad3d273a4'
+
+# Parameters to send: action=create&amp;id=mozilla&amp;name=my-new-photo
+params = query_string( {'action': 'create', 'id': id, 'name': 'my-new-photo'} )
+
+# Use an HMAC; after all, they're *built* for this purpose
+challenge_hmac = hmac_sha256(secret, params) # 24cda1c4bf88512423910d6d7b9ae36476f44a1a8f2cdc6eb3c7ed0d6797ab07
+params         = params + '&amp;hmac=' + challenge_hmac
+
+# Make the POST request: action=create&amp;id=mozilla&amp;name=my-new-photo&amp;hmac=24cda1c4bf88512423910d6d7b9ae36476f44a&hellip;
+requests.post('http://api.example.com/v4', params)
+
+
+##### SERVER-SIDE CODE #####
+
+# Get the challenge HMAC from the request
+challenge_mac = params.delete('hmac')
+
+# Get the ID from the request, and their secret from the database
+id     = params.get('id')
+secret = db.get(id, 'secret')
+
+# Calculate the HMAC the same way the client did
+challenge_hmac = hmac_sha256(secret, params)
+
+# Compare the two HMACs
+if challenge_hmac == calculated_hmac:
+  do_stuff()
+  return(200) # OK
+else:
+  return(403) # Not authorized</code></pre>
+  </body>
+</html>

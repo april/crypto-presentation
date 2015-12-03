@@ -63,3 +63,12 @@ table.diffie td, table.diffie th {
 table.diffie th {
   font-weight: bold;
 }
+
+.popup {
+  background: url('../../images/first-party/bg-sandstone-2.png') no-repeat center center fixed;
+  background-size: cover;
+  margin: -.5em auto 0 auto !important;
+  padding: .5em !important;
+  text-align: center;
+  width: 11em;
+}
