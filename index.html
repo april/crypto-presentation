@@ -887,11 +887,11 @@
 
       <section>
         <h2>Keys</h2>
-        <p class="left">Remember that in a proper cryptosystem, the key is the only thing that keeps your data confidential. As such, keys must be:</p>
+        <p class="left">Remember that in a proper cryptosystem, the key is the only thing that keeps your data confidential. As such, keys should be:</p>
         <ul>
-          <li class="fragment">Kept secure and be deleted as soon as they are no longer in use</li>
+          <li class="fragment">Kept secure and be deleted as soon as they are no longer needed</li>
           <li class="fragment">Unrelated to any past or future key</li>
-          <li class="fragment">Chosen at random from the entire key space</li>
+          <li class="fragment">Chosen randomly from safe values in the key space</li>
         </ul>
       </section>
 
@@ -1740,6 +1740,7 @@ X509v3 extensions:
         <p><img class="plain" src="images/first-party/tls2.svg" height="400"></p>
         <p>Bob then selects a different random number and chooses his Diffie-Hellman key exchange parameters.</p>
         <p>He also selects a cipher suite, from Alice's options.</p>
+        <p class="friendly-aside">These random numbers are used later in key generation to ensure that an attacker can't just replay Alice's messages, in a <strong>replay attack</strong>.</p>
       </section>
 
       <section>
