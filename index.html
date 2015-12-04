@@ -380,6 +380,15 @@
       </section>
 
       <section>
+        <h2>Frequency Analysis</h2>
+        <ul>
+          <li>Letters that appear more frequency in a language, will appear more frequently in the ciphertext</li>
+          <li class="fragment">Since <span class="green mono">'E'</span> is the most common letter in English, whatever it maps to will be the most common letter in the ciphertext</li>
+          <li class="fragment">This leads to what is known as a <strong>ciphertext-only attack</strong>, where someone is able to deduce your plaintext from the ciphertext <em>without</em> knowing your key</li>
+        </ul>
+      </section>
+
+      <section>
         <h3><em>Don't panic!</em></h3>
       </section>
 
@@ -925,10 +934,10 @@
         <h3>Block ciphers</h3>
         <ul>
           <li>Operate on a fixed-size block of data (64 or 128 bits), unlike stream ciphers</li>
-          <li class="fragment">Are the most commonly used symmetric ciphers (AES, 3DES)</li>
+          <li class="fragment">Are the most commonly used symmetric ciphers (AES)</li>
           <li class="fragment">Use a combination of XOR, permutations, additions, multiplications, shifts, etc.</li>
           <li class="fragment">Require that data that isn't identical in length to the block size be padded, adding complexity</li>
-          <li class="fragment">Like with reusing keystreams, a given block of data will always encrypt to the same output</li>
+          <li class="fragment">Like with reusing keystreams, a given block of data will always encrypt to the same output if you use the same key</li>
         </ul>
         <aside class="notes">
           Block sizes are typically 64 bits (DES, Blowfish) or 128 bits (AES, Twofish)
@@ -957,7 +966,7 @@
           <li class="fragment" data-fragment-index="3">This block mode is known as the Electronic Codebook (ECB).</li>
           <li class="fragment" data-fragment-index="4">Ideally, the encrypted message should look like random noise!</li>
         </ul>
-        <p class="fragment friendly-aside">This isn't meant to scare you, but to show that<br />even with good ciphers, you can still screw up cryptography!</p>
+        <p class="fragment friendly-aside">This is meant to scare you! Even with good<br />ciphers, you can still screw up cryptography!</p>
 
         <aside class="notes">
           Also note that just because the right image <em>looks</em> random doesn't mean its actually random.
@@ -1075,12 +1084,12 @@
       </section>
 
       <section>
-        <p><img src="images/third-party/Whitfield_Diffie.png"></p>
-        <p>In 1976, this guy struck upon a pair of brilliant ideas.</p>
+        <p><em>What if, instead of needing to meet ahead of time to exchange keys, two people could exchange keys remotely?</em></p>
       </section>
 
       <section>
-        <p><em>What if, instead of needing to meet ahead of time to exchange keys, two people could exchange keys remotely?</em></p>
+        <p><img src="images/third-party/Whitfield_Diffie.png"></p>
+        <p>In 1976, this guy struck upon a pair of brilliant ideas.</p>
       </section>
 
       <section>
@@ -1229,7 +1238,7 @@
       <section>
         <p><img src="images/first-party/mallory.svg" class="plain" height="400"></p>
         <p style="font-size: smaller; font-style: oblique;">Say hello to Mallory, everyone!</p>
-        <p class="fragment">Mallory just <strong>loves</strong> to sit in the<br />middle of conversations and meddle with them.</p>
+        <p class="fragment">Mallory just <strong>loves</strong> to sit in the middle<br /> of conversations and meddle with them.</p>
         <p class="fragment friendly-aside">Who does things like that?</p>
       </section>
 
@@ -1274,8 +1283,8 @@
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/public_key_cryptography.svg" height="400"></p>
-        <p>And what if that public key could encrypt messages that <em>only</em> the private key could decrypt?</p>
+        <p><img class="plain" src="images/first-party/public_key_cryptography.svg" height="300"></p>
+        <p>And what if that public key could encrypt messages<br />that <em>only</em> the private key could decrypt?</p>
       </section>
 
       <section>
@@ -1300,8 +1309,8 @@
       <section>
         <h3>RSA: a simple example</h3>
         <ul>
-          <li>Choose two prime numbers (<span class="red">p</span> = <span class="red">89</span>, <span class="red">q</span> = <span class="red">101</span>); these are the <em>private key</em>.</li>
-          <li class="fragment" data-fragment-index="1">Multiple these numbers together (<span class="blue">n</span> = <span class="red">p</span> × <span class="red">q</span> = <span class="blue">8989</span>); this value (along with a few extra bits) is the <em>public key</em>.</li>
+          <li>Choose two prime numbers (<span class="red">p</span> = <span class="red">89</span>, <span class="red">q</span> = <span class="red">101</span>). This pair of numbers is the <em>private key</em>.</li>
+          <li class="fragment" data-fragment-index="1">Multiple these numbers together (<span class="blue">n</span> = <span class="red">p</span> × <span class="red">q</span> = <span class="blue">8989</span>). This value (along with a few extra bits) is the <em>public key</em>.</li>
         </ul>
         <p class="fragment friendly-aside" data-fragment-index="1" style="margin: .2em auto;">So easy, even a calculator can do it!</p>
         <ul>
@@ -1314,7 +1323,7 @@
       </section>
 
       <section>
-        <p>Let's take a look at how RSA encryption works in practice...</p>
+        <p><em>Let's take a look at how RSA encryption<br />works in practice&hellip;</em></p>
       </section>
 
       <section>
@@ -1335,6 +1344,7 @@
       <section>
         <p><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_part4.svg" height="400"></p>
         <p>Finally, Bob decrypts the ciphertext with his private key.</p>
+        <p class="fragment friendly-aside">Because Eve doesn't have Bob's private key,<br />she can't decrypt Alice's message.</p>
       </section>
 
       <section>
@@ -1477,6 +1487,13 @@
         <p class="left">Of course, if Mallory could forge a message that produced the same hash as Alice's message, she could just reuse Alice's digital signature.</p>
         <p class="fragment left">But because hash functions are <em>collision resistant</em>, Mallory can't do that either!</p>
         <p class="fragment friendly-aside">No wonder Mallory looks so grumpy!</p>
+      </section>
+
+      <section>
+        <h3>Digital signatures</h3>
+        <p><img class="plain" src="images/first-party/digital_signature2.svg" height="360"></p>
+        <p>Plus, since <em>only</em> Alice is able to create the proper digital signature, she can't deny that she created the message.</p>
+        <p>In cryptography, we call this <strong>non-repudiation</strong>.</p>
       </section>
 
       <section>
