@@ -19,8 +19,13 @@
 
       <section>
         <h2>Intro to Cryptography</h2>
-        <h4><em>April King</em></h4>
         <div style="font-size: .6em; font-style: oblique; margin-top: 100px;"><a href="https://github.com/marumari/crypto-presentation/tree/gh-pages">Fork me on GitHub!</a></div>
+      </section>
+
+      <section>
+        <h3 class="pre-box-row">GET /April%20King HTTP/1.1</h3>
+        <p>Information Security Engineer<br />Mozilla Corporation</p>
+        <p style="font-size: smaller;"><a href="mailto:april@mozilla.com">april@mozilla.com</a> &mdash; <a href="https://github.com/marumari/">gh/marumari</a> &mdash; <a href="https://twitter.com/aprilmpls">@aprilmpls</a></p>
       </section>
  
       <section>
@@ -2186,10 +2191,49 @@ X509v3 extensions:
         </table>
       </section>
 
-
-
       <section>
         <h1 style="font-size: 8em;"><strong>?</strong></h1>
+      </section>
+
+      <section>
+        <section>
+          <h3>Miscellaneous<br />&darr; Cryptography Topics &darr;</h3>
+        </section>
+
+        <section>
+          <h3>Elliptic Curve Cryptography</h3>
+          <ul>
+            <li>Strongest, fastest, and most popular form of asymmetric key cryptography in modern TLS</li>
+            <li class="fragment">Based on Diffie-Hellman, but uses <a href="https://www.imperialviolet.org/2010/12/04/ecc.html">elliptic curves</a> instead of exponentiation</li>
+            <li class="fragment">Faster and smaller keys for the same levels of security: a 256-bit ECC public key provides comparable security to a 3092-bit RSA public key</li>
+            <li class="fragment">Key exchange with Elliptic Curve Diffie-Hellman (ECDHE)</li>
+            <li class="fragment">Digital signatures with Elliptic Curve Digital Signature Algorithm (ECDSA)</li>
+          </ul>
+          <p class="fragment friendly-aside">Most of the demos in this presentation are actually<br />done these days with ECDHE instead of DHE!</p>
+        </section>
+
+        <section>
+          <h3>Randomness</h3>
+          <ul style="font-size: .9em;">
+            <li>Randomness is heavily used in the creation of keys, IVs, nonces, etc.</li>
+            <li class="fragment">Despite all evidence to the contrary, people are predictable</li>
+            <li class="fragment">Turns out that computers are too, and it's difficult to properly generate randomness</li>
+            <li class="fragment">If your computer is generating generating poor randomness, your crypto will be predictable and broken</li>
+            <li class="fragment">Use a good source of randomness from your operating system or programming library, and initialize it properly</li>
+            <li class="fragment">Like with writing your own crypto, don't write your own random number generator</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>AEADs</h3>
+          <ul>
+            <li><strong>Authenticated Encryption with Associated Data</strong> (AEAD) is a block cipher mode of operation</li>
+            <li>It combines decryption with integrity verification</li>
+            <li>Created from the recognition that combining a cipher, mode of operation, and MAC were often difficult and error prone</li>
+            <li>The most common are AES-GCM (AES in Galois/Counter mode) and CHACHA20-POLY1305.</li>
+            <li>Preferred over other symmetric ciphers and modes of operation</li>
+          </ul>
+        </section>
       </section>
 
       <section>
