@@ -72,3 +72,14 @@ table.diffie th {
   text-align: center;
   width: 11em;
 }
+
+.mapping.current-fragment, .mapping.red, .mapping.blue {
+  font-weight: 600;
+  text-shadow: 0 0 .15vh #000, 0 0 .15vh #000, 0 0 .15vh #000, 0 0 .15vh #000, 0 0 .15vh #000, 0 0 .15vh #000, 0 0 .15vh #000, 0 0 .15vh #000,
+               0 0 .3vh #fff, 0 0 .3vh #fff, 0 0 .3vh #fff, 0 0 .3vh #fff, 0 0 .3vh #fff; /* can we just get text-stroke already? */
+  transition-duration: .1s !important;
+}
+
+.mapping.blue {
+  color: #54c6e4;
+}

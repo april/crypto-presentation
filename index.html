@@ -29,7 +29,7 @@
           <li>Describe the history and purpose of cryptography</li>
           <li>Build a solid understanding of cryptographic primitives</li>
           <li>Learn how cryptographic primitives are combined to make a complete cryptographic system</li>
-          <li>Recognize the shortcomings and pitfalls inherent in building and implementing cryptographic systems</li>
+          <li>Realize some of the many ways you can screw up when writing your own cryptography</li>
         </ul>
       </section>
 
@@ -44,14 +44,14 @@
       <section>
         <section>
           <h2>Cryptographic Terminology</h2>
-          <p><em>Eye-glazing definitions belooooooow!</em></p>
+          <p><em>Post-presentation, eye-glazing definitions belooooooow!</em></p>
           <h2>&darr;</h2>
         </section>
 
         <section>
           <dl>
             <dt>Cryptography</dt>
-            <dd>Practice and study of security communications in the presence of third parties</dd>
+            <dd>Practice and study of secure communications in the presence of third parties</dd>
             <dt>Plaintext (cleartext)</dt>
             <dd>Data or text that has not been encrypted</dd>
             <dt>Ciphertext</dt>
@@ -62,7 +62,7 @@
         <section>
           <dl>
             <dt>Algorithm</dt>
-            <dd>A self-contained series of instructions that perform a function</dd>
+            <dd>A self-contained series of instructions that perform a computation</dd>
             <dt>Cipher</dt>
             <dd>An algorithm that performs encryption and decryption</dd>
             <dt>Encryption</dt>
@@ -79,7 +79,7 @@
             <dt>Key exchange</dt>
             <dd>The process by which two parties agree on upon a mutual key or key pair</dd>
             <dt>Key space</dt>
-            <dd>The maximum number of possible keys (such as 128-bit, or 2<sup>128</sup>)</dd>
+            <dd>The maximum number of possible keys (such as 128 bits, or 2<sup>128</sup>)</dd>
             <dt>Brute-force attack</dt>
             <dd>Attempting decryption with all possible key combinations until the correct key is found</dd>
           </dl>
@@ -132,7 +132,7 @@
           <dt>Transposition ciphers</dt>
           <dd>Characters in plaintext are rearranged with other characters</dd>
         </dl>
-        <p class="fragment" style="text-align: left;">These ciphers comprised the entirety of cryptography up until modern cryptography begins with World War II and the creation of the Enigma machine</p>
+        <p class="fragment" style="text-align: left;">These ciphers comprised the entirety of cryptography up until the beginning of modern cryptography with World War II and the creation of the Enigma machine.</p>
       </section>
 
       <section>
@@ -154,9 +154,9 @@
             <td>J</td>
             <td>K</td>
             <td>L</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">M</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="1">M</td>
             <td>N</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">O</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="2">O</td>
             <td>P</td>
             <td>Q</td>
             <td>R</td>
@@ -167,7 +167,7 @@
             <td>W</td>
             <td>X</td>
             <td>Y</td>
-            <td class="fragment highlight-current-red" data-fragment-index="3">Z</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="3">Z</td>
           </tr>
           <tr>
             <td>X</td>
@@ -182,9 +182,9 @@
             <td>G</td>
             <td>H</td>
             <td>I</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">J</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="1">J</td>
             <td>K</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">L</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="2">L</td>
             <td>M</td>
             <td>N</td>
             <td>O</td>
@@ -195,21 +195,21 @@
             <td>T</td>
             <td>U</td>
             <td>V</td>
-            <td class="fragment highlight-current-red" data-fragment-index="3">W</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="3">W</td>
           </tr>
         </table>
         <p>Example:
           <div class="pre-box-container">
             <div class="pre-box-row">
-              <span class="fragment highlight-current-red" data-fragment-index="1">M</span>
-              <span class="fragment highlight-current-red" data-fragment-index="2">O</span>
-              <span class="fragment highlight-current-red" data-fragment-index="3">Z</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="1">M</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="2">O</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="3">Z</span>
               ILLA IS MY DINOSAUR
             </div>
             <div class="pre-box-row">
-              <span class="fragment highlight-current-red" data-fragment-index="1">J</span>
-              <span class="fragment highlight-current-red" data-fragment-index="2">L</span>
-              <span class="fragment highlight-current-red" data-fragment-index="3">W</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="1">J</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="2">L</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="3">W</span>
               FIIX EP JV AFKLPXRO
             </div>
           </div>
@@ -224,11 +224,11 @@
           <dt>Cipher</dt>
           <dd>Caesar (rotational) cipher, a substitution cipher</dd>
           <dt>Key</dt>
-          <dd>Key is a -3 (or 23) letter rotation (ROT-23)</dd>
+          <dd>A 23 (or -3) letter rotation</dd>
           <dt>Key space</dt>
           <dd>26, since you have 26 possible rotation possibilities</dd>
         </dl>
-      <p class="fragment friendly-aside"><em>That said, rotating 26 characters means that no encryption is done. 26 is a weak key!</em></p>
+      <p class="fragment friendly-aside"><em>That said, rotating 26 characters means that effectively<br />no encryption is done. 26 is a weak key!</em></p>
       </section>
 
       <section>
@@ -250,9 +250,9 @@
             <td>J</td>
             <td>K</td>
             <td>L</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">M</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="1">M</td>
             <td>N</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">O</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="2">O</td>
             <td>P</td>
             <td>Q</td>
             <td>R</td>
@@ -263,7 +263,7 @@
             <td>W</td>
             <td>X</td>
             <td>Y</td>
-            <td class="fragment highlight-current-red" data-fragment-index="3">Z</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="3">Z</td>
           </tr>
           <tr>
             <td>G</td>
@@ -278,12 +278,12 @@
             <td>E</td>
             <td>S</td>
             <td>Q</td>
-            <td class="fragment highlight-current-red" data-fragment-index="1">D</td>
-            <td>A</td>
-            <td class="fragment highlight-current-red" data-fragment-index="2">P</td>
-            <td>R</td>
-            <td>I</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="1">D</td>
             <td>L</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="2">I</td>
+            <td>R</td>
+            <td>P</td>
+            <td>A</td>
             <td>O</td>
             <td>M</td>
             <td>Y</td>
@@ -291,22 +291,22 @@
             <td>V</td>
             <td>H</td>
             <td>B</td>
-            <td class="fragment highlight-current-red" data-fragment-index="3">N</td>
+            <td class="fragment highlight-current-red mapping" data-fragment-index="3">N</td>
           </tr>
         </table>
         <p>Example:
           <div class="pre-box-container">
             <div class="pre-box-row">
-              <span class="fragment highlight-current-red" data-fragment-index="1">M</span>
-              <span class="fragment highlight-current-red" data-fragment-index="2">O</span>
-              <span class="fragment highlight-current-red" data-fragment-index="3">Z</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="1">M</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="2">O</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="3">Z</span>
               ILLA IS MY DINOSAUR
             </div>
             <div class="pre-box-row">
-              <span class="fragment highlight-current-red" data-fragment-index="1">D</span>
-              <span class="fragment highlight-current-red" data-fragment-index="2">P</span>
-              <span class="fragment highlight-current-red" data-fragment-index="3">N</span>
-              FQQG FO DB XFAPOGYL
+              <span class="fragment highlight-current-red mapping" data-fragment-index="1">D</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="2">I</span>
+              <span class="fragment highlight-current-red mapping" data-fragment-index="3">N</span>
+              FQQG FO DB XFLIOGYA
           </div>
         </p>
       </section>
@@ -314,7 +314,6 @@
       <section>
         <h2>Transposition Cipher</h2>
         <ul>
-          <li>Also known a permutation</li>
           <li>Encryption involves rearranging the plaintext to produce ciphertext</li>
           <li>Decryption simply involves reversing the rearrangement</li>
         </ul>
@@ -328,30 +327,30 @@
           <dd>Grid is five characters wide, write text from upper left rightward. Route from lower right and spiral upward.</dd>
         </dl>
         <p>Canonicalize:</p>
-        <pre style="font-size: 1em; text-align: center;"><span class="fragment highlight-red" data-fragment-index="2">MOZI</span><span class="fragment highlight-red" data-fragment-index="1">L</span>
-<span class="fragment highlight-red" data-fragment-index="3">L</span><span class="fragment highlight-red" data-fragment-index="5">AI</span><span class="fragment highlight-red" data-fragment-index="4">S</span><span class="fragment highlight-red" data-fragment-index="1">M</span>
-<span class="fragment highlight-red" data-fragment-index="3">Y</span><span class="fragment highlight-red" data-fragment-index="6">DI</span><span class="fragment highlight-red" data-fragment-index="4">N</span><span class="fragment highlight-red" data-fragment-index="1">O</span>
-<span class="fragment highlight-red" data-fragment-index="3">S</span><span class="fragment highlight-red" data-fragment-index="4">AUR</span> 
+        <pre style="font-size: 1em; text-align: center;"><span class="fragment highlight-red mapping" data-fragment-index="2">MOZI</span><span class="fragment highlight-red mapping" data-fragment-index="1">L</span>
+<span class="fragment highlight-red mapping" data-fragment-index="3">L</span><span class="fragment highlight-red mapping" data-fragment-index="5">AI</span><span class="fragment highlight-red mapping" data-fragment-index="4">S</span><span class="fragment highlight-red mapping" data-fragment-index="1">M</span>
+<span class="fragment highlight-red mapping" data-fragment-index="3">Y</span><span class="fragment highlight-red mapping" data-fragment-index="6">DI</span><span class="fragment highlight-red mapping" data-fragment-index="4">N</span><span class="fragment highlight-red mapping" data-fragment-index="1">O</span>
+<span class="fragment highlight-red mapping" data-fragment-index="3">S</span><span class="fragment highlight-red mapping" data-fragment-index="4">AUR</span> 
 </pre>
         <p>Example:</p>
         <div class="pre-box-container">
           <div class="pre-box-row">
-            <span class="fragment highlight-red" data-fragment-index="1">MOZ</span>
-            <span class="fragment highlight-red" data-fragment-index="2">ILLA</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="1">MOZ</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="2">ILLA</span>
             &nbsp;
-            <span class="fragment highlight-red" data-fragment-index="3">IS M</span>
-            <span class="fragment highlight-red" data-fragment-index="4">Y DINO</span>
-            <span class="fragment highlight-red" data-fragment-index="5">SA</span>
-            <span class="fragment highlight-red" data-fragment-index="6">UR</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="3">IS M</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="4">Y DINO</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="5">SA</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="6">UR</span>
           </div>
           <div class="pre-box-row">
-            <span class="fragment highlight-red" data-fragment-index="1">OML</span>
-            <span class="fragment highlight-red" data-fragment-index="2">IZOM</span> 
+            <span class="fragment highlight-red mapping" data-fragment-index="1">OML</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="2">IZOM</span> 
             &nbsp;
-            <span class="fragment highlight-red" data-fragment-index="3">LY S</span>
-            <span class="fragment highlight-red" data-fragment-index="4">A URNS</span>
-            <span class="fragment highlight-red" data-fragment-index="5">IA</span>
-            <span class="fragment highlight-red" data-fragment-index="6">DI</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="3">LY S</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="4">A URNS</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="5">IA</span>
+            <span class="fragment highlight-red mapping" data-fragment-index="6">DI</span>
           </div>
         </div>
       </section>
@@ -381,7 +380,7 @@
       </section>
 
       <section>
-        <h3><em>Don't panic! The 1550s have us covered!</em></h3>
+        <h3><em>Don't panic!</em></h3>
       </section>
 
       <section>
@@ -396,7 +395,7 @@
       <section data-transition="slide-in fade-out" style="padding-top: 0;">
         <h2>Vigenère Cipher</h2>
         <div>
-          <img src="images/third-party/Vigenere_square_updated.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
+          <img src="images/third-party/Vigenere_square_updated.svg" class="plain" height="400">
         </div>
         <p>
           <div class="pre-box-container">
@@ -410,13 +409,13 @@
       <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
         <h2>Vigenère Cipher</h2>
         <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment2.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
+          <img src="images/third-party/Vigenere_square_updated_fragment2.svg" class="plain" height="400">
         </div>
         <p>
           <div class="pre-box-container">
-            <div class="pre-box-row">Plaintext:&nbsp;&nbsp;          <span class="red">M</span>OZILLA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
-            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">W</span>HIMSYW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
-            <div class="pre-box-row">Ciphertext:&nbsp;               <span class="red">I</span>VHUDJW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
+            <div class="pre-box-row">Plaintext:&nbsp;&nbsp;          <span class="mapping red">M</span>OZILLA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
+            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;<span class="mapping red">W</span>HIMSYW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
+            <div class="pre-box-row">Ciphertext:&nbsp;               <span class="mapping red">I</span>VHUDJW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
           </div>
         </p>
       </section>
@@ -424,14 +423,14 @@
       <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
         <h2>Vigenère Cipher</h2>
         <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment3.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
+          <img src="images/third-party/Vigenere_square_updated_fragment3.svg" class="plain" height="400">
         </div>
         <p>
         <p>
           <div class="pre-box-container">
-            <div class="pre-box-row">Plaintext:&nbsp;                M<span class="red">O</span>ZILLA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
-            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;W<span class="red">H</span>IMSYW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
-            <div class="pre-box-row">Ciphertext:                     I<span class="red">V</span>HUDJW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
+            <div class="pre-box-row">Plaintext:&nbsp;                M<span class="mapping red">O</span>ZILLA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
+            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;W<span class="mapping red">H</span>IMSYW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
+            <div class="pre-box-row">Ciphertext:                     I<span class="mapping red">V</span>HUDJW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
           </div>
         </p>
       </section>
@@ -439,13 +438,13 @@
       <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
         <h2>Vigenère Cipher</h2>
         <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment4.svg" style="background: none; border: 0; box-shadow: none; height: 420px; margin: 0 auto;">
+          <img src="images/third-party/Vigenere_square_updated_fragment4.svg" class="plain" height="400">
         </div>
         <p>
           <div class="pre-box-container">
-            <div class="pre-box-row">Plaintext:&nbsp;                MO<span class="red">Z</span>ILLA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
-            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;WH<span class="red">I</span>MSYW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
-            <div class="pre-box-row">Ciphertext:                     IV<span class="red">H</span>UDJW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
+            <div class="pre-box-row">Plaintext:&nbsp;                MO<span class="mapping red">Z</span>ILLA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
+            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;WH<span class="mapping red">I</span>MSYW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
+            <div class="pre-box-row">Ciphertext:                     IV<span class="mapping red">H</span>UDJW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
           </div>
         </p>
       </section>
@@ -453,13 +452,13 @@
       <section data-transition="fade-in slide-out" style="padding-top: 0;">
         <h2>Vigenère Cipher</h2>
         <div>
-          <img src="images/third-party/Vigenere_square_updated_fragment5.svg" style="background: none; border: 0; box-shadow: none; height: 360px; margin: 0 auto;">
+          <img src="images/third-party/Vigenere_square_updated_fragment5.svg" class="plain" height="400">
         </div>
         <p>
           <div class="pre-box-container">
-            <div class="pre-box-row">Plaintext:&nbsp;                MOZ<span class="red">I</span><span class="blue">L</span>LA&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
-            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;WHI<span class="red">M</span><span class="blue">S</span>YW&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
-            <div class="pre-box-row">Ciphertext:                     IVH<span class="red">U</span><span class="blue">D</span>JW&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
+            <div class="pre-box-row">Plaintext:&nbsp;                MOZI<span class="mapping red">L</span><span class="mapping blue">L</span>A&nbsp;IS&nbsp;MY&nbsp;DINOSAUR</div>
+            <div class="pre-box-row">Keyword:&nbsp;&nbsp;&nbsp;&nbsp;WHIM<span class="mapping red">S</span><span class="mapping blue">Y</span>W&nbsp;HI&nbsp;MS&nbsp;YWHIMSYW</div>
+            <div class="pre-box-row">Ciphertext:                     IVHU<span class="mapping red">D</span><span class="mapping blue">J</span>W&nbsp;PA&nbsp;YQ&nbsp;AEUWESSN</div>
           </div>
         </p>
         <p><em>Two consecutive "L"s encrypt to different outputs</em></p>
@@ -472,28 +471,28 @@
           <li class="fragment" data-fragment-index="1">Sometimes patterns in the plaintext appear in the ciphertext</li>
         </ul>
         <div class="fragment pre-box-container" data-fragment-index="1">
-          <div class="fragment pre-box-row" data-fragment-index="1">
+          <div class="pre-box-row">
             P: MOZILLA IS MY DINOSAUR A
-            <span class="fragment highlight-red" data-fragment-index="1">N</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">D</span>
+            <span class="mapping red">N</span>
+            <span class="mapping blue">D</span>
             &nbsp;FRIE
-            <span class="fragment highlight-red" data-fragment-index="1">N</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">D</span>
+            <span class="mapping red">N</span>
+            <span class="mapping blue">D</span>
           </div>
-          <div class="fragment pre-box-row" data-fragment-index="1">
+          <div class="pre-box-row">
             K: WHIMSYW HI MS YWHIMSYW H
-            <span class="fragment highlight-red" data-fragment-index="1">I</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">M</span>&nbsp;SYWH
-            <span class="fragment highlight-red" data-fragment-index="1">I</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">M</span>
+            <span class="mapping red">I</span>
+            <span class="mapping blue">M</span>&nbsp;SYWH
+            <span class="mapping red">I</span>
+            <span class="mapping blue">M</span>
           </div>
-          <div class="fragment pre-box-row" data-fragment-index="1">
+          <div class="pre-box-row">
             C: IVHUDJW PA YQ AEUWESSN H
-            <span class="fragment highlight-red" data-fragment-index="1">V</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">P</span>
+            <span class="mapping red">V</span>
+            <span class="mapping blue">P</span>
             &nbsp;XPEL
-            <span class="fragment highlight-red" data-fragment-index="1">V</span>
-            <span class="fragment highlight-blue" data-fragment-index="1">P</span>
+            <span class="mapping red">V</span>
+            <span class="mapping blue">P</span>
           </div>
         </div>
       </section>
@@ -663,12 +662,12 @@
         </div>
 
         <ul class="fragment" data-fragment-index="3" style="font-size: smaller;">
-            <li>To reverse a rotation of 22 (W), move the ciphertext either -22 or +4. Repeat this process for every column, and we're back to the original message.
-            <span class="fragment" data-fragment-index="4">H=-8 (+18)</span>
-            <span class="fragment" data-fragment-index="5">• I=-9 (+17)</span>
-            <span class="fragment" data-fragment-index="6">• M=-13 (+13)</span>
-            <span class="fragment" data-fragment-index="7">• S=-19 (+7)</span>
-            <span class="fragment" data-fragment-index="8">• Y=-24 (+2)</span>
+            <li>To reverse a rotation of 22 (W), move the ciphertext either -22 or +4. Repeat this process for every column, and we're back to the original message.<br />
+            <span class="fragment" data-fragment-index="4">H: -8 (+18)</span>
+            <span class="fragment" data-fragment-index="5">• I: -9 (+17)</span>
+            <span class="fragment" data-fragment-index="6">• M: -13 (+13)</span>
+            <span class="fragment" data-fragment-index="7">• S: -19 (+7)</span>
+            <span class="fragment" data-fragment-index="8">• Y: -24 (+2)</span>
           </li>
         </ul>
       </section>
@@ -689,12 +688,12 @@
 
       <section>
         <h2>XOR (exclusive or)</h2>
-        <p class="left">XOR, sometimes written ⊕, is an operator that outputs true (1) if the elements differ and outputs false (0) if they are the same.</p>
+        <p class="left">XOR, sometimes written ⊕, is an operator that outputs true (1) if the inputs differ and outputs false (0) if they are the same.</p>
         <ul class="fragment" data-fragment-index="1">
-          <li class="fragment" data-fragment-index="1">0 ⊕ 0 == 0, as they're the same</li>
-          <li class="fragment" data-fragment-index="2">0 ⊕ 1 == 1, as they're the different</li>
-          <li class="fragment" data-fragment-index="3">1 ⊕ 0 == 1, as they're the different</li>
-          <li class="fragment" data-fragment-index="4">1 ⊕ 1 == 0, as they're the same</li>
+          <li class="fragment" data-fragment-index="1">0 ⊕ 0 == 0, since the inputs are the same</li>
+          <li class="fragment" data-fragment-index="2">0 ⊕ 1 == 1, since the inputs are the different</li>
+          <li class="fragment" data-fragment-index="3">1 ⊕ 0 == 1, since the inputs are the different</li>
+          <li class="fragment" data-fragment-index="4">1 ⊕ 1 == 0, since the inputs are the same</li>
         </ul>
       </section>
 
@@ -756,14 +755,15 @@
         <p class="fragment left" data-fragment-index="4">If your key is a one-time pad, then your message can never be broken!</p>
       </section>
 
-      <section>
+      <section style="padding-top: 0;">
         <h2>One-time Pad</h2>
         <p class="left">So why don't we use one-time pads for all of our encryption, if it's so unbreakable?</p>
         <ul>
           <li class="fragment">First, the key needs to be at least as long as your message.  If your message is 5GB, then your key also needs to be 5GB.</li>
-          <li class="fragment">Also, the key can only be used once.  Key reuse reveals information about all your previous messages.</li>
+          <li class="fragment">Also, the key can only be used once.  Key reuse &mdash; like we saw in the Vigenère cipher &mdash; reveals information about all your previous messages.</li>
         </ul>
         <p class="left fragment">The impracticality of having extremely long keys combined with the key reuse requirements makes the OTP infeasible for much real-world use.</p>
+        <p class="fragment friendly-aside">Anyone selling them is likely a <a href="https://www.schneier.com/crypto-gram/archives/1999/0215.html#snakeoil">snake oil salesperson</a>.</p>
         <aside class="notes">
           This is because M1 ⊕ K ⊕ M2 ⊕ K == M1 ⊕ M2.
         </aside>
@@ -785,7 +785,7 @@
 
       <section>
         <h2>Modern Cryptography</h2>
-        <p class="left">In addition to solving the key management issue, modern cryptography provides four security guarantees:</p>
+        <p class="left">In addition to solving the key management issue, modern cryptography provides three primary security guarantees:</p>
         <ul>
           <li class="fragment">Confidentiality
             <ul>
@@ -804,12 +804,6 @@
               <li><em>Am I communicating with the party they claim to be?</em></li>
             </ul>
           </li>
-
-          <li class="fragment">Non-repudiation
-            <ul>
-              <li><em>Can somebody deny that they sent a message?</em></li>
-            </ul>
-          </li>
         </ul>
       </section>
 
@@ -826,17 +820,17 @@
           <li>Advantages
             <ul>
               <li class="fragment" data-fragment-index="1">Computationally very fast and simple</li>
-              <li class="fragment" data-fragment-index="2">Keys are small (typically 128-256 bits)</li>
+              <li class="fragment" data-fragment-index="2">Keys are small (typically 128 to 256 bits)</li>
             </ul>
           </li>
           <li>Disadvantages
             <ul>
-              <li class="fragment" data-fragment-index="3">Key management is difficult, as each party requires a copy of the key</li>
-              <li class="fragment" data-fragment-index="4">Provides only confidentiality, with no assurances about authenticity or integrity</li>
+              <li class="fragment" data-fragment-index="3">Key management is difficult, as each party needs a copy of the key to encrypt or decrypt</li>
+              <li class="fragment" data-fragment-index="4">Provides only confidentiality, with no native assurances about authenticity or integrity</li>
             </ul>
           </li>
         </ul>
-        <p class="fragment left">Due to its speed, symmetric-key cryptography is primarily used for bulk encryption, using other forms of cryptography to make up for its shortcomings.</p>
+        <p class="fragment left">Due to its speed, symmetric-key cryptography is primarily used for bulk encryption, requiring other forms of cryptography to make up for its shortcomings.</p>
       </section>
 
       <section>
@@ -879,7 +873,7 @@
             <td>Block</td>
           </tr>
         </table>
-        <p class="fragment highlight-current-green friendly-aside" data-fragment-index="1">Mozilla recommends using only AES with 128 or 256-bit keys or CHACHA20. When in doubt, contact your friendly neighborhood cryptographer!</p>
+        <p class="fragment highlight-current-green friendly-aside" data-fragment-index="1">Mozilla recommends only AES with 128 or 256-bit keys or CHACHA20.<br />When in doubt, contact us!</p>
       </section>
 
       <section>
@@ -910,7 +904,8 @@
         <h3>Stream ciphers</h3>
           <ul>
             <li>Operate on one bit at a time</li>
-            <li class="fragment">Key is permutated with an initialization vector (IV) or nonce to produce a stream of bits as long as your message, known as a <em>keystream</em></li>
+            <li class="fragment">Key is permutated with an <strong>initialization vector</strong> (random input) or <strong>nonce</strong> (number only used once).</li>
+            <li class="fragment">This produces a stream of bits as long as your message, known as a <strong>keystream</strong></li>
             <li class="fragment">Keystream is then XORed with the plaintext to produce the ciphertext</li>
             <li class="fragment">Like a one-time pad, the keystream must never be reused; the IV or nonce must change with each use</li>
           </ul>
@@ -923,7 +918,7 @@
       <section>
         <h3>Stream ciphers</h3>
         <img src="images/first-party/stream-cipher.svg" style="background: none; border: 0; box-shadow: none;" height="350" />
-        <p class="left">A key and initialization vector are combined to generate a keystream, which is then XORed with the plaintext to generate the ciphertext</p>
+        <p class="left">A key and initialization vector or nonce are combined to generate a keystream, which is then XORed with the plaintext to generate the ciphertext</p>
       </section>
 
       <section>
