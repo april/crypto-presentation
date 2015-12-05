@@ -918,10 +918,10 @@
         <h3>Stream ciphers</h3>
           <ul>
             <li>Operate on one bit at a time</li>
-            <li class="fragment">Key is permutated with an <strong>nonce</strong> (number only used once).</li>
+            <li class="fragment">Key is permutated with an <strong>nonce</strong>, or a number only used once</li>
             <li class="fragment">This produces a stream of bits as long as your message, known as a <strong>keystream</strong></li>
             <li class="fragment">Keystream is then XORed with the plaintext to produce the ciphertext</li>
-            <li class="fragment">Like a one-time pad, the keystream must never be reused; the IV or nonce must change with each use</li>
+            <li class="fragment">Like a one-time pad, the keystream must never be reused; the nonce must be changed with each use</li>
           </ul>
 
         <aside class="notes">
@@ -932,7 +932,7 @@
       <section>
         <h3>Stream ciphers</h3>
         <img src="images/first-party/stream-cipher.svg" style="background: none; border: 0; box-shadow: none;" height="350" />
-        <p class="left">A key and nonce are combined to generate a keystream, which is then XORed with the plaintext to generate the ciphertext</p>
+        <p class="left">The key and nonce are combined to generate a keystream, which is then XORed with the plaintext to generate the ciphertext</p>
       </section>
 
       <section>
