@@ -141,7 +141,7 @@
       </section>
 
       <section>
-        <h2>Caeser Cipher</h2>
+        <h2>Caesar Cipher</h2>
         <ul>
           <li>Shift each letter in message three characters to the left</li>
         </ul>
@@ -215,7 +215,7 @@
               <span class="fragment highlight-current-red mapping" data-fragment-index="1">J</span>
               <span class="fragment highlight-current-red mapping" data-fragment-index="2">L</span>
               <span class="fragment highlight-current-red mapping" data-fragment-index="3">W</span>
-              FIIX EP JV AFKLPXRO
+              FIIX FP JV AFKLPXRO
             </div>
           </div>
         </p>
@@ -381,7 +381,7 @@
         <div>
           <img src="images/third-party/English_letter_frequency_perfect_crypto.svg" style="background: none; border: 0; box-shadow: none" height="480">
         </div>
-        <p>Ideally, each letter should appear equally as often</p>
+        <p>Ideally, each letter should appear at the same frequency</p>
       </section>
 
       <section>
@@ -401,7 +401,7 @@
         <h2>Vigenère Cipher</h2>
         <ul>
           <li>A type of cipher known as a polyalphabetic cipher</li>
-          <li>First described in the mid 1500s, it was considered the "indescipherable cipher" for over 300 years</li>
+          <li>First described in the mid 1500s, it was considered the "indecipherable cipher" for over 300 years</li>
           <li>Defeated frequency analysis and eventually led to the development of the one-time pad</li>
         </ul>
       </section>
@@ -696,7 +696,7 @@
         <h2>One-time Pad</h2>
         <p><em>Congratulations! You've just invented the only truly unbreakable form of cryptography.</em></p>
         <ul>
-          <li>If the key is as least as long as the message and truly random, you can combine (XOR) the key and the message to create a message that can never be decrypted</li>
+          <li>If the key is at least as long as the message and truly random, you can combine (XOR) the key and the message to create a message that can never be decrypted</li>
         </ul>
       </section>
 
@@ -910,7 +910,7 @@
         <p class="fragment friendly-aside">How big is 2<sup>128</sup>?</p>
         <p class="fragment friendly-aside left">If a single key was the size of a grain of sand, the key space would be 31x the size of Jupiter!  310-bits gets you up to the size of the known universe.</p>
         <aside class="notes">
-          The Caeser cipher has a keyspace of 26, which equates to only 4.7 bits.
+          The Caesar cipher has a keyspace of 26, which equates to only 4.7 bits.
         </aside>
       </section>
 
@@ -1527,7 +1527,7 @@
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
         <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-5.svg"></p></div>
-        <p>To verify the message came from Alice, he takes creates a hash of the ciphertext, just as Alice did.</p>
+        <p>To verify the message came from Alice, he creates a hash of the ciphertext, just as Alice did.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
@@ -1948,7 +1948,7 @@ X509v3 extensions:
 
       <section>
         <p><img class="plain" style="margin-right: 2em;" src="images/first-party/alice_sad.svg" height="400"><img class="plain" src="images/first-party/bob_sad.svg" height="400"></p>
-        <p>And even Alice and Bob did both have private keys, they wouldn't want to: digital signatures are <em>really slow</em>.</p>
+        <p>And even if Alice and Bob did both have private keys, they wouldn't want to: digital signatures are <em>really slow</em>.</p>
       </section>
 
       <section>
@@ -1997,7 +1997,7 @@ X509v3 extensions:
 
       <section>
         <p>Once Alice and Bob are finished communicating, they throw away the symmetric keys that they generated with Diffie-Hellman key exchange.</p>
-        <p class="fragment">This ensures that their conversation can't decrypted in the future, a feature known as <strong>perfect forward secrecy</strong>.</p>
+        <p class="fragment">This ensures that their conversation can't be decrypted in the future, a feature known as <strong>forward secrecy</strong>.</p>
       </section>
 
       <section>
@@ -2009,9 +2009,9 @@ X509v3 extensions:
           <li class="fragment">An encrypted hash ensures that their handshake hasn't been tampered with</li>
           <li class="fragment">Alice and Bob keep their messages confidential by using a symmetric-key cipher</li>
           <li class="fragment">HMACs protect the integrity of their future messages</li>
-          <li class="fragment">Once the TLS session is over, they both discard their keys to provide perfect forward secrecy</li>
+          <li class="fragment">Once the TLS session is over, they both discard their keys to provide forward secrecy</li>
         </ul>
-        <p class="fragment friendly-aside">Note: you can use RSA instead of Diffie-Hellman during the handshake,<br />but you lose perfect forward secrecy.</p>
+        <p class="fragment friendly-aside">Note: you can use RSA instead of Diffie-Hellman during the handshake,<br />but you lose forward secrecy.</p>
       </section>
 
       <section>
@@ -2218,7 +2218,7 @@ X509v3 extensions:
             <li>Randomness is heavily used in the creation of keys, IVs, nonces, etc.</li>
             <li class="fragment">Despite all evidence to the contrary, people are predictable</li>
             <li class="fragment">Turns out that computers are too, and it's difficult to properly generate randomness</li>
-            <li class="fragment">If your computer is generating generating poor randomness, your crypto will be predictable and broken</li>
+            <li class="fragment">If your computer is generating poor randomness, your crypto will be predictable and broken</li>
             <li class="fragment">Use a good source of randomness from your operating system or programming library, and initialize it properly</li>
             <li class="fragment">Like with writing your own crypto, don't write your own random number generator</li>
           </ul>
