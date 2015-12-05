@@ -887,7 +887,7 @@
             <td>Block</td>
           </tr>
         </table>
-        <p class="fragment highlight-current-green friendly-aside" data-fragment-index="1">Mozilla recommends only AES with 128 or 256-bit keys or CHACHA20.<br />When in doubt, contact us!</p>
+        <p class="fragment highlight-current-green friendly-aside" data-fragment-index="1">Mozilla <a href="https://wiki.mozilla.org/Security/Server_Side_TLS">recommends</a> only AES with 128 or 256-bit keys or CHACHA20.<br />When in doubt, contact us!</p>
       </section>
 
       <section>
@@ -1358,7 +1358,7 @@
 
       <section>
         <p><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_signing.svg" height="400"></p>
-        <p>Plus, Bob can encrypt a special kind of message with his private key that anybody can decrypt with his public key to assert his identity.</p>
+        <p>Plus, Bob can encrypt a special piece of information with his private key that anybody can decrypt with his public key to assert his identity.</p>
         <p class="fragment">We call this <strong>signing</strong>, but more on that later.</p>
       </section>
 
@@ -1466,6 +1466,9 @@
         <p><img class="plain" src="images/first-party/digital_signature1.svg" height="360"></p>
         <p>What if instead of just sending Bob the plain hash, she created a <strong>digital signature</strong> by encrypting the hash with her <em>private key</em> and sent that to Bob?</p>
         <p class="fragment friendly-aside">That's why we called this <strong>signing</strong> from earlier!</p>
+        <aside class="notes">
+          Why do we encrypt the hash and not the message? RSA encryption is limited in size by its modulus (aka, n = pq, usually 2048 bits these days)
+        </aside>
       </section>
 
       <section>
@@ -1506,57 +1509,57 @@
       </section>
 
       <section style="padding: 0;" data-transition="slide-in fade-out">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-1.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-1.svg"></p></div>
         <p>First, Alice takes her message and<br />encrypts it with Bob's public key.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-2.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-2.svg"></p></div>
         <p>Next, she creates a hash of the ciphertext, and encrypts it with her private key, creating a digital signature.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-3.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-3.svg"></p></div>
         <p>She then sends the encrypted message<br />and the digital signature to Bob.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-4.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-4.svg"></p></div>
         <p>Bob takes the encrypted message from Alice,<br />and decrypts it with his private key.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-5.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-5.svg"></p></div>
         <p>To verify the message came from Alice, he creates a hash of the ciphertext, just as Alice did.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-6.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-6.svg"></p></div>
         <p>Bob then takes the digital signature<br />and decrypts it with Alice's public key.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
         <p>If the two hashes match,<br />he knows the message came from Alice.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
         <p>We have <strong>confidentiality</strong>, because the message was encrypted with Bob's public key.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
         <p>We have <strong>authentication</strong>, because only someone with Alice's private key could create a signature that would properly decrypt with Alice's public key.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
         <p>And we have <strong>integrity</strong>, because if the ciphertext or digital signature were modified or replaced, then the resulting hashes wouldn't match.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
+        <div style="height: 540px;"><img class="plain" src="images/first-party/digital_signature6-f.svg"></p></div>
         <p class="friendly-aside">Not shown: In real-world implementations, we typically create a symmetric key and encrypt the message with that. The symmetric key is then encrypted using the public key of Bob and signed with Alice's private key.</p>
       </section>
 
