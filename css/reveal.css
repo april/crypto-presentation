@@ -59,8 +59,8 @@ html:-moz-full-screen-ancestor {
 .reveal .slides section .fragment {
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease; }
+  -webkit-transition: all .2s ease;
+          transition: all .2s ease; }
   .reveal .slides section .fragment.visible {
     opacity: 1;
     visibility: visible; }
