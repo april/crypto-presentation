@@ -9,3 +9,5 @@ Tux image (and derivitives) copyright (C) Larry Ewing and The GIMP. ECB and Secu
 Cipher block mode (CBC) image by [WhiteTimberwolf](https://commons.wikimedia.org/wiki/User:WhiteTimberwolf), public domain
 
 Whitfield Diffie image by [Matt Crypto](https://en.wikipedia.org/wiki/User:Matt_Crypto), CC BY 2.0
+
+Thanks to Happy Bear Software for the [ideas behind the crypto exercises](http://www.happybearsoftware.com/you-are-dangerously-bad-at-cryptography.html).
