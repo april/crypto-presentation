@@ -361,7 +361,7 @@
       </section>
 
       <section>
-        <h3>Modern ciphers still uses both substitution and transposition at the bit and byte level...</h3>
+        <h3>Modern ciphers still use both substitution and transposition at the bit and byte level...</h3>
       </section>
 
       <section>
@@ -705,8 +705,8 @@
         <p class="left">XOR, sometimes written ⊕, is an operator that outputs true (1) if the inputs differ and outputs false (0) if they are the same.</p>
         <ul class="fragment" data-fragment-index="1">
           <li class="fragment" data-fragment-index="1">0 ⊕ 0 == 0, since the inputs are the same</li>
-          <li class="fragment" data-fragment-index="2">0 ⊕ 1 == 1, since the inputs are the different</li>
-          <li class="fragment" data-fragment-index="3">1 ⊕ 0 == 1, since the inputs are the different</li>
+          <li class="fragment" data-fragment-index="2">0 ⊕ 1 == 1, since the inputs are different</li>
+          <li class="fragment" data-fragment-index="3">1 ⊕ 0 == 1, since the inputs are different</li>
           <li class="fragment" data-fragment-index="4">1 ⊕ 1 == 0, since the inputs are the same</li>
         </ul>
       </section>
@@ -761,12 +761,13 @@
           </tr>
         </table>
         <p class="left">XOR has the special property that its output is as random as the most random input</p>
-        <ul class="fragment" data-fragment-index="1">
+        <ul>
           <li class="fragment highlight-current-red" data-fragment-index="1">Take non-random message</li>
           <li class="fragment highlight-current-red" data-fragment-index="2">Combine with random key</li>
           <li class="fragment highlight-current-red" data-fragment-index="3">Note: the output is as random as the key</li>
         </ul>
         <p class="fragment left" data-fragment-index="4">If your key is a one-time pad, then your message can never be broken!</p>
+        <aside class="notes">Note how XOR has no bias towards 0 or 1, as long as one of the inputs has no bias.</aside>
       </section>
 
       <section style="padding-top: 0;">
