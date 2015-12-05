@@ -1314,7 +1314,7 @@
       <section>
         <h3>RSA cryptosystem</h3>
         <ul>
-          <li>Choose two prime numbers (<span class="red">p</span> = <span class="red">89</span>, <span class="red">q</span> = <span class="red">101</span>). This pair of numbers is the <em>private key<sup style="font-size: .8em;">&dagger;</sup></em>.</li>
+          <li>Choose two prime numbers (<span class="red">p</span> = <span class="red">89</span>, <span class="red">q</span> = <span class="red">101</span>). Use these numbers to generate your private key, <span class="red">d</span><sup style="font-size: .8em;">&dagger;</sup></em>.</li>
           <li class="fragment" data-fragment-index="1">Multiple these numbers together (<span class="blue">n</span> = <span class="red">p</span> × <span class="red">q</span> = <span class="blue">8989</span>). This value (along with a few extra bits) is the <em>public key</em>.</li>
           <li class="fragment" data-fragment-index="2">Now think about how you would try to figure out the factors of <span class="blue">n</span>, if you didn't know <span class="red">p</span> and <span class="red">q</span> already.</li>
         </ul>
@@ -1322,7 +1322,7 @@
         <ul>
           <li class="fragment" data-fragment-index="3">In reality, <span class="red">p</span> and <span class="red">q</span> are hundreds of digits long, making it infeasible for a computer to determine what the private key is, even knowing the value of <span class="blue">n</span>.</li>
         </ul>
-        <p class="fragment friendly-aside">&dagger; <span class="red">p</span> and <span class="red">q</span> are not actually the private key. It's a number <span class="red">d</span> that is generated from them. For more information, see <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29">RSA cryptosystem on Wikipedia</a>.</p>
+        <p class="fragment friendly-aside">&dagger; For more information on how this is done,<br />see the Wikipedia article on the <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29">RSA cryptosystem</a>.</p>
       </section>
 
       <section>
