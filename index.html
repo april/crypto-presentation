@@ -712,7 +712,7 @@
       </section>
 
       <section>
-        <h2>XOR (exclusive or)</h2>
+        <h3>XOR (exclusive or)</h3>
         <table>
           <tr>
             <td><span class="fragment highlight-current-red" data-fragment-index="1">Message:</span></td>
@@ -764,9 +764,9 @@
         <ul>
           <li class="fragment highlight-current-red" data-fragment-index="1">Take non-random message</li>
           <li class="fragment highlight-current-red" data-fragment-index="2">Combine with random key</li>
-          <li class="fragment highlight-current-red" data-fragment-index="3">Note: the output is as random as the key</li>
+          <li class="fragment highlight-current-red" data-fragment-index="3">The output is as random as the key</li>
         </ul>
-        <p class="fragment left" data-fragment-index="4">If your key is a one-time pad, then your message can never be broken!</p>
+        <p class="fragment friendly-aside" data-fragment-index="4">If your key is a one-time pad, then your message can never be broken!</p>
         <aside class="notes">Note how XOR has no bias towards 0 or 1, as long as one of the inputs has no bias.</aside>
       </section>
 
@@ -1473,7 +1473,7 @@
       <section>
         <h3>Digital signatures</h3>
         <p><img class="plain" src="images/first-party/digital_signature2.svg" height="360"></p>
-        <p>Bob would then decrypt it with Alice's <em>public key</em> to get back to original hash. He would then compare it to the message's hash to see if it actually came from Alice.</p>
+        <p>Bob would then decrypt it with Alice's <em>public key</em> to get back to the original hash. He would then compare it to the message's hash to see if it actually came from Alice.</p>
       </section>
 
       <section>
@@ -1665,15 +1665,15 @@ X509v3 extensions:
      6e:cf:df:51:08:f5:0b:36:17:dc:f8:a4:1e:df:95:8e:aa:47:
                        [...]</span></pre>
         <div style="display: table;">
-          <span>
+          <span style="vertical-align: top;">
             <ul style="font-size: .7em;">
-              <li class="fragment" data-fragment-index="1"><span class="fragment highlight-current-red" data-fragment-index="1">A serial number, unique to that CA</span></li>
+              <li class="fragment" data-fragment-index="1"><span class="fragment highlight-current-red" data-fragment-index="1">A serial number that the CA hasn't<br />used for any prior certificate</span></li>
               <li class="fragment" data-fragment-index="2"><span class="fragment highlight-current-red" data-fragment-index="2">The CA that issued the certificate</span></li>
               <li class="fragment" data-fragment-index="3"><span class="fragment highlight-current-red" data-fragment-index="3">When the certificate is valid for</span></li>
               <li class="fragment" data-fragment-index="4"><span class="fragment highlight-current-red" data-fragment-index="4">Who the certificate is valid for</span></li>
             </ul>
           </span>
-          <span>
+          <span style="vertical-align: top;">
             <ul style="font-size: .7em; margin-left: 1.5em;">
               <li class="fragment" data-fragment-index="5"><span class="fragment highlight-current-red" data-fragment-index="5">The public key</span></li>
               <li class="fragment" data-fragment-index="6"><span class="fragment highlight-current-red" data-fragment-index="6">What the certificate is valid for</span></li>
