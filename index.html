@@ -918,21 +918,21 @@
         <h3>Stream ciphers</h3>
           <ul>
             <li>Operate on one bit at a time</li>
-            <li class="fragment">Key is permutated with an <strong>initialization vector</strong> (random input) or <strong>nonce</strong> (number only used once).</li>
+            <li class="fragment">Key is permutated with an <strong>nonce</strong> (number only used once).</li>
             <li class="fragment">This produces a stream of bits as long as your message, known as a <strong>keystream</strong></li>
             <li class="fragment">Keystream is then XORed with the plaintext to produce the ciphertext</li>
             <li class="fragment">Like a one-time pad, the keystream must never be reused; the IV or nonce must change with each use</li>
           </ul>
 
         <aside class="notes">
-          A number of systems using RC4 have been broken because the IVs weren't unique enough; see WEP and related-IV attacks
+          A number of systems using RC4 have been broken because the nonces weren't unique enough; see WEP and related-IV attacks
         </aside>
       </section>
 
       <section>
         <h3>Stream ciphers</h3>
         <img src="images/first-party/stream-cipher.svg" style="background: none; border: 0; box-shadow: none;" height="350" />
-        <p class="left">A key and initialization vector or nonce are combined to generate a keystream, which is then XORed with the plaintext to generate the ciphertext</p>
+        <p class="left">A key and nonce are combined to generate a keystream, which is then XORed with the plaintext to generate the ciphertext</p>
       </section>
 
       <section>
@@ -982,7 +982,7 @@
         <h3>Block cipher modes of operation</h3>
         <p class="left">The various block cipher modes each provide their own benefits besides simply eliminating patterns in ciphertext</p>
         <ul>
-          <li class="fragment">Allowing the use of an initialization vector so that identical plaintexts encrypt differently</li>
+          <li class="fragment">Allowing the use of an initialization vector (random input) so that identical plaintexts encrypt differently</li>
           <li class="fragment">Change block ciphers to function like stream ciphers, eliminating the need for padding</li>
           <li class="fragment">Increased performance through use of parallelization</li>
         </ul>
@@ -1312,19 +1312,17 @@
       </section>
 
       <section>
-        <h3>RSA: a simple example</h3>
+        <h3>RSA cryptosystem</h3>
         <ul>
-          <li>Choose two prime numbers (<span class="red">p</span> = <span class="red">89</span>, <span class="red">q</span> = <span class="red">101</span>). This pair of numbers is the <em>private key</em>.</li>
+          <li>Choose two prime numbers (<span class="red">p</span> = <span class="red">89</span>, <span class="red">q</span> = <span class="red">101</span>). This pair of numbers is the <em>private key<sup style="font-size: .8em;">&dagger;</sup></em>.</li>
           <li class="fragment" data-fragment-index="1">Multiple these numbers together (<span class="blue">n</span> = <span class="red">p</span> × <span class="red">q</span> = <span class="blue">8989</span>). This value (along with a few extra bits) is the <em>public key</em>.</li>
-        </ul>
-        <p class="fragment friendly-aside" data-fragment-index="1" style="margin: .2em auto;">So easy, even a calculator can do it!</p>
-        <ul>
           <li class="fragment" data-fragment-index="2">Now think about how you would try to figure out the factors of <span class="blue">n</span>, if you didn't know <span class="red">p</span> and <span class="red">q</span> already.</li>
         </ul>
         <p class="fragment friendly-aside" data-fragment-index="2" style="margin: .2em auto;">Is it divisible by 2? Nope. How about 3? 5? 7? ...</p>
         <ul>
           <li class="fragment" data-fragment-index="3">In reality, <span class="red">p</span> and <span class="red">q</span> are hundreds of digits long, making it infeasible for a computer to determine what the private key is, even knowing the value of <span class="blue">n</span>.</li>
         </ul>
+        <p class="fragment friendly-aside">&dagger; <span class="red">p</span> and <span class="red">q</span> are not actually the private key. It's a number <span class="red">d</span> that is generated from them. For more information, see <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29">RSA cryptosystem on Wikipedia</a>.</p>
       </section>
 
       <section>
