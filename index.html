@@ -381,7 +381,7 @@
         <div>
           <img src="images/third-party/English_letter_frequency_perfect_crypto.svg" style="background: none; border: 0; box-shadow: none" height="480">
         </div>
-        <p>Ideally, each letter should appear equally as often</p>
+        <p>Ideally, each letter should appear at the same frequency</p>
       </section>
 
       <section>
@@ -1997,7 +1997,7 @@ X509v3 extensions:
 
       <section>
         <p>Once Alice and Bob are finished communicating, they throw away the symmetric keys that they generated with Diffie-Hellman key exchange.</p>
-        <p class="fragment">This ensures that their conversation can't be decrypted in the future, a feature known as <strong>perfect forward secrecy</strong>.</p>
+        <p class="fragment">This ensures that their conversation can't be decrypted in the future, a feature known as <strong>forward secrecy</strong>.</p>
       </section>
 
       <section>
@@ -2009,9 +2009,9 @@ X509v3 extensions:
           <li class="fragment">An encrypted hash ensures that their handshake hasn't been tampered with</li>
           <li class="fragment">Alice and Bob keep their messages confidential by using a symmetric-key cipher</li>
           <li class="fragment">HMACs protect the integrity of their future messages</li>
-          <li class="fragment">Once the TLS session is over, they both discard their keys to provide perfect forward secrecy</li>
+          <li class="fragment">Once the TLS session is over, they both discard their keys to provide forward secrecy</li>
         </ul>
-        <p class="fragment friendly-aside">Note: you can use RSA instead of Diffie-Hellman during the handshake,<br />but you lose perfect forward secrecy.</p>
+        <p class="fragment friendly-aside">Note: you can use RSA instead of Diffie-Hellman during the handshake,<br />but you lose forward secrecy.</p>
       </section>
 
       <section>
