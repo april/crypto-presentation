@@ -983,25 +983,24 @@
         <h3>Block cipher modes of operation</h3>
         <p class="left">The various block cipher modes each provide their own benefits besides simply eliminating patterns in ciphertext</p>
         <ul>
-          <li class="fragment">Allowing the use of an initialization vector (random input) so that identical plaintexts encrypt differently</li>
+          <li class="fragment">Allowing the use of an initialization vector (random input) or nonce so that identical plaintexts encrypt differently</li>
           <li class="fragment">Change block ciphers to function like stream ciphers, eliminating the need for padding</li>
           <li class="fragment">Increased performance through use of parallelization</li>
+          <li class="fragment">Some modes, such as the recommended <a href="#/aeads">Galois/Counter Mode</a> (GCM) provide assurances about the integrity and authenticity of the encrypted block</li>
         </ul>
+        <aside class="notes">Pronounced Gal-eww-wah</aside>
       </section>
 
       <section>
-        <h3>Block cipher modes of operation</h3>
-        <p><img src="images/third-party/Block_mode_operation_CBC.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="240" /></p>
-        <p>This is the cipher block chaining (CBC) mode of operation</p>
+        <p><img src="images/third-party/Block_mode_operation_CTR.svg" class="plain" height="240" /></p>
+        <p>This is the counter (CTR) block mode of operation</p>
         <ul>
-          <li class="fragment">⊕ the first block of plaintext with an IV</li>
-          <li class="fragment">Use key and block cipher to encrypt block</li>
-          <li class="fragment">All future blocks ⊕ the plaintext with the previous block's ciphertext prior to encryption</li>
+          <li class="fragment">Create a nonce and set your counter</li>
+          <li class="fragment">Encrypt the nonce and counter, forming a single block of the key stream</li>
+          <li class="fragment">XOR one block of plaintext with that key stream block</li>
+          <li class="fragment">Increment the counter for each successive block</li>
         </ul>
-        <p class="fragment friendly-aside">This slide is for educational purposes and should not be construed as an endorsement of CBC mode.</p>
-        <aside class="notes">
-          The IV prevents patterns between messages in the first block, and the XORing thereon prevents further patterns.
-        </aside>
+        <p class="fragment friendly-aside">The nonce must always be unique, and the counter should never loop!</p>
       </section>
 
       <section>
@@ -1105,9 +1104,9 @@
       </section>
 
       <section>
-        <p>Welcome to Diffie-Hellman key exchange!</p>
-        <p><img class="plain" src="images/first-party/alice_and_bob_key_with_eve_diffie_hellman.svg" height="350"></p>
-        <p>Diffie-Hellman key exchange allows two parties who have had no prior communications to jointly establish a key remotely, even when their method of communication is insecure.</p>
+        <p><img class="plain" src="images/first-party/alice_and_bob_key_with_eve_diffie_hellman.svg" height="320"></p>
+        <p class="left"><strong>Diffie-Hellman key exchange</strong><sup>&dagger;</sup> (DHE) allows two parties who have had no prior communications to jointly establish a key remotely, even when their method of communication is insecure.</p>
+        <p class="friendly-aside">&dagger; This class demonstrates classic DHE, instead of<br />the recommended <a href="#/elliptic-curve-cryptography">Elliptic Curve DHE</a>, which will be covered later</p>
         <aside class="notes">Note that this presentation uses classic DHE, instead of the recommended ECDH for simplicity purposes.</aside>
       </section>
 
@@ -2229,7 +2228,7 @@ X509v3 extensions:
           <h3>Miscellaneous<br />&darr; Cryptography Topics &darr;</h3>
         </section>
 
-        <section>
+        <section id="elliptic-curve-cryptography">
           <h3>Elliptic Curve Cryptography</h3>
           <ul>
             <li>Strongest, fastest, and most popular form of asymmetric key cryptography in modern TLS</li>
@@ -2241,7 +2240,7 @@ X509v3 extensions:
           <p class="fragment friendly-aside">Most of the demos in this presentation are actually<br />done these days with ECDHE instead of DHE!</p>
         </section>
 
-        <section>
+        <section id="randomness">
           <h3>Randomness</h3>
           <ul style="font-size: .9em;">
             <li>Randomness is heavily used in the creation of keys, IVs, nonces, etc.</li>
@@ -2253,7 +2252,7 @@ X509v3 extensions:
           </ul>
         </section>
 
-        <section>
+        <section id="aeads">
           <h3>AEADs</h3>
           <ul>
             <li><strong>Authenticated Encryption with Associated Data</strong> (AEAD) is a block cipher mode of operation</li>
