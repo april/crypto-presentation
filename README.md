@@ -1,4 +1,4 @@
-A cryptography presentation for Mozilla (and others), using [reveal.js](http://lab.hakim.se/reveal-js/). You can view it online at [https://marumari.github.io/crypto-presentation/](https://marumari.github.io/crypto-presentation/).
+A cryptography presentation for Mozilla (and others), using [reveal.js](http://lab.hakim.se/reveal-js/).
 
 When submitting issues on slides, please use the slide number in the lower right hand corner, and not the fragment number in the URL.
 
