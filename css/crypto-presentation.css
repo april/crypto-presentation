@@ -55,6 +55,7 @@ table.diffie {
 
 table.diffie td, table.diffie th {
   border: solid 1px black;
+  padding: 0.1em .5em;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;

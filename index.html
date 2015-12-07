@@ -29,19 +29,19 @@
       </section>
  
       <section>
+        <h2>Learning Objectives</h2>
         <ul>
-          <h2>Learning Objectives</h2>
-          <li>Describe the history and purpose of cryptography</li>
-          <li>Build a solid understanding of cryptographic primitives</li>
-          <li>Learn how cryptographic primitives are combined to make a complete cryptographic system</li>
-          <li>Realize some of the many ways you can screw up when writing your own cryptography</li>
+          <li class="fragment">History and purpose of cryptography</li>
+          <li class="fragment">Build a solid understanding of cryptographic primitives</li>
+          <li class="fragment">Learn how cryptographic primitives are combined to make a complete cryptographic system</li>
+          <li class="fragment">Realize some of the many ways you can screw up when writing your own cryptography</li>
         </ul>
       </section>
 
       <section>
+        <h2>Ignorance Objectives</h2>
         <ul>
-          <h2>Ignorance Objectives</h2>
-          <li>Writing your own cryptography</li>
+          <li class="fragment">Writing your own cryptography</li>
         </ul>
       </section> 
 
@@ -361,25 +361,25 @@
       </section>
 
       <section>
-        <h3>Modern ciphers still use both substitution and transposition at the bit and byte level...</h3>
+        <h3>Modern ciphers still use both<br />substitution and transposition<br />at the bit and byte level...</h3>
       </section>
 
       <section>
-        <h3>...so why might these simple ciphers not be secure?</h3>
+        <h3>...so why might these simple<br />ciphers not be secure?</h3>
       </section>
 
       <section style="padding-top: 0;">
-        <h2>Frequency Analysis</h2>
+        <h3>Frequency Analysis</h3>
         <div>
-          <img src="images/third-party/English_letter_frequency.svg" style="background: none; border: 0; box-shadow: none" height="480">
+          <img src="images/third-party/English_letter_frequency.svg" style="background: none; border: 0; box-shadow: none" height="450">
         </div>
         <p>It turns out that not every letter in the English language appears equally as often</p>
       </section>
 
       <section style="padding-top: 0;">
-        <h2>Frequency Analysis</h2>
+        <h3>Frequency Analysis</h3>
         <div>
-          <img src="images/third-party/English_letter_frequency_perfect_crypto.svg" style="background: none; border: 0; box-shadow: none" height="480">
+          <img src="images/third-party/English_letter_frequency_perfect_crypto.svg" style="background: none; border: 0; box-shadow: none" height="450">
         </div>
         <p>Ideally, each letter should appear at the same frequency</p>
       </section>
@@ -407,7 +407,7 @@
       </section>
 
       <section data-transition="slide-in fade-out" style="padding-top: 0;">
-        <h2>Vigenère Cipher</h2>
+        <h3>Vigenère Cipher</h3>
         <div>
           <img src="images/third-party/Vigenere_square_updated.svg" class="plain" height="400">
         </div>
@@ -421,7 +421,7 @@
       </section>
 
       <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
-        <h2>Vigenère Cipher</h2>
+        <h3>Vigenère Cipher</h3>
         <div>
           <img src="images/third-party/Vigenere_square_updated_fragment2.svg" class="plain" height="400">
         </div>
@@ -435,7 +435,7 @@
       </section>
 
       <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
-        <h2>Vigenère Cipher</h2>
+        <h3>Vigenère Cipher</h3>
         <div>
           <img src="images/third-party/Vigenere_square_updated_fragment3.svg" class="plain" height="400">
         </div>
@@ -450,7 +450,7 @@
       </section>
 
       <section data-transition="fade" data-transition-speed="fast" style="padding-top: 0;">
-        <h2>Vigenère Cipher</h2>
+        <h3>Vigenère Cipher</h3>
         <div>
           <img src="images/third-party/Vigenere_square_updated_fragment4.svg" class="plain" height="400">
         </div>
@@ -464,7 +464,7 @@
       </section>
 
       <section data-transition="fade-in slide-out" style="padding-top: 0;">
-        <h2>Vigenère Cipher</h2>
+        <h3>Vigenère Cipher</h3>
         <div>
           <img src="images/third-party/Vigenere_square_updated_fragment5.svg" class="plain" height="400">
         </div>
@@ -479,7 +479,7 @@
       </section>
 
       <section>
-        <h2>Vigenère Cipher</h2>
+        <h3>Vigenère Cipher</h3>
         <ul>
           <li>Turns out, the Vigenère cipher is completely busted</li>
           <li class="fragment" data-fragment-index="1">Sometimes patterns in the plaintext appear in the ciphertext</li>
@@ -512,7 +512,7 @@
       </section>
 
       <section>
-        <h2>Breaking Vigenère</h2>
+        <h3>Breaking Vigenère</h3>
         <ul>
           <li>Iterate through each possible key length</li>
           <li class="fragment" data-fragment-index="1">Divide the ciphertext into chunks of that length (6)</li>
@@ -687,7 +687,7 @@
       </section>
 
       <section>
-        <h3>Let's take this one step further...</h3>
+        <h3>Let's take this one step further</h3>
         <p><em>What if the key was exactly as long as the message?</em></p>
         <p style="font-size: smaller;">(and also totally random)</p>
       </section>
@@ -771,7 +771,7 @@
       </section>
 
       <section style="padding-top: 0;">
-        <h2>One-time Pad</h2>
+        <h3>One-time Pad</h3>
         <p class="left">So why don't we use one-time pads for all of our encryption, if it's so unbreakable?</p>
         <ul>
           <li class="fragment">First, the key needs to be at least as long as your message.  If your message is 5GB, then your key also needs to be 5GB.</li>
@@ -850,7 +850,6 @@
 
       <section>
         <h3>Symmetric-key cryptography</h3>
-        <p><em>Do these names ring a bell?</em></p>
         <table class="centered">
           <tr>
             <th>Cipher</th>
@@ -909,7 +908,7 @@
           <li class="fragment">Since a bit can have two values (0 or 1), a 128-bit key space has 2<sup>128</sup> possible keys.</li>
         </ul>
         <p class="fragment friendly-aside">How big is 2<sup>128</sup>?</p>
-        <p class="fragment friendly-aside left">If a single key was the size of a grain of sand, the key space would be 31x the size of Jupiter!  310-bits gets you up to the size of the known universe.</p>
+        <p class="fragment friendly-aside left">If a single key was the size of a grain of sand, the key space would be 31x the size of Jupiter!  310 bits gets you up to the size of the known universe.</p>
         <aside class="notes">
           The Caesar cipher has a keyspace of 26, which equates to only 4.7 bits.
         </aside>
@@ -942,8 +941,8 @@
           <li>Operate on a fixed-size block of data (64 or 128 bits), unlike stream ciphers</li>
           <li class="fragment">Are the most commonly used symmetric ciphers (AES)</li>
           <li class="fragment">Use a combination of XOR, permutations, additions, multiplications, shifts, etc.</li>
-          <li class="fragment">Require that data that isn't identical in length to the block size be padded, adding complexity</li>
-          <li class="fragment">Like with reusing keystreams, a given block of data will always encrypt to the same output if you use the same key</li>
+          <li class="fragment">Require that data be padded to the length of the block size, adding complexity</li>
+          <li class="fragment">As with reusing keystreams, a given block of data will always encrypt to the same output if you use the same inputs</li>
         </ul>
         <aside class="notes">
           Block sizes are typically 64 bits (DES, Blowfish) or 128 bits (AES, Twofish)
@@ -952,7 +951,7 @@
 
       <section>
         <h3>Block ciphers</h3>
-        <p><em>Why is it a problem that the same input always encrypts to the same output?</em></p>
+        <p><em>Why is it a problem that the same input<br />always encrypts to the same output?</em></p>
         <ul>
           <li class="fragment">Leaks metadata about plaintext: many protocols and file formats have a identical headers</li>
           <li class="fragment">An attacker can replay the ciphertext, allowing them to forge requests</li>
@@ -962,15 +961,15 @@
 
       <section style="padding-top: 0;">
         <h3>Block cipher modes of operation</h3>
-        <ul style="font-size: smaller;">
+        <ul style="font-size: .8em;">
           <li>To solve this, all block ciphers have modes of operation for their use</li>
         </ul>
         <p><img class="fragment" data-fragment-index="1" src="images/third-party/Block_mode_operation_Tux.jpg" style="height: 196px; margin: 0 auto;" /> <img class="fragment" data-fragment-index="2" src="images/third-party/Block_mode_operation_Tux_ecb.jpg" style="height: 196px; margin: 0 auto;" /> <img class="fragment" data-fragment-index="4" src="images/third-party/Block_mode_operation_Tux_secure.jpg" style="height: 196px; margin: 0 auto;" /></p>
-        <ul style="font-size: smaller;">
-          <li class="fragment" data-fragment-index="1">Here's what happens when you take an image and divide it into equal-sized blocks.
-          <li class="fragment" data-fragment-index="2">Then, you encrypt each block separately using a symmetric key and AES.</li>
-          <li class="fragment" data-fragment-index="3">This block mode is known as the Electronic Codebook (ECB).</li>
-          <li class="fragment" data-fragment-index="4">Ideally, the encrypted message should look like random noise!</li>
+        <ul style="font-size: .8em;">
+          <li class="fragment" data-fragment-index="1">Take an image and divide it into equal-sized blocks
+          <li class="fragment" data-fragment-index="2">Encrypt each block separately using a symmetric key and cipher</li>
+          <li class="fragment" data-fragment-index="3">This is the Electronic Codebook (ECB) block mode of operation</li>
+          <li class="fragment" data-fragment-index="4">Ideally, the encrypted message should look like random noise</li>
         </ul>
         <p class="fragment friendly-aside">This is meant to scare you! Even with good<br />ciphers, you can still screw up cryptography!</p>
 
@@ -983,10 +982,10 @@
         <h3>Block cipher modes of operation</h3>
         <p class="left">The various block cipher modes each provide their own benefits besides simply eliminating patterns in ciphertext</p>
         <ul>
-          <li class="fragment">Allowing the use of an initialization vector (random input) or nonce so that identical plaintexts encrypt differently</li>
+          <li class="fragment">Allowing the use of an <strong>initialization vector</strong> (random input) or nonce so that identical plaintexts encrypt differently</li>
           <li class="fragment">Change block ciphers to function like stream ciphers, eliminating the need for padding</li>
           <li class="fragment">Increased performance through use of parallelization</li>
-          <li class="fragment">Some modes, such as the recommended <a href="#/aeads">Galois/Counter Mode</a> (GCM) provide assurances about the integrity and authenticity of the encrypted block</li>
+          <li class="fragment">Some modes, such as the recommended <a href="#/aeads">Galois/Counter Mode</a> (GCM), provide assurances about the integrity and authenticity of the encrypted block</li>
         </ul>
         <aside class="notes">Pronounced Gal-eww-wah</aside>
       </section>
@@ -1009,19 +1008,19 @@
 
       <section>
         <h3>Key management</h3>
-        <p>Symmetric-key cryptography becomes impossible to scale as the number of parties grows.</p>
+        <p>Symmetric-key cryptography becomes impossible<br />to scale as the number of parties grows.</p>
       </section>
 
       <section>
         <h3>Key exchange</h3>
-        <p><img src="images/first-party/alice_and_bob.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="350" /></p>
+        <p><img src="images/first-party/alice_and_bob.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="320" /></p>
         <p>Meet Alice and Bob.</p>
         <p class="fragment">They want to have a conversation.</p>
       </section>
 
       <section>
         <h3>Key exchange</h3>
-        <p><img src="images/first-party/alice_and_bob_key.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="350" /></p>
+        <p><img src="images/first-party/alice_and_bob_key.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="320" /></p>
         <p>No problem, they physically<br />meet up and exchange a key.</p>
         <p class="fragment">One key for two parties.</p>
         <p class="fragment friendly-aside">But what happens when we add more parties?</p>
@@ -1029,7 +1028,7 @@
 
       <section>
         <h3>Key exchange</h3>
-        <p><img src="images/first-party/alice_and_bob_key_five.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="500" /></p>
+        <p><img src="images/first-party/alice_and_bob_key_five.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="480" /></p>
         <p>With just five parties, we're already up to 10 keys!</p>
       </section>
 
@@ -1089,12 +1088,12 @@
       </section>
 
       <section>
-        <p><em>What if, instead of needing to meet ahead of time to exchange keys, two people could exchange keys remotely?</em></p>
+        <p><img src="images/third-party/Whitfield_Diffie.png"></p>
+        <p>In 1976, this guy struck upon a pair of brilliant ideas.</p>
       </section>
 
       <section>
-        <p><img src="images/third-party/Whitfield_Diffie.png"></p>
-        <p>In 1976, this guy struck upon a pair of brilliant ideas.</p>
+        <p><em>What if, instead of needing to meet ahead of time to exchange keys, two people could exchange keys remotely?</em></p>
       </section>
 
       <section>
@@ -1106,7 +1105,7 @@
       <section>
         <p><img class="plain" src="images/first-party/alice_and_bob_key_with_eve_diffie_hellman.svg" height="320"></p>
         <p class="left"><strong>Diffie-Hellman key exchange</strong><sup>&dagger;</sup> (DHE) allows two parties who have had no prior communications to jointly establish a key remotely, even when their method of communication is insecure.</p>
-        <p class="friendly-aside">&dagger; This class demonstrates classic DHE, instead of<br />the recommended <a href="#/elliptic-curve-cryptography">Elliptic Curve DHE</a>, which will be covered later</p>
+        <p class="fragment friendly-aside">&dagger; This class demonstrates classic DHE, instead of<br />the recommended <a href="#/elliptic-curve-cryptography">Elliptic Curve DHE</a>, which will be covered later</p>
         <aside class="notes">Note that this presentation uses classic DHE, instead of the recommended ECDH for simplicity purposes.</aside>
       </section>
 
@@ -1137,9 +1136,9 @@
       <section style="padding-top: 0;">
         <table class="diffie">
           <tr>
-            <th colspan="2"><img class="plain" src="images/first-party/alice.svg" height="80"></th>
-            <th colspan="2"><img class="plain" src="images/first-party/bob.svg" height="80"></th>
-            <th colspan="2"><img class="plain" src="images/first-party/eve_sad.svg" height="80"></th>
+            <th colspan="2"><img class="plain" src="images/first-party/alice.svg" height="60"></th>
+            <th colspan="2"><img class="plain" src="images/first-party/bob.svg" height="60"></th>
+            <th colspan="2"><img class="plain" src="images/first-party/eve_sad.svg" height="60"></th>
           </tr>
           <tr>
             <th>Known</th>
@@ -1234,7 +1233,7 @@
 
       <section>
         <p><img src="images/first-party/eve.svg" class="plain" height="400">
-        <p>While it protects against eavesdroppers like Eve, it doesn't help against someone a bit more... <em>malicious</em>.</p>
+        <p>While it protects against eavesdroppers like Eve, it doesn't help against someone a bit more&hellip; <em>malicious</em>.</p>
         <aside class="notes">
           Obviously, if we're talking voice, it's a lot easier.  But what if it's a computer?
         </aside>
@@ -1244,12 +1243,11 @@
         <p><img src="images/first-party/mallory.svg" class="plain" height="400"></p>
         <p style="font-size: smaller; font-style: oblique;">Say hello to Mallory, everyone!</p>
         <p class="fragment">Mallory just <strong>loves</strong> to sit in the middle<br /> of conversations and meddle with them.</p>
-        <p class="fragment friendly-aside">Who does things like that?</p>
       </section>
 
       <section>
         <p><img src="images/first-party/alice_and_bob_key_with_mallory_diffie_hellman_part1.svg" class="plain" height="400"></p>
-        <p>What if Mallory sat in the middle of a conversation between Alice and Bob, pretending to be the other person?</p>
+        <p>What if Mallory sat in the middle of a<br />conversation between Alice and Bob,<br />pretending to be the other person?</p>
       </section>
 
       <section>
@@ -1263,7 +1261,7 @@
       </section>
 
       <section>
-        <p>Alice and Bob are both having perfectly secret conversations with Mallory.</p>
+        <p>Alice and Bob are both having perfectly<br />secret conversations with Mallory.</p>
         <p class="fragment" style="padding-top: 2em;">In cryptography, we would say that we have achieved <strong>confidentiality</strong>, but we don't yet have <strong>authenticity</strong>.</p>
       </section>
 
@@ -1283,8 +1281,8 @@
           <img src="images/first-party/private_key_with_text.svg" class="fragment plain" data-fragment-index="2" height="300">
         </p>
         <p><em>...each person had two keys?</em></p>
-        <p class="fragment">A public key that they could give out to anyone.</p>
-        <p class="fragment">And a private key that they kept to themselves.</p>
+        <p class="fragment" data-fragment-index="1">A public key that they could give out to anyone.</p>
+        <p class="fragment" data-fragment-index="2">And a private key that they kept to themselves.</p>
       </section>
 
       <section>
@@ -1294,7 +1292,7 @@
 
       <section>
         <p>Well, it was <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=1055638">great idea</a>.</p>
-        <p>But he &mdash; nor anybody else &mdash; knew how to<br />make the mathematics work.</p>
+        <p>But he &mdash; nor anybody else at the time &mdash; knew<br />how to make the mathematics work.</p>
         <aside class="notes">
           Technically Clifford Cocks at the GCHQ had figured it out in 1973, but it was classified at the time.
         </aside>
@@ -1314,7 +1312,7 @@
       <section>
         <h3>RSA cryptosystem</h3>
         <ul>
-          <li>Choose two prime numbers (<span class="red">p</span> = <span class="red">89</span>, <span class="red">q</span> = <span class="red">101</span>). Use these numbers to generate your private key, <span class="red">d</span><sup style="font-size: .8em;">&dagger;</sup></em>.</li>
+          <li>Choose two prime numbers (<span class="red">p</span> = <span class="red">89</span>, <span class="red">q</span> = <span class="red">101</span>). Use these numbers to generate your <em>private key</em>, <span class="red">d</span><sup style="font-size: .8em;">&dagger;</sup></em>.</li>
           <li class="fragment" data-fragment-index="1">Multiple these numbers together (<span class="blue">n</span> = <span class="red">p</span> × <span class="red">q</span> = <span class="blue">8989</span>). This value (along with a few extra bits) is the <em>public key</em>.</li>
           <li class="fragment" data-fragment-index="2">Now think about how you would try to figure out the factors of <span class="blue">n</span>, if you didn't know <span class="red">p</span> and <span class="red">q</span> already.</li>
         </ul>
