@@ -82,7 +82,7 @@
             <dt>Key</dt>
             <dd>A piece of information known only to one or both parties that is fed into a cipher and determines its output</dd>
             <dt>Key exchange</dt>
-            <dd>The process by which two parties agree on upon a mutual key or key pair</dd>
+            <dd>The process by which two parties agree upon a mutual key or key pair</dd>
             <dt>Key space</dt>
             <dd>The maximum number of possible keys (such as 128 bits, or 2<sup>128</sup>)</dd>
             <dt>Brute-force attack</dt>
@@ -135,7 +135,7 @@
           <dt>Substitution ciphers</dt>
           <dd>Characters in plaintext are replaced with other characters</dd>
           <dt>Transposition ciphers</dt>
-          <dd>Characters in plaintext are rearranged with other characters</dd>
+          <dd>Characters in plaintext are rearranged</dd>
         </dl>
         <p class="fragment" style="text-align: left;">These ciphers comprised the entirety of cryptography up until the beginning of modern cryptography with World War II and the creation of the Enigma machine.</p>
       </section>
@@ -387,7 +387,7 @@
       <section>
         <h2>Frequency Analysis</h2>
         <ul>
-          <li>Letters that appear more frequency in a language, will appear more frequently in the ciphertext</li>
+          <li>Letters that appear more frequently in a language will appear more frequently in the ciphertext</li>
           <li class="fragment">Since <span class="green mono">'E'</span> is the most common letter in English, whatever it maps to will be the most common letter in the ciphertext</li>
           <li class="fragment">This leads to what is known as a <strong>ciphertext-only attack</strong>, where someone is able to deduce your plaintext from the ciphertext <em>without</em> knowing your key</li>
         </ul>
@@ -780,7 +780,7 @@
         <p class="left fragment">The impracticality of having extremely long keys combined with the key reuse requirements makes the OTP infeasible for much real-world use.</p>
         <p class="fragment friendly-aside">Anyone selling them is likely a <a href="https://www.schneier.com/crypto-gram/archives/1999/0215.html#snakeoil">snake oil salesperson</a>.</p>
         <aside class="notes">
-          This is because M1 ⊕ K ⊕ M2 ⊕ K == M1 ⊕ M2.
+          This is because M1 ⊕ K ⊕ M2 ⊕ K == M1 ⊕ M2. Also, if you can securely transmit a 5GB key, then why not submit the message?
         </aside>
       </section>
 
@@ -816,7 +816,7 @@
 
           <li class="fragment">Authenticity
             <ul>
-              <li><em>Am I communicating with the party they claim to be?</em></li>
+              <li><em>Is the party I'm communicating with whom they claim to be?</em></li>
             </ul>
           </li>
         </ul>
@@ -918,7 +918,7 @@
         <h3>Stream ciphers</h3>
           <ul>
             <li>Operate on one bit at a time</li>
-            <li class="fragment">Key is permutated with an <strong>nonce</strong>, or a number only used once</li>
+            <li class="fragment">Key is permutated with a <strong>nonce</strong>, or a number only used once</li>
             <li class="fragment">This produces a stream of bits as long as your message, known as a <strong>keystream</strong></li>
             <li class="fragment">Keystream is then XORed with the plaintext to produce the ciphertext</li>
             <li class="fragment">Like a one-time pad, the keystream must never be reused; the nonce must be changed with each use</li>
@@ -1313,7 +1313,7 @@
         <h3>RSA cryptosystem</h3>
         <ul>
           <li>Choose two prime numbers (<span class="red">p</span> = <span class="red">89</span>, <span class="red">q</span> = <span class="red">101</span>). Use these numbers to generate your <em>private key</em>, <span class="red">d</span><sup style="font-size: .8em;">&dagger;</sup></em>.</li>
-          <li class="fragment" data-fragment-index="1">Multiple these numbers together (<span class="blue">n</span> = <span class="red">p</span> × <span class="red">q</span> = <span class="blue">8989</span>). This value (along with a few extra bits) is the <em>public key</em>.</li>
+          <li class="fragment" data-fragment-index="1">Multiply these numbers together (<span class="blue">n</span> = <span class="red">p</span> × <span class="red">q</span> = <span class="blue">8989</span>). This value (along with a few extra bits) is the <em>public key</em>.</li>
           <li class="fragment" data-fragment-index="2">Now think about how you would try to figure out the factors of <span class="blue">n</span>, if you didn't know <span class="red">p</span> and <span class="red">q</span> already.</li>
         </ul>
         <p class="fragment friendly-aside" data-fragment-index="2" style="margin: .2em auto;">Is it divisible by 2? Nope. How about 3? 5? 7? ...</p>
@@ -1373,14 +1373,14 @@
           <li>Advantages
             <ul>
               <li>Solves the key distribution problem</li>
-              <li>Authenticates of the origin of messages</li>
+              <li>Authenticates the origin of messages</li>
             </ul>
           </li>
           <li>Disadvantages
             <ul>
               <li class="fragment">Computationally very slow
                 <ul>
-                  <li>Hundreds of times of slower than symmetric-key crypto</li>
+                  <li>Hundreds of times slower than symmetric-key crypto</li>
                 </ul>
               </li>
               <li class="fragment">Requires very large keys
@@ -1392,7 +1392,7 @@
             </ul>
           </li>
         </ul>
-        <p class="fragment friendly-aside">This is 16x larger to transmit, and 2<sup>1920</sup>x larger for calculations</em>
+        <p class="fragment friendly-aside">This is 16x larger to transmit in addition to being far slower</em>
       </section>
 
       <section>
@@ -1622,7 +1622,7 @@
       <section>
         <p>Certificate authorities have a<br />number of responsibilities:</p>
         <ul style="margin: 1em 2.5em;">
-          <li class="fragment">Verifying the ownership of a public key</li>
+          <li class="fragment">Verifying the ownership of a key pair</li>
           <li class="fragment">Signing digital certificates</li>
           <li class="fragment">Issuing records about signed certificates</li>
           <li class="fragment">Revoking certificates when the private key becomes compromised</li>
