@@ -802,19 +802,19 @@
         <h2>Modern Cryptography</h2>
         <p class="left">In addition to solving the key management issue, modern cryptography provides three primary security guarantees:</p>
         <ul>
-          <li class="fragment">Confidentiality
+          <li class="fragment"><strong>Confidentiality</strong>
             <ul>
               <li><em>Can I keep my data from being decrypted and read?</em></li>
             </ul>
           </li>
 
-          <li class="fragment">Integrity
+          <li class="fragment"><strong>Integrity</strong>
             <ul>
               <li><em>Has my data been tampered with?</em></li>
             </ul>
           </li>
 
-          <li class="fragment">Authenticity
+          <li class="fragment"><strong>Authenticity</strong>
             <ul>
               <li><em>Is the party I'm communicating with whom they claim to be?</em></li>
             </ul>
@@ -1386,7 +1386,7 @@
               <li class="fragment">Requires very large keys
                 <ul>
                   <li>RSA keys are typically 2048 bits</li>
-                  <li>AES are typically a mere 128-256 bits</li>
+                  <li>AES keys are typically a mere 128-256 bits</li>
                 </ul>
               </li>
             </ul>
@@ -1486,7 +1486,7 @@
       </section>
 
       <section style="padding: 0;">
-        <h3>Digital signatures</h3>
+        <h4>Digital signatures</h4>
         <p><img class="plain" src="images/first-party/digital_signature5.svg" height="300"></p>
         <p class="left">Of course, if Mallory could forge a message that produced the same hash as Alice's message, she could just reuse Alice's digital signature.</p>
         <p class="fragment left">But because hash functions are <em>collision resistant</em>, Mallory can't do that either!</p>
@@ -1707,7 +1707,7 @@ X509v3 extensions:
       </section>
 
       <section>
-        <p><img src="images/first-party/certificate_chain_intermediate.png" height="400"></p>
+        <p><img src="images/first-party/certificate_chain_intermediate.png" height="350"></p>
         <p>Instead, CAs create an intermediate key pair and certificate, and sign that with the root certificate.</p>
         <p>This intermediate CA then issues all end-user certificates. It's periodically replaced as technology progresses.</p>
       </section>
@@ -1741,14 +1741,14 @@ X509v3 extensions:
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/tls2.svg" height="400"></p>
-        <p>Bob then selects a different random number and chooses his Diffie-Hellman key exchange parameters.</p>
-        <p>He also selects a cipher suite, from Alice's options.</p>
+        <p><img class="plain" src="images/first-party/tls2.svg" height="350"></p>
+        <p>Bob then selects a different random number and chooses a cipher suite, from Alice's options.</p>
+        <p>He'll also generate his Diffie-Hellman parameters, if that cipher suite uses DH for key exchange.</p>
         <p class="friendly-aside">These random numbers are used later in key generation to ensure that an attacker can't just replay Alice's messages, in a <strong>replay attack</strong>.</p>
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/tls3.svg" height="400"></p>
+        <p><img class="plain" src="images/first-party/tls3.svg" height="350"></p>
         <p>He then takes both random numbers and the public Diffie-Hellman parameters and signs them with the private key for his certificate, to create a digital signature.</p>
       </section>
 
@@ -1756,60 +1756,60 @@ X509v3 extensions:
         <p><img class="plain" src="images/first-party/tls4.svg" height="250"></p>
         <p>He then sends Alice:</p>
         <ul>
-          <li>His chosen random number</li>
-          <li><span class="blue">p</span>, <span class="blue">g</span>, and <span class="blue">g</span><sup class="red">b</sup> mod <span class="blue">p</span> = <span class="blue">B</span></li>
-          <li>A digital signature created from the random numbers and DH parameters</li>
-          <li>His digital certificate and its certificate chain</li>
-          <li>His choice of cipher suite, from Alice's options</li>
+          <li class="fragment">His chosen random number</li>
+          <li class="fragment"><span class="blue">p</span>, <span class="blue">g</span>, and <span class="blue">g</span><sup class="red">b</sup> mod <span class="blue">p</span> = <span class="blue">B</span></li>
+          <li class="fragment">A digital signature created from the random numbers and DH parameters</li>
+          <li class="fragment">His digital certificate and its certificate chain</li>
+          <li class="fragment">His choice of cipher suite, from Alice's options</li>
         </ul>
       </section>
 
       <section style="padding: 0;" data-transition="slide-in fade-out">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-1.svg"></p></div>
+        <div style="height: 500px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-1.svg"></p></div>
         <p>First, Alice takes Bob's certificate (sans digital signature) and creates a hash of it.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-2.svg"></p></div>
+        <div style="height: 500px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-2.svg"></p></div>
         <p>Then, she takes the digital signature in the certificate and decrypts it with the intermediate CA's public key.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-3-f.svg"></p></div>
+        <div style="height: 500px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-3-f.svg"></p></div>
         <p>If the two hashes match, she knows that the certificate was signed by the intermediate CA.</p>
       </section>
 
       <section style="padding: 0;" data-transition="slide-in fade-out" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-4.svg"></p></div>
+        <div style="height: 500px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-4.svg"></p></div>
         <p>She repeats this process for every certificate in the chain until reaching the one signed by the root CA's public key.</p>
         <p class="friendly-aside">Remember: this key came bundled with her browser!</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-5-f.svg"></p></div>
+        <div style="height: 500px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls5-5-f.svg"></p></div>
         <p>If the two hashes match, she knows that the certificate chain is valid and Bob's public key actually belongs to Bob: the CA confirmed it with its digital signature.</p>
       </section>
 
       <section>
-        <p><img class="plain" src="images/first-party/tls6.svg"></p>
+        <p><img class="plain" src="images/first-party/tls6.svg" height="400"></p>
         <p>Now Alice just needs to verify that she's talking to Bob, and not just somebody with Bob's certificate.</p>
         <p class="fragment friendly-aside">Remember, since certificates are public,<br />everybody has access to Bob's certificate.</p>
       </section>
 
-      <section style="padding: 0;" data-transition="slide-in fade-out" data-transition-speed="default">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls7-1.svg"></p></div>
+      <section style="padding: 0; vertical-align: top;" data-transition="slide-in fade-out" data-transition-speed="default">
+        <div style="height: 400px;"><p><img class="plain" src="images/first-party/tls7-1.svg" height="400"></p></div>
         <p>First, Alice takes the random numbers and DH parameters that &ldquo;Bob&rdquo; sent and hashes them.</p>
       </section>
 
-      <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls7-2.svg"></p></div>
+      <section style="padding: 0; vertical-align: top;" data-transition="fade" data-transition-speed="fast">
+        <div style="height: 400px;"><p><img class="plain" src="images/first-party/tls7-2.svg" height="400"></p></div>
         <p>Then she takes the digital signature that &ldquo;Bob&rdquo; also sent, and decrypts it with the public key in Bob's certificate.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls7-f.svg"></p></div>
+        <div style="height: 400px; margin-top: 2.03em;"><p><img class="plain" src="images/first-party/tls7-f.svg" height="400"></p></div>
         <p>If the two hashes match, it could only have been created by somebody with Bob's private key.</p>
-        <p class="fragment friendly-aside">It's Bob, people!! Bob generated that signature!<span style="font-style: normal;">&#x1f602;</span></p>
+        <p class="fragment friendly-aside">It's Bob, people!! Bob generated that signature! <span style="font-style: normal;">&#x1f602;</span></p>
       </section>
 
       <section>
@@ -1870,17 +1870,17 @@ X509v3 extensions:
       </section>
 
       <section style="padding: 0;" data-transition="slide-in fade-out">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls14-1.svg"></p></div>
+        <div style="height: 450px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls14-1.svg"></p></div>
         <p>Bob takes encrypted &ldquo;finished&rdquo; message<br />and decrypts it with Alice's encryption key.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls14-2.svg"></p></div>
+        <div style="height: 450px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls14-2.svg"></p></div>
         <p>At the same time, he takes the handshake he<br />believes they had and hashes it, as Alice did.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls14-f.svg"></p></div>
+        <div style="height: 450px; margin-top: 1.05em;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls14-f.svg"></p></div>
         <p>If the two &ldquo;finished&rdquo; messages match, he knows that<br />their handshake hadn't been tampered with.</p>
         <p class="fragment friendly-aside">This prevents someone from replacing the<br />cipher suite choices with something very weak.</p>
       </section>
@@ -1896,12 +1896,12 @@ X509v3 extensions:
       </section>
 
       <section style="padding: 0;" data-transition="slide-in fade-out">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls17-1.svg"></p></div>
+        <div style="height: 450px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls17-1.svg"></p></div>
         <p>Alice takes Bob's encrypted &ldquo;finished&rdquo; message<br />and decrypts it with Bob's encryption key.</p>
       </section>
 
       <section style="padding: 0;" data-transition="fade-in slide-out" data-transition-speed="fast">
-        <div style="height: 540px;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls17-f.svg"></p></div>
+        <div style="height: 450px; padding-top: 1.05em;"><p style="margin-top: 0;"><img class="plain" src="images/first-party/tls17-f.svg"></p></div>
         <p>If the hashed handshake and master secret match Bob's &ldquo;finished&rdquo; message, she also knows their handshake hadn't been tampered with.</p>
       </section>
 
@@ -1995,7 +1995,7 @@ X509v3 extensions:
       </section>
 
       <section>
-        <p>Once Alice and Bob are finished communicating, they throw away the symmetric keys that they generated with Diffie-Hellman key exchange.</p>
+        <p>Once Alice and Bob are finished communicating, they throw away the symmetric keys and Diffie-Hellman parameters.</p>
         <p class="fragment">This ensures that their conversation can't be decrypted in the future, a feature known as <strong>forward secrecy</strong>.</p>
       </section>
 
@@ -2007,7 +2007,7 @@ X509v3 extensions:
           <li class="fragment">Bob uses his private key to create a digital signature to prove to Alice that she's talking to him</li>
           <li class="fragment">An encrypted hash ensures that their handshake hasn't been tampered with</li>
           <li class="fragment">Alice and Bob keep their messages confidential by using a symmetric-key cipher</li>
-          <li class="fragment">HMACs protect the integrity of their future messages</li>
+          <li class="fragment">HMACs protect the integrity of their messages</li>
           <li class="fragment">Once the TLS session is over, they both discard their keys to provide forward secrecy</li>
         </ul>
         <p class="fragment friendly-aside">Note: you can use RSA instead of Diffie-Hellman during the handshake,<br />but you lose forward secrecy.</p>
@@ -2176,7 +2176,7 @@ X509v3 extensions:
             <td>Use the Mozilla <a href="https://wiki.mozilla.org/Security/Server_Side_TLS">Server Side TLS</a> guidelines</td>
           </tr>
           <tr class="fragment">
-            <td>Write your own network encryption protocol</td>
+            <td>Write your own encryption protocol</td>
             <td>Use TLS and SSH</td>
           </tr>
           <tr class="fragment">
