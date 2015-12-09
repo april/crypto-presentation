@@ -41,88 +41,57 @@
       <section>
         <h2>Ignorance Objectives</h2>
         <ul>
-          <li class="fragment">Writing your own cryptography</li>
+          <li>Writing your own cryptography</li>
         </ul>
-      </section> 
-
-      <!-- Definitions below -->
-      <section>
-        <section>
-          <h2>Cryptographic Terminology</h2>
-          <p><em>Post-presentation, eye-glazing definitions belooooooow!</em></p>
-          <h2>&darr;</h2>
-        </section>
-
-        <section>
-          <dl>
-            <dt>Cryptography</dt>
-            <dd>Practice and study of secure communications in the presence of third parties</dd>
-            <dt>Plaintext (cleartext)</dt>
-            <dd>Data or text that has not been encrypted</dd>
-            <dt>Ciphertext</dt>
-            <dd>The result of encryption performed on plaintext</dd>
-          </dl>
-        </section>
-
-        <section>
-          <dl>
-            <dt>Algorithm</dt>
-            <dd>A self-contained series of instructions that perform a computation</dd>
-            <dt>Cipher</dt>
-            <dd>An algorithm that performs encryption and decryption</dd>
-            <dt>Encryption</dt>
-            <dd>Using a cipher to transform plaintext into ciphertext</dd>
-            <dt>Decryption</dt>
-            <dd>Using a cipher to transform ciphertext into plaintext</dd>
-          </dl>
-        </section>
-
-        <section>
-          <dl>
-            <dt>Key</dt>
-            <dd>A piece of information known only to one or both parties that is fed into a cipher and determines its output</dd>
-            <dt>Key exchange</dt>
-            <dd>The process by which two parties agree upon a mutual key or key pair</dd>
-            <dt>Key space</dt>
-            <dd>The maximum number of possible keys (such as 128 bits, or 2<sup>128</sup>)</dd>
-            <dt>Brute-force attack</dt>
-            <dd>Attempting decryption with all possible key combinations until the correct key is found</dd>
-          </dl>
-        </section>
-
-        <section>
-          <dl>
-            <dt>Cipher suite</dt>
-            <dd>Combination of key exchange, authentication, encryption, and message authentication code (MAC)</dd>
-            <dt>Cryptographic system (cryptosystem)</dt>
-            <dd>A combination of cryptographic algorithms that implement a security service, usually encompassing key generation, encryption, and decryption</dd>
-            <dt>Message authentication code (MAC)</dt>
-            <dd>A small piece of information used to authenticate a message and to provide protection against tampering</dd>
-          </dl>
-        </section>
-
-        <section>
-          <dl>
-            <dt>Cryptanalysis</dt>
-            <dd>The study of breaking, weakening, or bypassing cryptosystems</dd>
-            <dt>Steganography</dt>
-            <dd>Concealing a message (image, file, text, etc.) within another message</dd>
-            <dt>Placeholder names</dt>
-            <dd>Names such as <em>Alice</em>, <em>Bob</em>, <em>Eve</em> (the eavesdropper), or <em>Mallory</em> (the malicious attacker) used as shorthand when describing cryptosystems</dd>
-          </dl>
-        </section>
       </section>
-      <!-- End definitions -->
+
+      <section>
+        <h3>What is cryptography?</h3>
+        <p class="left">Cryptography is the practice and study of secure communications in the presence of third parties. It does this by providing three primary security guarantees:</p>
+        <ul>
+          <li class="fragment"><strong>Confidentiality</strong>
+            <ul>
+              <li><em>Can I keep my data from being decrypted and read?</em></li>
+            </ul>
+          </li>
+
+          <li class="fragment"><strong>Integrity</strong>
+            <ul>
+              <li><em>Has my data been tampered with?</em></li>
+            </ul>
+          </li>
+
+          <li class="fragment"><strong>Authenticity</strong>
+            <ul>
+              <li><em>Is the party I'm conversing with who they claim to be?</em></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/alice_and_bob.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="350" /></p>
+        <p>Most importantly, cryptography is a story about a couple of truly lovely people by the name of Alice and Bob.</p>
+      </section>
+
+      <section>
+        <p><img src="images/third-party/alice_and_bob_private_conversation.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="450" /></p>
+        <p>They just want to have a private, secure<br />conversation over an insecure network.</p>
+      </section>
+
+      <section>
+        <p><em>So let's make their wish come true!</em></p>
+      </section>
 
       <!-- Begin history -->
       <section>
         <h2>Cryptography History</h2>
-        <p><em>Let's take a ride in the way back machine!</em></p>
+        <p><em>The way way back machine!</em></p>
       </section>
 
       <section>
-        <h2>Beautiful Origin Story</h2>
-        <p>...that dates back to approximately 1500 BCE</p>
+        <h2>Origin Story</h2>
+        <p>&hellip; dates back to approximately 1500 BCE</p>
         <dl class="fragment" style="margin-top: 2rem;">
           <dt>Original goal of cryptography:</dt>
           <dd>Keeping messages confidential, for the purposes of commercial trade secrets and military communications</dd>
@@ -373,7 +342,7 @@
         <div>
           <img src="images/third-party/English_letter_frequency.svg" style="background: none; border: 0; box-shadow: none" height="450">
         </div>
-        <p>It turns out that not every letter in the English language appears equally as often</p>
+        <p>It turns out that not every letter in the<br />English language appears equally as often</p>
       </section>
 
       <section style="padding-top: 0;">
@@ -770,7 +739,7 @@
         <aside class="notes">Note how XOR has no bias towards 0 or 1, as long as one of the inputs has no bias.</aside>
       </section>
 
-      <section style="padding-top: 0;">
+      <section style="font-size: .95em; padding-top: 0;">
         <h3>One-time Pad</h3>
         <p class="left">So why don't we use one-time pads for all of our encryption, if it's so unbreakable?</p>
         <ul>
@@ -789,105 +758,10 @@
       </section>
 
       <section>
-        <h2>Modern Cryptography</h2>
-        <p class="left">Modern cryptography attempts to solve a number of historic cryptography problems:</p>
-        <ul>
-          <li class="fragment">Key exchange: How can you get your key safely to the person you want to communicate with?</li>
-          <li class="fragment">Key distribution: How can you keep a key safe when you have a large number of parties?</li>
-          <li class="fragment">Key size: How can you maintain confidentiality, even with shorter key sizes?</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Modern Cryptography</h2>
-        <p class="left">In addition to solving the key management issue, modern cryptography provides three primary security guarantees:</p>
-        <ul>
-          <li class="fragment"><strong>Confidentiality</strong>
-            <ul>
-              <li><em>Can I keep my data from being decrypted and read?</em></li>
-            </ul>
-          </li>
-
-          <li class="fragment"><strong>Integrity</strong>
-            <ul>
-              <li><em>Has my data been tampered with?</em></li>
-            </ul>
-          </li>
-
-          <li class="fragment"><strong>Authenticity</strong>
-            <ul>
-              <li><em>Is the party I'm communicating with whom they claim to be?</em></li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-
-      <section>
         <h3>Symmetric-key cryptography</h3>
         <p class="left">Symmetric-key cryptography, like historic cryptography, uses the same key for both <em>encryption</em> and <em>decryption</em>:</p>
         <img src="images/first-party/symmetric-key.svg" style="background: none; border: 0; box-shadow: none;" />
         <p class="fragment left">Here, plaintext is being encrypted by a key into ciphertext, and then decrypted with that same key into the original plaintext.</p>
-      </section>
-
-      <section>
-        <h3>Symmetric-key cryptography</h3>
-        <ul>
-          <li>Advantages
-            <ul>
-              <li class="fragment" data-fragment-index="1">Computationally very fast and simple</li>
-              <li class="fragment" data-fragment-index="2">Keys are small (typically 128 to 256 bits)</li>
-            </ul>
-          </li>
-          <li>Disadvantages
-            <ul>
-              <li class="fragment" data-fragment-index="3">Key management is difficult, as each party needs a copy of the key to encrypt or decrypt</li>
-              <li class="fragment" data-fragment-index="4">Provides only confidentiality, with no native assurances about authenticity or integrity</li>
-            </ul>
-          </li>
-        </ul>
-        <p class="fragment left">Due to its speed, symmetric-key cryptography is primarily used for bulk encryption, requiring other forms of cryptography to make up for its shortcomings.</p>
-      </section>
-
-      <section>
-        <h3>Symmetric-key cryptography</h3>
-        <table class="centered">
-          <tr>
-            <th>Cipher</th>
-            <th>Key size</th>
-            <th>Type</th>
-          </tr>
-          <tr>
-            <td><span class="fragment highlight-current-green" data-fragment-index="1">AES</span></td>
-            <td><span class="fragment highlight-current-green" data-fragment-index="1">128</span>, 192, or <span class="fragment highlight-current-green" data-fragment-index="1">256</span> bits</td>
-            <td>Block</td>
-          </tr>
-          <tr>
-            <td><span class="fragment highlight-current-green" data-fragment-index="1">CHACHA20</span></td>
-            <td><span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="1">256</span> bits</td>
-            <td>Stream</td>
-          </tr>
-          <tr>
-            <td>Camellia</td>
-            <td>128, 192, or 256 bits</td>
-            <td>Block</td>
-          </tr>
-          <tr>
-            <td>3DES</td>
-            <td>168 bits</td>
-            <td>Block</td>
-          </tr>
-          <tr>
-            <td>RC4</td>
-            <td>128 bits</td>
-            <td>Stream</td>
-          </tr>
-          <tr>
-            <td>Twofish</td>
-            <td>128, 192, or 256 bits</td>
-            <td>Block</td>
-          </tr>
-        </table>
-        <p class="fragment highlight-current-green friendly-aside" data-fragment-index="1">Mozilla <a href="https://wiki.mozilla.org/Security/Server_Side_TLS">recommends</a> only AES with 128 or 256-bit keys or CHACHA20.<br />When in doubt, contact us!</p>
       </section>
 
       <section>
@@ -912,6 +786,67 @@
         <aside class="notes">
           The Caesar cipher has a keyspace of 26, which equates to only 4.7 bits.
         </aside>
+      </section>
+
+      <section>
+        <h3>Symmetric-key cryptography</h3>
+        <ul>
+          <li>Advantages
+            <ul>
+              <li>Computationally very fast and simple</li>
+              <li class="fragment" data-fragment-index="1">Keys are small (typically 128 to 256 bits)</li>
+            </ul>
+          </li>
+          <li class="fragment" data-fragment-index="2">Disadvantages
+            <ul>
+              <li class="fragment" data-fragment-index="2">Key management is difficult, as each party needs a copy of the key to encrypt or decrypt</li>
+              <li class="fragment" data-fragment-index="3">Without assistance, it provides no assurances about authenticity or integrity</li>
+            </ul>
+          </li>
+        </ul>
+        <p class="fragment">Due to its speed, symmetric-key cryptography is the primary form of encryption for bulk encryption.</p>
+      </section>
+
+      <section>
+        <h3>Symmetric-key cryptography</h3>
+        <table class="centered">
+          <tr>
+            <th>Cipher</th>
+            <th>Key size</th>
+            <th>Type</th>
+          </tr>
+          <tr>
+            <td>AES</td>
+            <td>128<span class="light-gray">, 192, or </span>256 bits</td>
+            <td>Block</td>
+          </tr>
+          <tr>
+            <td>ChaCha20</td>
+            <td>256 bits</td>
+            <td>Stream</td>
+          </tr>
+          <tr class="light-gray">
+            <td>Camellia</td>
+            <td>128, 192, or 256 bits</td>
+            <td>Block</td>
+          </tr>
+          <tr class="light-gray">
+            <td>3DES</td>
+            <td>168 bits</td>
+            <td>Block</td>
+          </tr>
+          <tr class="light-gray">
+            <td>RC4</td>
+            <td>128 bits</td>
+            <td>Stream</td>
+          </tr>
+          <tr class="light-gray">
+            <td>Twofish</td>
+            <td>128, 192, or 256 bits</td>
+            <td>Block</td>
+          </tr>
+        </table>
+        <p class="friendly-aside">Mozilla <a href="https://wiki.mozilla.org/Security/Server_Side_TLS">recommends</a> AES with 128 or 256-bit keys or ChaCha20.<br />When in doubt, contact us!</p>
       </section>
 
       <section>
@@ -964,12 +899,11 @@
         <ul style="font-size: .8em;">
           <li>To solve this, all block ciphers have modes of operation for their use</li>
         </ul>
-        <p><img class="fragment" data-fragment-index="1" src="images/third-party/Block_mode_operation_Tux.jpg" style="height: 196px; margin: 0 auto;" /> <img class="fragment" data-fragment-index="2" src="images/third-party/Block_mode_operation_Tux_ecb.jpg" style="height: 196px; margin: 0 auto;" /> <img class="fragment" data-fragment-index="4" src="images/third-party/Block_mode_operation_Tux_secure.jpg" style="height: 196px; margin: 0 auto;" /></p>
+        <p><img class="fragment" data-fragment-index="1" src="images/third-party/Block_mode_operation_Tux.jpg" style="height: 196px; margin: 0 auto;" /> <img class="fragment" data-fragment-index="2" src="images/third-party/Block_mode_operation_Tux_ecb.jpg" style="height: 196px; margin: 0 auto;" /> <img class="fragment" data-fragment-index="3" src="images/third-party/Block_mode_operation_Tux_secure.jpg" style="height: 196px; margin: 0 auto;" /></p>
         <ul style="font-size: .8em;">
           <li class="fragment" data-fragment-index="1">Take an image and divide it into equal-sized blocks
-          <li class="fragment" data-fragment-index="2">Encrypt each block separately using a symmetric key and cipher</li>
-          <li class="fragment" data-fragment-index="3">This is the Electronic Codebook (ECB) block mode of operation</li>
-          <li class="fragment" data-fragment-index="4">Ideally, the encrypted message should look like random noise</li>
+          <li class="fragment" data-fragment-index="2">Encrypt each block separately using a symmetric key and cipher. This is the Electronic Codebook (ECB) block mode of operation.</li>
+          <li class="fragment" data-fragment-index="3">Ideally, the encrypted message should look like random noise</li>
         </ul>
         <p class="fragment friendly-aside">This is meant to scare you! Even with good<br />ciphers, you can still screw up cryptography!</p>
 
@@ -990,38 +924,310 @@
         <aside class="notes">Pronounced Gal-eww-wah</aside>
       </section>
 
-      <section>
+      <section data-transition="slide-in fade-out" data-transition-speed="fast">
         <p><img src="images/third-party/Block_mode_operation_CTR.svg" class="plain" height="240" /></p>
         <p>This is the counter (CTR) block mode of operation</p>
-        <ul>
-          <li class="fragment">Create a nonce and set your counter</li>
-          <li class="fragment">Encrypt the nonce and counter, forming a single block of the key stream</li>
-          <li class="fragment">XOR one block of plaintext with that key stream block</li>
-          <li class="fragment">Increment the counter for each successive block</li>
-        </ul>
-        <p class="fragment friendly-aside">The nonce must always be unique, and the counter should never loop!</p>
+        <div style="height: 6.75em;">
+        </div>
       </section>
 
+      <section data-transition="fade" data-transition-speed="fast">
+        <p><img src="images/third-party/Block_mode_operation_CTR1.svg" class="plain" height="240" /></p>
+        <p>This is the counter (CTR) block mode of operation</p>
+        <div style="height: 6.75em;">
+          <ul style="width: 100%;">
+            <li class="red">Create a nonce and set your counter</li>
+          </ul>
+        </div>
+      </section>
+
+      <section data-transition="fade" data-transition-speed="fast">
+        <p><img src="images/third-party/Block_mode_operation_CTR2.svg" class="plain" height="240" /></p>
+        <p>This is the counter (CTR) block mode of operation</p>
+        <div style="height: 6.75em;">
+          <ul>
+            <li>Create a nonce and set your counter</li>
+            <li class="red">Using your key, encrypt the nonce and counter, forming a single block of the keystream</li>
+          </ul>
+        </div>
+      </section>
+
+      <section data-transition="fade" data-transition-speed="fast">
+        <p><img src="images/third-party/Block_mode_operation_CTR3.svg" class="plain" height="240" /></p>
+        <p>This is the counter (CTR) block mode of operation</p>
+        <div style="height: 6.75em;">
+          <ul>
+            <li>Create a nonce and set your counter</li>
+            <li>Using your key, encrypt the nonce and counter, forming a single block of the keystream</li>
+            <li class="red">XOR one block of plaintext with that keystream block</li>
+          </ul>
+        </div>
+      </section>
+
+      <section data-transition="fade-in slide-out" data-transition-speed="fast">
+        <p><img src="images/third-party/Block_mode_operation_CTR4.svg" class="plain" height="240" /></p>
+        <p>This is the counter (CTR) block mode of operation</p>
+        <div style="height: 6.75em;">
+          <ul>
+            <li>Create a nonce and set your counter</li>
+            <li>Using your key, encrypt the nonce and counter, forming a single block of the keystream</li>
+            <li>XOR one block of plaintext with that keystream block</li>
+            <li class="red">Increment the counter for each successive block</li>
+          </ul>
+          <p class="fragment friendly-aside">The nonce must always be unique, and the counter should never loop!</p>
+        </div>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/alice_and_bob.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
+        <p>Remember Alice and Bob?</p>
+        <p class="fragment">They still want to have a conversation.</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/alice_and_bob_key.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
+        <p>No problem, they physically<br />meet up and exchange a symmetric key.</p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/alice_and_bob_symmetric_key_crypto.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
+        <p>After that, they encrypt all their messages<br />using that key, a symmetric cipher, and an<br />appropriate block mode of operation.</p>
+      </section>
+
+      <section data-transition="slide-in fade-out" data-transition-speed="slow">
+        <p><img class="plain" src="images/first-party/eve.svg" height="400"></p>
+        <div style="height: 3em;">
+          <p>Everyone give a hearty welcome to our<br />good friend, Eve the Eavesdropper!</p>
+        </div>
+      </section>
+
+      <section data-transition="fade-in slide-out" data-transition-speed="slow">
+        <p><img class="plain" src="images/first-party/eve_sad.svg" height="400"></p>
+        <div style="height: 3em;">
+          <p>Everyone give a hearty welcome to our<br />good friend, Eve the Eavesdropper!</p>
+          <p class="friendly-aside">She's disappointed by this whole symmetric-key cryptography business.</p>
+        </div>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_with_eve_symmetric_key_crypto.svg" height="400"></p>
+        <p>See, when Alice and Bob use symmetric-key cryptography correctly, it provides them <strong>confidentiality</strong>.</p>
+        <p class="friendly-aside">Eavesdroppers like Eve can't decrypt and read their messages.</p>
+      </section>
+
+      <section>
+        <p><em>But what if our attacker wasn't just<br />passively listening like Eve was?</em></p>
+      </section>
+
+      <section>
+        <p><img src="images/first-party/mallory.svg" class="plain" height="400"></p>
+        <p class="friendly-aside">A round of applause for Mallory, everyone!</p>
+        <p class="fragment">Mallory just <strong>loves</strong> to sit in the middle<br /> of conversations and meddle with them.</p>
+      </section>
+
+      <section>
+        <p><em>What if Mallory was intercepting<br />Alice and Bob's conversation?</em></p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/tls18.svg"></p>
+        <p>Mallory couldn't decrypt the ciphertext,<br />but she could still modify it.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_with_mallory_decryption.svg" height="400"></p>
+        <p>It might decrypt to gibberish or it might not.</p>
+        <p>Either way, Bob has no way of knowing<br />that it has been tampered with.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/tls18.svg"></p>
+        <p>Alice and Bob have achieved confidentiality, but they haven't achieved <strong>integrity</strong> or <strong>authentication</strong>.</p>
+      </section>
+
+      <section>
+        <p>What Alice and Bob need is a<br /><strong>message authentication code</strong>.</p>
+      </section>
+
+      <section>
+        <p>A message authentication code provides integrity and authenticity assurances about a message.</p>
+        <ul>
+          <li class="fragment">Alice takes any given message<sup>&dagger;</sup> and the symmetric key used to encrypt it</li>
+          <li class="fragment">She inputs these into a function that combines them and outputs a short piece of information called a MAC</li>
+          <li class="fragment">She then attaches the MAC to the ciphertext</li>
+          <li class="fragment">When Bob receives the message, he combines it with the symmetric key the same way Alice did</li>
+          <li class="fragment">If that function outputs the same MAC, then the message and MAC hasn't been tampered with</li>
+        </ul>
+        <p class="fragment friendly-aside">&dagger; Generally the ciphertext, known as Encrypt-then-MAC</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_with_mallory_mac.svg"></p>
+        <p>Mallory can modify the ciphertext and<br />MAC to her heart's content.</p>
+        <p class="fragment">But because she doesn't know the symmetric<br />key, she can't generate the correct MAC.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_with_mallory_mac2.svg"></p>
+        <p>So when Bob plugs the message and key into the MAC function, he'll quickly see that the MAC he received doesn't match the MAC he generated.</p>
+      </section>
+
+      <section>
+        <p><em>You're probably thinking this whole MAC thing might<br /> as well be called a <strong>Magic Authentication Code</strong>.</em></p>
+        <div style="font-size: 2em; margin-top: .5em;"><div style="display: inline-block; transform: rotate(-180deg);">&#x1f3a9;</div> &#x1f4a5; &#x2728; &#x2728; &#x1f430;</div>
+      </section>
+
+      <section>
+        <p><em>How might a function like this work?</em></p>
+      </section>
+
+      <section>
+        <p>One such method is a <strong>hash-based message authentication code</strong>, or <strong>HMAC</strong>.</p>
+      </section>
+
+      <section>
+        <p style="font-size: 1.2em;"><em>So, err&hellip; what's a hash?</em></p>
+        <div class="fragment friendly-aside"><div style="display: inline-block; font-style: normal; transform: rotate(-180deg);">&#x1f3a9;</div> This rabbit hole just keeps getting deeper! <div style="display: inline-block; font-style: normal; transform: rotate(-180deg);">&#x1f3a9;</div></div>
+      </section>
+
+      <section>
+        <h2>Hash functions</h2>
+        <p><img class="plain" src="images/first-party/hash_function.svg" height="350"></p>
+        <p>Cryptographic hash functions take any<br />size input and convert it to a fixed size<br />output called a <strong>hash</strong> or <strong>message digest</strong>.</p>
+      </section>
+
+      <section>
+        <h2>Hash functions</h2>
+        <ul>
+          <li class="fragment">Always result in the same size output (typically 128-512 bits), regardless of input size</li>
+          <li class="fragment">Sensitive to input changes: a single bit difference in the input should result in a completely different hash</li>
+          <li class="fragment">Make it difficult to find two different inputs that result in the same output (<strong>collision resistance</strong>)</li>
+          <li class="fragment">Aren't reversible: you can't go from the hash back to the original message</li>
+        </ul>
+      </section>
+
+      <section>
+        <p>What might this look like?</p>
+        <div class="pre-box-container command-line">
+          <div class="pre-box-row command-line">
+            $&nbsp;<span class="fragment" data-autoslide="60">s</span><span class="fragment" data-autoslide="60">h</span><span class="fragment" data-autoslide="60">a</span><span class="fragment" data-autoslide="60">s</span><span class="fragment" data-autoslide="60">u</span><span class="fragment" data-autoslide="60">m</span><span class="fragment" data-autoslide="60">&nbsp;</span><span class="fragment" data-autoslide="60">f</span><span class="fragment" data-autoslide="60">i</span><span class="fragment" data-autoslide="60">r</span><span class="fragment" data-autoslide="60">e</span><span class="fragment" data-autoslide="60">f</span><span class="fragment" data-autoslide="60">o</span><span class="fragment" data-autoslide="200">x</span>
+          </div>
+          <div class="pre-box-row command-line"><span class="fragment" data-autoslide="1000000000">b93d1da594d1173c53f1dd1fb9dda5af1864c10b</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p style="font-size: 1.2em;"><em>This presentation can read your mind<sup>&dagger;</sup></em></p>
+        <p class="fragment friendly-aside" data-fragment-index="1"><em>It knows you're thinking, &ldquo;Ah ha! I've totally got this!&rdquo;</em></p>
+        <p class="fragment friendly-aside" style="font-size: .5em !important; margin-top: 4em;" data-fragment-index="1"><sup>&dagger;</sup>Bwahahahahaha! <span style="font-style: normal;">&#x1f606;</span></p>
+      </section>
+
+      <section data-transition="fade-out">
+        <h3>A brief exercise</h3>
+        <p>You run a photo sharing site with a public API:</p>
+        <ul>
+          <li>Users have two credentials
+            <ul>
+              <li>A public user id</li>
+              <li>A shared secret (key) that only you and they know</li>
+            </ul>
+          </li>
+          <li>Changes are made with HTTP POST requests</li>
+          <li>To authenticate the message, the user concatenates their secret key with their message to generate a message authentication code using the cryptographic hash function <strong>SHA-256</strong></li>
+        </ul>
+      </section>
+
+      <section data-background-iframe="code/badmd5.html" data-transition="fade-in">
+        <p class="fragment popup" style="margin-top: 2.5em !important;"><em>Everything look great?</em></p>
+      </section>
+
+      <section>
+        <p>Turns out, that piece of code is horribly insecure, due to <strong>length-extension attacks</strong> on many hash functions.</p>
+        <ul style="font-size: .9em;">
+          <li class="fragment">If you know the value of <span class="mono green">sha256('mozilla')</span>, it's easy to calculate <span class="mono green">sha256('mozillarules')</span> without knowing the prefix <span class="mono green">'mozilla'</span></li>
+          <li class="fragment">So if an attacker knows the value <span class="mono green">sha256(secret&amp;key=value)</span>, it's easy for them to calculate <span class="mono green">sha256(secret&amp;key=value&amp;key2=value2)</span> without knowing the value of <span class="mono green">'secret'</span></li>
+          <li class="fragment">As long as the attacker has one valid signed message, they can forge that message plus any additional parameters they want and it will authenticate</li>
+        </ul>
+      </section>
+
+      <section>
+        <p style="margin-bottom: 1em;">
+          <img class="plain" style="margin-right: 2em;" src="images/first-party/alice_sad.svg" height="300">
+          <img class="plain" style="margin-right: 2em;" src="images/first-party/bob_sad.svg" height="300">
+          <img class="plain" style="margin-right: 2em;" src="images/first-party/eve.svg" height="300">
+          <img class="plain" src="images/first-party/mallory_happy.svg" height="300">
+        </p>
+        <p><em>I did warn you not to write your own crypto!</em></p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/hmac.svg" height="300"></p>
+        <p><em>Just kidding. I know you'd never do something like that.</em></p>
+        <p class="fragment"><em>You'd go to your carefully-sourced cryptographic<br />library and use an HMAC as instructed.</em></p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/hmac.svg" height="300"></p>      
+        <p>After all, the way they are constructed<sup>&dagger;</sup><br />makes them immune to these attacks.</p>
+        <p style="font-size: .75em;"><em><sup>&dagger;</sup>HMAC</em> = H((K ⊕ <em>opad</em>) || H((K ⊕ <em>ipad</em>) || m))</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_hmac.svg"></p>
+        <p>So when Alice sends a message to Bob,<br />she can protect it with an HMAC.</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/alice_and_bob_hmac.svg"></p>
+        <p>The symmetric-key crypto provides <strong>confidentiality</strong>, and the HMAC provides <strong>integrity</strong> and <strong>authentication</strong>.</p>
+      </section>
+
+      <section>
+        <p><em>Just when you thought things couldn't get any better&hellip;</em></p>
+      </section>
+
+      <section>
+        <p><em>&hellip;they get better!</em> &#x1f60d;</p>
+      </section>
+
+      <section id="aeads">
+        <h3>AEADs</h3>
+        <p class="left">Cryptographers recognized that combining a cipher, block mode, and MAC was <em>really hard and error prone</em>.</p>
+        <ul>
+          <li class="fragment"><strong>Authenticated Encryption with Associated Data</strong> (AEAD) is a block cipher mode of operation</li>
+          <li class="fragment">It combines encryption and decryption with integrity verification</li>
+          <li class="fragment">The most common are AES-GCM (AES in Galois/Counter mode) and ChaCha20-Poly1305</li>
+          <li class="fragment"><strong>Strongly</strong> preferred over other symmetric ciphers and modes of operation. Use them!</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1 style="font-size: 8em;"><strong>?</strong></h1>
+      </section>      
+
+
+      <!-- Let's lead into public-key crypto! -->
       <section>
         <p><em>Unfortunately, symmetric-key cryptography doesn't solve the most persistent of cryptography problems.</em></p>
       </section>
 
       <section>
-        <h3>Key management</h3>
+        <h3>Key exchange</h3>
         <p>Symmetric-key cryptography becomes impossible<br />to scale as the number of parties grows.</p>
       </section>
 
       <section>
         <h3>Key exchange</h3>
         <p><img src="images/first-party/alice_and_bob.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="320" /></p>
-        <p>Meet Alice and Bob.</p>
-        <p class="fragment">They want to have a conversation.</p>
+        <p>Remember Alice and Bob?</p>
+        <p class="fragment">They still want to have a conversation.</p>
       </section>
 
       <section>
         <h3>Key exchange</h3>
         <p><img src="images/first-party/alice_and_bob_key.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="320" /></p>
-        <p>No problem, they physically<br />meet up and exchange a key.</p>
+        <p>No problem, they met up and exchanged a key.</p>
         <p class="fragment">One key for two parties.</p>
         <p class="fragment friendly-aside">But what happens when we add more parties?</p>
       </section>
@@ -1033,7 +1239,7 @@
       </section>
 
       <section>
-        <h3>Key management</h3>
+        <h3>Key exchange</h3>
         <table>
           <tr>
             <th>Number of parties</th>
@@ -1078,13 +1284,22 @@
       </section>
 
       <section>
-        <h3>Symmetric-key cryptography<br />just doesn't scale.</h3>
+        <h3>Symmetric-key cryptography is difficult to scale.</h3>
         <p class="fragment friendly-aside">So how do we fix this?</p>
       </section>
 
       <section>
         <h2>Public-key cryptography</h2>
         <p class="fragment"><em>Or asymmetric-key cryptography,<br />if you prefer to think of it that way.</em></p>
+      </section>
+
+      <section>
+        <h2>Public-key cryptography</h2>
+        <p class="left">Public-key cryptography attempts to solve the thorniest issues in symmetric-key cryptography:</p>
+        <ul>
+          <li class="fragment">Key exchange: How can you get your key safely to the person you want to communicate with?</li>
+          <li class="fragment">Key distribution: How can you keep a key safe when you have a large number of parties?</li>
+        </ul>
       </section>
 
       <section>
@@ -1098,7 +1313,7 @@
 
       <section>
         <p><img class="plain" src="images/first-party/eve.svg" height="400"></p>
-        <p>And an eavesdropper <strong>couldn't</strong><br /> figure out what their key was?</p>
+        <p>And our good friend Eve <strong>couldn't</strong><br /> figure out what their key was?</p>
         <p style="font-size: smaller; font-style: oblique;">(Let's all give a hearty welcome to our eavesdropper, Eve!)</p>
       </section>
 
@@ -1237,12 +1452,6 @@
         <aside class="notes">
           Obviously, if we're talking voice, it's a lot easier.  But what if it's a computer?
         </aside>
-      </section>
-
-      <section>
-        <p><img src="images/first-party/mallory.svg" class="plain" height="400"></p>
-        <p style="font-size: smaller; font-style: oblique;">Say hello to Mallory, everyone!</p>
-        <p class="fragment">Mallory just <strong>loves</strong> to sit in the middle<br /> of conversations and meddle with them.</p>
       </section>
 
       <section>
@@ -1399,57 +1608,6 @@
         <p><img class="plain" src="images/first-party/alice_and_bob_with_eve_rsa_part5.svg" height="400"></p>
         <p>Also, how <em>does</em> Alice know that she's actually getting Bob's public key when she asks for it?</p>
         <p class="fragment friendly-aside">We'll get to that, but there's a few more<br />concepts we need to understand first!</p>
-      </section>
-
-      <section>
-        <h2>Hash functions</h2>
-        <p class="friendly-aside">They just don't make concepts like this anymore!</p>
-      </section>
-
-      <section>
-        <h3>Hash functions</h3>
-        <p><img class="plain" src="images/first-party/hash_function.svg" height="400"></p>
-        <p>Cryptographic hash functions take any size input and convert it to a fixed size output called a <strong>hash</strong> or <strong>message digest</strong></p>
-      </section>
-
-      <section>
-        <h3>Hash functions</h3>
-        <ul>
-          <li class="fragment">Always result in the same size output (typically 128-512 bits), regardless of input size</li>
-          <li class="fragment">Sensitive to input changes: a single bit difference in the input should result in a completely different hash</li>
-          <li class="fragment">Make it difficult to find two different inputs that result in the same output (<strong>collision resistance</strong>)</li>
-          <li class="fragment">Aren't reversible: you can't go from the hash back to the original message</li>
-        </ul>
-      </section>
-
-      <section>
-        <p>What might this look like?</p>
-        <div class="pre-box-container command-line">
-          <div class="pre-box-row command-line">
-            $&nbsp;<span class="fragment" data-autoslide="75">s</span><span class="fragment" data-autoslide="75">h</span><span class="fragment" data-autoslide="75">a</span><span class="fragment" data-autoslide="75">s</span><span class="fragment" data-autoslide="75">u</span><span class="fragment" data-autoslide="75">m</span><span class="fragment" data-autoslide="75">&nbsp;</span><span class="fragment" data-autoslide="75">f</span><span class="fragment" data-autoslide="75">i</span><span class="fragment" data-autoslide="75">r</span><span class="fragment" data-autoslide="75">e</span><span class="fragment" data-autoslide="75">f</span><span class="fragment" data-autoslide="75">o</span><span class="fragment" data-autoslide="250">x</span>
-          </div>
-          <div class="pre-box-row command-line"><span class="fragment" data-autoslide="1000000000">b93d1da594d1173c53f1dd1fb9dda5af1864c10b</span>
-          </div>
-        </div>
-       </section>
-
-      <section>
-        <h3>Hash verification</h3>
-        <p><img class="plain" src="images/first-party/hash_function2.svg" height="400"></p>
-        <p>First, Alice creates a hash of her message, and then sends the message and hash onto her ol' pal Bob.</p>
-      </section>
-
-      <section>
-        <h3>Hash verification</h3>
-        <p><img class="plain" src="images/first-party/hash_function3.svg" height="320"></p>
-        <p>Once Bob receives Alice's message, he runs it through the same hash function and then compares it to the hash he received from Alice.</p>
-        <p class="fragment friendly-aside">P.S. This is terribly insecure; please don't do this!</p>
-      </section>
-
-      <section>
-        <h3>Hash verification</h3>
-        <p><img class="plain" src="images/first-party/hash_function4.svg" height="320"></p>
-        <p>But how does Bob know that the message and hash weren't replaced with an entirely different message and associated hash, from Mallory?</p>
       </section>
 
       <section>
@@ -1905,55 +2063,6 @@ X509v3 extensions:
         <p>If the hashed handshake and master secret match Bob's &ldquo;finished&rdquo; message, she also knows their handshake hadn't been tampered with.</p>
       </section>
 
-      <section>
-        <p><em>We're all done! They can communicate now!</em></p>
-        <h3 class="fragment"><em><strong>Class dismissed!</strong></em></h3>
-      </section>
-
-      <section>
-        <p><em>Get back in your seats!</em></p>
-      </section>
-
-      <section>
-        <p><em>What if Mallory was intercepting Alice and Bob's conversation after this point?</em></p>
-      </section>
-
-      <section>
-        <p><img class="plain" src="images/first-party/tls18.svg"></p>
-        <p>Mallory couldn't decrypt the ciphertext,<br />but she could still modify it.</p>
-      </section>
-
-      <section>
-        <p><img class="plain" src="images/first-party/tls19.svg" height="400"></p>
-        <p>It might decrypt to gibberish or it might not.</p>
-        <p>Either way, Bob has no way of knowing<br />that it has been tampered with.</p>
-      </section>
-
-      <section>
-        <p><img class="plain" src="images/first-party/alice.svg" height="400"></p>
-        <p><em>So why can't Alice just create a<br />digital signature for her messages?</em></p>
-      </section>
-
-      <section>
-        <p><img class="plain" src="images/first-party/certificate_bob_signed.svg" height="400"></p>
-        <p>Bob has a private key related to the public key in his certificate, so it's possible for him to sign his messages.</p>
-      </section>
-
-      <section>
-        <p><img class="plain" src="images/first-party/alice_sad.svg" height="400"></p>
-        <p>But poor Alice has only the<br />symmetric key they agreed upon.</p>
-        <p><em>Without a private key and certificate,<br />she has no way to create digital signatures!</em></p>
-      </section>
-
-      <section>
-        <p><img class="plain" style="margin-right: 2em;" src="images/first-party/alice_sad.svg" height="400"><img class="plain" src="images/first-party/bob_sad.svg" height="400"></p>
-        <p>And even if Alice and Bob did both have private keys, they wouldn't want to: digital signatures are <em>really slow</em>.</p>
-      </section>
-
-      <section>
-        <p><em>Fret not, valiant TLS heroes!</em></p>
-      </section>
-
       <section style="padding: 0;">
         <p><img class="plain" src="images/first-party/hmac1.svg" height="380"></p>
         <p>Alice takes her message and combines it with her symmetric MAC key in a special way.</p>
@@ -2110,7 +2219,7 @@ X509v3 extensions:
             </ul>
           </li>
           <li>Changes are made with HTTP POST requests</li>
-          <li>To authenticate the message, the user concatenate their secret key with their message and generate a message authentication code using the cryptographic hash function <strong>MD5</strong></li>
+          <li>To authenticate the message, the user concatenate their secret key with their message and generate a message authentication code using the cryptographic hash function <strong>SHA-256</strong></li>
         </ul>
       </section>
 
@@ -2119,7 +2228,7 @@ X509v3 extensions:
       </section>
 
       <section>
-        <p>Turns out, that piece of code is horribly insecure, due to <strong>length-extension attacks</strong> on MD5.</p>
+        <p>Turns out, that piece of code is horribly insecure, due to <strong>length-extension attacks</strong> on SHA-2.</p>
         <ul>
           <li class="fragment">If you know the value of <span class="mono green">md5('mozilla')</span>, it's easy to calculate <span class="mono green">md5('mozillarules')</span> without knowing the prefix <span class="mono green">'mozilla'</span></li>
           <li class="fragment">So if an attacker knows the value <span class="mono green">md5(secret&amp;key=value)</span>, it's easy for them to calculate <span class="mono green">md5(secret&amp;key=value&amp;key2=value2)</span> without knowing the value of <span class="mono green">'secret'</span></li>
@@ -2249,18 +2358,76 @@ X509v3 extensions:
             <li class="fragment">Like with writing your own crypto, don't write your own random number generator</li>
           </ul>
         </section>
+      </section>
 
-        <section id="aeads">
-          <h3>AEADs</h3>
-          <ul>
-            <li><strong>Authenticated Encryption with Associated Data</strong> (AEAD) is a block cipher mode of operation</li>
-            <li>It combines decryption with integrity verification</li>
-            <li>Created from the recognition that combining a cipher, mode of operation, and MAC were often difficult and error prone</li>
-            <li>The most common are AES-GCM (AES in Galois/Counter mode) and CHACHA20-POLY1305.</li>
-            <li>Preferred over other symmetric ciphers and modes of operation</li>
-          </ul>
+      <!-- Definitions below -->
+      <section>
+        <section>
+          <h2>Cryptographic Terminology</h2>
+          <p><em>Post-presentation, reference definitions belooooooow!</em></p>
+          <h2>&darr;</h2>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Cryptography</dt>
+            <dd>Practice and study of secure communications in the presence of third parties</dd>
+            <dt>Plaintext (cleartext)</dt>
+            <dd>Data or text that has not been encrypted</dd>
+            <dt>Ciphertext</dt>
+            <dd>The result of encryption performed on plaintext</dd>
+          </dl>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Algorithm</dt>
+            <dd>A self-contained series of instructions that perform a computation</dd>
+            <dt>Cipher</dt>
+            <dd>An algorithm that performs encryption and decryption</dd>
+            <dt>Encryption</dt>
+            <dd>Using a cipher to transform plaintext into ciphertext</dd>
+            <dt>Decryption</dt>
+            <dd>Using a cipher to transform ciphertext into plaintext</dd>
+          </dl>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Key</dt>
+            <dd>A piece of information known only to one or both parties that is fed into a cipher and determines its output</dd>
+            <dt>Key exchange</dt>
+            <dd>The process by which two parties agree upon a mutual key or key pair</dd>
+            <dt>Key space</dt>
+            <dd>The maximum number of possible keys (such as 128 bits, or 2<sup>128</sup>)</dd>
+            <dt>Brute-force attack</dt>
+            <dd>Attempting decryption with all possible key combinations until the correct key is found</dd>
+          </dl>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Cipher suite</dt>
+            <dd>Combination of key exchange, authentication, encryption, and message authentication code (MAC)</dd>
+            <dt>Cryptographic system (cryptosystem)</dt>
+            <dd>A combination of cryptographic algorithms that implement a security service, usually encompassing key generation, encryption, and decryption</dd>
+            <dt>Message authentication code (MAC)</dt>
+            <dd>A small piece of information used to authenticate a message and to provide protection against tampering</dd>
+          </dl>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Cryptanalysis</dt>
+            <dd>The study of breaking, weakening, or bypassing cryptosystems</dd>
+            <dt>Steganography</dt>
+            <dd>Concealing a message (image, file, text, etc.) within another message</dd>
+            <dt>Placeholder names</dt>
+            <dd>Names such as <em>Alice</em>, <em>Bob</em>, <em>Eve</em> (the eavesdropper), or <em>Mallory</em> (the malicious attacker) used as shorthand when describing cryptosystems</dd>
+          </dl>
         </section>
       </section>
+      <!-- End definitions -->
 
       <section>
         <h2>Feedback</h2>

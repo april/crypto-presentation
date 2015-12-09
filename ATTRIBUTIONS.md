@@ -1,5 +1,9 @@
 [Reveal.js](http://lab.hakim.se/reveal-js/) copyright (C) 2015 Hakim El Hattab, MIT licensed
 
+Kitten in Rizal park by [Kenny Louie](https://en.wikipedia.org/wiki/Kitten#/media/File:Kitten_in_Rizal_Park,_Manila.jpg), CC BY 2.0
+
+Pie and ice cream by [Rei](https://en.wikipedia.org/wiki/Pie#/media/File:Blackberry_pie_and_ice_cream,_2006.jpg), resized, CC BY-SA 3.0
+
 Frequency analysis table based off of image by [Nandhp](https://commons.wikimedia.org/wiki/User:Nandhp), public domain
 
 Vigenère square (tabula recta) based off of image by [bdesham](https://commons.wikimedia.org/wiki/User:Bdesham) and Brandon T. Fields, public domain
