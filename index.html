@@ -34,7 +34,7 @@
           <li class="fragment">History and purpose of cryptography</li>
           <li class="fragment">Build a solid understanding of cryptographic primitives</li>
           <li class="fragment">Learn how cryptographic primitives are combined to make a complete cryptographic system</li>
-          <li class="fragment">Realize some of the many ways you can screw up when writing your own cryptography</li>
+          <li class="fragment">Realize some of the many ways you can screw up when writing your own cryptography or secure communication protocols</li>
         </ul>
       </section>
 
@@ -87,6 +87,7 @@
       <section>
         <h2>Cryptography History</h2>
         <p><em>The way way back machine!</em></p>
+        <aside class="notes">&hellip; to take a look at the old, busted stuff.</aside>
       </section>
 
       <section>
@@ -330,11 +331,7 @@
       </section>
 
       <section>
-        <h3>Modern ciphers still use both<br />substitution and transposition<br />at the bit and byte level...</h3>
-      </section>
-
-      <section>
-        <h3>...so why might these simple<br />ciphers not be secure?</h3>
+        <h3>So why might these simple<br />ciphers not be secure?</h3>
       </section>
 
       <section style="padding-top: 0;">
@@ -769,8 +766,8 @@
         <p class="left">Remember that in a proper cryptosystem, the key is the only thing that keeps your data confidential. As such, keys should be:</p>
         <ul>
           <li class="fragment">Kept secure and be deleted as soon as they are no longer needed</li>
-          <li class="fragment">Unrelated to any past or future key</li>
-          <li class="fragment">Chosen randomly from safe values in the key space</li>
+          <li class="fragment">Independent from any past or future key</li>
+          <li class="fragment">Chosen from safe values in the key space</li>
         </ul>
       </section>
 
@@ -795,12 +792,12 @@
             <ul>
               <li>Computationally very fast and simple</li>
               <li class="fragment" data-fragment-index="1">Keys are small (typically 128 to 256 bits)</li>
+              <li class="fragment" data-fragment-index="2">Can provide assurances about authenticity and integrity with the use of additional constructs</li>
             </ul>
           </li>
-          <li class="fragment" data-fragment-index="2">Disadvantages
+          <li class="fragment" data-fragment-index="3">Disadvantages
             <ul>
-              <li class="fragment" data-fragment-index="2">Key management is difficult, as each party needs a copy of the key to encrypt or decrypt</li>
-              <li class="fragment" data-fragment-index="3">Without assistance, it provides no assurances about authenticity or integrity</li>
+              <li class="fragment" data-fragment-index="3">Key management is difficult, as each party needs a copy of the key to encrypt or decrypt</li>
             </ul>
           </li>
         </ul>
@@ -832,7 +829,7 @@
           </tr>
           <tr class="light-gray">
             <td>3DES</td>
-            <td>168 bits</td>
+            <td>192 bits</td>
             <td>Block</td>
           </tr>
           <tr class="light-gray">
@@ -853,14 +850,15 @@
         <h3>Stream ciphers</h3>
           <ul>
             <li>Operate on one bit at a time</li>
-            <li class="fragment">Key is permutated with a <strong>nonce</strong>, or a number only used once</li>
-            <li class="fragment">This produces a stream of bits as long as your message, known as a <strong>keystream</strong></li>
+            <li class="fragment">Take the <strong>key</strong>&hellip;</li>
+            <li class="fragment">&hellip;plus maybe a <strong>nonce</strong>, or a number only used once&hellip;</li>
+            <li class="fragment">Use these to produce a stream of bits as long as your message, known as a <strong>keystream</strong></li>
             <li class="fragment">Keystream is then XORed with the plaintext to produce the ciphertext</li>
-            <li class="fragment">Like a one-time pad, the keystream must never be reused; the nonce must be changed with each use</li>
+            <li class="fragment">Like a one-time pad, the keystream must never be reused; the key/nonce must be changed with each use</li>
           </ul>
 
         <aside class="notes">
-          A number of systems using RC4 have been broken because the nonces weren't unique enough; see WEP and related-IV attacks
+          A number of systems using RC4 have been broken because of long-term key reuse; see WEP and related-IV attacks
         </aside>
       </section>
 
@@ -873,11 +871,10 @@
       <section>
         <h3>Block ciphers</h3>
         <ul>
-          <li>Operate on a fixed-size block of data (64 or 128 bits), unlike stream ciphers</li>
+          <li>Operate on a fixed-size block of data (usually 128 bits), unlike stream ciphers</li>
           <li class="fragment">Are the most commonly used symmetric ciphers (AES)</li>
-          <li class="fragment">Use a combination of XOR, permutations, additions, multiplications, shifts, etc.</li>
           <li class="fragment">Require that data be padded to the length of the block size, adding complexity</li>
-          <li class="fragment">As with reusing keystreams, a given block of data will always encrypt to the same output if you use the same inputs</li>
+          <li class="fragment">A given block of data will always encrypt to the same output if you use the same inputs</li>
         </ul>
         <aside class="notes">
           Block sizes are typically 64 bits (DES, Blowfish) or 128 bits (AES, Twofish)
@@ -889,21 +886,29 @@
         <p><em>Why is it a problem that the same input<br />always encrypts to the same output?</em></p>
         <ul>
           <li class="fragment">Leaks metadata about plaintext: many protocols and file formats have a identical headers</li>
-          <li class="fragment">An attacker can replay the ciphertext, allowing them to forge requests</li>
           <li class="fragment">Any patterns in the plaintext will appear in the ciphertext</li>
         </ul>
       </section>
 
-      <section style="padding-top: 0;">
+      <section>
         <h3>Block cipher modes of operation</h3>
-        <ul style="font-size: .8em;">
-          <li>To solve this, all block ciphers have modes of operation for their use</li>
+        <p>To solve this, all block ciphers have<br />modes of operation for their use:</p>
+        <ul>
+          <li class="fragment" data-fragment-index="1"><strong>Electronic Code Book (ECB):</strong> Encrypt each block independently</li>
+          <li class="fragment" data-fragment-index="2"><strong>Cipher Block Chaining (CBC):</strong> Propagate information from one block to the next</li>
+          <li class="fragment" data-fragment-index="3"><strong>Counter (CTR):</strong> Encrypt a counter and XOR it with the plaintext</li>
+          <li class="fragment" data-fragment-index="4"><strong>Galois/Counter (GCM):</strong> Counter + integrity<sup>&dagger;</sup></li>
         </ul>
+        <p class="fragment friendly-aside" data-fragment-index="4"><sup>&dagger;</sup> More later!</p>
+      </section>
+
+      <section>
+        <h3>Modes matter!</h3>
         <p><img class="fragment" data-fragment-index="1" src="images/third-party/Block_mode_operation_Tux.jpg" style="height: 196px; margin: 0 auto;" /> <img class="fragment" data-fragment-index="2" src="images/third-party/Block_mode_operation_Tux_ecb.jpg" style="height: 196px; margin: 0 auto;" /> <img class="fragment" data-fragment-index="3" src="images/third-party/Block_mode_operation_Tux_secure.jpg" style="height: 196px; margin: 0 auto;" /></p>
-        <ul style="font-size: .8em;">
+        <ul style="font-size: .9em;">
           <li class="fragment" data-fragment-index="1">Take an image and divide it into equal-sized blocks
-          <li class="fragment" data-fragment-index="2">Encrypt each block separately using a symmetric key and cipher. This is the Electronic Codebook (ECB) block mode of operation.</li>
-          <li class="fragment" data-fragment-index="3">Ideally, the encrypted message should look like random noise</li>
+          <li class="fragment" data-fragment-index="2">Encrypt each block separately using a symmetric key and cipher, using the Electronic Codebook (ECB) block mode of operation</li>
+          <li class="fragment" data-fragment-index="3">The encrypted message should ideally look like random noise</li>
         </ul>
         <p class="fragment friendly-aside">This is meant to scare you! Even with good<br />ciphers, you can still screw up cryptography!</p>
 
@@ -1052,10 +1057,10 @@
       <section>
         <p>A message authentication code provides integrity and authenticity assurances about a message.</p>
         <ul>
-          <li class="fragment">Alice takes any given message<sup>&dagger;</sup> and the symmetric key used to encrypt it</li>
+          <li class="fragment">Alice takes any given message<sup>&dagger;</sup> and a MAC key that she and Bob have previously exchanged</li>
           <li class="fragment">She inputs these into a function that combines them and outputs a short piece of information called a MAC</li>
           <li class="fragment">She then attaches the MAC to the ciphertext</li>
-          <li class="fragment">When Bob receives the message, he combines it with the symmetric key the same way Alice did</li>
+          <li class="fragment">When Bob receives the message, he combines it with the MAC key the same way Alice did</li>
           <li class="fragment">If that function outputs the same MAC, then the message and MAC hasn't been tampered with</li>
         </ul>
         <p class="fragment friendly-aside">&dagger; Generally the ciphertext, known as Encrypt-then-MAC</p>
@@ -1134,7 +1139,7 @@
             </ul>
           </li>
           <li>Changes are made with HTTP POST requests</li>
-          <li>To authenticate the message, the user concatenates their secret key with their message to generate a message authentication code using the cryptographic hash function <strong>SHA-256</strong></li>
+          <li>To authenticate the message, the user concatenates their secret key with their message to generate a message authentication code using the cryptographic hash function <strong>MD5</strong></li>
         </ul>
       </section>
 
@@ -1145,8 +1150,8 @@
       <section>
         <p>Turns out, that piece of code is horribly insecure, due to <strong>length-extension attacks</strong> on many hash functions.</p>
         <ul style="font-size: .9em;">
-          <li class="fragment">If you know the value of <span class="mono green">sha256('mozilla')</span>, it's easy to calculate <span class="mono green">sha256('mozillarules')</span> without knowing the prefix <span class="mono green">'mozilla'</span></li>
-          <li class="fragment">So if an attacker knows the value <span class="mono green">sha256(secret&amp;key=value)</span>, it's easy for them to calculate <span class="mono green">sha256(secret&amp;key=value&amp;key2=value2)</span> without knowing the value of <span class="mono green">'secret'</span></li>
+          <li class="fragment">If you know the value of <span class="mono green">md5('mozilla')</span>, it's easy to calculate <span class="mono green">md5('mozillarules')</span> without knowing the prefix <span class="mono green">'mozilla'</span></li>
+          <li class="fragment">So if an attacker knows the value <span class="mono green">md5(secret&amp;key=value)</span>, it's easy for them to calculate <span class="mono green">md5(secret&amp;key=value&amp;key2=value2)</span> without knowing the value of <span class="mono green">'secret'</span></li>
           <li class="fragment">As long as the attacker has one valid signed message, they can forge that message plus any additional parameters they want and it will authenticate</li>
         </ul>
       </section>
@@ -1164,7 +1169,7 @@
       <section>
         <p><img class="plain" src="images/first-party/hmac.svg" height="300"></p>
         <p><em>Just kidding. I know you'd never do something like that.</em></p>
-        <p class="fragment"><em>You'd go to your carefully-sourced cryptographic<br />library and use an HMAC as instructed.</em></p>
+        <p class="fragment"><em>You'd go to your carefully-sourced cryptographic<br />library and use HMAC as instructed.</em></p>
       </section>
 
       <section>
@@ -1175,7 +1180,7 @@
 
       <section>
         <p><img class="plain" src="images/first-party/alice_and_bob_hmac.svg"></p>
-        <p>So when Alice sends a message to Bob,<br />she can protect it with an HMAC.</p>
+        <p>So when Alice sends a message to Bob,<br />she can protect it with HMAC.</p>
       </section>
 
       <section>
@@ -2219,7 +2224,7 @@ X509v3 extensions:
             </ul>
           </li>
           <li>Changes are made with HTTP POST requests</li>
-          <li>To authenticate the message, the user concatenate their secret key with their message and generate a message authentication code using the cryptographic hash function <strong>SHA-256</strong></li>
+          <li>To authenticate the message, the user concatenate their secret key with their message and generate a message authentication code using the cryptographic hash function <strong>MD5</strong></li>
         </ul>
       </section>
 
