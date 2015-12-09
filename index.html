@@ -771,6 +771,17 @@
       </section>
 
       <section>
+        <h3>Objectives</h3>
+        <ul style="font-size: .9em;">
+          <li class="fragment">Learn how to encrypt and decrypt with a symmetric cipher</li>
+          <li class="fragment">Understand the two major types of symmetric ciphers, and how they're used</li>
+          <li class="fragment">Authenticate your messages with a message authentication code</li>
+          <li class="fragment">Learn how hash functions work</li>
+          <li class="fragment">See how modern ciphers combine encryption and authentication in a single step</li>
+        </ul>
+      </section>
+
+      <section>
         <h3>Symmetric-key cryptography</h3>
         <p class="left">Symmetric-key cryptography, like historic cryptography, uses the same key for both <em>encryption</em> and <em>decryption</em>:</p>
         <img src="images/first-party/symmetric-key.svg" style="background: none; border: 0; box-shadow: none;" />
@@ -1126,7 +1137,6 @@
           <li class="fragment">Always result in the same size output (typically 128-512 bits), regardless of input size</li>
           <li class="fragment">Sensitive to input changes: a single bit difference in the input should result in a completely different hash</li>
           <li class="fragment">Make it difficult to find two different inputs that result in the same output (<strong>collision resistance</strong>)</li>
-          <li class="fragment">Aren't reversible: you can't go from the hash back to the original message</li>
         </ul>
       </section>
 
