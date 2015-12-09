@@ -19,12 +19,12 @@ params = query_string( {'action': 'create', 'id': id, 'name': 'my-new-photo'} )
 # Create the message authentication code from the secret and POST parameters:
 # 3964a356-d631-4a58-8a8a-0ccad3d273a4action=create&amp;id=mozilla&amp;name=my-new-photo
 message       = secret + params
-challenge_mac = md5(message).hexdigest() # 7d6b19cbfacc1bab5a4b88e57f1f445d
+challenge_mac = sha256(message).hexdigest() # 4e70a5bd78c1987d65f0d015921d149274c45&hellip;
 
 # Append the MAC to the POST parameters
 params = params + '&amp;mac=' + challenge_mac
 
-# Make the POST request: action=create&amp;id=mozilla&amp;name=my-new-photo&amp;mac=7d6b19cbfacc1bab5a4b88e57f1f445d
+# Make the POST request: action=create&amp;id=mozilla&amp;name=my-new-photo&amp;mac=4e70a5bd78c1987d65f0d015921d149274c45&hellip;
 requests.post('http://api.example.com/v4', params)
 
 

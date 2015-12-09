@@ -1,0 +1,327 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 580 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.41421;">
+    <g id="vectors" transform="matrix(1,0,0,1,-10.5,0)">
+        <g id="g3514" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <g id="text3216" transform="matrix(1,0,0,1,0,-810.362)">
+                <g transform="matrix(1,0,0,1,137.961,904.673)">
+                    <text x="-32.016px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">block cipher</text>
+                </g>
+                <g transform="matrix(1,0,0,1,137.961,919.673)">
+                    <text x="-27.683px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">encryption</text>
+                </g>
+            </g>
+            <rect id="rect3214" x="89.5" y="80.5" width="98" height="36" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g id="g3496" transform="matrix(1,0,0,1,-2.05517,-12.4736)">
+            <rect id="rect3222" x="88.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4" x="96.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8" x="104.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5" x="112.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6" x="120.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0" x="128.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9" x="136.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3" x="144.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3" x="152.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6" x="160.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5" x="168.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0" x="176.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-7" x="184.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g id="g3554" transform="matrix(1,0,0,1,-3.29639,-12.4736)">
+            <g id="text3520">
+                <g transform="matrix(1,0,0,1,67.5,24.5)">
+                    <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Nonce</text>
+                </g>
+                <g transform="matrix(1,0,0,1,67.5,39.5)">
+                    <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">c59bcf35…</text>
+                </g>
+            </g>
+            <g id="text3520-1">
+                <g transform="matrix(1,0,0,1,214.852,24.5)">
+                    <text x="-42.691px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Counter</text>
+                </g>
+                <g transform="matrix(1,0,0,1,214.852,39.5)">
+                    <text x="-53.391px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">00000000</text>
+                </g>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,31.5879,89.1523)">
+            <g id="text3562">
+                <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Key</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,27.1684,124.753)">
+            <g id="text3566">
+                <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Plaintext</text>
+            </g>
+        </g>
+        <g id="g3496-2" transform="matrix(1,0,0,1,-67.0552,80.5264)">
+            <rect id="rect3222-7" x="88.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-9" x="96.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-7" x="104.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-61" x="112.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-4" x="120.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-0" x="128.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-4" x="136.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-0" x="144.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-4" x="152.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-9" x="160.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-8" x="168.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-5" x="176.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-7-7" x="184.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g id="g3496-2-8" transform="matrix(1,0,0,1,-2.05517,100.526)">
+            <rect id="rect3222-7-1" x="88.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-9-7" x="96.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-7-3" x="104.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-61-8" x="112.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-4-0" x="120.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-0-4" x="128.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-4-1" x="136.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-0-3" x="144.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-4-0" x="152.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-9-6" x="160.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-8-5" x="168.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-5-9" x="176.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-7-7-9" x="184.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,138.254,174.026)">
+            <g id="text3566-6">
+                <text x="-27.346px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Ciphertext</text>
+            </g>
+        </g>
+        <g id="path3705" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M138.5,61.5L138.5,76.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="path4919" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M57.5,98.5L84.5,98.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="path5103" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M138.5,121.5L138.5,156.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="g5291" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <g id="path5287" transform="matrix(1,0,0,1,-2,0)">
+                <path d="M146.5,133.5C146.5,136.814 143.814,139.5 140.5,139.5C137.186,139.5 134.5,136.814 134.5,133.5C134.5,130.186 137.186,127.5 140.5,127.5C143.814,127.5 146.5,130.186 146.5,133.5Z" style="fill:none;stroke-width:1px;stroke:black;"/>
+            </g>
+            <path id="path5289" d="M132.5,133.5L144.5,133.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="path5765" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M82.5,133.5L128.5,133.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="g3514-1" transform="matrix(1,0,0,1,183.945,-12.4736)">
+            <g id="text3216-3" transform="matrix(1,0,0,1,0,-810.362)">
+                <g transform="matrix(1,0,0,1,137.961,904.673)">
+                    <text x="-32.016px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">block cipher</text>
+                </g>
+                <g transform="matrix(1,0,0,1,137.961,919.673)">
+                    <text x="-27.683px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">encryption</text>
+                </g>
+            </g>
+            <rect id="rect3214-4" x="89.5" y="80.5" width="98" height="36" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g id="g3496-7" transform="matrix(1,0,0,1,181.945,-12.4736)">
+            <rect id="rect3222-0" x="88.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-4" x="96.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-8" x="104.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-2" x="112.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-3" x="120.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-4" x="128.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-6" x="136.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-6" x="144.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-61" x="152.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-2" x="160.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-83" x="168.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-0" x="176.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-7-2" x="184.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g id="g3554-8" transform="matrix(1,0,0,1,180.704,-12.4736)">
+            <g id="text3520-4">
+                <g transform="matrix(1,0,0,1,67.5,24.5)">
+                    <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Nonce</text>
+                </g>
+                <g transform="matrix(1,0,0,1,67.5,39.5)">
+                    <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">c59bcf35…</text>
+                </g>
+            </g>
+            <g id="text3520-1-1">
+                <g transform="matrix(1,0,0,1,214.852,24.5)">
+                    <text x="-42.691px" y="0px" style="font-family:Arial;font-size:12px;fill:rgb(255,0,0);">Counter</text>
+                </g>
+                <g transform="matrix(1,0,0,1,214.852,39.5)">
+                    <text x="-53.391px" y="0px" style="font-family:Arial;font-size:12px;fill:rgb(255,0,0);">00000001</text>
+                </g>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,215.588,89.1523)">
+            <g id="text3562-9">
+                <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Key</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,211.168,124.753)">
+            <g id="text3566-0">
+                <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Plaintext</text>
+            </g>
+        </g>
+        <g id="g3496-2-2" transform="matrix(1,0,0,1,116.945,80.5264)">
+            <rect id="rect3222-7-9" x="88.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-9-5" x="96.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-7-6" x="104.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-61-9" x="112.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-4-7" x="120.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-0-0" x="128.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-4-9" x="136.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-0-2" x="144.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-4-5" x="152.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-9-5" x="160.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-8-8" x="168.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-5-2" x="176.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-7-7-1" x="184.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g id="g3496-2-8-1" transform="matrix(1,0,0,1,181.945,100.526)">
+            <rect id="rect3222-7-1-4" x="88.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-9-7-9" x="96.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-7-3-5" x="104.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-61-8-6" x="112.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-4-0-4" x="120.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-0-4-5" x="128.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-4-1-0" x="136.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-0-3-9" x="144.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-4-0-4" x="152.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-9-6-3" x="160.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-8-5-5" x="168.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-5-9-6" x="176.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-7-7-9-3" x="184.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,322.254,174.026)">
+            <g id="text3566-6-4">
+                <text x="-27.346px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Ciphertext</text>
+            </g>
+        </g>
+        <g id="path3705-5" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M322.5,61.5L322.5,76.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="path4919-8" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M241.5,98.5L268.5,98.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="path5103-6" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M322.5,121.5L322.5,156.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="g5291-2" transform="matrix(1,0,0,1,183.945,-12.4736)">
+            <g id="path5287-4" transform="matrix(1,0,0,1,-2,0)">
+                <path d="M146.5,133.5C146.5,136.814 143.814,139.5 140.5,139.5C137.186,139.5 134.5,136.814 134.5,133.5C134.5,130.186 137.186,127.5 140.5,127.5C143.814,127.5 146.5,130.186 146.5,133.5Z" style="fill:none;stroke-width:1px;stroke:black;"/>
+            </g>
+            <path id="path5289-7" d="M132.5,133.5L144.5,133.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="path5765-2" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M266.5,133.5L312.5,133.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="g3514-1-4" transform="matrix(1,0,0,1,367.945,-12.4736)">
+            <g id="text3216-3-3" transform="matrix(1,0,0,1,0,-810.362)">
+                <g transform="matrix(1,0,0,1,137.961,904.673)">
+                    <text x="-32.016px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">block cipher</text>
+                </g>
+                <g transform="matrix(1,0,0,1,137.961,919.673)">
+                    <text x="-27.683px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">encryption</text>
+                </g>
+            </g>
+            <rect id="rect3214-4-5" x="89.5" y="80.5" width="98" height="36" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g id="g3496-7-5" transform="matrix(1,0,0,1,365.945,-12.4736)">
+            <rect id="rect3222-0-6" x="88.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-4-1" x="96.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-8-2" x="104.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-2-6" x="112.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-3-2" x="120.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-4-6" x="128.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-6-9" x="136.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-6-0" x="144.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-61-3" x="152.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-2-4" x="160.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-83-6" x="168.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-0-0" x="176.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-7-2-2" x="184.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g id="g3554-8-5" transform="matrix(1,0,0,1,364.704,-12.4736)">
+            <g id="text3520-4-8">
+                <g transform="matrix(1,0,0,1,67.5,24.5)">
+                    <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Nonce</text>
+                </g>
+                <g transform="matrix(1,0,0,1,67.5,39.5)">
+                    <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">c59bcf35…</text>
+                </g>
+            </g>
+            <g id="text3520-1-1-8">
+                <g transform="matrix(1,0,0,1,214.852,24.5)">
+                    <text x="-42.691px" y="0px" style="font-family:Arial;font-size:12px;fill:rgb(255,0,0);">Counter</text>
+                </g>
+                <g transform="matrix(1,0,0,1,214.852,39.5)">
+                    <text x="-53.391px" y="0px" style="font-family:Arial;font-size:12px;fill:rgb(255,0,0);">00000002</text>
+                </g>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,399.588,89.1523)">
+            <g id="text3562-9-4">
+                <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Key</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,395.168,124.753)">
+            <g id="text3566-0-2">
+                <text x="0px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Plaintext</text>
+            </g>
+        </g>
+        <g id="g3496-2-2-1" transform="matrix(1,0,0,1,300.945,80.5264)">
+            <rect id="rect3222-7-9-8" x="88.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-9-5-2" x="96.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-7-6-1" x="104.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-61-9-8" x="112.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-4-7-9" x="120.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-0-0-6" x="128.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-4-9-6" x="136.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-0-2-2" x="144.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-4-5-8" x="152.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-9-5-4" x="160.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-8-8-4" x="168.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-5-2-7" x="176.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-7-7-1-5" x="184.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g id="g3496-2-8-1-4" transform="matrix(1,0,0,1,365.945,100.526)">
+            <rect id="rect3222-7-1-4-0" x="88.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-9-7-9-0" x="96.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-7-3-5-1" x="104.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-61-8-6-2" x="112.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-4-0-4-4" x="120.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-0-4-5-8" x="128.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-4-1-0-2" x="136.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-0-3-9-0" x="144.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-4-0-4-9" x="152.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-9-6-3-0" x="160.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-8-5-5-1" x="168.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-5-9-6-9" x="176.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+            <rect id="rect3222-4-8-5-6-0-9-3-3-6-5-0-7-7-9-3-7" x="184.5" y="48.5" width="8" height="10" style="fill:none;stroke-width:1px;stroke:black;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,506.254,174.026)">
+            <g id="text3566-6-4-5">
+                <text x="-27.346px" y="0px" style="font-family:Arial;font-size:12px;fill:black;">Ciphertext</text>
+            </g>
+        </g>
+        <g id="path3705-5-5" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M506.5,61.5L506.5,76.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="path4919-8-8" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M425.5,98.5L452.5,98.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="path5103-6-9" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M506.5,121.5L506.5,156.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="g5291-2-9" transform="matrix(1,0,0,1,367.945,-12.4736)">
+            <g id="path5287-4-9" transform="matrix(1,0,0,1,-2,0)">
+                <path d="M146.5,133.5C146.5,136.814 143.814,139.5 140.5,139.5C137.186,139.5 134.5,136.814 134.5,133.5C134.5,130.186 137.186,127.5 140.5,127.5C143.814,127.5 146.5,130.186 146.5,133.5Z" style="fill:none;stroke-width:1px;stroke:black;"/>
+            </g>
+            <path id="path5289-7-9" d="M132.5,133.5L144.5,133.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+        <g id="path5765-2-0" transform="matrix(1,0,0,1,-0.055175,-12.4736)">
+            <path d="M450.5,133.5L496.5,133.5" style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke:black;"/>
+        </g>
+    </g>
+</svg>
