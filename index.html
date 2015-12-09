@@ -797,7 +797,7 @@
           </li>
           <li class="fragment" data-fragment-index="3">Disadvantages
             <ul>
-              <li class="fragment" data-fragment-index="3">Key management is difficult, as each party needs a copy of the key to encrypt or decrypt</li>
+              <li class="fragment" data-fragment-index="3">Key management complicated by the fact each party needs a copy of the key to encrypt or decrypt</li>
             </ul>
           </li>
         </ul>
@@ -984,9 +984,9 @@
       </section>
 
       <section>
-        <p><img src="images/first-party/alice_and_bob.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
+        <p><img class="fragment" data-fragment-index="1" src="images/third-party/alice_and_bob_private_conversation.svg" style="background: none; border: 0; box-shadow: none; margin: 0;" height="400" /></p>
         <p>Remember Alice and Bob?</p>
-        <p class="fragment">They still want to have a conversation.</p>
+        <p class="fragment" data-fragment-index="1">They still want to have that conversation.</p>
       </section>
 
       <section>
@@ -1002,15 +1002,15 @@
       <section data-transition="slide-in fade-out" data-transition-speed="slow">
         <p><img class="plain" src="images/first-party/eve.svg" height="400"></p>
         <div style="height: 3em;">
-          <p>Everyone give a hearty welcome to our<br />good friend, Eve the Eavesdropper!</p>
+          <p>And what about our good friend, Eve the Eavesdropper?</p>
         </div>
       </section>
 
       <section data-transition="fade-in slide-out" data-transition-speed="slow">
         <p><img class="plain" src="images/first-party/eve_sad.svg" height="400"></p>
         <div style="height: 3em;">
-          <p>Everyone give a hearty welcome to our<br />good friend, Eve the Eavesdropper!</p>
-          <p class="friendly-aside">She's disappointed by this whole symmetric-key cryptography business.</p>
+          <p>And what about our good friend, Eve the Eavesdropper?</p>
+          <p class="friendly-aside">Well, she's disappointed by this<br />whole symmetric-key cryptography business.</p>
         </div>
       </section>
 
@@ -1043,7 +1043,7 @@
         <p><img class="plain" src="images/first-party/alice_and_bob_with_mallory_decryption.svg" height="300"></p>
         <ul>
           <li>It might decrypt to gibberish&hellip; <em>or worse</em></li>
-          <li class="fragment">Imagine if Mallory had truncated this message:<br />&nbsp;&nbsp;&nbsp;<span class="mono">FIRE THE MISSILES IF THEY FIRE FIRST</span></li>
+          <li class="fragment">Imagine if Mallory had truncated this message:<br />&nbsp;&nbsp;<span class="mono">FIRE THE MISSILES <strike>IF THEY ATTACK FIRST</strike></span></li>
           <li class="fragment">Either way, Bob has no way of knowing that it has been tampered with.</li>
         </ul>
       </section>
@@ -1229,6 +1229,18 @@
         <ul>
           <li>Bob takes the ciphertext, associated data, and authentication tag and inputs them in the AEAD for decryption</li>
           <li class="fragment">The AEAD outputs the plaintext <em>only</em> if the authentication is successful</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Symmetric-key cryptography: redux</h3>
+        <ul>
+          <li>Symmetric ciphers use the same key for encryption and decryption</li>
+          <li>Symmetric encryption is very fast</li>
+          <li>Stream ciphers operate on a bit at a time whereas block ciphers operate on blocks of data</li>
+          <li>Block ciphers require a mode of operation for their use</li>
+          <li>Message authentication codes provide integrity and authentication</li>
+          <li>AEADs combine encryption with integrity and authentication</li>
         </ul>
       </section>
 
