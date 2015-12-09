@@ -1185,7 +1185,7 @@
 
       <section>
         <p><img class="plain" src="images/first-party/alice_and_bob_hmac.svg"></p>
-        <p>The symmetric-key crypto provides <strong>confidentiality</strong>, and the HMAC provides <strong>integrity</strong> and <strong>authentication</strong>.</p>
+        <p>The symmetric-key crypto provides <strong>confidentiality</strong>, and HMAC provides <strong>integrity</strong> and <strong>authentication</strong>.</p>
       </section>
 
       <section>
@@ -1196,6 +1196,7 @@
         <p><em>&hellip;they get better!</em> &#x1f60d;</p>
       </section>
 
+      <!-- Begin AEADs -->
       <section id="aeads">
         <h3>AEADs</h3>
         <p class="left">Cryptographers recognized that combining a cipher, block mode, and MAC was <em>really hard and error prone</em>.</p>
@@ -1204,6 +1205,27 @@
           <li class="fragment">It combines encryption and decryption with integrity verification</li>
           <li class="fragment">The most common are AES-GCM (AES in Galois/Counter mode) and ChaCha20-Poly1305</li>
           <li class="fragment"><strong>Strongly</strong> preferred over other symmetric ciphers and modes of operation. Use them!</li>
+        </ul>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/aead_encrypt.svg" height="350"></p>
+        <ul>
+          <li class="fragment">Alice takes her plaintext, symmetric key, and some associated data, and inputs them into the AEAD for encryption</li>
+          <li class="fragment">The AEAD outputs the ciphertext and an authentication tag</li>
+        </ul>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/aead1.svg" height="350"></p>
+        <p>She then sends the ciphertext, associated data, and authentication tag to Bob</p>
+      </section>
+
+      <section>
+        <p><img class="plain" src="images/first-party/aead_decrypt.svg" height="350"></p>
+        <ul>
+          <li>Bob takes the ciphertext, associated data, and authentication tag and inputs them in the AEAD for decryption</li>
+          <li><em>If the authentication is successful</em>, the AEAD outputs the plaintext</li>
         </ul>
       </section>
 
